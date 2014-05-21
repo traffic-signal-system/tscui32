@@ -24,24 +24,24 @@
         <Viewbox Margin="0,54,228,15">
             <Calendar  x:Name="calendar" SelectionMode="MultipleRange" Height="160" SelectedDatesChanged="calendar_SelectedDatesChanged"/>
         </Viewbox>
-        <GroupBox Header="设置预览" HorizontalAlignment="Left" Margin="572,64,0,0" VerticalAlignment="Top" Height="521" Width="218">
+        <GroupBox Header="{DynamicResource tsc_calendar_view}" HorizontalAlignment="Left" Margin="572,64,0,0" VerticalAlignment="Top" Height="521" Width="218">
 
             <Grid>
-                <Button x:Name="btnSave" Content="保存" HorizontalAlignment="Left" Height="25" Margin="121,465,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
-                <Button x:Name="btnRead" Content="读取" HorizontalAlignment="Left" Height="25" Margin="29,464,0,0" VerticalAlignment="Top" Width="75" Click="btnRead_Click" Visibility="Hidden"/>
+                <Button x:Name="btnSave" Content="{DynamicResource tsc_time_save}" HorizontalAlignment="Left" Height="25" Margin="121,465,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+                <Button x:Name="btnRead" Content="{DynamicResource tsc_time_read}" HorizontalAlignment="Left" Height="25" Margin="29,464,0,0" VerticalAlignment="Top" Width="75" Click="btnRead_Click" Visibility="Hidden"/>
                 <ScrollViewer Margin="0,0,0,40">
                     <TextBlock x:Name="tbkMessage"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Unloaded="tbkMessage_Unloaded"/>
                 </ScrollViewer>
             </Grid>
 
         </GroupBox>
-        <GroupBox Header="时基编号" HorizontalAlignment="Left" VerticalAlignment="Top" Width="572" Height="64">
+        <GroupBox Header="{DynamicResource tsc_calendar_id}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="572" Height="64">
             <Grid>
                 <Slider x:Name="sldPlanId" HorizontalAlignment="Left" Margin="0,0,0,-2" VerticalAlignment="Top" Height="44" Width="518" SmallChange="1" Maximum="20" Minimum="1" AutoToolTipPlacement="BottomRight" TickPlacement="BottomRight" IsSnapToTickEnabled="True" ValueChanged="sldPlanId_ValueChanged"/>
                 <TextBlock x:Name="tbkPlanId" HorizontalAlignment="Left" Margin="518,9,0,0" TextWrapping="Wrap" Text="{Binding ElementName=sldPlanId,Path=Value}" VerticalAlignment="Top" Height="22" Width="32" Background="{DynamicResource ZuneColor1Brush}" MouseDown="tbkPlanId_MouseDown"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="时段编号" HorizontalAlignment="Left" Margin="577,0,0,0" VerticalAlignment="Top" Height="64" Width="213">
+        <GroupBox Header="{DynamicResource tsc_calendar_schedule}" HorizontalAlignment="Left" Margin="577,0,0,0" VerticalAlignment="Top" Height="64" Width="213">
             <ComboBox x:Name="cbxScheduleId"  HorizontalAlignment="Left" Margin="68,0,0,0" VerticalAlignment="Top" Width="113" Height="40"/>
         </GroupBox>
 

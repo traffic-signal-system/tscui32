@@ -3,11 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-             xmlns:apexBehaviours="clr-namespace:Apex.Behaviours;assembly=Apex"
+             xmlns:local="clr-namespace:tscui.Pages.Apex"
+             xmlns:apexMVVM="clr-namespace:Apex.MVVM;assembly=Apex"
+             xmlns:apexCommands="clr-namespace:Apex.Commands;assembly=Apex"
              xmlns:apexControls="clr-namespace:Apex.Controls;assembly=Apex"
+             xmlns:apexBehaviours="clr-namespace:Apex.Behaviours;assembly=Apex"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:apexConverters="clr-namespace:Apex.Converters;assembly=Apex"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="600" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded">
+    <apexMVVM:View.ViewModel>
+        <local:ApexViewModel x:Name="viewModel" />
+    </apexMVVM:View.ViewModel>
     <ScrollViewer Margin="0,4,40,4" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
         <apexControls:ApexGrid Margin="40,0,0,0"
        Rows="Auto,Auto,Auto,Auto" >
@@ -20,10 +27,14 @@
             <i:Interaction.Behaviors>
                 <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0" />
             </i:Interaction.Behaviors>
-            在网信号机列表 <Span Foreground="{StaticResource ZuneColor1Brush}">检测中...</Span>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{DynamicResource tsc_list}" VerticalAlignment="Top"/>
+             <Span Foreground="{StaticResource ZuneColor1Brush}">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{DynamicResource tsc_check}" VerticalAlignment="Top"/>
+                </Span>
             </TextBlock>
             <StackPanel Height="438" HorizontalAlignment="Left" Margin="6,48,0,0" Name="tscPanel" VerticalAlignment="Top" Width="508" />
-            <Button Content="刷新在网信号机" Height="23" HorizontalAlignment="Left" Margin="417,16,0,0" Name="button1" VerticalAlignment="Top" Width="97" Click="button1_Click" />
+            <Button Content="{DynamicResource tsc_flush}" Height="23" HorizontalAlignment="Left" Margin="417,16,0,0" Name="button1" VerticalAlignment="Top" Width="97" Click="button1_Click" />
+            
         </apexControls:ApexGrid>
     </ScrollViewer>
 </UserControl>

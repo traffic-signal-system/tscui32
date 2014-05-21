@@ -45,7 +45,7 @@ namespace tscui.Pages.Config
             }
             catch (Exception ex)
             {
-                MessageBox.Show("网络出现问题，请处理！" + ex.Message);
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_config_network_err"]);
             }
         }
         public ConfigView()
@@ -156,6 +156,8 @@ namespace tscui.Pages.Config
         private void btnCountDown_Click(object sender, RoutedEventArgs e)
         {
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             string result = "";
             if ((bool)cbxCountDown.IsChecked)
             {
@@ -164,11 +166,11 @@ namespace tscui.Pages.Config
                     bool b1 = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.SET_COUNT_DOWN_OPEN_15);
                     if (b1)
                     {
-                        result = "倒计时开启成功，15秒后进行倒计时操作成功！";
+                        result = (string)App.Current.Resources.MergedDictionaries[3]["msg_config_countdown_15_success"];
                     }
                     else
                     {
-                        result = "倒计时开启失败，15秒后进行倒计时操作失败！";
+                        result = (string)App.Current.Resources.MergedDictionaries[3]["msg_config_countdown_15_failed"]; 
                     }
                 }
                 else if ((bool)rbnNormalCountDown.IsChecked)
@@ -176,11 +178,11 @@ namespace tscui.Pages.Config
                     bool b2 = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.SET_COUNT_DOWN_OPEN_NORMAL);
                     if (b2)
                     {
-                        result = "倒计时开启成功，正常进行倒计时操作成功！";
+                        result = (string)App.Current.Resources.MergedDictionaries[3]["msg_config_countdown_success"]; 
                     }
                     else
                     {
-                        result = "倒计时开启失败，正常进行倒计时操作失败！";
+                        result = (string)App.Current.Resources.MergedDictionaries[3]["msg_config_countdown_failed"]; 
                     }
                 }
                 else if((bool)rbnPauseCountDown.IsChecked)
@@ -189,11 +191,11 @@ namespace tscui.Pages.Config
                     
                     if (b3)
                     {
-                        result = "倒计时开启成功，8秒停止进行倒计时操作成功！";
+                        result = (string)App.Current.Resources.MergedDictionaries[3]["msg_config_countdown_8_success"]; 
                     }
                     else
                     {
-                        result = "倒计时开启失败，8秒停止进行倒计时操作失败！";
+                        result = (string)App.Current.Resources.MergedDictionaries[3]["msg_config_countdown_8_failed"]; 
                     }
                 }
             }
@@ -202,11 +204,11 @@ namespace tscui.Pages.Config
                 bool b4 = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.SET_COUNT_DOWN_CLOSE);
                 if (b4)
                 {
-                    result = "倒计时关闭成功！";
+                    result = (string)App.Current.Resources.MergedDictionaries[3]["msg_config_countdown_close_success"]; 
                 }
                 else
                 {
-                    result = "倒计时关闭失败！";
+                    result = (string)App.Current.Resources.MergedDictionaries[3]["msg_config_countdown_close_failed"]; 
                 }
             }
             MessageBox.Show(result);
@@ -215,6 +217,8 @@ namespace tscui.Pages.Config
         private void sldSensitivity_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             byte se = Convert.ToByte(sldSensitivity.Value);
             if (DetectorBorad1.IsChecked == true)
             {
@@ -229,7 +233,8 @@ namespace tscui.Pages.Config
         private void sldOscillatorFrequency_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-
+            if (t == null)
+                return;
             TscDataUtils.SetOscillatorFrequency(Convert.ToByte(sldOscillatorFrequency.Value), t.Node);
         }
 
@@ -241,6 +246,8 @@ namespace tscui.Pages.Config
         private void btnTiming_Click(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             DateTime dt = (DateTime)dtpTiming.Value;
             TscDataUtils.Timing(dt,t.Node);
         }
@@ -248,6 +255,8 @@ namespace tscui.Pages.Config
         private void btnControllerStatusRead_Click(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             byte[] ba = TscDataUtils.GetControllerStatus(t.Node);
             byte[] bt = {ba[3],ba[4]};
             tbkTemperature.Text = Convert.ToString(System.BitConverter.ToInt16(bt, 0));
@@ -269,16 +278,16 @@ namespace tscui.Pages.Config
             if(rbnLampCheckOpen.IsChecked == true)
             {
                 if (TscDataUtils.SetLampCheckOpenALL(null))
-                    MessageBox.Show("已经打开所有灯控板检测！");
+                    MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_config_lamp_check_open"]);
                 else
-                    MessageBox.Show("打开所有灯控板检测异常！");
+                    MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_config_lamp_check_open_err"]);
             }
             else
             {
                 if (TscDataUtils.SetLampCheckCloseALL(null))
-                    MessageBox.Show("已经关闭所有灯控板检测！");
+                    MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_config_lamp_check_close"]);
                 else
-                    MessageBox.Show("关闭所有灯控板检测异常！");
+                    MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_config_lamp_check_close_err"]);
             }
         }
 

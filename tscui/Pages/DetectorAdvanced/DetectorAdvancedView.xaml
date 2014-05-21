@@ -206,7 +206,7 @@
                     <Label Content="{Binding ElementName=sldDetector216,Path=Value}" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top" Width="27"/>
                 </Grid>
             </GroupBox>
-            <GroupBox Header="灵敏度数值" HorizontalAlignment="Left" Margin="0,355,0,0" VerticalAlignment="Top" Height="170" Width="794">
+            <GroupBox Header="{DynamicResource tsc_adv_detector_title}" HorizontalAlignment="Left" Margin="0,355,0,0" VerticalAlignment="Top" Height="170" Width="794">
                 <Grid>
                     <Label Content="Lv1" HorizontalAlignment="Right" Margin="0,0,719,116" VerticalAlignment="Bottom" Width="42"/>
                     <TextBox x:Name="tbxLv1" HorizontalAlignment="Left" Height="23" Margin="21,41,0,0" TextWrapping="Wrap" Text="6" VerticalAlignment="Top" Width="42"/>
@@ -242,8 +242,8 @@
                     <TextBox x:Name="tbxLv16" HorizontalAlignment="Left" Height="23" Margin="656,41,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="42"/>
                 </Grid>
             </GroupBox>
-            <Button x:Name="btnSave" Content="保存" HorizontalAlignment="Left" Margin="657,530,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
-            <Button x:Name="btnRead" Content="读取" HorizontalAlignment="Left" Margin="544,530,0,0" VerticalAlignment="Top" Width="75" Click="btnRead_Click"/>
+            <Button x:Name="btnSave" Content="{DynamicResource tsc_time_save}" HorizontalAlignment="Left" Margin="657,530,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+            <Button x:Name="btnRead" Content="{DynamicResource tsc_time_read}" HorizontalAlignment="Left" Margin="544,530,0,0" VerticalAlignment="Top" Width="75" Click="btnRead_Click"/>
 
 
         </apexControls:ApexGrid>

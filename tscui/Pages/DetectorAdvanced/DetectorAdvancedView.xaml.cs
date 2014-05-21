@@ -43,6 +43,8 @@ namespace tscui.Views
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             #region 灵敏度等级设置
             
             byte[] se = new byte[16];
@@ -147,6 +149,8 @@ namespace tscui.Views
         private void btnRead_Click(object sender, RoutedEventArgs e)
         {
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<byte> lb = TscDataUtils.GetSensitivityAdv11(t.Node);
             sldDetector1.Value = lb[5];
             sldDetector2.Value = lb[6];

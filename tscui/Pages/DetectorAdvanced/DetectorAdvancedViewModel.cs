@@ -18,7 +18,7 @@ namespace tscui.ViewModels
         /// </summary>
         public DetectorAdvancedViewModel()
         {
-            Title = "检测器高级设置";
+            Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_adv_detector"]; 
         }
     }
 }

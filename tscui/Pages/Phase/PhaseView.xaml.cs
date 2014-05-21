@@ -507,6 +507,8 @@ namespace tscui.Pages.Phase
         {
             //MessageBox.Show("dispatcherTimer1_Tick");
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Channel> lc = t.ListChannel;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             List<Models.Phase> lp = t.ListPhase;
@@ -728,6 +730,8 @@ namespace tscui.Pages.Phase
         }
         public void InitDirec()
         {
+            if (t == null)
+                return;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (PhaseToDirec ptd in lptd)
             {
@@ -1184,6 +1188,8 @@ namespace tscui.Pages.Phase
         }
         private void InitPhaseToButtonByDirec()
         {
+            if (t == null)
+                return;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             foreach(PhaseToDirec ptd in t.ListPhaseToDirec)
             {
@@ -1445,6 +1451,8 @@ namespace tscui.Pages.Phase
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             if(t == null)
             {
@@ -2156,6 +2164,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if(Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2210,6 +2220,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2261,6 +2273,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2312,6 +2326,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2363,6 +2379,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2414,6 +2432,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2465,6 +2485,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2516,6 +2538,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2567,6 +2591,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2618,6 +2644,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2669,6 +2697,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2720,6 +2750,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2771,6 +2803,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2822,6 +2856,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2873,6 +2909,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2924,6 +2962,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -2975,6 +3015,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -3026,6 +3068,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -3077,6 +3121,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -3128,6 +3174,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -3179,6 +3227,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -3230,6 +3280,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -3281,6 +3333,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -3332,6 +3386,8 @@ namespace tscui.Pages.Phase
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
@@ -3381,7 +3437,10 @@ namespace tscui.Pages.Phase
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             TscDataUtils.SetPhaseToDirec(t.ListPhaseToDirec);
             TscDataUtils.SetPhase(t.ListPhase);
             TscDataUtils.SetChannel(t.ListChannel);
@@ -3391,6 +3450,8 @@ namespace tscui.Pages.Phase
         private void btnRead_Click(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             foreach(tscui.Models.Phase p in t.ListPhase)
             {
                 Console.WriteLine(p.ucId);
@@ -3400,6 +3461,8 @@ namespace tscui.Pages.Phase
         private void lampRush_CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Udp.sendUdp(t.Node.sIpAddress, t.Node.iPort, Define.REPORT_TSC_STATUS_CANCEL);
         }
 
@@ -3407,6 +3470,8 @@ namespace tscui.Pages.Phase
         {
             DateTime dt1 = DateTime.Now;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             TscDataUtils.SetPhaseToDirec(t.ListPhaseToDirec);
             TscDataUtils.SetPhase(t.ListPhase);
             TscDataUtils.SetChannel(t.ListChannel);
@@ -3444,6 +3509,8 @@ namespace tscui.Pages.Phase
         private void cbxEchoCountDown_Checked(object sender, RoutedEventArgs e)
         {
             TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
+            if (td == null)
+                return;
             EchoCntDowns echoCountDown = new EchoCntDowns();
             Udp.StartReceiveEchoCountDown();
             Udp.sendUdpEchoCountDown(td.Node.sIpAddress, Define.GBT_PORT, Define.ECHO_TSC_COUNT_DOWN);
@@ -3531,6 +3598,8 @@ namespace tscui.Pages.Phase
         private void cbxEchoCountDown_Unchecked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Udp.sendUdp(t.Node.sIpAddress, t.Node.iPort, Define.ECHO_TSC_COUNT_DOWN_CANCEL);
             SouthCntDown.Text = "";
             NorthCntDown.Text = "";

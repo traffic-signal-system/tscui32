@@ -377,35 +377,35 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <GroupBox Header="检测器属性" Canvas.Left="598" Canvas.Top="3" Height="591" Width="242">
+            <GroupBox Header="{DynamicResource tsc_detector_title}" Canvas.Left="598" Canvas.Top="3" Height="591" Width="242">
                 <Grid>
-                    <Label Content="请求相位：" HorizontalAlignment="Left" Margin="18,23,0,0" VerticalAlignment="Top" Width="96"/>
-                    <Label Content="检测器类型：" HorizontalAlignment="Left" Margin="18,62,0,0" VerticalAlignment="Top" Width="96"/>
-                    <Label Content="请求有效时间：" HorizontalAlignment="Left" Margin="18,388,0,0" VerticalAlignment="Top" Width="96"/>
-                    <Label Content="选项参数：" HorizontalAlignment="Left" Margin="18,219,0,0" VerticalAlignment="Top" Width="96"/>
-                    <Label Content="饱和流量：" HorizontalAlignment="Left" Margin="18,331,0,0" VerticalAlignment="Top" Width="96"/>
-                    <Label Content="饱和占有率：" HorizontalAlignment="Left" Margin="18,357,0,0" VerticalAlignment="Top" Width="96"/>
+                    <Label Content="{DynamicResource tsc_detector_phase}" HorizontalAlignment="Left" Margin="18,23,0,0" VerticalAlignment="Top" Width="96"/>
+                    <Label Content="{DynamicResource tsc_detector_type}" HorizontalAlignment="Left" Margin="18,62,0,0" VerticalAlignment="Top" Width="96"/>
+                    <Label Content="{DynamicResource tsc_detector_vaild_time}" HorizontalAlignment="Left" Margin="18,388,0,0" VerticalAlignment="Top" Width="96"/>
+                    <Label Content="{DynamicResource tsc_detector_options}" HorizontalAlignment="Left" Margin="18,219,0,0" VerticalAlignment="Top" Width="96"/>
+                    <Label Content="{DynamicResource tsc_detector_saturate_flow}" HorizontalAlignment="Left" Margin="18,331,0,0" VerticalAlignment="Top" Width="96"/>
+                    <Label Content="{DynamicResource tsc_detector_saturated_occupancy}" HorizontalAlignment="Left" Margin="18,357,0,0" VerticalAlignment="Top" Width="96"/>
                     <TextBlock HorizontalAlignment="Left" Margin="122,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbxFlow" HorizontalAlignment="Left" Height="23" Margin="122,334,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="98" TextChanged="tbxFlow_TextChanged"/>
                     <TextBox x:Name="tbkVaildTime" HorizontalAlignment="Left" Height="23" Margin="122,391,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="98" TextChanged="tbkVaildTime_TextChanged"/>
                     <TextBox x:Name="tbxOccupany" HorizontalAlignment="Left" Height="23" Margin="122,363,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="98" TextChanged="tbxOccupany_TextChanged"/>
-                    <RadioButton x:Name="rbnTactics" Content="战术检测器" GroupName="detectorType" HorizontalAlignment="Left" Margin="18,102,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                    <RadioButton x:Name="rbnStategy" Content="战略检测器" GroupName="detectorType" HorizontalAlignment="Left" Margin="18,123,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                    <RadioButton x:Name="rbnReaction" Content="感应检测器" GroupName="detectorType" HorizontalAlignment="Left" Margin="122,102,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                    <RadioButton x:Name="rbnRequest" Content="请求检测器" GroupName="detectorType" HorizontalAlignment="Left" Margin="122,123,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <RadioButton x:Name="rbnTactics" Content="{DynamicResource tsc_detector_tactics}" GroupName="detectorType" HorizontalAlignment="Left" Margin="18,102,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <RadioButton x:Name="rbnStategy" Content="{DynamicResource tsc_detector_stategy}" GroupName="detectorType" HorizontalAlignment="Left" Margin="18,123,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <RadioButton x:Name="rbnReaction" Content="{DynamicResource tsc_detector_reaction}" GroupName="detectorType" HorizontalAlignment="Left" Margin="122,102,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <RadioButton x:Name="rbnRequest" Content="{DynamicResource tsc_detector_request}" GroupName="detectorType" HorizontalAlignment="Left" Margin="122,123,0,0" VerticalAlignment="Top" IsEnabled="False"/>
 
-                    <RadioButton x:Name="rbnBus" Content="公交车检测器" GroupName="detectorTargetType" HorizontalAlignment="Left" Margin="122,181,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                    <RadioButton x:Name="rbnBike" Content="自行车检测器" GroupName="detectorTargetType" HorizontalAlignment="Left" Margin="122,163,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                    <RadioButton x:Name="rbnCar" Content="机动车检测器" GroupName="detectorTargetType" HorizontalAlignment="Left" Margin="18,160,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                    <RadioButton x:Name="rbnPedestrain" Content="行人请求按钮" GroupName="detectorTargetType" HorizontalAlignment="Left" Margin="18,181,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-                    <CheckBox x:Name="cbxCarType" Content="区分车型" HorizontalAlignment="Left" Margin="18,250,0,0" VerticalAlignment="Top" Checked="cbxCarType_Checked" Unchecked="cbxCarType_Unchecked"/>
-                    <CheckBox x:Name="cbxKeyRoad" Content="关键车道" HorizontalAlignment="Left" Margin="122,292,0,0" VerticalAlignment="Top" Unchecked="cbxKeyRoad_Unchecked" Checked="cbxKeyRoad_Checked"/>
-                    <CheckBox x:Name="cbxFlow" Content="流量" HorizontalAlignment="Left" Margin="122,271,0,0" VerticalAlignment="Top" Checked="cbxFlow_Checked" Unchecked="cbxFlow_Unchecked"/>
-                    <CheckBox x:Name="cbxOccupancy" Content="占有率" HorizontalAlignment="Left" Margin="122,250,0,0" VerticalAlignment="Top" Unchecked="cbxOccupancy_Unchecked" Checked="cbxOccupancy_Checked"/>
-                    <CheckBox x:Name="cbxSpeed" Content="速度" HorizontalAlignment="Left" Margin="18,292,0,0" VerticalAlignment="Top" Unchecked="cbxSpeed_Unchecked" Checked="cbxSpeed_Checked"/>
-                    <CheckBox x:Name="cbxQueun" Content="排队长度" HorizontalAlignment="Left" Margin="18,271,0,0" VerticalAlignment="Top" Unchecked="cbxQueun_Unchecked" Checked="cbxQueun_Checked"/>
-                    <Button x:Name="btnRead" Content="重新读取" HorizontalAlignment="Left" Margin="50,451,0,0" VerticalAlignment="Top" Width="75" Click="btnRead_Click" Visibility="Hidden"/>
-                    <Button x:Name="btnSave" Content="保存" HorizontalAlignment="Left" Margin="145,451,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+                    <RadioButton x:Name="rbnBus" Content="{DynamicResource tsc_detector_bus}" GroupName="detectorTargetType" HorizontalAlignment="Left" Margin="122,181,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <RadioButton x:Name="rbnBike" Content="{DynamicResource tsc_detector_bike}" GroupName="detectorTargetType" HorizontalAlignment="Left" Margin="122,163,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <RadioButton x:Name="rbnCar" Content="{DynamicResource tsc_detector_car}" GroupName="detectorTargetType" HorizontalAlignment="Left" Margin="18,160,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <RadioButton x:Name="rbnPedestrain" Content="{DynamicResource tsc_detector_pedestrain}" GroupName="detectorTargetType" HorizontalAlignment="Left" Margin="18,181,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+                    <CheckBox x:Name="cbxCarType" Content="{DynamicResource tsc_detector_cartype}" HorizontalAlignment="Left" Margin="18,250,0,0" VerticalAlignment="Top" Checked="cbxCarType_Checked" Unchecked="cbxCarType_Unchecked"/>
+                    <CheckBox x:Name="cbxKeyRoad" Content="{DynamicResource tsc_detector_keyroad}" HorizontalAlignment="Left" Margin="122,292,0,0" VerticalAlignment="Top" Unchecked="cbxKeyRoad_Unchecked" Checked="cbxKeyRoad_Checked"/>
+                    <CheckBox x:Name="cbxFlow" Content="{DynamicResource tsc_detector_flow}" HorizontalAlignment="Left" Margin="122,271,0,0" VerticalAlignment="Top" Checked="cbxFlow_Checked" Unchecked="cbxFlow_Unchecked"/>
+                    <CheckBox x:Name="cbxOccupancy" Content="{DynamicResource tsc_detector_occupancy}" HorizontalAlignment="Left" Margin="122,250,0,0" VerticalAlignment="Top" Unchecked="cbxOccupancy_Unchecked" Checked="cbxOccupancy_Checked"/>
+                    <CheckBox x:Name="cbxSpeed" Content="{DynamicResource tsc_detector_speed}" HorizontalAlignment="Left" Margin="18,292,0,0" VerticalAlignment="Top" Unchecked="cbxSpeed_Unchecked" Checked="cbxSpeed_Checked"/>
+                    <CheckBox x:Name="cbxQueun" Content="{DynamicResource tsc_detector_queun}" HorizontalAlignment="Left" Margin="18,271,0,0" VerticalAlignment="Top" Unchecked="cbxQueun_Unchecked" Checked="cbxQueun_Checked"/>
+                    <Button x:Name="btnRead" Content="{DynamicResource tsc_time_read}" HorizontalAlignment="Left" Margin="50,451,0,0" VerticalAlignment="Top" Width="75" Click="btnRead_Click" Visibility="Hidden"/>
+                    <Button x:Name="btnSave" Content="{DynamicResource tsc_time_save}" HorizontalAlignment="Left" Margin="145,451,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
                     <TextBlock x:Name="tbkPhaseId" HorizontalAlignment="Left" Margin="122,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76"/>
                 </Grid>
             </GroupBox>

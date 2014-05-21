@@ -180,7 +180,7 @@
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.9" />
                 </i:Interaction.Behaviors>
             </Image>
-            <CheckBox Canvas.Left="494" Canvas.Top="18" Content="进入设置模式" Height="17" Name="setLampPhase" Width="97" Checked="setLampPhase_Checked" Unchecked="setLampPhase_Unchecked" />
+            <CheckBox Canvas.Left="494" Canvas.Top="18" Content="{DynamicResource tsc_phase_edit}" Height="17" Name="setLampPhase" Width="97" Checked="setLampPhase_Checked" Unchecked="setLampPhase_Unchecked" />
             <Image Canvas.Left="201" Canvas.Top="472" Height="54" Panel.ZIndex="1" Source="/tscui;component/Resources/Images/nolight.png" Width="23" x:Name="imgNorthOther" ImageFailed="phase1_Image_ImageFailed">
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.9" />
@@ -193,9 +193,9 @@
             </Image>
             <Button Canvas.Left="245" Canvas.Top="472" Content="1" Foreground="#FFFFFFFF" Height="54" x:Name="NorthStraight" Panel.ZIndex="2" Template="{DynamicResource GlassButton}" Width="23" IsCancel="True" Visibility="Hidden" Click="NorthStraight_Click" />
             <Button Canvas.Left="220" Canvas.Top="472" Content="2" Foreground="#FFFFFFFF" Height="54" x:Name="NorthRight" Panel.ZIndex="2" Template="{DynamicResource GlassButton}" Width="23" Click="NorthRight_Click" Visibility="Hidden" />
-            <CheckBox Canvas.Left="494" Canvas.Top="41" Content="灯组显示模式1" Height="19" Name="checkBox1" Width="97" IsEnabled="False" />
-            <CheckBox Canvas.Left="494" Canvas.Top="62" Content="倒计时输出" Height="19" Name="cbxEchoCountDown" Width="97" Checked="cbxEchoCountDown_Checked" Unchecked="cbxEchoCountDown_Unchecked"/>
-            <CheckBox Canvas.Left="494" Canvas.Top="115"  Content="显示灯组开启" Height="17" Name="lampRush_CheckBox" Width="97" Checked="lampRush_CheckBox_Checked" Unchecked="lampRush_CheckBox_Unchecked" />
+            <CheckBox Canvas.Left="494" Canvas.Top="41" Content="{DynamicResource tsc_phase_mode}" Height="19" Name="checkBox1" Width="97" IsEnabled="False" />
+            <CheckBox Canvas.Left="494" Canvas.Top="62" Content="{DynamicResource tsc_phase_countdown}" Height="19" Name="cbxEchoCountDown" Width="97" Checked="cbxEchoCountDown_Checked" Unchecked="cbxEchoCountDown_Unchecked"/>
+            <CheckBox Canvas.Left="494" Canvas.Top="115"  Content="{DynamicResource tsc_phase_lamp_open}" Height="17" Name="lampRush_CheckBox" Width="97" Checked="lampRush_CheckBox_Checked" Unchecked="lampRush_CheckBox_Unchecked" />
             <Image Canvas.Left="76" Canvas.Top="205" Height="23" Source="/tscui;component/Resources/Images/nolight1.png" Width="54" FlowDirection="RightToLeft" x:Name="imgEastOther">
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
@@ -264,41 +264,41 @@
             <TextBlock x:Name="WestSouthCntDown" Canvas.Left="127" TextWrapping="Wrap" Canvas.Top="431" Height="26" Foreground="#FFEE0F0F" Width="50" FontSize="24" FontFamily="Quartz MS" FontWeight="Bold"/>
             <TextBlock x:Name="EastSouthCntDown" Canvas.Left="431" TextWrapping="Wrap" Canvas.Top="431" Height="26" Foreground="#FFEE0F0F" Width="50" FontSize="24" FontFamily="Quartz MS" FontWeight="Bold"/>
         </Canvas>
-        <GroupBox Header="参数监视" Name="groupBox1" FontWeight="Bold" FontFamily="Vivaldi" FontSize="18" DataContext="{Binding}" Margin="607,-14,0,12" HorizontalAlignment="Left" Width="183"/>
+        <GroupBox Header="{DynamicResource tsc_phase_args}" Name="groupBox1" FontWeight="Bold"  FontSize="18"  Margin="607,-14,0,12" HorizontalAlignment="Left" Width="183"/>
         <Grid Height="588" HorizontalAlignment="Left" Margin="607,0,0,0" Name="grid1" VerticalAlignment="Top" Width="183">
-            <GroupBox Header="相位信息" Name="groupBox2" Width="162" Canvas.Left="613" Canvas.Top="321" Margin="14,261,0,162" HorizontalAlignment="Left">
+            <GroupBox Header="{DynamicResource tsc_phase_info}" Name="groupBox2" Width="162" Canvas.Left="613" Canvas.Top="321" Margin="14,261,0,162" HorizontalAlignment="Left">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="40*" />
                         <ColumnDefinition Width="110*" />
                     </Grid.ColumnDefinitions>
-                    <Label Content="当前相位：" Margin="5,26,-15,0" Name="label_iCurrentStagePattern" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="160" />
-                    <Label Content="相位总数：" Margin="5,2,-1,0" Name="label_iStageCount" Height="28" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="146" />
-                    <Label Content="相位时长：" Margin="4,49,0,0" Name="label_iStageTotalTime" Height="24" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="146" />
-                    <Label Content="运行时长：" Margin="4,72,0,0" Name="label_iStageRunTime" Grid.ColumnSpan="2" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="146" />
-                    <Label Content="当前阶段：" Margin="5,98,-1,0" x:Name="lblCurrentStage" Grid.ColumnSpan="2" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="146" />
+                    <Label Content="{DynamicResource tsc_phase_current}" Margin="5,26,-15,0" Name="label_iCurrentStagePattern" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="160" />
+                    <Label Content="{DynamicResource tsc_phase_total}" Margin="5,2,-1,0" Name="label_iStageCount" Height="28" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="146" />
+                    <Label Content="{DynamicResource tsc_phase_phase_time}" Margin="4,49,0,0" Name="label_iStageTotalTime" Height="24" VerticalAlignment="Top" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="146" />
+                    <Label Content="{DynamicResource tsc_phase_run_time}" Margin="4,72,0,0" Name="label_iStageRunTime" Grid.ColumnSpan="2" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="146" />
+                    <Label Content="{DynamicResource tsc_phase_current_stage}" Margin="5,98,-1,0" x:Name="lblCurrentStage" Grid.ColumnSpan="2" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="146" />
                 </Grid>
             </GroupBox>
-            <GroupBox Canvas.Left="613" Canvas.Top="321" Header="方案信息" Margin="14,120,0,0" Name="groupBox3" Width="162" Height="82" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <GroupBox Canvas.Left="613" Canvas.Top="321" Header="{DynamicResource tsc_phase_stage}" Margin="14,120,0,0" Name="groupBox3" Width="162" Height="82" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <Grid>
-                    <Label Content="配时方案：" Margin="6,31,13,0" Name="time_NO_label" Height="27" VerticalAlignment="Top" />
-                    <Label Content="运行方案：" Margin="6,6,13,0" Name="run_NO_label" VerticalAlignment="Top" />
+                    <Label Content="{DynamicResource tsc_phase_stagepattern}" Margin="6,31,13,0" Name="time_NO_label" Height="27" VerticalAlignment="Top" />
+                    <Label Content="{DynamicResource tsc_phase_stage_run}" Margin="6,6,13,0" Name="run_NO_label" VerticalAlignment="Top" />
                 </Grid>
             </GroupBox>
-            <GroupBox Canvas.Left="613" Canvas.Top="321" Header="周期信息" Height="52" Margin="14,206,0,0" Name="groupBox4" VerticalAlignment="Top" Width="162" HorizontalAlignment="Left">
+            <GroupBox Canvas.Left="613" Canvas.Top="321" Header="{DynamicResource tsc_phase_cycle}" Height="52" Margin="14,206,0,0" Name="groupBox4" VerticalAlignment="Top" Width="162" HorizontalAlignment="Left">
                 <Grid HorizontalAlignment="Left" Width="150">
-                    <Label Content="周期时长：" Margin="5,5,28,0" VerticalAlignment="Top" Name="label_CycleTime" />
+                    <Label Content="{DynamicResource tsc_phase_cycle_time}" Margin="5,5,28,0" VerticalAlignment="Top" Name="label_CycleTime" />
                 </Grid>
             </GroupBox>
-            <GroupBox Canvas.Left="613" Canvas.Top="321" Header="工作方式" Height="101" Margin="14,15,0,0" Name="groupBox5" VerticalAlignment="Top" Width="162" HorizontalAlignment="Left">
+            <GroupBox Canvas.Left="613" Canvas.Top="321" Header="{DynamicResource tsc_phase_work_model}" Height="101" Margin="14,15,0,0" Name="groupBox5" VerticalAlignment="Top" Width="162" HorizontalAlignment="Left">
                 <Grid>
-                    <Label Content="工作状态：" Margin="6,48,0,6" Name="workstatus_label" HorizontalAlignment="Left" Width="134" />
-                    <Label Content="控制方式：" Margin="6,24,0,0" Name="controlmode_label" VerticalAlignment="Top" HorizontalAlignment="Left" Width="134" />
-                    <Label Content="工作模式：" Name="workmode_label" Margin="6,-2,0,56" HorizontalAlignment="Left" Width="134" />
+                    <Label Content="{DynamicResource tsc_phase_work_state}" Margin="6,48,0,6" Name="workstatus_label" HorizontalAlignment="Left" Width="134" />
+                    <Label Content="{DynamicResource tsc_phase_control_model}" Margin="6,24,0,0" Name="controlmode_label" VerticalAlignment="Top" HorizontalAlignment="Left" Width="134" />
+                    <Label Content="{DynamicResource tsc_phase_workmodel}" Name="workmode_label" Margin="6,-2,0,56" HorizontalAlignment="Left" Width="134" />
                 </Grid>
             </GroupBox>
-            <Button x:Name="btnRead" Content="读取" HorizontalAlignment="Left" Margin="14,484,0,0" VerticalAlignment="Top" Width="75" Click="btnRead_Click" Visibility="Hidden"/>
-            <Button x:Name="btnSave" Content="保存" HorizontalAlignment="Left" Margin="94,484,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+            <Button x:Name="btnRead" Content="{DynamicResource tsc_time_read}" HorizontalAlignment="Left" Margin="14,484,0,0" VerticalAlignment="Top" Width="75" Click="btnRead_Click" Visibility="Hidden"/>
+            <Button x:Name="btnSave" Content="{DynamicResource tsc_time_save}" HorizontalAlignment="Left" Margin="94,484,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
         </Grid>
     </apexControls:ApexGrid >
 </UserControl>

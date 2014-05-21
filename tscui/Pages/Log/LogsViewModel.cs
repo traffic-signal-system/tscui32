@@ -10,7 +10,7 @@
         /// </summary>
         public LogsViewModel()
         {
-            Title = "系统日志";
+            Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_log"];
         }
     }
 }

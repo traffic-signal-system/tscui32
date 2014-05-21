@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using tscui.Models;
 using System.Windows.Data;
 using System.Windows;
+using tscui.Service;
 
 namespace tscui.Pages.Log
 {
@@ -32,7 +33,21 @@ namespace tscui.Pages.Log
         public void OnDeactivated()
         {
         }
+        private void refreshLog()
+        {
+            
+            TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
+            if (td == null)
+            {
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_log_selected_tsc"]);
 
+            }
+            else
+            {
+                myListView.ItemsSource = TscDataUtils.GetEventLog();
+            }
+            
+        }
         private void splLog_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             //<SnippetListViewView>
@@ -42,31 +57,31 @@ namespace tscui.Pages.Log
             //<SnippetGridViewAllowsColumnReorder>
             myGridView = new GridView();
             myGridView.AllowsColumnReorder = true;
-            myGridView.ColumnHeaderToolTip = "日志信息";
+            myGridView.ColumnHeaderToolTip = (string)App.Current.Resources.MergedDictionaries[3]["tsc_log_headertooltip"];
             //</SnippetGridViewAllowsColumnReorder>
-
+           
             //<SnippetGridViewColumnProperties>
             GridViewColumn gvc1 = new GridViewColumn();
             gvc1.DisplayMemberBinding = new Binding("ucEventId");
-            gvc1.Header = "日志编号";
+            gvc1.Header = (string)App.Current.Resources.MergedDictionaries[3]["tsc_log_id"];
             gvc1.Width = 30;
             //</SnippetGridViewColumnProperties>
             myGridView.Columns.Add(gvc1);
             GridViewColumn gvc2 = new GridViewColumn();
             gvc2.DisplayMemberBinding = new Binding("sEventType");
-            gvc2.Header = "日志类型";
+            gvc2.Header = (string)App.Current.Resources.MergedDictionaries[3]["tsc_log_type"]; 
             gvc2.Width = 100;
             myGridView.Columns.Add(gvc2);
             //<SnippetAddToColumns>
             GridViewColumn gvc3 = new GridViewColumn();
             gvc3.DisplayMemberBinding = new Binding("ulEventTime");
-            gvc3.Header = "日期时间";
+            gvc3.Header = (string)App.Current.Resources.MergedDictionaries[3]["tsc_log_time"];
             gvc3.Width = 120;
             myGridView.Columns.Add(gvc3);
 
             GridViewColumn gvc4 = new GridViewColumn();
             gvc4.DisplayMemberBinding = new Binding("sEventDesc");
-            gvc4.Header = "日志内容";
+            gvc4.Header = (string)App.Current.Resources.MergedDictionaries[3]["tsc_log_value"];
             gvc4.Width = 700;
             myGridView.Columns.Add(gvc4);
             //</SnippetAddToColumns>
@@ -79,16 +94,12 @@ namespace tscui.Pages.Log
             myListView.Height = 550;
             // myListView.
             splLog.Children.Add(myListView);
-            TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
-            if (td == null)
-            {
-                MessageBox.Show("请选择一台信号机后，打开此界面！");
+            refreshLog();
+        }
 
-            }
-            else
-            {
-                myListView.ItemsSource = td.ListEventLog;
-            }
+        private void btnGetLog_Click(object sender, RoutedEventArgs e)
+        {
+            refreshLog();
         }
     }
 }

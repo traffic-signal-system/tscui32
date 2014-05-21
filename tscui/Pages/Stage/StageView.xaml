@@ -163,21 +163,21 @@
                     <local:StageItem  Visibility="Hidden" x:Name="stage16" MouseDown="stage16_MouseDown"/>
                 </StackPanel>
             </ScrollViewer>
-            <GroupBox Header="配时方案" Canvas.Left="781" Height="600" Width="115">
+            <GroupBox Header="{DynamicResource tsc_stage_pattern_scheme}" Canvas.Left="781" Height="600" Width="115">
                 <Grid>
                     <ComboBox x:Name="cbxCoordination" HorizontalAlignment="Left" Margin="58,124,0,0" VerticalAlignment="Top" Width="45" SelectedIndex="14"/>
-                    <CheckBox x:Name="cbxReaction" Content="感应阶段" HorizontalAlignment="Left" Margin="38,515,0,0" VerticalAlignment="Top"/>
-                    <Label Content="方案号：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label Content="绿：" HorizontalAlignment="Left" Margin="0,182,0,0" VerticalAlignment="Top"/>
-                    <Label Content="黄：" HorizontalAlignment="Left" Margin="34,182,0,0" VerticalAlignment="Top"/>
-                    <Label Content="红：" HorizontalAlignment="Left" Margin="68,182,0,0" VerticalAlignment="Top"/>
-                    <Label Content="配时号：" HorizontalAlignment="Left" Margin="2,44,0,0" VerticalAlignment="Top"/>
-                    <Label Content="周期：" HorizontalAlignment="Left" Margin="0,97,0,0" VerticalAlignment="Top"/>
-                    <Label Content="协调相位：" HorizontalAlignment="Left" Margin="0,123,0,0" VerticalAlignment="Top" Width="58"/>
-                    <Label Content="相位差：" HorizontalAlignment="Left" Margin="0,151,0,0" VerticalAlignment="Top"/>
-                    <Label Content="阶段选项参数：" HorizontalAlignment="Left" Margin="0,489,0,0" VerticalAlignment="Top"/>
-                    <Button x:Name="btnRead" Content="读取" HorizontalAlignment="Left" Margin="0,549,0,0" VerticalAlignment="Top" Width="50" Click="btnRead_Click" Visibility="Hidden"/>
-                    <Button x:Name="btnSave" Content="保存" HorizontalAlignment="Left" Margin="53,549,0,0" VerticalAlignment="Top" Width="50" Click="btnSave_Click"/>
+                    <CheckBox x:Name="cbxReaction" Content="{DynamicResource tsc_stage_reaction_stage}" HorizontalAlignment="Left" Margin="38,515,0,0" VerticalAlignment="Top"/>
+                    <Label Content="{DynamicResource tsc_stage_scheme_id}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Label Content="{DynamicResource tsc_stage_green}" HorizontalAlignment="Left" Margin="0,182,0,0" VerticalAlignment="Top"/>
+                    <Label Content="{DynamicResource tsc_stage_yellow}" HorizontalAlignment="Left" Margin="34,182,0,0" VerticalAlignment="Top"/>
+                    <Label Content="{DynamicResource tsc_stage_red}" HorizontalAlignment="Left" Margin="68,182,0,0" VerticalAlignment="Top"/>
+                    <Label Content="{DynamicResource tsc_stage_pattern_id}" HorizontalAlignment="Left" Margin="2,44,0,0" VerticalAlignment="Top"/>
+                    <Label Content="{DynamicResource tsc_stage_cycle}" HorizontalAlignment="Left" Margin="0,97,0,0" VerticalAlignment="Top"/>
+                    <Label Content="{DynamicResource tsc_stage_coordinate}" HorizontalAlignment="Left" Margin="0,123,0,0" VerticalAlignment="Top" Width="58"/>
+                    <Label Content="{DynamicResource tsc_stage_phaseoffset}" HorizontalAlignment="Left" Margin="0,151,0,0" VerticalAlignment="Top"/>
+                    <Label Content="{DynamicResource tsc_stage_options}" HorizontalAlignment="Left" Margin="0,489,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="btnRead" Content="{DynamicResource tsc_time_read}" HorizontalAlignment="Left" Margin="0,549,0,0" VerticalAlignment="Top" Width="50" Click="btnRead_Click" Visibility="Hidden"/>
+                    <Button x:Name="btnSave" Content="{DynamicResource tsc_time_save}" HorizontalAlignment="Left" Margin="53,549,0,0" VerticalAlignment="Top" Width="50" Click="btnSave_Click"/>
                     <TextBox x:Name="tbxCycle" HorizontalAlignment="Left" Height="23" Margin="58,97,0,0" TextWrapping="Wrap" Text="120" VerticalAlignment="Top" Width="45"/>
                     <TextBox x:Name="tbxOffset" HorizontalAlignment="Left" Height="23" Margin="58,151,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="45"/>
                     

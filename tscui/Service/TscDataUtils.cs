@@ -50,6 +50,10 @@ namespace tscui.Service
 
             return level;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static int GetDetectorSensitivityTwoBorad9_16()
         {
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
@@ -58,7 +62,95 @@ namespace tscui.Service
 
             return level;
         }
+        public static string SetTsc(Node node)
+        {
+            bool boolTsc = Udp.sendUdpNoReciveData(node.sIpAddress, node.iPort, Define.SET_TSC);
+            string result = "Tsc模式切换：";
+            if (boolTsc)
+            {
+                result += "切换到Tsc模式成功。";
+            }
+            else
+            {
+                result += "切换到Tsc模式失败，请检查信号机IP地址及网络情况！";
+            }
+            return result;
+        }
+        public static string SetOnePsc(Node node, int greentime)
+        {
+            bool boolPsc1 = Udp.sendUdpNoReciveData(node.sIpAddress, node.iPort, Define.SET_PSC_1);
+            //string str = dudOnePSC.Text;
+           // int greentime = int.Parse(str);
+            byte[] psc1greentime = Define.SET_PSC_1_GREEN_TIME;
+            psc1greentime[5] = (byte)greentime;
+            bool boolPsc1time = Udp.sendUdpNoReciveData(node.sIpAddress, node.iPort, psc1greentime);
+            string result = "PSC模块切换：";
+            if (boolPsc1)
+            {
+                result += "到PSC一次过街模式成功，";
+            }
+            else
+            {
+                result += "到PSC一次过街模式失败，请检查IP地址及网络。\n";
+            }
+            if (boolPsc1time)
+            {
+                result += "一次过街时间为" + greentime + "秒成功。";
+            }
+            else
+            {
+                result += "一次过街时间为" + greentime + "秒失败。";
+            }
+            return result;
+        }
+        /// <summary>
+        /// 设置二次过街，
+        /// </summary>
+        /// <param name="node">哪个信号机节点</param>
+        /// <param name="greentime1">一次过街绿灯时间</param>
+        /// <param name="greentime2">二次过街绿灯时间</param>
+        /// <returns></returns>
+        public static string SetTwoPsc(Node node, int greentime1, int greentime2)
+        {
+            bool boolPsc2 = Udp.sendUdpNoReciveData(node.sIpAddress, node.iPort, Define.SET_PSC_2);
+           // string str1 = dudOnePSC.Text;
+            //int greentime1 = int.Parse(str1);
+            byte[] psc1greentime = Define.SET_PSC_1_GREEN_TIME;
+            psc1greentime[5] = (byte)greentime1;
+            bool boolPsc1time = Udp.sendUdpNoReciveData(node.sIpAddress, node.iPort, psc1greentime);
 
+            //string str2 = dudTwoPSC.Text;
+            //int greentime2 = int.Parse(str2);
+            byte[] psc2greentime = Define.SET_PSC_2_GREEN_TIME;
+            psc2greentime[5] = (byte)greentime2;
+            bool boolPsc2time = Udp.sendUdpNoReciveData(node.sIpAddress, node.iPort, psc2greentime);
+            string result = "PSC模块切换：";
+            if (boolPsc2)
+            {
+                result += "到PSC二次过街模式成功，";
+            }
+            else
+            {
+                result += "到PSC二次过街模式失败，请检查IP地址及网络。\n";
+            }
+            if (boolPsc1time)
+            {
+                result += "一次过街时间为" + greentime1 + "秒，\n";
+            }
+            else
+            {
+                result += "一次过街时间为" + greentime1 + "秒失败，\n";
+            }
+            if (boolPsc2time)
+            {
+                result += "二次过街时间为" + greentime2 + "秒。";
+            }
+            else
+            {
+                result += "二次过街时间为" + greentime2 + "秒失败。";
+            }
+            return result;
+        }
         /// <summary>
         /// 对指定IP地址进行灯泡不检测设置,不是本公司的产品,请指定IP地址
         /// 如果IP地址没有指定,会读取WPF中的信号机IP
@@ -1048,6 +1140,27 @@ namespace tscui.Service
             }
             return llc;
         }
+        public static Message SetHardWaveFlash(byte[] bytes)
+        {
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            Message msg = new Message();
+            byte[] setBytes = ByteUtils.concatByteArray(Define.SET_HARDWAVE_FLASH, bytes);
+            bool result = Udp.sendUdpNoReciveData(t.Node.sIpAddress,t.Node.iPort,setBytes);
+            if (result == true)
+            {
+                msg.flag = true;
+                msg.obj = "HardWaveFlash";
+                msg.msg = "黄闪器相关参数设置成功！";
+            }
+            else
+            {
+                msg.flag = false;
+                msg.obj = "HardWaveFlash";
+                msg.msg = "黄闪器相关参数设置失败！";
+            }
+            return msg;
+        }
+
         /// <summary>
         /// 得到信号机的当前状态，信号机的状态对象已经定义在数据对象中。
         /// </summary>

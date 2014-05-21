@@ -23,14 +23,14 @@
     <Grid>
         <DataGrid x:Name="dgdCountDown" HorizontalAlignment="Left" VerticalAlignment="Top" Height="600" Width="800">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="编号" Width="80" Binding="{Binding ucDevId}"/>
-                <DataGridTextColumn Header="相位" Width="80" Binding="{Binding ucPhase}"/>
-                <DataGridTextColumn Header="跟随相位" Width="80" Binding="{Binding ucOverlapPhase}"/>
-                <DataGridTextColumn Header="模式" Width="80" Binding="{Binding ucMode}"/>
-                <DataGridCheckBoxColumn Header="绿灯发" Width="80" />
-                <DataGridCheckBoxColumn Header="红灯发" Width="80"/>
-                <DataGridTextColumn Header="起时秒数" Width="80" Binding="{Binding ucMode}"/>
-                <DataGridCheckBoxColumn Header="闪断信号" Width="80"/>
+                <DataGridTextColumn Header="{DynamicResource tsc_countdown_id}" Width="80" Binding="{Binding ucDevId}"/>
+                <DataGridTextColumn Header="{DynamicResource tsc_countdown_phase}" Width="80" Binding="{Binding ucPhase}"/>
+                <DataGridTextColumn Header="{DynamicResource tsc_countdown_overlapphase}" Width="80" Binding="{Binding ucOverlapPhase}"/>
+                <DataGridTextColumn Header="{DynamicResource tsc_countdown_mode}" Width="80" Binding="{Binding ucMode}"/>
+                <DataGridCheckBoxColumn Header="{DynamicResource tsc_countdown_green}" Width="80" />
+                <DataGridCheckBoxColumn Header="{DynamicResource tsc_countdown_red}" Width="80"/>
+                <DataGridTextColumn Header="{DynamicResource tsc_countdown_sec}" Width="80" Binding="{Binding ucMode}"/>
+                <DataGridCheckBoxColumn Header="{DynamicResource tsc_countdown_fs}" Width="80"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

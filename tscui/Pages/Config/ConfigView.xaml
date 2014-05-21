@@ -32,46 +32,46 @@
                 <CheckBox x:Name="DetectorBorad2" Content="第2块" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,43,0,0"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="黄闪器设定" Height="160" HorizontalAlignment="Left" Margin="3,4,0,0" x:Name="groupBox6" VerticalAlignment="Top" Width="200">
+        <GroupBox Header="{DynamicResource tsc_config_yf}" Height="160" HorizontalAlignment="Left" Margin="3,4,0,0" x:Name="groupBox6" VerticalAlignment="Top" Width="200">
             <Grid>
-                <Label Content="黄闪频率" Height="28" HorizontalAlignment="Left" Margin="2,6,0,0" x:Name="label13" VerticalAlignment="Top" />
-                <Label Content="占空比" Height="28" HorizontalAlignment="Left" Margin="2,35,0,0" x:Name="label14" VerticalAlignment="Top" />
-                <RadioButton IsChecked="{Binding rdoFlashSynch}" GroupName="Flash" Content="同步闪" Height="16" HorizontalAlignment="Left" Margin="7,67,0,0" x:Name="rdoFlashSynch" VerticalAlignment="Top" />
-                <RadioButton IsChecked="{Binding rdoFlashAsynch}" GroupName="Flash" Content="异步闪" Height="16" HorizontalAlignment="Left" Margin="62,67,0,0" x:Name="rdoFlashAsynch" VerticalAlignment="Top" />
-                <Button Content="保存" Command="{Binding SaveYellowFlashCommand}" HorizontalAlignment="Left" Margin="107,101,0,0" x:Name="btnSaveYellowFlash" VerticalAlignment="Top" Width="55" />
+                <Label Content="{DynamicResource tsc_config_yf_rate}" Height="28" HorizontalAlignment="Left" Margin="2,6,0,0" x:Name="label13" VerticalAlignment="Top" />
+                <Label Content="{DynamicResource tsc_config_yf_on}" Height="28" HorizontalAlignment="Left" Margin="2,35,0,0" x:Name="label14" VerticalAlignment="Top" />
+                <RadioButton IsChecked="{Binding rdoFlashSynch}" GroupName="Flash" Content="{DynamicResource tsc_config_yf_syn}" Height="16" HorizontalAlignment="Left" Margin="7,67,0,0" x:Name="rdoFlashSynch" VerticalAlignment="Top" />
+                <RadioButton IsChecked="{Binding rdoFlashAsynch}" GroupName="Flash" Content="{DynamicResource tsc_config_yf_asyn}" Height="16" HorizontalAlignment="Left" Margin="62,67,0,0" x:Name="rdoFlashAsynch" VerticalAlignment="Top" />
+                <Button Content="{DynamicResource tsc_time_save}" Command="{Binding SaveYellowFlashCommand}" HorizontalAlignment="Left" Margin="107,101,0,0" x:Name="btnSaveYellowFlash" VerticalAlignment="Top" Width="55" />
                 <Slider TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight" Value="{Binding sldYellowFlashRate}" Height="23" HorizontalAlignment="Left" Margin="62,6,0,0" x:Name="sldYellowFlashRate" VerticalAlignment="Top" Width="120" Maximum="9" />
                 <Slider TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight" Value="{Binding sldDutyRatio}" Height="23" HorizontalAlignment="Left" Margin="62,35,0,0" x:Name="sldDutyRatio" VerticalAlignment="Top" Width="120" Maximum="15" />
-                <Button Content="读取" HorizontalAlignment="Left" Margin="34,101,0,0" VerticalAlignment="Top" Width="55"/>
+                <Button Content="{DynamicResource tsc_time_read}" HorizontalAlignment="Left" Margin="34,101,0,0" VerticalAlignment="Top" Width="55"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="控制模块设定" Height="431" HorizontalAlignment="Left" Margin="0,169,0,0" x:Name="groupBox5" VerticalAlignment="Top" Width="200">
+        <GroupBox Header="{DynamicResource tsc_status_module}" Height="431" HorizontalAlignment="Left" Margin="0,169,0,0" x:Name="groupBox5" VerticalAlignment="Top" Width="200">
             <Grid>
-                <Label Content="高温报警值" Height="28" HorizontalAlignment="Left" Margin="6,26,0,0" x:Name="label2" VerticalAlignment="Top" />
-                <Label Content="当前温度" Height="28" HorizontalAlignment="Left" Margin="6,0,0,0" x:Name="label3" VerticalAlignment="Top" Width="71" />
+                <Label Content="{DynamicResource tsc_status_warm_temp}" Height="28" HorizontalAlignment="Left" Margin="6,26,0,0" x:Name="label2" VerticalAlignment="Top" />
+                <Label Content="{DynamicResource tsc_status_curr_temp}" Height="28" HorizontalAlignment="Left" Margin="6,0,0,0" x:Name="label3" VerticalAlignment="Top" Width="71" />
                 <TextBox DataObject.Pasting="txtHighHumidity_Pasting"  PreviewKeyDown="txtHighHumidity_PreviewKeyDown"  InputMethod.IsInputMethodEnabled="False" PreviewTextInput="txtHighHumidity_PreviewTextInput" Height="23" HorizontalAlignment="Left" Margin="82,27,0,0" x:Name="txtHighTemperature" VerticalAlignment="Top" Width="100" Text="50" />
-                <Label Content="低温报警值" Height="28" HorizontalAlignment="Left" Margin="6,51,0,0" x:Name="label4" VerticalAlignment="Top" />
+                <Label Content="{DynamicResource tsc_status_warm_low_temp}" Height="28" HorizontalAlignment="Left" Margin="6,51,0,0" x:Name="label4" VerticalAlignment="Top" />
                 <TextBox DataObject.Pasting="txtHighHumidity_Pasting"  PreviewKeyDown="txtHighHumidity_PreviewKeyDown"  InputMethod.IsInputMethodEnabled="False" PreviewTextInput="txtHighHumidity_PreviewTextInput" Height="23" HorizontalAlignment="Left" Margin="82,51,0,0" x:Name="txtLowTemperature" Text="0" VerticalAlignment="Top" Width="100" />
-                <Label Content="当前电压" Height="28" HorizontalAlignment="Left" Margin="6,77,0,0" x:Name="label5" VerticalAlignment="Top" Width="76" />
-                <Label Content="高压报警值" Height="28" HorizontalAlignment="Left" Margin="6,100,0,0" x:Name="label6" VerticalAlignment="Top" />
+                <Label Content="{DynamicResource tsc_status_voltage}" Height="28" HorizontalAlignment="Left" Margin="6,77,0,0" x:Name="label5" VerticalAlignment="Top" Width="76" />
+                <Label Content="{DynamicResource tsc_status_voltage_high}" Height="28" HorizontalAlignment="Left" Margin="6,100,0,0" x:Name="label6" VerticalAlignment="Top" />
                 <TextBox DataObject.Pasting="txtHighHumidity_Pasting"  PreviewKeyDown="txtHighHumidity_PreviewKeyDown"  InputMethod.IsInputMethodEnabled="False" PreviewTextInput="txtHighHumidity_PreviewTextInput" Height="23" HorizontalAlignment="Left" Margin="82,101,0,0" x:Name="txtHighVoltage" Text="180" VerticalAlignment="Top" Width="100" />
-                <Label Content="低压报警值" Height="28" HorizontalAlignment="Left" Margin="6,125,0,0" x:Name="label7" VerticalAlignment="Top" />
+                <Label Content="{DynamicResource tsc_status_voltage_low}" Height="28" HorizontalAlignment="Left" Margin="6,125,0,0" x:Name="label7" VerticalAlignment="Top" />
                 <TextBox DataObject.Pasting="txtHighHumidity_Pasting"  PreviewKeyDown="txtHighHumidity_PreviewKeyDown"  InputMethod.IsInputMethodEnabled="False" PreviewTextInput="txtHighHumidity_PreviewTextInput" Height="23" HorizontalAlignment="Left" Margin="82,125,0,0" x:Name="txtLowVoltage" Text="240" VerticalAlignment="Top" Width="100" />
-                <Label Content="高湿报警值" Height="28" HorizontalAlignment="Left" Margin="6,185,0,0" x:Name="label8" VerticalAlignment="Top" />
-                <Label Content="当前湿度" Height="28" HorizontalAlignment="Left" Margin="6,159,0,0" x:Name="label9" VerticalAlignment="Top" Width="71" />
+                <Label Content="{DynamicResource tsc_status_sd_high}" Height="28" HorizontalAlignment="Left" Margin="6,185,0,0" x:Name="label8" VerticalAlignment="Top" />
+                <Label Content="{DynamicResource tsc_status_sd}" Height="28" HorizontalAlignment="Left" Margin="6,159,0,0" x:Name="label9" VerticalAlignment="Top" Width="71" />
                 <TextBox Height="23" DataObject.Pasting="txtHighHumidity_Pasting"  PreviewKeyDown="txtHighHumidity_PreviewKeyDown"  InputMethod.IsInputMethodEnabled="False" PreviewTextInput="txtHighHumidity_PreviewTextInput"  HorizontalAlignment="Left" Margin="82,186,0,0" x:Name="txtHighHumidity" Text="40" VerticalAlignment="Top" Width="100" />
-                <Label Content="低湿报警值" Height="28" HorizontalAlignment="Left" Margin="6,210,0,0" x:Name="label10" VerticalAlignment="Top" />
+                <Label Content="{DynamicResource tsc_status_sd_low}" Height="28" HorizontalAlignment="Left" Margin="6,210,0,0" x:Name="label10" VerticalAlignment="Top" />
                 <TextBox Height="23" DataObject.Pasting="txtHighHumidity_Pasting"  PreviewKeyDown="txtHighHumidity_PreviewKeyDown"  InputMethod.IsInputMethodEnabled="False" PreviewTextInput="txtHighHumidity_PreviewTextInput" HorizontalAlignment="Left" Margin="82,210,0,0" x:Name="txtLowHumidity" Text="70" VerticalAlignment="Top" Width="100" />
-                <Button Content="保存"  HorizontalAlignment="Left" Margin="123,377,0,0" x:Name="btnControllerStatusSave" VerticalAlignment="Top" Width="55" />
+                <Button Content="{DynamicResource tsc_time_save}"  HorizontalAlignment="Left" Margin="123,377,0,0" x:Name="btnControllerStatusSave" VerticalAlignment="Top" Width="55" />
                 <TextBlock x:Name="tbk" HorizontalAlignment="Left" Margin="82,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <Button Content="读取"  HorizontalAlignment="Left" Margin="63,377,0,0" x:Name="btnControllerStatusRead" VerticalAlignment="Top" Width="55" Click="btnControllerStatusRead_Click" />
+                <Button Content="{DynamicResource tsc_time_read}"  HorizontalAlignment="Left" Margin="63,377,0,0" x:Name="btnControllerStatusRead" VerticalAlignment="Top" Width="55" Click="btnControllerStatusRead_Click" />
                 <TextBlock x:Name="tbkTemperature" HorizontalAlignment="Left" Margin="84,5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="17" Width="94"/>
                 <TextBlock x:Name="tbkVoltage" HorizontalAlignment="Left" Margin="81,0,0,313" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Height="14" Width="97"/>
                 <TextBlock x:Name="tbkHumidity" HorizontalAlignment="Left" Margin="82,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="16" Width="96"/>
-                <Label Content="门状态：" HorizontalAlignment="Left" Margin="10,243,0,0" VerticalAlignment="Top"/>
+                <Label Content="{DynamicResource tsc_status_door}" HorizontalAlignment="Left" Margin="10,243,0,0" VerticalAlignment="Top"/>
                 <TextBlock x:Name="tbkDoorStatus" HorizontalAlignment="Left" Margin="84,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="16" Width="96"/>
-                <Label Content="供电类型：" HorizontalAlignment="Left" Margin="8,264,0,0" VerticalAlignment="Top"/>
+                <Label Content="{DynamicResource tsc_status_power_type}" HorizontalAlignment="Left" Margin="8,264,0,0" VerticalAlignment="Top"/>
                 <TextBlock x:Name="tbkPowerType" HorizontalAlignment="Left" Margin="82,270,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="16" Width="96"/>
-                <Label Content="报警阀值（秒）" Height="28" HorizontalAlignment="Left" Margin="10,295,0,0" x:Name="label1" VerticalAlignment="Top" />
+                <Label Content="{DynamicResource tsc_status_door_alarm}" Height="28" HorizontalAlignment="Left" Margin="10,295,0,0" x:Name="label1" VerticalAlignment="Top" />
                 <TextBox DataObject.Pasting="txtHighHumidity_Pasting"  PreviewKeyDown="txtHighHumidity_PreviewKeyDown"  InputMethod.IsInputMethodEnabled="False" PreviewTextInput="txtHighHumidity_PreviewTextInput" Height="23" HorizontalAlignment="Left" Margin="109,295,0,0" x:Name="txtDoorCheck" VerticalAlignment="Top" Width="68" />
             </Grid>
         </GroupBox>
@@ -81,32 +81,32 @@
                 <Button Command="{Binding BuildSNCommand}" Content="生成序号" Height="30" HorizontalAlignment="Left" Margin="103,49,0,0" x:Name="btnBuildSN" VerticalAlignment="Top" Width="75" />
             </Grid>
         </GroupBox>
-        <GroupBox Header="信号机灯泡检测开关" Height="160" HorizontalAlignment="Left" Margin="204,4,0,0" x:Name="groupBox1" VerticalAlignment="Top" Width="200">
+        <GroupBox Header="{DynamicResource tsc_config_lamp_check_btn}" Height="160" HorizontalAlignment="Left" Margin="204,4,0,0" x:Name="groupBox1" VerticalAlignment="Top" Width="200">
             <Grid>
-                <RadioButton Content="开启" Height="16" HorizontalAlignment="Left" Margin="13,32,0,0" x:Name="rbnLampCheckOpen" VerticalAlignment="Top"  GroupName="GrbLampCheck" Checked="rbnLampCheckOpen_Checked" />
-                <RadioButton Content="关闭" Height="16" HorizontalAlignment="Left" Margin="93,32,0,0" x:Name="rbnLampCheckClose" VerticalAlignment="Top" GroupName="GrbLampCheck" Checked="rbnLampCheckClose_Checked" />
-                <Button x:Name="btnLampCheckSave" Content="保存" HorizontalAlignment="Left" Margin="112,92,0,0" VerticalAlignment="Top" Width="55" Click="btnLampCheckSave_Click"/>
-                <Button x:Name="btnLampCheck" Content="读取" HorizontalAlignment="Left" Margin="52,92,0,0" VerticalAlignment="Top" Width="55" Click="btnLampCheck_Click"/>
+                <RadioButton Content="{DynamicResource tsc_config_lamp_check_open}" Height="16" HorizontalAlignment="Left" Margin="13,32,0,0" x:Name="rbnLampCheckOpen" VerticalAlignment="Top"  GroupName="GrbLampCheck" Checked="rbnLampCheckOpen_Checked" />
+                <RadioButton Content="{DynamicResource tsc_config_lamp_check_close}" Height="16" HorizontalAlignment="Left" Margin="93,32,0,0" x:Name="rbnLampCheckClose" VerticalAlignment="Top" GroupName="GrbLampCheck" Checked="rbnLampCheckClose_Checked" />
+                <Button x:Name="btnLampCheckSave" Content="{DynamicResource tsc_time_save}" HorizontalAlignment="Left" Margin="112,92,0,0" VerticalAlignment="Top" Width="55" Click="btnLampCheckSave_Click"/>
+                <Button x:Name="btnLampCheck" Content="{DynamicResource tsc_time_read}" HorizontalAlignment="Left" Margin="52,92,0,0" VerticalAlignment="Top" Width="55" Click="btnLampCheck_Click"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="倒计时(RS485)" HorizontalAlignment="Left" Margin="208,221,0,0" VerticalAlignment="Top" Height="179" Width="194">
+        <GroupBox Header="{DynamicResource tsc_config_countdown}" HorizontalAlignment="Left" Margin="208,221,0,0" VerticalAlignment="Top" Height="179" Width="194">
             <Grid>
-                <Button x:Name="btnCountDown" Content="保存" HorizontalAlignment="Left" Height="27" Margin="97,120,0,0" VerticalAlignment="Top" Width="75" Click="btnCountDown_Click"/>
-                <CheckBox Content="开启倒计时功能" Height="16" HorizontalAlignment="Left" Margin="31,20,0,0" VerticalAlignment="Top" x:Name="cbxCountDown" Checked="cbxCountDown_Checked"  Unchecked="cbxCountDown_Unchecked"/>
-                <RadioButton Content="8秒停止倒计时" Height="16" HorizontalAlignment="Left" Margin="55,70,0,0" x:Name="rbnPauseCountDown" VerticalAlignment="Top" IsEnabled="False" />
-                <RadioButton Content="正常倒计时" Height="16" HorizontalAlignment="Left" Margin="56,97,0,0" x:Name="rbnNormalCountDown" VerticalAlignment="Top" IsEnabled="False" />
-                <RadioButton Content="15秒起倒计时" Height="16" HorizontalAlignment="Left" Margin="55,44,0,0" x:Name="rbn15CountDown" VerticalAlignment="Top" IsEnabled="False" IsChecked="True" />
+                <Button x:Name="btnCountDown" Content="{DynamicResource tsc_time_save}" HorizontalAlignment="Left" Height="27" Margin="97,120,0,0" VerticalAlignment="Top" Width="75" Click="btnCountDown_Click"/>
+                <CheckBox Content="{DynamicResource tsc_config_countdown_open}" Height="16" HorizontalAlignment="Left" Margin="31,20,0,0" VerticalAlignment="Top" x:Name="cbxCountDown" Checked="cbxCountDown_Checked"  Unchecked="cbxCountDown_Unchecked"/>
+                <RadioButton Content="{DynamicResource tsc_config_countdown_8}" Height="16" HorizontalAlignment="Left" Margin="55,70,0,0" x:Name="rbnPauseCountDown" VerticalAlignment="Top" IsEnabled="False" />
+                <RadioButton Content="{DynamicResource tsc_config_countdown_normal}" Height="16" HorizontalAlignment="Left" Margin="56,97,0,0" x:Name="rbnNormalCountDown" VerticalAlignment="Top" IsEnabled="False" />
+                <RadioButton Content="{DynamicResource tsc_config_countdown_15}" Height="16" HorizontalAlignment="Left" Margin="55,44,0,0" x:Name="rbn15CountDown" VerticalAlignment="Top" IsEnabled="False" IsChecked="True" />
             </Grid>
         </GroupBox>
-        <GroupBox Header="特殊功能" HorizontalAlignment="Left" Margin="410,3,0,0" VerticalAlignment="Top" Height="675" Width="468">
+        <GroupBox Header="{DynamicResource tsc_config_special}" HorizontalAlignment="Left" Margin="410,3,0,0" VerticalAlignment="Top" Height="675" Width="468">
             <DataGrid>
                 
             </DataGrid>
         </GroupBox>
-        <GroupBox Header="校时" HorizontalAlignment="Left" Margin="208,405,0,0" VerticalAlignment="Top" Height="185" Width="194">
+        <GroupBox Header="{DynamicResource tsc_config_timing}" HorizontalAlignment="Left" Margin="208,405,0,0" VerticalAlignment="Top" Height="185" Width="194">
             <Grid>
                 <xctk:DateTimePicker x:Name="dtpTiming" HorizontalAlignment="Left" Height="25" Margin="0,31,0,0" VerticalAlignment="Top" Width="182" Loaded="dtpTiming_Loaded"/>
-                <Button x:Name="btnTiming" Content="发送校时" HorizontalAlignment="Left" Height="29" Margin="97,97,0,0" VerticalAlignment="Top" Width="75" Click="btnTiming_Click"/>
+                <Button x:Name="btnTiming" Content="{DynamicResource tsc_config_timing_send}" HorizontalAlignment="Left" Height="29" Margin="97,97,0,0" VerticalAlignment="Top" Width="75" Click="btnTiming_Click"/>
             </Grid>
         </GroupBox>
 

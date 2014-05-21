@@ -25,9 +25,9 @@
         <DataGrid ColumnWidth="90" HorizontalAlignment="Left" AlternationCount="2" AutoGenerateColumns="False" x:Name="scheduleDataGrid" VerticalAlignment="Top" Height="536" Width="870" Margin="10,10,0,0">
             <DataGrid.Columns>
 
-                <DataGridTextColumn Header="时段序号" Binding="{Binding ucEventId}"/>
+                <DataGridTextColumn Header="{DynamicResource tsc_schedule_id}" Binding="{Binding ucEventId}"/>
 
-                <DataGridTemplateColumn Header="时间">
+                <DataGridTemplateColumn Header="{DynamicResource tsc_schedule_time}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -49,17 +49,17 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellEditingTemplate>
                 </DataGridTemplateColumn>
-                <DataGridComboBoxColumn x:Name="cbxucCtrl" Header="控制方式" IsReadOnly="False" SelectedValueBinding="{Binding ucCtrl}" SelectedValuePath="value" DisplayMemberPath="name"/>
-                <DataGridComboBoxColumn x:Name="ucTimePatternId" Header="配时方案" SelectedValueBinding="{Binding ucTimePatternId}"  SelectedValuePath="ucPatternId" DisplayMemberPath="ucPatternId"/>
+                <DataGridComboBoxColumn x:Name="cbxucCtrl" Header="{DynamicResource tsc_schedule_control_mode}" IsReadOnly="False" SelectedValueBinding="{Binding ucCtrl}" SelectedValuePath="value" DisplayMemberPath="name"/>
+                <DataGridComboBoxColumn x:Name="ucTimePatternId" Header="{DynamicResource tsc_schedule_partten_sheme}" SelectedValueBinding="{Binding ucTimePatternId}"  SelectedValuePath="ucPatternId" DisplayMemberPath="ucPatternId"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="保存" HorizontalAlignment="Left" Margin="682,571,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="重新加载" HorizontalAlignment="Left" Margin="578,571,0,0" VerticalAlignment="Top" Width="75"/>
-        <GroupBox Header="时段选择" HorizontalAlignment="Left" Margin="10,-47,0,0" VerticalAlignment="Top" Height="52" Width="870">
+        <Button Content="{DynamicResource tsc_time_save}" HorizontalAlignment="Left" Margin="682,571,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="{DynamicResource tsc_time_read}" HorizontalAlignment="Left" Margin="578,571,0,0" VerticalAlignment="Top" Width="75"/>
+        <GroupBox Header="{DynamicResource tsc_schedule_title}" HorizontalAlignment="Left" Margin="10,-47,0,0" VerticalAlignment="Top" Height="52" Width="870">
             <Grid>
                 <Slider HorizontalAlignment="Left" x:Name="sldScheduleId" Margin="4,4,0,0" Value="1" SmallChange="1" Minimum="1" Maximum="16"  IsSnapToTickEnabled="True" VerticalAlignment="Top" Width="749" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight" ValueChanged="sldScheduleId_ValueChanged"/>
                 <TextBlock x:Name="tbkScheduleId" HorizontalAlignment="Left" Margin="754,6,0,0" TextWrapping="Wrap" Text="{Binding ElementName=sldScheduleId,Path=Value}" VerticalAlignment="Top" Width="25" Background="{DynamicResource ZuneColor1Brush}" MouseDown="tbkScheduleId_MouseDown"/>
-                <Button Content="保存" HorizontalAlignment="Left" Margin="783,4,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                <Button Content="{DynamicResource tsc_time_save}" HorizontalAlignment="Left" Margin="783,4,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
             </Grid>
         </GroupBox>
     </Grid>

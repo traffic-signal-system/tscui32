@@ -82,6 +82,8 @@ namespace tscui.Pages.Schedules
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             if (t == null)
+                return;
+            if (t == null)
             {
                 return;
             }
@@ -89,32 +91,45 @@ namespace tscui.Pages.Schedules
             //scheduleDataGrid.ItemsSource = ls;
             initSldScheduleId(ls);      //
             // t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            string selfcontrol = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_self_control"];
+            string off = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_off"];
+            string flashing = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_flashing"];
+            string allred = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_allred"];
+            string reaction = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_reaction"];
+            string one = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_self_one"];
+            string maincoordination = (string)App.Current.Resources.MergedDictionaries[3]["dic_maincoordination"];
+            string system = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_system"];
+            string manual = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_manual"];
             List<ScheduleCtrl> lsc = new List<ScheduleCtrl>();
-            lsc.Add(new ScheduleCtrl() { name = "自主控制", value = (byte)0 });
-            lsc.Add(new ScheduleCtrl() { name = "关灯", value = (byte)1 });
-            lsc.Add(new ScheduleCtrl() { name = "闪光", value = 2 });
-            lsc.Add(new ScheduleCtrl() { name = "全红", value = 3 });
-            lsc.Add(new ScheduleCtrl() { name = "感应", value = 6 });
-            lsc.Add(new ScheduleCtrl() { name = "单点优化", value = 8 });
-            lsc.Add(new ScheduleCtrl() { name = "主从线控", value = 11 });
-            lsc.Add(new ScheduleCtrl() { name = "系统优化", value = 12 });
-            lsc.Add(new ScheduleCtrl() { name = "干预控制", value = 13 });
+            lsc.Add(new ScheduleCtrl() { name = selfcontrol, value = (byte)0 });
+            lsc.Add(new ScheduleCtrl() { name = off, value = (byte)1 });
+            lsc.Add(new ScheduleCtrl() { name = flashing, value = 2 });
+            lsc.Add(new ScheduleCtrl() { name = allred, value = 3 });
+            lsc.Add(new ScheduleCtrl() { name = reaction, value = 6 });
+            lsc.Add(new ScheduleCtrl() { name = one, value = 8 });
+            lsc.Add(new ScheduleCtrl() { name = maincoordination, value = 11 });
+            lsc.Add(new ScheduleCtrl() { name = system, value = 12 });
+            lsc.Add(new ScheduleCtrl() { name = manual, value = 13 });
             cbxucCtrl.ItemsSource = lsc;
 
             List<Pattern> lp = t.ListPattern;
             ucTimePatternId.ItemsSource = lp;
-
+            string hd = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_hd_control"];
+            string nofun = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_no_fun"];
+            string nospecial = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_no_special"];
             List<ScheduleAuxOut> lsao = new List<ScheduleAuxOut>();
-            lsao.Add(new ScheduleAuxOut() { name = "辉度控制", value = 8 });
-            lsao.Add(new ScheduleAuxOut() { name = "无功能", value = 0 });
+            lsao.Add(new ScheduleAuxOut() { name = hd, value = 8 });
+            lsao.Add(new ScheduleAuxOut() { name = nofun, value = 0 });
 
             List<ScheduleSpecialOut> lsso = new List<ScheduleSpecialOut>();
-            lsso.Add(new ScheduleSpecialOut() { name = "无特殊功能", value = 0 });
+            lsso.Add(new ScheduleSpecialOut() { name = nospecial, value = 0 });
             
         }
         private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if(t == null)
             {
                 return;
@@ -125,6 +140,8 @@ namespace tscui.Pages.Schedules
         private void tbkScheduleId_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Schedule> ls = t.ListSchedule;
             
         }
@@ -132,11 +149,15 @@ namespace tscui.Pages.Schedules
         private void sldScheduleId_ValueChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<double> e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             scheduleDataGrid.ItemsSource = initSchedule2DataGrid(t.ListSchedule);
         }
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             TscDataUtils.SetSchedule(t.ListSchedule);
         }
 
@@ -154,6 +175,8 @@ namespace tscui.Pages.Schedules
 
         private void SaveSchedule(object state)
         {
+            if (t == null)
+                return;
             TscDataUtils.SetSchedule(t.ListSchedule);
         }
     }

@@ -23,10 +23,10 @@
     <Grid>
         <DataGrid x:Name="dgdVariableSign" AutoGenerateColumns="False" HorizontalAlignment="Left" VerticalAlignment="Top" Height="600" Width="800">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="编号" Width="80" Binding="{Binding ucId}"/>
-                <DataGridTextColumn Header="控制方式" Width="80" Binding="{Binding ucCtrl}"/>
-                <DataGridTextColumn Header="方案号" Width="80" Binding="{Binding ucSchemeId}"/>
-                <DataGridTextColumn Header="编号" Width="80" Binding="{Binding ucOption}"/>
+                <DataGridTextColumn Header="{DynamicResource tsc_variablesign_id}" Width="80" Binding="{Binding ucId}"/>
+                <DataGridTextColumn Header="{DynamicResource tsc_variablesign_control}" Width="80" Binding="{Binding ucCtrl}"/>
+                <DataGridTextColumn Header="{DynamicResource tsc_variablesign_scheme}" Width="80" Binding="{Binding ucSchemeId}"/>
+                <DataGridTextColumn Header="{DynamicResource tsc_variablesign_option}" Width="80" Binding="{Binding ucOption}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

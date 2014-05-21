@@ -36,6 +36,7 @@ namespace tscui
         {
             //  Set the title.
             Title = "tscui";
+            
             RuntasticHeartRate rhr = new RuntasticHeartRate();
             rhr.RunHeartRate();
             //  Create the pages.
@@ -51,15 +52,15 @@ namespace tscui
             var homeViewModel = new PageViewModel()
             {
                 IsSelected = true,
-                Title = "主页"
+                Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_main"]
             };
-
+            
             //  Add home pages.
             homeViewModel.Pages.Add(new ApexViewModel() { IsSelected = true });
             
 
             //  Create the 'collection' section.
-            var signalViewModel = new PageViewModel() { Title = "信号" };
+            var signalViewModel = new PageViewModel() { Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_sign"] };
 
             //  Add the collection pages.
             signalViewModel.Pages.Add(new PhaseViewModel() { IsSelected = true });
@@ -70,7 +71,7 @@ namespace tscui
             signalViewModel.Pages.Add(new DetectorAdvancedViewModel());
 
             //  Create the 'collection' section.
-            var timeViewModel = new PageViewModel() { Title = "时基" };
+            var timeViewModel = new PageViewModel() { Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_basetime"] };
 
             //  Add the collection pages.
             timeViewModel.Pages.Add(new BaseTimeViewModel() { IsSelected = true });
@@ -79,7 +80,7 @@ namespace tscui
             timeViewModel.Pages.Add(new ScheduleViewModel());
 
             //  Create the 'collection' section.
-            var peripheralViewModel = new PageViewModel() { Title = "外设" };
+            var peripheralViewModel = new PageViewModel() { Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_otherdevice"] };
 
             //  Add the collection pages.
             peripheralViewModel.Pages.Add(new CountDownViewModel() { IsSelected = true });
@@ -89,7 +90,7 @@ namespace tscui
 
 
             //系统配置相关
-            var systemViewModel = new PageViewModel() { Title = "系统" };
+            var systemViewModel = new PageViewModel() { Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_system"] };
             systemViewModel.Pages.Add(new ModuleViewModel());
             systemViewModel.Pages.Add(new LogsViewModel());
             systemViewModel.Pages.Add(new ConfigViewModel() { IsSelected = true });

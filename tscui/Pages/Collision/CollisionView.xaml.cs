@@ -525,6 +525,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach(PhaseToDirec ptd in lptd)
@@ -549,13 +551,15 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
         private void southStraight_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -580,7 +584,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -588,6 +592,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -612,7 +618,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -620,6 +626,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -644,14 +652,29 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
-
+        private void showMessagebox(int i)
+        {
+            switch (i)
+            {
+                case 1:
+                    MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_collision_selected_stage"]);
+                    break;
+                case 2:
+                    MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_collision_selected_phase"]);
+                    break;
+                default:
+                    break;
+            }
+        }
         private void northLeft_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -676,7 +699,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -684,6 +707,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -708,7 +733,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -716,6 +741,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -740,7 +767,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -748,6 +775,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -772,7 +801,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -780,6 +809,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -804,7 +835,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -812,6 +843,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -836,7 +869,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -844,6 +877,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -868,7 +903,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -876,6 +911,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -900,7 +937,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -908,6 +945,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -932,7 +971,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -940,6 +979,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -964,7 +1005,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -972,6 +1013,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -996,7 +1039,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -1004,6 +1047,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -1028,7 +1073,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -1036,6 +1081,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -1060,7 +1107,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -1068,6 +1115,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -1092,7 +1141,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -1100,6 +1149,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -1124,7 +1175,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -1132,6 +1183,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -1156,7 +1209,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -1164,6 +1217,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -1188,7 +1243,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -1196,6 +1251,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -1220,7 +1277,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -1228,6 +1285,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -1252,7 +1311,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -1260,6 +1319,8 @@ namespace tscui.Pages.Collision
         {
             if (currentCollision != null)
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<tscui.Models.Collision> lc = t.ListCollision;
                 foreach (PhaseToDirec ptd in lptd)
@@ -1284,7 +1345,7 @@ namespace tscui.Pages.Collision
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                showMessagebox(1);
             }
         }
 
@@ -1292,9 +1353,12 @@ namespace tscui.Pages.Collision
         {
             if(currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
+                
                 return;
-            }
+            } 
+            if (t == null)
+                return;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             List<tscui.Models.Collision> lc = t.ListCollision;
             foreach (PhaseToDirec ptd in lptd)
@@ -1319,9 +1383,11 @@ namespace tscui.Pages.Collision
 
         private void westPedestrain1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1348,9 +1414,11 @@ namespace tscui.Pages.Collision
 
         private void westPedestrain2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1377,9 +1445,11 @@ namespace tscui.Pages.Collision
 
         private void eastPedestrain1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1406,9 +1476,11 @@ namespace tscui.Pages.Collision
 
         private void eastPedestrain2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1435,9 +1507,11 @@ namespace tscui.Pages.Collision
 
         private void southPedestrain2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1464,9 +1538,11 @@ namespace tscui.Pages.Collision
 
         private void northPedestrain1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1493,9 +1569,11 @@ namespace tscui.Pages.Collision
 
         private void northPedestrain2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1522,10 +1600,11 @@ namespace tscui.Pages.Collision
 
         private void eastOther_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1552,10 +1631,12 @@ namespace tscui.Pages.Collision
 
         private void eastRight_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
                 
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1582,10 +1663,12 @@ namespace tscui.Pages.Collision
 
         private void eastStraight_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
                 
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1612,10 +1695,12 @@ namespace tscui.Pages.Collision
 
         private void eastLeft_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
                
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1642,9 +1727,11 @@ namespace tscui.Pages.Collision
 
         private void westLeft_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1671,9 +1758,11 @@ namespace tscui.Pages.Collision
 
         private void westStraight_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1700,9 +1789,11 @@ namespace tscui.Pages.Collision
 
         private void westRight_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1729,9 +1820,11 @@ namespace tscui.Pages.Collision
 
         private void westOther_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1758,9 +1851,11 @@ namespace tscui.Pages.Collision
 
         private void northOther_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1787,9 +1882,11 @@ namespace tscui.Pages.Collision
 
         private void northRight_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1816,9 +1913,11 @@ namespace tscui.Pages.Collision
 
         private void northStraight_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1845,9 +1944,11 @@ namespace tscui.Pages.Collision
 
         private void northLeft_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1874,11 +1975,12 @@ namespace tscui.Pages.Collision
 
         private void southLeft_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
                
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1905,10 +2007,12 @@ namespace tscui.Pages.Collision
 
         private void southStraight_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
                 
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1935,10 +2039,12 @@ namespace tscui.Pages.Collision
 
         private void southRight_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
                 
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -1965,10 +2071,12 @@ namespace tscui.Pages.Collision
 
         private void southOther_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             if (currentCollision == null)
             {
                 
-                MessageBox.Show("请选择一个冲突相位，以便进行设置！");
+                showMessagebox(2);
                 return;
             }
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
@@ -2059,7 +2167,7 @@ namespace tscui.Pages.Collision
         {
             if (t == null)
             {
-                MessageBox.Show("请你选择相应信号机，以便更新数据");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_basetime_selected_tsc"]);
             }
             TscDataUtils.SetCollision(t.ListCollision);
         }
@@ -2109,6 +2217,8 @@ namespace tscui.Pages.Collision
         /// </summary>
         private void initDirecBigAndSmall()
         {
+            if (t == null)
+                return;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (PhaseToDirec ptd in lptd)
             {
@@ -3490,6 +3600,8 @@ namespace tscui.Pages.Collision
         private void SaveCollision(object state)
         {
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             TscDataUtils.SetCollision(t.ListCollision);
         }
     }

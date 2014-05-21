@@ -40,8 +40,9 @@ namespace tscui.Pages.Degradation
         {
             try
             {
-
                 tscui.Pages.Apex.ApexView.TscInfo ti = (tscui.Pages.Apex.ApexView.TscInfo)Application.Current.Properties[Define.TSC_INFO];
+                if (ti == null)
+                    return;
                 int cbi = cbxDegradationModel.SelectedIndex;
                 //
                 int selectedItem = (int)cbxDegradationModel.SelectedValue;
@@ -88,17 +89,27 @@ namespace tscui.Pages.Degradation
         }
         public void InitDegradation()
         {
+            string soff = (string)App.Current.Resources.MergedDictionaries[3]["dic_degradation_off"];
+            string flashing = (string)App.Current.Resources.MergedDictionaries[3]["dic_degradation_flashing"];
+            string allred = (string)App.Current.Resources.MergedDictionaries[3]["dic_degradation_allred"];
+            string schedule = (string)App.Current.Resources.MergedDictionaries[3]["dic_degradation_schedule"];
+            string reaction = (string)App.Current.Resources.MergedDictionaries[3]["dic_degradation_reaction"];
+            string coordination = (string)App.Current.Resources.MergedDictionaries[3]["dic_degradation_main_coordination"];
+            string self = (string)App.Current.Resources.MergedDictionaries[3]["dic_degradation_self"];
+            string manual = (string)App.Current.Resources.MergedDictionaries[3]["dic_degradation_manual"];
+            string online = (string)App.Current.Resources.MergedDictionaries[3]["dic_degradation_online"];
+            string line = (string)App.Current.Resources.MergedDictionaries[3]["dic_degradation_line"];
             Dictionary<int, string> mydic = new Dictionary<int, string>() { 
-            {1,"关灯"},
-            {2,"闪光"},
-            {3,"全红"},
-            {5,"本地多时段"},
-            {6,"感应"},
-            {11,"主从线控"},
-            {8,"单点优化"},
-            {10,"手动控制"},
-            {12,"系统优化"},
-            {13,"干预线控"}
+            {1,soff},
+            {2,flashing},
+            {3,allred},
+            {5,schedule},
+            {6,reaction},
+            {11,coordination},
+            {8,self},
+            {10,manual},
+            {12,online},
+            {13,line}
             
             };
             cbxDegradationModel.ItemsSource = mydic;
@@ -147,13 +158,15 @@ namespace tscui.Pages.Degradation
         private void cbxDegradationBaseSchedule_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
            td = (TscData)Application.Current.Properties[Define.TSC_DATA];
+           if (td == null)
+               return;
            List<Pattern> ltp = td.ListPattern;
             foreach (Pattern tp in ltp)
             {
                 int i =tp.ucPatternId;
                 if (i == (int)cbxDegradationBaseSchedule.SelectedValue)
                 {
-                    lblCycle.Content = tp.ucCycleTime+"秒";
+                    lblCycle.Content = tp.ucCycleTime;
                     List<StagePattern> lsp = td.ListStagePattern;
                     int countSP = 0;
                     foreach (StagePattern sp in lsp)
@@ -163,7 +176,7 @@ namespace tscui.Pages.Degradation
                             countSP++;
                         }
                     }
-                    lblStage.Content = countSP+"个";
+                    lblStage.Content = countSP;
                 }
             }
         }

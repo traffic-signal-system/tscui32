@@ -21,7 +21,7 @@ namespace tscui.Pages.Schedules
             //  TODO: Use the following snippets to help build viewmodels:
             //      apexnp - Creates a Notifying Property
             //      apexc - Creates a Command.
-            Title = "时段表";
+            Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_schedule"];
         }
 
 

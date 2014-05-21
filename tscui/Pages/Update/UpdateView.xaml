@@ -16,27 +16,27 @@
     </UserControl.DataContext>
     <apexControls:ApexGrid Background="{DynamicResource PopupBackgroundBrush}" >
         <Button x:Name="btnBakLocal" Content="备份到本机" HorizontalAlignment="Left" Margin="698,249,0,0" VerticalAlignment="Top" Width="75" Click="btnBakLocal_Click" Visibility="Hidden"/>
-        <GroupBox Header="升级信号机程序" HorizontalAlignment="Left" VerticalAlignment="Top" Height="141" Width="800">
+        <GroupBox Header="{DynamicResource tsc_update_title}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="141" Width="800">
             <Grid>
-                <Label Content="文件选择：" HorizontalAlignment="Left" Margin="22,19,0,0" VerticalAlignment="Top"/>
-                <Button Content="选择" HorizontalAlignment="Left" Margin="719,23,0,0" VerticalAlignment="Top" Width="45" Click="Button_Click"/>
-                <TextBox x:Name="tbxFileName" HorizontalAlignment="Left" Height="23" Margin="101,22,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="625" MouseDown="TextBox_MouseDown" MouseLeftButtonDown="TextBox_MouseLeftButtonDown"/>
-                <Button Content="升级程序" HorizontalAlignment="Left" Margin="689,74,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+                <Label Content="{DynamicResource tsc_update_selected_file}" HorizontalAlignment="Left" Margin="22,19,0,0" VerticalAlignment="Top"/>
+                <Button Content="{DynamicResource tsc_update_file_button}" HorizontalAlignment="Left" Margin="719,23,0,0" VerticalAlignment="Top" Width="45" Click="Button_Click"/>
+                <TextBox x:Name="tbxFileName" HorizontalAlignment="Left" Height="23" Margin="112,22,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="614" MouseDown="TextBox_MouseDown" MouseLeftButtonDown="TextBox_MouseLeftButtonDown"/>
+                <Button Content="{DynamicResource tsc_update_tsc_button}" HorizontalAlignment="Left" Margin="689,74,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="信号机程序升级失败后恢复" HorizontalAlignment="Left" Margin="0,146,0,0" VerticalAlignment="Top" Height="98" Width="800">
+        <GroupBox Header="{DynamicResource tsc_update_failed_and_reset}" HorizontalAlignment="Left" Margin="0,146,0,0" VerticalAlignment="Top" Height="98" Width="800">
             <Grid>
-                <Button Content="失败恢复" HorizontalAlignment="Left" Margin="683,25,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-                <TextBox x:Name="tbxIPAddr" HorizontalAlignment="Left" Height="23" Margin="317,27,0,0" TextWrapping="Wrap" Text="192.168.0.51" VerticalAlignment="Top" Width="120"/>
-                <Label Content="升级失败后系统无法正常运行，请输入IP地址：" HorizontalAlignment="Left" Margin="16,25,0,0" VerticalAlignment="Top" Width="276"/>
+                <Button Content="{DynamicResource tsc_update_reset_button}" HorizontalAlignment="Left" Margin="683,25,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+                <TextBox x:Name="tbxIPAddr" HorizontalAlignment="Left" Height="23" Margin="441,28,0,0" TextWrapping="Wrap" Text="192.168.0.51" VerticalAlignment="Top" Width="120"/>
+                <Label Content="{DynamicResource tsc_update_reset_message}" HorizontalAlignment="Left" Margin="16,25,0,0" VerticalAlignment="Top" Width="420"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="恢复配置数据" HorizontalAlignment="Left" Margin="0,249,0,0" VerticalAlignment="Top" Height="154" Width="800">
+        <GroupBox Header="{DynamicResource tsc_update_database_title}" HorizontalAlignment="Left" Margin="0,249,0,0" VerticalAlignment="Top" Height="154" Width="800">
             <Grid>
-                <Label Content="文件选择：" HorizontalAlignment="Left" Margin="25,31,0,0" VerticalAlignment="Top"/>
+                <Label Content="{DynamicResource tsc_update_database_file_title}" HorizontalAlignment="Left" Margin="25,31,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="tbxDatabase" HorizontalAlignment="Left" Height="23" Margin="109,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="624"/>
-                <Button x:Name="btnDatabaseSelected" Content="选择" HorizontalAlignment="Left" Margin="706,31,0,0" VerticalAlignment="Top" Width="55" Click="btnDatabaseSelected_Click"/>
-                <Button x:Name="btnUpdateDatabase" Content="上传配置" HorizontalAlignment="Left" Margin="686,86,0,0" VerticalAlignment="Top" Width="75" Click="btnUpdateDatabase_Click"/>
+                <Button x:Name="btnDatabaseSelected" Content="{DynamicResource tsc_update_database_file_button}" HorizontalAlignment="Left" Margin="706,31,0,0" VerticalAlignment="Top" Width="55" Click="btnDatabaseSelected_Click"/>
+                <Button x:Name="btnUpdateDatabase" Content="{DynamicResource tsc_update_database_button}" HorizontalAlignment="Left" Margin="686,86,0,0" VerticalAlignment="Top" Width="75" Click="btnUpdateDatabase_Click"/>
             </Grid>
         </GroupBox>
     </apexControls:ApexGrid>

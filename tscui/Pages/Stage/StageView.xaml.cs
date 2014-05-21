@@ -113,6 +113,8 @@ namespace tscui.Pages.Stage
         private void smallMap4Form(StageItem currentStage)
         {
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<Pattern> lp = t.ListPattern;
 
@@ -272,12 +274,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.southLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
             southLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -443,6 +447,8 @@ namespace tscui.Pages.Stage
                 southLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -463,7 +469,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
         //public Message SaveToListStage(int phaseid)
@@ -495,6 +501,8 @@ namespace tscui.Pages.Stage
                 currentStage.southStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 southStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -513,7 +521,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -524,6 +532,8 @@ namespace tscui.Pages.Stage
                 currentStage.southRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 southRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -542,7 +552,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -553,6 +563,8 @@ namespace tscui.Pages.Stage
                 currentStage.southOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 southOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -571,7 +583,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -582,6 +594,8 @@ namespace tscui.Pages.Stage
                 currentStage.northPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 northPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -600,7 +614,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -611,6 +625,8 @@ namespace tscui.Pages.Stage
                 currentStage.northPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 northPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -629,7 +645,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -640,6 +656,8 @@ namespace tscui.Pages.Stage
                 currentStage.eastOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 eastOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -658,7 +676,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -669,6 +687,8 @@ namespace tscui.Pages.Stage
                 currentStage.eastRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 eastRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -687,7 +707,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -698,6 +718,8 @@ namespace tscui.Pages.Stage
                 currentStage.eastStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 eastStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -716,7 +738,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -727,6 +749,8 @@ namespace tscui.Pages.Stage
                 currentStage.eastLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 eastLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -745,7 +769,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -756,6 +780,8 @@ namespace tscui.Pages.Stage
                 currentStage.westPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 westPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -774,7 +800,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -785,6 +811,8 @@ namespace tscui.Pages.Stage
                 currentStage.westPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 westPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -803,7 +831,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -814,6 +842,8 @@ namespace tscui.Pages.Stage
                 currentStage.eastPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 eastPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -832,7 +862,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -843,6 +873,8 @@ namespace tscui.Pages.Stage
                 currentStage.eastPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 eastPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -861,7 +893,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -872,6 +904,8 @@ namespace tscui.Pages.Stage
                 currentStage.westLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 westLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -890,7 +924,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -901,6 +935,8 @@ namespace tscui.Pages.Stage
                 currentStage.westStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 westStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -919,7 +955,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -930,6 +966,8 @@ namespace tscui.Pages.Stage
                 currentStage.westRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 westRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -948,7 +986,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -959,6 +997,8 @@ namespace tscui.Pages.Stage
                 currentStage.westOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 westOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -977,7 +1017,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -988,6 +1028,8 @@ namespace tscui.Pages.Stage
                 currentStage.southPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 southPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -1006,7 +1048,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1017,6 +1059,8 @@ namespace tscui.Pages.Stage
                 currentStage.southPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 southPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -1035,7 +1079,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1046,6 +1090,8 @@ namespace tscui.Pages.Stage
                 currentStage.northOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 northOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -1064,7 +1110,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1075,6 +1121,8 @@ namespace tscui.Pages.Stage
                 currentStage.northRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 northRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -1093,7 +1141,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1104,6 +1152,8 @@ namespace tscui.Pages.Stage
                 currentStage.northStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 northStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -1122,7 +1172,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1133,6 +1183,8 @@ namespace tscui.Pages.Stage
                 currentStage.northLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 northLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -1151,7 +1203,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1162,6 +1214,8 @@ namespace tscui.Pages.Stage
                 currentStage.northLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 northLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<StagePattern> lsp = t.ListStagePattern;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 foreach (StagePattern sp in lsp)
@@ -1185,7 +1239,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1196,6 +1250,8 @@ namespace tscui.Pages.Stage
                 currentStage.northStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 northStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<StagePattern> lsp = t.ListStagePattern;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 foreach (StagePattern sp in lsp)
@@ -1219,7 +1275,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1230,6 +1286,8 @@ namespace tscui.Pages.Stage
                 currentStage.northRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 northRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<StagePattern> lsp = t.ListStagePattern;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 foreach (StagePattern sp in lsp)
@@ -1253,7 +1311,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1264,6 +1322,8 @@ namespace tscui.Pages.Stage
                 currentStage.northOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 northOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<StagePattern> lsp = t.ListStagePattern;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 foreach (StagePattern sp in lsp)
@@ -1287,7 +1347,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1298,6 +1358,8 @@ namespace tscui.Pages.Stage
                 currentStage.westPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 westPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<StagePattern> lsp = t.ListStagePattern;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 foreach (StagePattern sp in lsp)
@@ -1321,7 +1383,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1332,6 +1394,8 @@ namespace tscui.Pages.Stage
                 currentStage.westPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 westPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<StagePattern> lsp = t.ListStagePattern;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 foreach (StagePattern sp in lsp)
@@ -1355,7 +1419,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1366,6 +1430,8 @@ namespace tscui.Pages.Stage
                 currentStage.eastPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 eastPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<StagePattern> lsp = t.ListStagePattern;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 foreach (StagePattern sp in lsp)
@@ -1389,7 +1455,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1400,6 +1466,8 @@ namespace tscui.Pages.Stage
                 currentStage.eastPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 eastPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<StagePattern> lsp = t.ListStagePattern;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 foreach (StagePattern sp in lsp)
@@ -1423,7 +1491,7 @@ namespace tscui.Pages.Stage
             }
             else
             {
-                MessageBox.Show("请选择一个阶段，便可以进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
 
@@ -1431,12 +1499,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.southStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
             southStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1463,12 +1533,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.southRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
             southRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1495,12 +1567,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.southOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
             southOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1527,12 +1601,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.northPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             northPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1559,12 +1635,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.northPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             northPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1591,12 +1669,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.eastOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             eastOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1623,12 +1703,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.eastRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             eastRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1655,12 +1737,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.eastStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             eastStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1687,12 +1771,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.eastLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             eastLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1719,12 +1805,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.westLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             westLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1751,12 +1839,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.westStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             westStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1783,12 +1873,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.westRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             westRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1815,12 +1907,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.westOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             westOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1847,12 +1941,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.southPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             southPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -1879,12 +1975,14 @@ namespace tscui.Pages.Stage
         {
             if (currentStage == null)
             {
-                MessageBox.Show("请选择一个阶段，以便取消相位放行！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
                 return;
             }
             currentStage.southPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             southPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach (StagePattern sp in lsp)
@@ -2014,6 +2112,8 @@ namespace tscui.Pages.Stage
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             Message msgPattern = TscDataUtils.SetPattern(t.ListPattern);
             if (!msgPattern.flag)
             {
@@ -2028,7 +2128,8 @@ namespace tscui.Pages.Stage
 
         private void btnRead_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<Pattern> lp = t.ListPattern;
         }
@@ -2117,7 +2218,11 @@ namespace tscui.Pages.Stage
         }
         public void initcbxCoordination()
         {
-            List<PhaseToDirec> lptd = Utils.Utils.GetTscDataByApplicationCurrentProperties().ListPhaseToDirec;
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                return;
+            List<PhaseToDirec> lptd = t.ListPhaseToDirec;
+            
             foreach (PhaseToDirec ptd in lptd)
             {
                 if (ptd.ucPhase != 0)
@@ -2153,6 +2258,8 @@ namespace tscui.Pages.Stage
         private void initBigMapArrow()
         {
             List<PhaseToDirec> lptd = Utils.Utils.GetTscDataByApplicationCurrentProperties().ListPhaseToDirec;
+            if (lptd == null)
+                return;
             foreach (PhaseToDirec ptd in lptd)
             {
                 if (ptd.ucPhase == 0 && ptd.ucId == Define.NORTH_LEFT)
@@ -2328,6 +2435,8 @@ namespace tscui.Pages.Stage
             {
                 hiddenStageAll();
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -2409,6 +2518,8 @@ namespace tscui.Pages.Stage
         {
             try
             {
+                if (t == null)
+                    return;
                 List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
                 List<StagePattern> lsp = t.ListStagePattern;
@@ -3019,6 +3130,7 @@ namespace tscui.Pages.Stage
             //initcbxCoordination();
             //初始化所有数据到界面上
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+
             if (t == null)
             {
                 MessageBox.Show("请选择一台信号机后，切换到此界面！");
@@ -3063,6 +3175,8 @@ namespace tscui.Pages.Stage
         }
         private void clearStageByDeleteStage(TscData t,StageItem si)
         {
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             foreach(StagePattern sp in lsp)
             {
@@ -3085,6 +3199,8 @@ namespace tscui.Pages.Stage
         {
            // MessageBox.Show("del stage");
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (lsi[0] == stage1)
             {
                 lsi.Reverse();
@@ -3190,6 +3306,8 @@ namespace tscui.Pages.Stage
         private void DisplayStageByStagePatternIdChange()
         {
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<StagePattern> lsp = t.ListStagePattern;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             //每次都要把stage清空，再由下面的进行显示 
@@ -3260,15 +3378,17 @@ namespace tscui.Pages.Stage
 
         private void SaveStagePattern(object state)
         {
+            if (t == null)
+                return;
             Message msgPattern = TscDataUtils.SetPattern(t.ListPattern);
             if (!msgPattern.flag)
             {
-                MessageBox.Show("对象：" + msgPattern.obj + "\n内容：" + msgPattern.msg);
+                MessageBox.Show( msgPattern.obj + "\n" + msgPattern.msg);
             }
             Message msgStagePattern = TscDataUtils.SetStagePattern(t.ListStagePattern);
             if (!msgStagePattern.flag)
             {
-                MessageBox.Show("对象：" + msgStagePattern.obj + "\n内容：" + msgStagePattern.msg);
+                MessageBox.Show(msgStagePattern.obj + "\n" + msgStagePattern.msg);
             }
         }
 
@@ -3279,6 +3399,8 @@ namespace tscui.Pages.Stage
               //  Thread.Sleep(500);
                 Slider sld = sender as Slider;
                 t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<StagePattern> lsp = t.ListStagePattern;
                 foreach (StagePattern sp in lsp)
                 {
@@ -3307,6 +3429,8 @@ namespace tscui.Pages.Stage
               //  Thread.Sleep(500);
                 Slider sld = sender as Slider;
                 t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<StagePattern> lsp = t.ListStagePattern;
                 foreach (StagePattern sp in lsp)
                 {
@@ -3335,6 +3459,8 @@ namespace tscui.Pages.Stage
              ///   Thread.Sleep(500);
                Slider sld = sender as Slider;
                 t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
                 List<StagePattern> lsp = t.ListStagePattern;
                 foreach (StagePattern sp in lsp)
                 {

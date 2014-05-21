@@ -19,7 +19,7 @@ namespace tscui.Pages.Degradation
         /// </summary>
         public DegradationViewModel()
         {
-            Title = "联网降级";
+            Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_degradation"]; 
             DegradationCommand = new Command(DoDegradationCommand);
         }
         public Command DegradationCommand { get; private set; }

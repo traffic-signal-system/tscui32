@@ -18,7 +18,7 @@ namespace tscui.Pages.Phase
         /// </summary>
         public PhaseViewModel()
         {
-            Title = "相位";
+            Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_phase"];
             ShowPopupCommandSouthLeft = new Command(DoShowPopupCommandSouthLeft);
             ShowPopupCommandSouthStaight = new Command(DoShowPopupCommandSouthStaight);
             ShowPopupCommandSouthRight = new Command(DoShowPopupCommandSouthRight);

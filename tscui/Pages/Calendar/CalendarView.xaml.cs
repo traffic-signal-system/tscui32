@@ -41,6 +41,7 @@ namespace tscui.Pages.Calendar
             try
             {
                 t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+
                 if (t == null)
                 {
                     return;
@@ -99,6 +100,8 @@ namespace tscui.Pages.Calendar
       
         private void calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (t == null)
+                return;
             SelectedDatesCollection sdc = calendar.SelectedDates;
             List<Plan> lp = t.ListPlan;
             Plan pt = new Plan();
@@ -155,19 +158,24 @@ namespace tscui.Pages.Calendar
 
         private void tbkPlanId_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             Console.WriteLine(lp.ToString());
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            if (t == null)
+                return;
             TscDataUtils.SetPlanByCalendar(t.ListPlan);
 
         }
 
         private void btnRead_Click(object sender, RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             foreach (Plan p in t.ListPlan)
             {
                 Console.WriteLine(p.ucId + " " + p.usMonthFlag + " " + p.ulDayFlag);
@@ -200,6 +208,8 @@ namespace tscui.Pages.Calendar
             
             tbkMessage.Foreground = new SolidColorBrush(Colors.RoyalBlue);
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach(Plan p in lp)
             {
@@ -220,7 +230,11 @@ namespace tscui.Pages.Calendar
                                 }
                             }
                             // str = "月份：【" + i + "】 - 日子：【" + sday + "】";
-                            tbkMessage.Inlines.Add(new Run("编号：【" + p.ucId + "】 " + "月份：【" + i + "】 - 日子：【" + sday + "】" + " 时段：【" + p.ucScheduleId + "】"));
+                            string sid = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_basetime_calendar_Id"];
+                            string smonth = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_basetime_calendar_month"];
+                            string sdays = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_basetime_calendar_day"];
+                            string sschedule = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_basetime_calendar_schedule"];
+                            tbkMessage.Inlines.Add(new Run(sid + "[" + p.ucId + "]" + smonth + "[" + i + "]" + sdays + "[" + sday + "]" + sschedule + "[" + p.ucScheduleId + "]"));
                             tbkMessage.Inlines.Add(new LineBreak());
                         }
                     }
@@ -245,6 +259,8 @@ namespace tscui.Pages.Calendar
 
         private void SavePlanCalendar(object state)
         {
+            if (t == null)
+                return;
             TscDataUtils.SetPlanByCalendar(t.ListPlan);
         }
 

@@ -14,13 +14,11 @@
     
     <!-- Set the view model. -->
     <UserControl.DataContext>
-        <tscui:MainViewModel x:Name="viewModel" />
+        <tscui:MainViewModel x:Name="viewAModel" />
     </UserControl.DataContext>
     
-    <!-- The application host. An application host supports popups and drag and drop. -->
     <apexShells:Shell TextBlock.FontFamily="Segoe UI">        
         <Grid>
-            
             <!-- Top right title panel. -->
             <apexControls:ApexGrid 
                 Rows="*,*" Columns="*,Auto"
@@ -29,7 +27,7 @@
             
                 <!-- The title. -->
                 <TextBlock 
-                    Grid.Row="0" FontWeight="ExtraBlack" FontSize="13" Text="{Binding Title, Converter={StaticResource StringCaseConverter}, ConverterParameter=Upper}"
+                    Grid.Row="0" FontWeight="ExtraBlack" FontSize="13" Text="{Binding Title}"
                     Margin="0,2,4,0"
                     HorizontalAlignment="Right" />
             
@@ -39,8 +37,8 @@
                     Foreground="{StaticResource ZuneDarkGrayBrush}"
                     Margin="0,-2,4,0"
                     HorizontalAlignment="Right">
-                    <Run Text="{Binding Title, Converter={StaticResource StringCaseConverter}, ConverterParameter=Upper}" />
-                    <Run Text="traffic singal control" />
+                    <Run Text="{Binding Title}" />
+                    <Run Text="{DynamicResource tsc_name}" />
                 </TextBlock>
 
                 <!-- The application icon. -->
@@ -83,7 +81,7 @@
                             <DataTemplate>
                                 <TextBlock 
                                     Cursor="Hand"
-                                    Text="{Binding Title, Converter={StaticResource StringCaseConverter}, ConverterParameter=Lower}"
+                                    Text="{Binding Title}"
                                     Style="{StaticResource MenuItemStyle}" 
                                     apexCommands:ExtendedCommands.LeftClickCommand="{Binding ElementName=selectableItemsControl_TopMenu, Path=SelectItemCommand}"
                                     apexCommands:ExtendedCommands.LeftClickCommandParameter="{Binding}">
@@ -108,7 +106,7 @@
                             <DataTemplate>
                                 <TextBlock 
                                     Cursor="Hand"
-                                    Text="{Binding Title, Converter={StaticResource StringCaseConverter}, ConverterParameter=Upper}"
+                                    Text="{Binding Title}"
                                     Style="{StaticResource SubMenuItemStyle}" 
                                     apexCommands:ExtendedCommands.LeftClickCommand="{Binding ElementName=selectableItemsControl_BottomMenu, Path=SelectItemCommand}"
                                     apexCommands:ExtendedCommands.LeftClickCommandParameter="{Binding}">

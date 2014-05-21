@@ -26,8 +26,8 @@ namespace tscui.Pages.BaseTime
             //      apexc - Creates a Command.
 
             //  Create the example command.
-           
-            Title = "按月时基";
+
+            Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_basetime_month"];
         }
        
        

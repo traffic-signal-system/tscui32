@@ -15,7 +15,7 @@ using Apex.MVVM;
 using tscui.ViewModels;
 using Apex.Behaviours;
 
-namespace tscui.Views
+namespace tscui.Pages.Music
 {
     /// <summary>
     /// Interaction logic for MusicView.xaml
@@ -25,7 +25,7 @@ namespace tscui.Views
     {
         public MusicView()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
 
         public void OnActivated()

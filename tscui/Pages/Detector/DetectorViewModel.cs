@@ -21,7 +21,7 @@ namespace tscui.Pages.Detector
             //  TODO: Use the following snippets to help build viewmodels:
             //      apexnp - Creates a Notifying Property
             //      apexc - Creates a Command.
-            Title = "检测器";
+            Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_detector"]; 
             ShowPopupCommandDetector1 = new Command(DoShowPopupCommandDetector1);
             ShowPopupCommandDetector2 = new Command(DoShowPopupCommandDetector2);
             ShowPopupCommandDetector3 = new Command(DoShowPopupCommandDetector3);

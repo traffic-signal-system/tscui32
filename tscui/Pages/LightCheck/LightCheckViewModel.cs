@@ -21,7 +21,7 @@ namespace tscui.Pages.LightCheck
             //  TODO: Use the following snippets to help build viewmodels:
             //      apexnp - Creates a Notifying Property
             //      apexc - Creates a Command.
-            Title = "灯泡检测";
+            Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_lamp_check"]; 
             SaveLightCheck = new Command(DoSaveLightCheck);
             ResetLightCheck = new Command(DoSaveLightCheck);
         }

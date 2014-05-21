@@ -350,6 +350,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Resources\Lang\DefaultLanguage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Content Include="Resources\Lang\zh-CN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Page Include="Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -667,7 +676,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Db\Config.ini" />
-    <Resource Include="traffic_lights.ico" />
     <Resource Include="PerfCenterCpl.ico" />
     <Resource Include="Resources\Images\conflicts.png" />
     <Resource Include="Resources\Images\west_greenlight.png" />

@@ -37,12 +37,14 @@ namespace tscui.Pages.LightCheck
         private void ResetLightCheck()
         {
             TscData td = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (td == null)
+                return;
             List<LampCheck> llc = TscDataUtils.GetLampCheck();
 
             if (llc.Count == 0)
             {
-               // ApexBroker.GetShell().ShowPopup(new FailePopup());
-                MessageBox.Show("无法读取灯泡检测数据！");
+                // ApexBroker.GetShell().ShowPopup(new FailePopup());
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_config_lamp_check_unread"]);
             }
             else
             {
@@ -1379,7 +1381,8 @@ namespace tscui.Pages.LightCheck
             }
             catch (Exception ex)
             {
-                MessageBox.Show("LightCheck: " + ex.ToString());
+               // MessageBox.Show("LightCheck: " + ex.ToString());
+                return;
             }
         }
 

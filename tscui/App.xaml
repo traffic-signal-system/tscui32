@@ -8,6 +8,7 @@
                 <ResourceDictionary Source="/tscui;component/Resources/ResourceDictionaries/ZuneResourceDictionary.xaml" />
                 <ResourceDictionary Source="/tscui;component/Resources/ResourceDictionaries/ZuneListBoxResourceDictionary.xaml" />
                 <ResourceDictionary Source="/tscui;component/Resources/ResourceDictionaries/ZuneScrollBarResourceDictionary.xaml" />
+                <ResourceDictionary Source="/tscui;component/Resources/lang/DefaultLanguage.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -8,7 +8,7 @@ using Apex.MVVM;
 using tscui.Models;
 using tscui.Pages;
 
-namespace tscui.ViewModels
+namespace tscui.Pages.Music
 {
     /// <summary>
     /// The MusicViewModel ViewModel class.

@@ -21,7 +21,7 @@ namespace tscui.Pages.CountDown
             //  TODO: Use the following snippets to help build viewmodels:
             //      apexnp - Creates a Notifying Property
             //      apexc - Creates a Command.
-            Title = "倒计时";
+            Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_countdown"];
         }
 
 

@@ -124,6 +124,8 @@ namespace tscui.Pages.BaseTime
         }
         private void initScheduleId()
         {
+            if (td == null)
+                return;
             List<tscui.Models.Schedule> ls = td.ListSchedule;
             List<byte> li = new List<byte>();
             foreach (Schedule s in ls)
@@ -140,6 +142,8 @@ namespace tscui.Pages.BaseTime
             try
             {
                 td = (TscData)Application.Current.Properties[Define.TSC_DATA];
+                if (td == null)
+                    return;
                 initScheduleId();
                 if (td == null)
                 {
@@ -171,6 +175,8 @@ namespace tscui.Pages.BaseTime
 
         private void lbxPlanId_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             Plan p1 = new Plan();
             foreach(Plan p in lp)
@@ -201,6 +207,8 @@ namespace tscui.Pages.BaseTime
 
         private void lbxPlanId_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (td == null)
+                return;
             byte id = Convert.ToByte(lbxPlanId.SelectedItem);
             List<Plan> lp = td.ListPlan;
             foreach(Plan p in lp) 
@@ -217,6 +225,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxScheduleId_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -229,6 +239,8 @@ namespace tscui.Pages.BaseTime
 
         private void Monday_Checked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -242,6 +254,8 @@ namespace tscui.Pages.BaseTime
 
         private void Monday_Unchecked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -255,6 +269,8 @@ namespace tscui.Pages.BaseTime
 
         private void btnRead_Click(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach(Plan p in lp)
             {
@@ -264,6 +280,8 @@ namespace tscui.Pages.BaseTime
 
         private void Tuesday_Checked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -277,6 +295,8 @@ namespace tscui.Pages.BaseTime
 
         private void Wednesday_Checked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -290,6 +310,8 @@ namespace tscui.Pages.BaseTime
 
         private void Thursday_Checked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -303,6 +325,8 @@ namespace tscui.Pages.BaseTime
 
         private void Friday_Checked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -316,6 +340,8 @@ namespace tscui.Pages.BaseTime
 
         private void Saturday_Checked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -329,6 +355,8 @@ namespace tscui.Pages.BaseTime
 
         private void Sunday_Checked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -342,6 +370,8 @@ namespace tscui.Pages.BaseTime
 
         private void Tuesday_Unchecked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -355,6 +385,8 @@ namespace tscui.Pages.BaseTime
 
         private void Wednesday_Unchecked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -368,6 +400,8 @@ namespace tscui.Pages.BaseTime
 
         private void Thursday_Unchecked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -381,6 +415,8 @@ namespace tscui.Pages.BaseTime
 
         private void Friday_Unchecked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -394,6 +430,8 @@ namespace tscui.Pages.BaseTime
 
         private void Saturday_Unchecked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -407,6 +445,8 @@ namespace tscui.Pages.BaseTime
 
         private void Sunday_Unchecked(object sender, RoutedEventArgs e)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -419,6 +459,8 @@ namespace tscui.Pages.BaseTime
         }
         private void SavePlan()
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -437,6 +479,8 @@ namespace tscui.Pages.BaseTime
         /// <param name="state"></param>
         private void SavePlan(object state)
         {
+            if (td == null)
+                return;
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {

@@ -169,6 +169,10 @@ namespace tscui.Pages.Detector
         public byte GetPhaseIdByDirec(byte direc)
         {
             byte result = new byte();
+            if (t == null)
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return 0;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             foreach(PhaseToDirec ptd in lptd)
             {
@@ -322,6 +326,9 @@ namespace tscui.Pages.Detector
         {
             tscui.Models.Detector d = new Models.Detector();
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
+            if (t == null)
+                return ;
             bool newDetector = true;
             List<Models.Detector> ld = t.ListDetector;
             foreach (Models.Detector det in ld)
@@ -364,6 +371,8 @@ namespace tscui.Pages.Detector
         {
            
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             foreach(Models.Detector d in ld)
             {
@@ -496,7 +505,7 @@ namespace tscui.Pages.Detector
         {
             try
             { 
-            ThreadPool.QueueUserWorkItem(SaveDetector);
+                ThreadPool.QueueUserWorkItem(SaveDetector);
             }
             catch (Exception ex)
             {
@@ -507,7 +516,8 @@ namespace tscui.Pages.Detector
         private void SaveDetector(object state)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-
+            if (t == null)
+                return;
             Message m = TscDataUtils.SetDetector(t.ListDetector);
         }
         private delegate void DelegateInitAllDetector();
@@ -1294,6 +1304,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1314,6 +1326,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1334,6 +1348,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1354,6 +1370,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1374,6 +1392,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1394,6 +1414,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1414,6 +1436,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1434,6 +1458,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1454,6 +1480,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1474,6 +1502,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1494,6 +1524,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1514,6 +1546,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1534,6 +1568,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1554,6 +1590,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1574,6 +1612,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1594,6 +1634,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1614,6 +1656,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1634,6 +1678,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1654,6 +1700,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1674,6 +1722,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1694,6 +1744,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1714,6 +1766,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1734,6 +1788,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1754,6 +1810,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1774,6 +1832,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1794,6 +1854,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1814,6 +1876,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1834,6 +1898,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1854,6 +1920,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1874,6 +1942,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1894,6 +1964,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1914,6 +1986,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1934,6 +2008,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1954,6 +2030,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1974,6 +2052,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -1994,6 +2074,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2014,6 +2096,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2034,6 +2118,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2054,6 +2140,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2074,6 +2162,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2094,6 +2184,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2114,6 +2206,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2134,6 +2228,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2154,6 +2250,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2174,6 +2272,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2194,6 +2294,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2214,6 +2316,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2234,6 +2338,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2254,6 +2360,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2274,6 +2382,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2294,6 +2404,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2314,6 +2426,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2334,6 +2448,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2354,6 +2470,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2374,6 +2492,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2394,6 +2514,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2414,6 +2536,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2434,6 +2558,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2454,6 +2580,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2474,6 +2602,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2494,6 +2624,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2514,6 +2646,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2534,6 +2668,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2554,6 +2690,8 @@ namespace tscui.Pages.Detector
         {
             TextBlock tb = sender as TextBlock;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             if (tb.Text.Equals(""))
             {
                 return;
@@ -2574,7 +2712,8 @@ namespace tscui.Pages.Detector
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
 
-
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
 
             foreach(Models.Detector d in ld)
@@ -2586,7 +2725,8 @@ namespace tscui.Pages.Detector
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-
+            if (t == null)
+                return;
             Message m = TscDataUtils.SetDetector(t.ListDetector);
           //  MessageBox.Show(m.msg);
 
@@ -2595,6 +2735,8 @@ namespace tscui.Pages.Detector
         private void cbxCarType_Checked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte( Utils.Utils.GetSelectedDetector());
             foreach(Models.Detector d in ld)
@@ -2609,6 +2751,8 @@ namespace tscui.Pages.Detector
         private void cbxCarType_Unchecked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)
@@ -2623,6 +2767,8 @@ namespace tscui.Pages.Detector
         private void cbxKeyRoad_Unchecked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)
@@ -2637,6 +2783,8 @@ namespace tscui.Pages.Detector
         private void cbxKeyRoad_Checked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)
@@ -2651,6 +2799,8 @@ namespace tscui.Pages.Detector
         private void cbxFlow_Checked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)
@@ -2665,6 +2815,8 @@ namespace tscui.Pages.Detector
         private void cbxOccupancy_Unchecked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)
@@ -2679,6 +2831,8 @@ namespace tscui.Pages.Detector
         private void cbxFlow_Unchecked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)
@@ -2693,6 +2847,8 @@ namespace tscui.Pages.Detector
         private void cbxSpeed_Unchecked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)
@@ -2707,6 +2863,8 @@ namespace tscui.Pages.Detector
         private void cbxQueun_Unchecked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)
@@ -2721,6 +2879,8 @@ namespace tscui.Pages.Detector
         private void cbxOccupancy_Checked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)
@@ -2735,6 +2895,8 @@ namespace tscui.Pages.Detector
         private void cbxSpeed_Checked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)
@@ -2749,6 +2911,8 @@ namespace tscui.Pages.Detector
         private void cbxQueun_Checked(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)
@@ -2763,6 +2927,8 @@ namespace tscui.Pages.Detector
         private void tbxFlow_TextChanged(object sender, TextChangedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)
@@ -2777,6 +2943,8 @@ namespace tscui.Pages.Detector
         private void tbxOccupany_TextChanged(object sender, TextChangedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)
@@ -2791,6 +2959,8 @@ namespace tscui.Pages.Detector
         private void tbkVaildTime_TextChanged(object sender, TextChangedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             List<Models.Detector> ld = t.ListDetector;
             byte detectorId = Convert.ToByte(Utils.Utils.GetSelectedDetector());
             foreach (Models.Detector d in ld)

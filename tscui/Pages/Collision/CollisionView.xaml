@@ -193,8 +193,8 @@
                 </StackPanel>
 
             </ScrollViewer>
-            <Button x:Name="btnSave" Content="保存" Canvas.Left="515" Canvas.Top="543" Width="75" Click="btnSave_Click"/>
-            <Button Content="读取" Canvas.Left="435" Canvas.Top="543" Width="75" Click="Button_Click" Visibility="Hidden"/>
+            <Button x:Name="btnSave" Content="{DynamicResource tsc_time_save}" Canvas.Left="515" Canvas.Top="543" Width="75" Click="btnSave_Click"/>
+            <Button Content="{DynamicResource tsc_time_read}" Canvas.Left="435" Canvas.Top="543" Width="75" Click="Button_Click" Visibility="Hidden"/>
 
 
         </Canvas>

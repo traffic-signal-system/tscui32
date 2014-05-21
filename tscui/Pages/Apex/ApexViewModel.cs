@@ -11,6 +11,7 @@ namespace tscui.Pages.Apex
     /// <summary>
     /// The ApexViewModel ViewModel class.
     /// </summary>
+    [ViewModel]
     public class ApexViewModel : PageViewModel
     {
         /// <summary>
@@ -18,7 +19,8 @@ namespace tscui.Pages.Apex
         /// </summary>
         public ApexViewModel()
         {
-            Title = "信号控制";
+            string str = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_tsc_list"];
+            Title = str;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace tscui.Pages.Calendar
             //  TODO: Use the following snippets to help build viewmodels:
             //      apexnp - Creates a Notifying Property
             //      apexc - Creates a Command.
-            Title = "特殊日历";
+            Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_basetime_calendar"];
         }
 
         /// <summary>

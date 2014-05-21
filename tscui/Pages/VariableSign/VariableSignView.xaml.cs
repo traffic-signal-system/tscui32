@@ -36,7 +36,7 @@ namespace tscui.Pages.VariableSign
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             if (t == null)
             {
-                MessageBox.Show("请选择一台信号机，以便进行配置！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_vs_selected_tsc"]);
                 return;
             }
             ObservableCollection<CntDownDev> occdd =  new ObservableCollection<CntDownDev>(t.ListCntDownDev);

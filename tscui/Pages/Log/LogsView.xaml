@@ -18,7 +18,9 @@
     
         <apexControls:ApexGrid Margin="0,0,0,0"
         Rows="Auto,Auto,Auto,Auto,Auto,Auto,Auto" Width="800">
-        <StackPanel Height="545" HorizontalAlignment="Left" Name="splLog" VerticalAlignment="Top" Width="800" Loaded="splLog_Loaded" Margin="0,0,0,0"></StackPanel>
+        <StackPanel Height="545" HorizontalAlignment="Left" Name="splLog" VerticalAlignment="Top" Width="800" Loaded="splLog_Loaded" Margin="0,0,0,0">
+            <Button x:Name="btnGetLog" Content="{DynamicResource tsc_log_reread}" Click="btnGetLog_Click"/>
+        </StackPanel>
     </apexControls:ApexGrid>
 
 </UserControl>

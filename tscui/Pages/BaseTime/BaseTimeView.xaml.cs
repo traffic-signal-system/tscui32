@@ -35,6 +35,8 @@ namespace tscui.Pages.BaseTime
 
         private void btnRead_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach(Plan p in lp)
             {
@@ -44,6 +46,8 @@ namespace tscui.Pages.BaseTime
 
         private void btnSave_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             TscDataUtils.SetPlanByCalendar(t.ListPlan);
         }
         TscData t;
@@ -160,8 +164,9 @@ namespace tscui.Pages.BaseTime
         {
             try
             {
-                this._loading.Visibility = System.Windows.Visibility.Visible;
+               
                 t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+
                 if(t == null)
                 {
                     return;
@@ -187,7 +192,7 @@ namespace tscui.Pages.BaseTime
                         break;
                     }
                 }
-                this._loading.Visibility = System.Windows.Visibility.Collapsed;
+                
             }
             catch(Exception ex)
             {
@@ -198,6 +203,8 @@ namespace tscui.Pages.BaseTime
 
         private void lbxPlanId_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             Plan pt = new Plan();
             foreach(Plan p in lp)
@@ -227,6 +234,8 @@ namespace tscui.Pages.BaseTime
         private void lbxPlanId_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             byte id = Convert.ToByte(lbxPlanId.SelectedItem);
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -242,6 +251,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxScheduleId_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -254,6 +265,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxJanuary_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -267,6 +280,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxJanuary_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -280,6 +295,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxFebruary_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -293,6 +310,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxMarch_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -306,6 +325,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxApril_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -319,6 +340,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxMay_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -332,6 +355,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxJune_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -345,6 +370,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxJuly_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -358,6 +385,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxAugust_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -371,6 +400,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxSeptember_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -384,6 +415,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxOctober_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -397,6 +430,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxNovember_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -410,6 +445,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxDecember_Checked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -423,6 +460,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxFebruary_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -436,6 +475,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxMarch_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -449,6 +490,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxApril_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -462,6 +505,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxMay_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -475,6 +520,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxJune_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -488,6 +535,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxJuly_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -501,6 +550,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxAugust_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -514,6 +565,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxSeptember_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -527,6 +580,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxOctober_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -540,6 +595,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxNovember_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -553,6 +610,8 @@ namespace tscui.Pages.BaseTime
 
         private void cbxDecember_Unchecked(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             List<Plan> lp = t.ListPlan;
             foreach (Plan p in lp)
             {
@@ -597,7 +656,16 @@ namespace tscui.Pages.BaseTime
         }
         private void savePlanByClaendar(object state)
         {
-            TscDataUtils.SetPlanByCalendar(t.ListPlan);
+            try
+            {
+                if (t == null)
+                    return;
+                TscDataUtils.SetPlanByCalendar(t.ListPlan);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("BaseTime: " + ex.ToString());
+            }
         }
         private void UserControl_Unloaded(object sender, System.Windows.RoutedEventArgs e)
         {

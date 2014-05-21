@@ -341,6 +341,11 @@ namespace tscui.Models
         //控制模块相关信息读取，如电压，温度
         public static byte[] GET_CONTROLLER_STATUS = { GET_REQUEST, 0xf5, 0x00 };
 
+        public static byte HARDWAVE_FLASH = 0xe1;
+        public static byte RATE_RATIO_BYTE = 0x03;
+        public static byte[] SET_HARDWAVE_FLASH = { SET_REQUEST_RESPONSE, HARDWAVE_FLASH, 00, RATE_RATIO_BYTE };
+       
+
         #region 方向对象
         /// <summary>
         /// 方向相关的参数
@@ -375,6 +380,22 @@ namespace tscui.Models
         public static byte[] SET_LAMP_BLOCK_CHECK_COLLISION_THREE_NO_CHECK = { SET_REQUEST_RESPONSE, LAMP_BLOCK_CHECK_COLLISION, 0x00, 0x03, 0x02, 0x05 };
         public static byte[] SET_LAMP_BLOCK_CHECK_COLLISION_FOUR_NO_CHECK = { SET_REQUEST_RESPONSE, LAMP_BLOCK_CHECK_COLLISION, 0x00, 0x03, 0x03, 0x05 };
         #endregion
+
+        #region PSC/TSC切换
+
+        public static byte OPTION = 0xf6;
+        public static byte PSC_TSC = 0x03;
+        public static byte PSC = 0x01;   // 一次过街
+        public static byte TSC = 0x00;  //TSC模式
+        public static byte PSC_2 = 0x02; //二次过街
+        public static byte[] SET_PSC_1 = { SET_REQUEST_RESPONSE, OPTION, PSC_TSC, PSC, 0x01, 0x02, 0x00 };
+        public static byte[] SET_PSC_2 = { SET_REQUEST_RESPONSE, OPTION, PSC_TSC, PSC_2, 0x01, 0x02, 0x03 };
+        public static byte[] SET_TSC = { SET_REQUEST_RESPONSE, OPTION, PSC_TSC, TSC, 0x00, 0x00, 0x00 };
+
+        public static byte[] SET_PSC_1_GREEN_TIME = { SET_REQUEST_RESPONSE, 0xc1, 0x84, 0x01, 0x02, 0x14 };
+        public static byte[] SET_PSC_2_GREEN_TIME = { SET_REQUEST_RESPONSE, 0xc1, 0x84, 0x01, 0x03, 0x14 };
+        #endregion
+
         #region 倒计时开关
         /// <summary>
         /// 倒计时开关
@@ -631,6 +652,8 @@ namespace tscui.Models
         public static byte DETECTOR_TYPE_TACTICS_BIKE = 0x22;
         public static byte DETECTOR_TYPE_REQUEST_BIKE = 0x82;
         #endregion
+
+
 
         #region 倒计时相关
         public static byte[] ECHO_TSC_COUNT_DOWN = { SET_REQUEST_RESPONSE, 0xe6, 0x00, 0x01 };

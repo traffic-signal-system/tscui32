@@ -18,7 +18,7 @@ namespace tscui.Pages.Update
         /// </summary>
         public UpdateViewModel()
         {
-            Title = "信号机更新";
+            Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_update"];
 
             //  Create the show popup command. It actually won't do anything in the 
             //  view model, but a view can still handle it.

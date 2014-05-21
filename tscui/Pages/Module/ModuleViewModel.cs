@@ -21,7 +21,7 @@ namespace tscui.ViewModels
         /// </summary>
         public ModuleViewModel()
         {
-            Title = "模块";
+            Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_module"];
 
           
 

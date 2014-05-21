@@ -96,7 +96,7 @@ namespace tscui.Pages.Apex
                 
                 td.ListDetector = TscDataUtils.GetDetector();
                 td.ListChannel = TscDataUtils.GetChannel();
-                td.ListEventLog = TscDataUtils.GetEventLog();
+                //td.ListEventLog = TscDataUtils.GetEventLog();
                 td.ListPattern = TscDataUtils.GetPattern();
                 try
                 {
@@ -117,7 +117,8 @@ namespace tscui.Pages.Apex
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                MessageBox.Show("信号机为16相位，协议无法匹配！");
+                string str = (string)App.Current.Resources.MergedDictionaries[3]["msg_apex_16_32_no_match"];
+                MessageBox.Show(str);
             }
             
         }
@@ -150,7 +151,7 @@ namespace tscui.Pages.Apex
             }
             
         }
-
+        private object objLock = new object();
         void AddListViewTscData(object state)
         {
             // 创建并实例化IP终端结点
@@ -168,24 +169,27 @@ namespace tscui.Pages.Apex
                     if (recevieUdpClient.Available > 0)
                     {
                         // 同步阻塞接收消息
-
-                        byte[] byt = recevieUdpClient.Receive(ref ipEndPoint);
-                        string msg = Encoding.Default.GetString(byt);
-                        if (byt.Length > 6)
+                        lock (objLock)
                         {
-                            string pot1 = Convert.ToString(byt[6], 16);
-                            string pot2 = Convert.ToString(byt[7], 16);
-                            string tt = pot1 + pot2;
-                            string tscId = Convert.ToString(byt[3]);
-                            string tscName = byt[0] + "" + byt[1] + "" + byt[2] + "" + byt[3];
-                            string tscIp = byt[0] + "." + byt[1] + "." + byt[2] + "." + byt[3];
-                            int tscPort = Convert.ToInt32(tt, 16);
-                            string tscVersion = Convert.ToString(byt[8], 10) + Convert.ToString(byt[9], 10) + Convert.ToString(byt[10], 10);
-                            TscInfo titemp = new TscInfo(tscId, tscName, tscIp, tscVersion, tscPort);
-                            if (currentTI == null)
-                                currentTI = titemp;
-                            myListView.Dispatcher.Invoke(showMsgCallBack, titemp);
-                            //Thread.Sleep(300);
+
+                            byte[] byt = recevieUdpClient.Receive(ref ipEndPoint);
+                            string msg = Encoding.Default.GetString(byt);
+                            if (byt.Length > 6)
+                            {
+                                string pot1 = Convert.ToString(byt[6], 16);
+                                string pot2 = Convert.ToString(byt[7], 16);
+                                string tt = pot1 + pot2;
+                                string tscId = Convert.ToString(byt[3]);
+                                string tscName = byt[0] + "" + byt[1] + "" + byt[2] + "" + byt[3];
+                                string tscIp = byt[0] + "." + byt[1] + "." + byt[2] + "." + byt[3];
+                                int tscPort = Convert.ToInt32(tt, 16);
+                                string tscVersion = Convert.ToString(byt[8], 10) + Convert.ToString(byt[9], 10) + Convert.ToString(byt[10], 10);
+                                TscInfo titemp = new TscInfo(tscId, tscName, tscIp, tscVersion, tscPort);
+                                if (currentTI == null)
+                                    currentTI = titemp;
+                                myListView.Dispatcher.Invoke(showMsgCallBack, titemp);
+                                //Thread.Sleep(300);
+                            }
                         }
                     }
                     
@@ -319,23 +323,26 @@ namespace tscui.Pages.Apex
             myGridView.AllowsColumnReorder = true;
             myGridView.ColumnHeaderToolTip = "Tsc Information";
             //</SnippetGridViewAllowsColumnReorder>
-
+            ResourceDictionary rd = App.Current.Resources.MergedDictionaries[3];
             //<SnippetGridViewColumnProperties>
             GridViewColumn gvc1 = new GridViewColumn();
             gvc1.DisplayMemberBinding = new Binding("Id");
-            gvc1.Header = "信号机编号";
+            string sid = (string)rd["tsc_apex_id"];
+            gvc1.Header = sid;
             gvc1.Width = 100;
             //</SnippetGridViewColumnProperties>
             myGridView.Columns.Add(gvc1);
             GridViewColumn gvc2 = new GridViewColumn();
             gvc2.DisplayMemberBinding = new Binding("Name");
-            gvc2.Header = "信号机名称";
+            string sname = (string)rd["tsc_apex_name"];
+            gvc2.Header = sname;
             gvc2.Width = 100;
             myGridView.Columns.Add(gvc2);
             //<SnippetAddToColumns>
             GridViewColumn gvc3 = new GridViewColumn();
             gvc3.DisplayMemberBinding = new Binding("Ip");
-            gvc3.Header = "信号机IP地址";
+            string sip = (string)rd["tsc_apex_ip"];
+            gvc3.Header = sip;
             gvc3.Width = 100;
             myGridView.Columns.Add(gvc3);
             //</SnippetAddToColumns>

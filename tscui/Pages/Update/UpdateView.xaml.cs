@@ -75,6 +75,8 @@ namespace tscui.Pages.Update
         private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.UPDATE_TSC_START);
             Thread.Sleep(500);
             int result = FtpHelper.UploadFtp(tbxFileName.Text, t.Node.sIpAddress, Define.FTP_NAME, Define.FTP_PASSWD);
@@ -83,32 +85,36 @@ namespace tscui.Pages.Update
             if(result == 0)
             {
                 Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.UPDATE_TSC_FINISH);
-                MessageBox.Show("升级成功！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_update_success"]);
             }
             else if (result == -2)
             {
                 //升级失败后，不要发送完成指令
                 //Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.UPDATE_TSC_FINISH);
-                MessageBox.Show("上传失败");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_update_failed"]);
             }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            if (t == null)
+                return;
             bool b = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.UPDATE_TSC_REVERSE);
             if (b == true)
             {
-                MessageBox.Show("信号机程序恢复成功！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_update_reset_success"]);
             }
             else
             {
-                MessageBox.Show("信号机程序恢复失败！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_update_reset_failed"]);
             }
         }
 
         private void btnBakLocal_Click(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             System.Windows.Forms.FolderBrowserDialog dlg = new System.Windows.Forms.FolderBrowserDialog();
             System.Windows.Interop.HwndSource source = PresentationSource.FromVisual(this) as System.Windows.Interop.HwndSource;
             System.Windows.Forms.IWin32Window win = new FolderBrowserHelper(source.Handle);
@@ -138,6 +144,8 @@ namespace tscui.Pages.Update
         private void btnUpdateDatabase_Click(object sender, RoutedEventArgs e)
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
             Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.UPDATE_DATABASE_START);
             Thread.Sleep(500);
             int result = FtpHelper.UploadFtp(tbxFileName.Text, t.Node.sIpAddress, Define.FTP_NAME, Define.FTP_PASSWD);
@@ -146,13 +154,13 @@ namespace tscui.Pages.Update
             if (result == 0)
             {
                 Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.UPDATE_DATABASE_FINISH);
-                MessageBox.Show("升级成功！");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_update_success"]);
             }
             else if (result == -2)
             {
                 //升级失败后，不要发送完成指令
                 //Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.UPDATE_TSC_FINISH);
-                MessageBox.Show("上传失败");
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_update_failed"]);
             }
         }
     }
