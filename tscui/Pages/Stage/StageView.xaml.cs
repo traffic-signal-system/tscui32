@@ -133,7 +133,7 @@ namespace tscui.Pages.Stage
                     foreach (StagePattern sp in lsp)
                     {
                         
-                        if (sp.ucStageNo == Convert.ToByte(currentStage.lblNumber.Content.ToString()))
+                        if (sp.ucStagePatternId == Convert.ToByte(sldStagePatternId.Value) &&sp.ucStageNo == Convert.ToByte(currentStage.lblNumber.Content.ToString()))
                         {
                             //sldStagePatternId.Value = sp.ucStagePatternId;
                             sldGreenTime.Value = sp.ucGreenTime;
@@ -2109,20 +2109,44 @@ namespace tscui.Pages.Stage
             smallMap4Form(currentStage);
             BigMap4SmallMap(currentStage); //MessageBox.Show("stage1");
         }
-
+        private void savePattern()
+        {
+            List<Pattern> lp = t.ListPattern;
+            List<StagePattern> lsp = t.ListStagePattern;
+            foreach (Pattern p in t.ListPattern)
+            {
+                if (p.ucPatternId == sldSchemeId.Value)
+                {
+                    p.ucCycleTime = Convert.ToByte(tbxCycle.Text);
+                    p.ucCoorPhase = Convert.ToByte(cbxCoordination.Text);
+                    p.ucOffset = Convert.ToByte(tbxOffset.Text);
+                }
+              
+            }
+        }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             if (t == null)
                 return;
+            sldValueChanged();
+            savePattern();
             Message msgPattern = TscDataUtils.SetPattern(t.ListPattern);
             if (!msgPattern.flag)
             {
                 MessageBox.Show("对象："+msgPattern.obj + "\n内容：" + msgPattern.msg);
             }
+            else
+            {
+                MessageBox.Show("配时数据保存成功");
+            }
             Message msgStagePattern = TscDataUtils.SetStagePattern(t.ListStagePattern);
             if (!msgStagePattern.flag)
             {
                 MessageBox.Show("对象：" + msgStagePattern.obj + "\n内容：" + msgStagePattern.msg);
+            }
+            else
+            {
+                MessageBox.Show("阶段数据保存成功");
             }
         }
 
@@ -3114,18 +3138,21 @@ namespace tscui.Pages.Stage
         {
             //初始化当前阶段
             currentStage = stage1;
+            DispatcherInitStageNum();
+            DispatcherInitStageItem();
+            DispatcherInitCoordination();
             //初始化各个阶段的编号
-            Thread tStageNum = new Thread(DispatcherInitStageNum);
-            tStageNum.IsBackground = true;
-            tStageNum.Start();
+            //Thread tStageNum = new Thread(DispatcherInitStageNum);
+            //tStageNum.IsBackground = true;
+            //tStageNum.Start();
            // initStageNumber();
-            Thread tStageItem = new Thread(DispatcherInitStageItem);
-            tStageItem.IsBackground = true;
-            tStageItem.Start();
+            //Thread tStageItem = new Thread(DispatcherInitStageItem);
+            //tStageItem.IsBackground = true;
+            //tStageItem.Start();
            // initStageItemList();
-            Thread tCoordination = new Thread(DispatcherInitCoordination);
-            tCoordination.IsBackground = true;
-            tCoordination.Start();
+            //Thread tCoordination = new Thread(DispatcherInitCoordination);
+            //tCoordination.IsBackground = true;
+            //tCoordination.Start();
             
             //initcbxCoordination();
             //初始化所有数据到界面上
@@ -3143,11 +3170,6 @@ namespace tscui.Pages.Stage
         private void StackPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             ///MessageBox.Show("addd stage");
-        }
-
-        private void ScrollViewer_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-           // MessageBox.Show("addd stage");
         }
 
 
@@ -3301,7 +3323,7 @@ namespace tscui.Pages.Stage
 
         private void sldSchemeId_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-           // initStageAttriableByPatternId();
+            initStageAttriableByPatternId();
         }
         private void DisplayStageByStagePatternIdChange()
         {
@@ -3366,20 +3388,21 @@ namespace tscui.Pages.Stage
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
-            try
-            { 
-            ThreadPool.QueueUserWorkItem(SaveStagePattern);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("BaseTime: " + ex.ToString());
-            }
+          //  try
+           // { 
+          //  ThreadPool.QueueUserWorkItem(SaveStagePattern);
+          //  }
+          //  catch (Exception ex)
+          //  {
+          //      MessageBox.Show("BaseTime: " + ex.ToString());
+          //  }
         }
 
         private void SaveStagePattern(object state)
         {
             if (t == null)
                 return;
+            
             Message msgPattern = TscDataUtils.SetPattern(t.ListPattern);
             if (!msgPattern.flag)
             {
@@ -3391,13 +3414,13 @@ namespace tscui.Pages.Stage
                 MessageBox.Show(msgStagePattern.obj + "\n" + msgStagePattern.msg);
             }
         }
-
-        private void sldGreenTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void sldValueChanged()
         {
+
             try
             {
-              //  Thread.Sleep(500);
-                Slider sld = sender as Slider;
+                //  Thread.Sleep(500);
+                Slider sld = sldGreenTime;
                 t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
                 if (t == null)
                     return;
@@ -3406,28 +3429,24 @@ namespace tscui.Pages.Stage
                 {
                     if (currentStage != null)
                     {
-                        if (Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
+                        if (sp.ucStagePatternId == Convert.ToByte(sldStagePatternId.Value) && Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
                         {
                             sp.ucGreenTime = Convert.ToByte(sld.Value);
                         }
                     }
-                   
+
                 }
 
             }
-            catch(Exception ex )
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                //  MessageBox.Show(ex.ToString());
             }
-            
-        }
 
-        private void sldYellowTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
             try
             {
-              //  Thread.Sleep(500);
-                Slider sld = sender as Slider;
+                //  Thread.Sleep(500);
+                Slider sld = sldYellowTime;
                 t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
                 if (t == null)
                     return;
@@ -3436,7 +3455,7 @@ namespace tscui.Pages.Stage
                 {
                     if (currentStage != null)
                     {
-                        if (Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
+                        if (sp.ucStagePatternId == Convert.ToByte(sldStagePatternId.Value) && Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
                         {
                             sp.ucYellowTime = Convert.ToByte(sld.Value);
                         }
@@ -3449,15 +3468,12 @@ namespace tscui.Pages.Stage
             {
                 MessageBox.Show(ex.ToString());
             }
-            
-        }
 
-        private void sldRedTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
+
             try
             {
-             ///   Thread.Sleep(500);
-               Slider sld = sender as Slider;
+                ///   Thread.Sleep(500);
+                Slider sld = sldRedTime;
                 t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
                 if (t == null)
                     return;
@@ -3466,7 +3482,7 @@ namespace tscui.Pages.Stage
                 {
                     if (currentStage != null)
                     {
-                        if (Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
+                        if (sp.ucStagePatternId == Convert.ToByte(sldStagePatternId.Value) && Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
                         {
                             sp.ucRedTime = Convert.ToByte(sld.Value);
                         }
@@ -3480,6 +3496,24 @@ namespace tscui.Pages.Stage
                 MessageBox.Show(ex.ToString());
             }
            
+
+
+        }
+        private void sldGreenTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+          
+            
+        }
+
+        private void sldYellowTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+           
+            
+        }
+
+        private void sldRedTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            
         }
 
     }

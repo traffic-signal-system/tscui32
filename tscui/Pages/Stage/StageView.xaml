@@ -143,7 +143,7 @@
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
                 </i:Interaction.Behaviors>
             </Image>
-            <ScrollViewer Height="600" Canvas.Left="595" Width="190" Canvas.Top="2" MouseLeftButtonDown="ScrollViewer_MouseLeftButtonDown" MouseRightButtonDown="ScrollViewer_MouseRightButtonDown" MouseDoubleClick="ScrollViewer_MouseDoubleClick">
+            <ScrollViewer Height="600" Canvas.Left="595" Width="190" Canvas.Top="2" MouseRightButtonDown="ScrollViewer_MouseRightButtonDown" MouseDoubleClick="ScrollViewer_MouseDoubleClick">
                 <StackPanel Orientation="Vertical" MouseDown="StackPanel_MouseDown">
                     <local:StageItem Visibility="Visible" x:Name="stage1" MouseDown="stage1_MouseDown"/>
                     <local:StageItem Visibility="Hidden" x:Name="stage2" MouseDown="stage2_MouseDown"/>
