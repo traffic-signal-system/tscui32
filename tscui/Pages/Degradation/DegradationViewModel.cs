@@ -37,50 +37,50 @@ namespace tscui.Pages.Degradation
 
                         break;
                     case 1:
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_ONE);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_ONE);
                         break;
                     case 2:
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_TWO);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_TWO);
                         break;
                     case 3:
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_THREE);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_THREE);
                         break;
                     case 4:
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_FOUR);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_FOUR);
                         break;
                     case 5:
 
                         byte[] first = Define.SEND_DEGRADATION_MODEL_FIVE;
                         first[11] = Convert.ToByte(cbxDegradationBaseSchedule);
 
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, first);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, first);
                         break;
                     case 6:
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_SIX);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_SIX);
                         break;
                     case 7:
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_SEVEN);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_SEVEN);
                         break;
                     case 8:
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_EIGHT);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_EIGHT);
                         break;
                     case 9:
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_NINE);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_NINE);
                         break;
                     case 10:
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_TEN);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_TEN);
                         break;
                     case 11:
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_ELEVEN);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_ELEVEN);
                         break;
                     case 12:
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_TWELVE);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_TWELVE);
                         break;
                     case 13:
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_THREETH);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_THREETH);
                         break;
                     case 14:
-                        bl = Udp.sendUdp(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_FOURTH);
+                        bl = Udp.sendUdpNoReciveData(n.sIpAddress, Define.GBT_PORT, Define.SEND_DEGRADATION_MODE_FOURTH);
                         break;
                     default:
                         break;
