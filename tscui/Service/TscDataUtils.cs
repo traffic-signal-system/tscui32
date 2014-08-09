@@ -20,6 +20,156 @@ namespace tscui.Service
             
             return level;
         }
+
+        /// <summary>
+        /// 切换到手动控制后，下一步代操作
+        /// </summary>
+        /// <returns></returns>
+        public static Message SetNextDirec()
+        {
+
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            bool result = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.CTRL_NEXTDIREC);
+            Message msg = new Message();
+            msg.flag = result;
+            msg.msg = "下方向";
+            msg.obj = "SetNextDirec";
+            return msg;
+        }
+        /// <summary>
+        /// 切换到手动控制后，下一步代操作
+        /// </summary>
+        /// <returns></returns>
+        public static Message SetCtrlNorth()
+        {
+
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            bool result = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.CTRL_NORTH);
+            Message msg = new Message();
+            msg.flag = result;
+            msg.msg = "北方向";
+            msg.obj = "SetCtrlNorth";
+            return msg;
+        }
+        /// <summary>
+        /// 切换到手动控制后，下一步代操作
+        /// </summary>
+        /// <returns></returns>
+        public static Message SetCtrlEast()
+        {
+
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            bool result = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.CTRL_EAST);
+            Message msg = new Message();
+            msg.flag = result;
+            msg.msg = "东方向";
+            msg.obj = "SetCtrlEast";
+            return msg;
+        }
+        /// <summary>
+        /// 切换到手动控制后，下一步代操作
+        /// </summary>
+        /// <returns></returns>
+        public static Message SetCtrlSouth()
+        {
+
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            bool result = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.CTRL_SOUTH);
+            Message msg = new Message();
+            msg.flag = result;
+            msg.msg = "南方向";
+            msg.obj = "SetCtrlSouth";
+            return msg;
+        }
+        /// <summary>
+        /// 切换到手动控制后，下一步代操作
+        /// </summary>
+        /// <returns></returns>
+        public static Message SetCtrlWest()
+        {
+
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            bool result = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.CTRL_WEST);
+            Message msg = new Message();
+            msg.flag = result;
+            msg.msg = "西方向";
+            msg.obj = "SetCtrlWest";
+            return msg;
+        }
+        /// <summary>
+        /// 切换到手动控制后，下一步代操作
+        /// </summary>
+        /// <returns></returns>
+        public static Message SetNextPhase()
+        {
+
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            bool result = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.CTRL_NEXTPHASE);
+            Message msg = new Message();
+            msg.flag = result;
+            msg.msg = "下一相位";
+            msg.obj = "SetNextPhase";
+            return msg;
+        }
+        /// <summary>
+        /// 切换到手动控制后，下一步代操作
+        /// </summary>
+        /// <returns></returns>
+        public static Message SetNextStep()
+        {
+            
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            bool result = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.CTRL_NEXTSTEP);
+            Message msg = new Message();
+            msg.flag = result;
+            msg.msg = "下一步";
+            msg.obj = "SetNextStep";
+            return msg;
+        }
+        /// <summary>
+        /// 切换到手动控制后，指定步代操作
+        /// </summary>
+        /// <returns></returns>
+        public static Message SetNextStepByNum(int num)
+        {
+
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            Define.CTRL_NEXTSTEP[3] = Convert.ToByte(num);
+            bool result = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.CTRL_NEXTSTEP);
+            Message msg = new Message();
+            msg.flag = result;
+            msg.msg = "指定步伐跳转";
+            msg.obj = "SetNextStepByNum";
+            return msg;
+        }
+        /// <summary>
+        /// 切换到手动控制
+        /// </summary>
+        /// <returns></returns>
+        public static Message SetCtrlMunual()
+        {
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            bool result = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.CTRL_MUNUAL);
+            Message msg = new Message();
+            msg.flag = result;
+            msg.msg = "切换手动控制";
+            msg.obj = "SetCtrlMunual";
+            return msg;
+        }
+        /// <summary>
+        /// 切换到自主控制
+        /// </summary>
+        /// <returns></returns>
+        public static Message SetCtrlSelf()
+        {
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            bool result = Udp.sendUdpNoReciveData(t.Node.sIpAddress, t.Node.iPort, Define.CTRL_SELF);
+            Message msg = new Message();
+            msg.flag = result;
+            msg.msg = "切换自动控制";
+            msg.obj = "SetCtrlSelf";
+            return msg;
+        }
         public static int GetDetectorSensitivityOneBorad9_16()
         {
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
@@ -2218,7 +2368,8 @@ namespace tscui.Service
         public static void Timing(DateTime dt,Node n)
         {
             byte[] hex = { 0x81, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00 };
-
+            dt = dt.AddHours(8);
+            
             DateTime bb = new DateTime(1970, 1, 1, 0, 0, 0);
             TimeSpan t3 = dt - bb;
             int kd = (int)t3.TotalSeconds;

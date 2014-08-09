@@ -271,6 +271,84 @@ namespace tscui.Models
                 list.Add(ipa[i]);
             return list;
         }
- 
+
+
+        static Socket _checkCarSocket;
+        static IPEndPoint _checkCarLocal = new IPEndPoint(IPAddress.Parse("192.168.0.2"), 5238);
+        static Thread _checkCarReceiveThread = null;
+        #region 开启线程
+        public static void StartReceiveCheckCar()
+        {
+            try
+            {
+                _checkCarSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+                bool aa = _checkCarSocket.Connected;
+                _checkCarReceiveThread = new Thread(ReceiveCheckCar);
+                _checkCarReceiveThread.Start();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+            }
+        }
+        #endregion
+        #region 接收线程委托方法
+        private static void ReceiveCheckCar()
+        {
+            try
+            {
+                //Thread.Sleep(200);
+                if (_checkCarSocket.Connected)
+                {
+                    _checkCarSocket.Bind(_checkCarLocal);
+                }
+                while (true)
+                {
+                    byte[] buffer = new byte[255];
+                    EndPoint remoteEP = (EndPoint)(new IPEndPoint(IPAddress.Any, 0));
+                    int len = _checkCarSocket.ReceiveFrom(buffer, ref remoteEP);
+                    IPEndPoint ipEndPoint = remoteEP as IPEndPoint;
+                    CheckCarService gb20999 = new CheckCarService(buffer, len);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + _checkCarSocket.Connected.ToString() + "UpdSocket类 Receive方法出错");
+            }
+        }
+        #endregion
+        #region 关闭接收线程和socket连接
+        public static void CloseCheckCar()
+        {
+            if (_checkCarReceiveThread != null)
+                _checkCarReceiveThread.Abort();
+            if (_checkCarSocket != null)
+                _checkCarSocket.Close();
+        }
+        #endregion
+        #region 向服务端发送数据
+
+        public static bool sendUdpCheckCar(string ipstr, int port, byte[] hex)
+        {
+            try
+            {
+                // int len;
+                // bool flag = IsSocketConnected(_socket);
+                IPEndPoint ip = new IPEndPoint(IPAddress.Parse(ipstr), port);
+                _checkCarSocket.SendTimeout = 1000;
+                _checkCarSocket.ReceiveTimeout = 1000;
+                _checkCarSocket.SendTo(hex, ip);
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+                return false;
+
+            }
+        }
+        #endregion
+
     }
 }

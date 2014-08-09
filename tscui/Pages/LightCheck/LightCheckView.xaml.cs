@@ -1386,5 +1386,58 @@ namespace tscui.Pages.LightCheck
             }
         }
 
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (TscDataUtils.SetLampCheckOpenALL(null))
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_config_lamp_check_open"]);
+            else
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_config_lamp_check_open_err"]);
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (TscDataUtils.SetLampCheckCloseALL(null))
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_config_lamp_check_close"]);
+            else
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_config_lamp_check_close_err"]);
+        }
+
+        private void cbxOpenSpecFun_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+            if (td == null)
+            {
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["tsc_lightcheck_select"]);
+                return;
+            }
+            bool b1 = Udp.sendUdpNoReciveData(td.Node.sIpAddress, td.Node.iPort, Define.SET_LAMP_BLOCK_CHECK_CLOSE);
+            if (b1)
+            {
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["tsc_lightcheck_close_success"]);
+            }
+            else
+            {
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["tsc_lightcheck_close_faile"]);
+            }
+        }
+
+        private void cbxOpenSpecFun_Checked(object sender, RoutedEventArgs e)
+        {
+            if(td == null)
+            {
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["tsc_lightcheck_select"]);
+                return;
+            }
+            bool b1 = Udp.sendUdpNoReciveData(td.Node.sIpAddress, td.Node.iPort, Define.SET_LAMP_BLOCK_CHECK_OPEN);
+            if (b1)
+            {
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["tsc_lightcheck_open_success"]);
+            }
+            else
+            {
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["tsc_lightcheck_open_faile"]);
+            }
+        }
+
     }
 }

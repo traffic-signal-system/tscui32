@@ -12,6 +12,9 @@ using tscui.Models;
 using tscui.Service;
 using System.Threading;
 using System.Windows.Threading;
+using System.Windows.Media;
+using System.Net;
+using System.Net.Sockets;
 
 namespace tscui.Pages.Detector
 {
@@ -336,13 +339,18 @@ namespace tscui.Pages.Detector
                 if (det.ucDetectorId == i)
                 {
                     det.ucDetectorId = Convert.ToByte(i);
-                    //det.ucDetFlag = GetDetFlag(type,direc);
+                    det.ucDetFlag = GetDetFlag(type,direc);
                     det.ucDirect = GetDirecByte(direc);
-                    //det.ucOptionFlag = GetOptionByCheckbox();
+                    det.ucOptionFlag = GetOptionByCheckbox();
                     det.ucPhaseId = GetPhaseIdByDirec(direc);
-                    // det.ucSaturationOccupy = d.ucSaturationOccupy;
-                    //det.ucValidTime = Convert.ToByte(tbkVaildTime.Text);
-                    //det.usSaturationFlow = d.usSaturationFlow;
+                    det.ucSaturationOccupy = d.ucSaturationOccupy;
+                    byte vt = 0;
+                    if (tbkVaildTime.Text != "")
+                    {
+                        vt = Convert.ToByte(tbkVaildTime.Text);
+                    }
+                    det.ucValidTime = vt;
+                    det.usSaturationFlow = d.usSaturationFlow;
                     newDetector = false;
                     break;
                 }
@@ -520,6 +528,1454 @@ namespace tscui.Pages.Detector
                 return;
             Message m = TscDataUtils.SetDetector(t.ListDetector);
         }
+
+        private delegate void DelegateCheckCar();
+        private void DispatcherCheckCar(object state)
+        {
+            this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new DelegateCheckCar(CheckCar));
+        }
+
+
+        private List<DetectorStateObject> CheckCarByte(byte[] data)
+        {
+            List<DetectorState> lds = new List<DetectorState>();
+            List<DetectorStateObject> ldso = new List<DetectorStateObject>();
+            byte[] countDownArray = new byte[Define.DETECTOR_STATE_BYTE_LEN * Define.DETECTOR_STATE_BYTE_SIZE];
+            Array.Copy(data, 4, countDownArray, 0, Define.DETECTOR_STATE_BYTE_LEN * Define.DETECTOR_STATE_BYTE_SIZE);
+            byte[,] twoArray = ByteUtils.oneArray2TwoArray(countDownArray, Define.DETECTOR_STATE_BYTE_LEN, Define.DETECTOR_STATE_BYTE_SIZE);
+            DetectorState ds;
+            DetectorStateObject dso;
+            for (int i = 0; i < Define.DETECTOR_STATE_BYTE_LEN; i++)
+            {
+                ds = new DetectorState();
+                dso = new DetectorStateObject();
+
+                dso.UcDetectorStateId = twoArray[i, 0];
+                byte state = twoArray[i, 1];
+                if (0x01 ==  (byte)(state & 0x01))
+                {
+                    dso.UcDetectorState1 = 0x01;
+                }
+                if (0x02 == (byte)(state & 0x02))
+                {
+                    dso.UcDetectorState2 = 0x01;
+                }
+                if (0x04 == (byte)(state & 0x04))
+                {
+                    dso.UcDetectorState3 = 0x01;
+                }
+                if (0x08 == (byte)(state & 0x08))
+                {
+                    dso.UcDetectorState4 = 0x01;
+                }
+                if (0x10 == (byte)(state & 0x10))
+                {
+                    dso.UcDetectorState5 = 0x01;
+                }
+                if (0x20 == (byte)(state & 0x20))
+                {
+                    dso.UcDetectorState6 = 0x01;
+                }
+                if (0x40 == (byte)(state & 0x40))
+                {
+                    dso.UcDetectorState7 = 0x01;
+                }
+                if (0x80 == (byte)(state & 0x80))
+                {
+                    dso.UcDetectorState8 = 0x01;
+                }
+                byte alert = twoArray[i, 2];
+                if(0x01 == (byte)(alert & 0x01)){
+                    dso.UcDetectorStateAlert1 = 0x01;
+                }
+                if (0x02 == (byte)(alert & 0x02))
+                {
+                    dso.UcDetectorStateAlert2 = 0x01;
+                }
+                if (0x04 == (byte)(alert & 0x04))
+                {
+                    dso.UcDetectorStateAlert3 = 0x01;
+                }
+                if (0x08 == (byte)(alert & 0x08))
+                {
+                    dso.UcDetectorStateAlert4 = 0x01;
+                }
+                if (0x10 == (byte)(alert & 0x10))
+                {
+                    dso.UcDetectorStateAlert5 = 0x01;
+                }
+                if (0x20 == (byte)(alert & 0x20))
+                {
+                    dso.UcDetectorStateAlert6 = 0x01;
+                }
+                if (0x40 == (byte)(alert & 0x40))
+                {
+                    dso.UcDetectorStateAlert7 = 0x01;
+                }
+                if (0x80 == (byte)(alert & 0x80))
+                {
+                    dso.UcDetectorStateAlert8 = 0x01;
+                }
+
+                ds.UcDetectorStateId = twoArray[i, 0];
+                ds.UcDetectorState = twoArray[i, 1];
+                ds.UcDetectorStateAlert = twoArray[i, 2];
+                lds.Add(ds);
+                ldso.Add(dso);
+            }
+            return ldso;
+        }
+        DispatcherTimer checkDispatcherTimer;
+        bool isDetectorState1 = true;
+        bool isDetectorAlert1 = true;
+        bool isDetectorState2 = true;
+        bool isDetectorAlert2 = true;
+        bool isDetectorState3 = true;
+        bool isDetectorAlert3 = true;
+        bool isDetectorState4 = true;
+        bool isDetectorAlert4 = true;
+        bool isDetectorState5 = true;
+        bool isDetectorAlert5 = true;
+        bool isDetectorState6 = true;
+        bool isDetectorAlert6 = true;
+        bool isDetectorState7 = true;
+        bool isDetectorAlert7 = true;
+        bool isDetectorState8 = true;
+        bool isDetectorAlert8 = true;
+        bool isDetectorState9 = true;
+        bool isDetectorAlert9 = true;
+        bool isDetectorState10 = true;
+        bool isDetectorAlert10 = true;
+        bool isDetectorState11 = true;
+        bool isDetectorAlert11 = true;
+        bool isDetectorState12 = true;
+        bool isDetectorAlert12 = true;
+        bool isDetectorState13 = true;
+        bool isDetectorAlert13 = true;
+        bool isDetectorState14 = true;
+        bool isDetectorAlert14 = true;
+        bool isDetectorState15 = true;
+        bool isDetectorAlert15 = true;
+        bool isDetectorState16 = true;
+        bool isDetectorAlert16 = true;
+
+        bool isDetectorState17 = true;
+        bool isDetectorAlert17 = true;
+        bool isDetectorState18 = true;
+        bool isDetectorAlert18 = true;
+        bool isDetectorState19 = true;
+        bool isDetectorAlert19 = true;
+        bool isDetectorState20 = true;
+        bool isDetectorAlert20 = true;
+        bool isDetectorState21 = true;
+        bool isDetectorAlert21 = true;
+        bool isDetectorState22 = true;
+        bool isDetectorAlert22 = true;
+        bool isDetectorState23 = true;
+        bool isDetectorAlert23 = true;
+        bool isDetectorState24 = true;
+        bool isDetectorAlert24 = true;
+        bool isDetectorState25 = true;
+        bool isDetectorAlert25 = true;
+        bool isDetectorState26 = true;
+        bool isDetectorAlert26 = true;
+        bool isDetectorState27 = true;
+        bool isDetectorAlert27 = true;
+        bool isDetectorState28 = true;
+        bool isDetectorAlert28 = true;
+        bool isDetectorState29 = true;
+        bool isDetectorAlert29 = true;
+        bool isDetectorState30 = true;
+        bool isDetectorAlert30 = true;
+        bool isDetectorState31 = true;
+        bool isDetectorAlert31 = true;
+        bool isDetectorState32 = true;
+        bool isDetectorAlert32 = true;
+        private void CheckedDispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            //Thread.Sleep(200);
+            //if (_checkCarSocket.Connected)
+            //{
+            //    _checkCarSocket.Bind(_checkCarLocal);
+            //}
+            //byte[] buffer = new byte[255];
+            //EndPoint remoteEP = (EndPoint)(new IPEndPoint(IPAddress.Any, 0));
+            //int len = _checkCarSocket.ReceiveFrom(buffer, ref remoteEP);
+            //IPEndPoint ipEndPoint = remoteEP as IPEndPoint;
+
+           // CheckCarService gb20999 = new CheckCarService(buffer, len);
+            List<DetectorStateObject> listDSO = DetectorStateObjects.listDetectorStateObject;
+            //listDSO = CheckCarByte(buffer);
+           
+            if (listDSO != null)
+            {
+                foreach (TextBlock tb in allDetecotr)
+                {
+                    
+                    //Thread.Sleep(500);
+                    //tb.Text = "1";
+                    foreach (DetectorStateObject dso in listDSO)
+                    {
+                        string sid = tb.Text.Trim();
+                        if (sid.Equals(""))
+                        {
+                            sid = "0";
+                        }
+                        byte id = Convert.ToByte(sid);
+                        //这里执行线圈存在问题的textblock变更背景色
+                        byte detectorIda1 = 0;
+                        if (dso.UcDetectorStateAlert1 == 1 && dso.UcDetectorStateId == 1)
+                            detectorIda1 = 1;
+                        if (dso.UcDetectorStateAlert1 != 0)
+                        {
+                            if (id == detectorIda1 && id != 0 && id == 1)
+                            {
+                                if (isDetectorAlert1 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert1 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert1 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda2 = 0;
+                        if (dso.UcDetectorStateAlert2 == 1 && dso.UcDetectorStateId == 1)
+                            detectorIda2 = 2;
+                        if (dso.UcDetectorStateAlert2 != 0)
+                        {
+                            if (id == detectorIda2 && id != 0 && id == 2)
+                            {
+                                if (isDetectorAlert2 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert2 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert2 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda3 = 0;
+                        if(dso.UcDetectorStateAlert3 == 1 && dso.UcDetectorStateId ==1)
+                            detectorIda3 = 3;
+                        if (dso.UcDetectorStateAlert3 != 0)
+                        {
+                            if (id == detectorIda3 && id != 0 && id == 3)
+                            {
+                                if (isDetectorAlert3 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert3 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert3 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda4 = 0;
+                        if(dso.UcDetectorStateAlert4 ==1 && dso.UcDetectorStateId ==1)
+                            detectorIda4 = 4;
+                        if (detectorIda4 != 0)
+                        {
+                            if (id == detectorIda4 && id != 0 && id == 4)
+                            {
+                                if (isDetectorAlert4 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert4 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert4 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda5 = 0;
+                        if(dso.UcDetectorStateAlert5 ==1 && dso.UcDetectorStateId == 1)
+                            detectorIda5 = 5;
+                        if (detectorIda5 != 0)
+                        {
+                            if (id == detectorIda5 && id != 0 && id == 5)
+                            {
+                                if (isDetectorAlert5 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert5 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert5 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda6 = 0;
+                        if(dso.UcDetectorStateAlert6 ==1 && (dso.UcDetectorStateId) ==1)
+                            detectorIda6 = 6;
+                        if (detectorIda6 != 0)
+                        {
+                            if (id == detectorIda6 && id != 0 && id == 6)
+                            {
+                                if (isDetectorAlert6 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert6 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert6 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda7 = 0;
+                        if(dso.UcDetectorStateAlert7 ==1 && (dso.UcDetectorStateId) ==1)
+                            detectorIda7 = 7;
+                        if (detectorIda7 != 0)
+                        {
+                            if (id == detectorIda7 && id != 0 && id == 7)
+                            {
+                                if (isDetectorAlert7 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert7 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert7 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda8 = 0;
+                        if(dso.UcDetectorStateAlert8 == 1 && (dso.UcDetectorStateId) == 1)
+                            detectorIda8 = 8;
+                        if (detectorIda8 != 0)
+                        {
+                            if (id == detectorIda8 && id != 0 && id == 8)
+                            {
+                                if (isDetectorAlert8 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert8 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert8 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda9 = 0;
+                        if(dso.UcDetectorStateAlert1 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIda9 = 9;
+                        if (detectorIda9 != 0)
+                        {
+                            if (id == detectorIda9 && id != 0 && id == 9)
+                            {
+                                if (isDetectorAlert9 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert9 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert9 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda10 = 0;
+                        if(dso.UcDetectorStateAlert2 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIda10 = 10;
+                        if (detectorIda10 != 0)
+                        {
+                            if (id == detectorIda10 && id != 0 && id == 10)
+                            {
+                                if (isDetectorAlert10 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert10 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert10 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda11 = 0;
+                        if(dso.UcDetectorStateAlert3 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIda11 = 11;
+                        if (detectorIda11 != 0)
+                        {
+                            if (id == detectorIda11 && id != 0 && id == 11)
+                            {
+                                if (isDetectorAlert11 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert11 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert11 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda12 = 0;
+                        if(dso.UcDetectorStateAlert4 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIda12 = 12;
+                        if (detectorIda12 != 0)
+                        {
+                            if (id == detectorIda12 && id != 0 && id == 12)
+                            {
+                                if (isDetectorAlert12 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert12 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert12 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda13 = 0;
+                        if(dso.UcDetectorStateAlert5 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIda13 = 13;
+                        if (detectorIda13 != 0)
+                        {
+                            if (id == detectorIda13 && id != 0 && id == 13)
+                            {
+                                if (isDetectorAlert13 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert13 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert13 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda14 = 0;
+                        if (dso.UcDetectorStateAlert6 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIda14 = 14;
+                        if (detectorIda14 != 0)
+                        {
+                            if (id == detectorIda14 && id != 0 && id == 14)
+                            {
+                                if (isDetectorAlert14 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert14 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert14 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda15 = 0;
+                        if(dso.UcDetectorStateAlert7 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIda15 = 15;
+                        if (detectorIda15 != 0)
+                        {
+                            if (id == detectorIda15 && id != 0 && id == 15)
+                            {
+                                if (isDetectorAlert15 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert15 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert15 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda16 = 0;
+                        if(dso.UcDetectorStateAlert8 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIda16 = 16;
+                        if (detectorIda16 != 0)
+                        {
+                            if (id == detectorIda16 && id != 0 && id == 16)
+                            {
+                                if (isDetectorAlert16 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert16 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert16 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda17 = 0;
+                        if(dso.UcDetectorStateAlert1 == 1 && (dso.UcDetectorStateId) == 3)
+                            detectorIda17 = 17;
+                        if (detectorIda17 != 0)
+                        {
+                            if (id == detectorIda17 && id != 0 && id == 17)
+                            {
+                                if (isDetectorAlert17 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert17 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert17 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda18 = 0;
+                        if(dso.UcDetectorStateAlert2 == 1 && (dso.UcDetectorStateId) == 3)
+                            detectorIda18 = 18;
+                        if (detectorIda18 != 0)
+                        {
+                            if (id == detectorIda18 && id != 0 && id == 18)
+                            {
+                                if (isDetectorAlert18 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert18 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert18 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda19 = 0;
+                        if(dso.UcDetectorStateAlert3 == 1 && (dso.UcDetectorStateId) == 3)
+                            detectorIda19 = 19;
+                        if (detectorIda19 != 0)
+                        {
+                            if (id == detectorIda19 && id != 0 && id == 19)
+                            {
+                                if (isDetectorAlert19 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert19 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert19 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda20 = 0;
+                        if(dso.UcDetectorStateAlert4 ==1 && (dso.UcDetectorStateId) == 3)
+                            detectorIda20 = 20;
+                        if (detectorIda20 != 0)
+                        {
+                            if (id == detectorIda20 && id != 0 && id == 20)
+                            {
+                                if (isDetectorAlert20 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert20 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert20 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda21 = 0;
+                        if (dso.UcDetectorStateAlert5 == 1 && (dso.UcDetectorStateId) == 3)
+                            detectorIda21 =21;
+                        if (detectorIda21 != 0)
+                        {
+                            if (id == detectorIda21 && id != 0 && id == 21)
+                            {
+                                if (isDetectorAlert21 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert21 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert21 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda22 = 0;
+                        if(dso.UcDetectorStateAlert6==1 && (dso.UcDetectorStateId)==3)
+                            detectorIda22 = 22;
+                        if (detectorIda22 != 0)
+                        {
+                            if (id == detectorIda22 && id != 0 && id == 22)
+                            {
+                                if (isDetectorAlert22 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert22 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert22 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda23 = 0;
+                        if(dso.UcDetectorStateAlert7==1 && (dso.UcDetectorStateId)==3)
+                            detectorIda23 = 23;
+                        if (detectorIda23 != 0)
+                        {
+                            if (id == detectorIda23 && id != 0 && id == 23)
+                            {
+                                if (isDetectorAlert23 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert23 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert23 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda24 = 0;
+                        if(dso.UcDetectorStateAlert8 == 1 && (dso.UcDetectorStateId) == 3)
+                            detectorIda24 =24;
+                        if (detectorIda24 != 0)
+                        {
+                            if (id == detectorIda24 && id != 0 && id == 24)
+                            {
+                                if (isDetectorAlert24 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert24 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert24 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda25 = 0;
+                        if(dso.UcDetectorStateAlert1 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIda25 = 25;
+                        if (detectorIda25 != 0)
+                        {
+                            if (id == detectorIda25 && id != 0 && id == 25)
+                            {
+                                if (isDetectorAlert25 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert25 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert25 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda26 = 0;
+                        if(dso.UcDetectorStateAlert2 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIda26 =26;
+                        if (detectorIda26 != 0)
+                        {
+                            if (id == detectorIda26 && id != 0 && id == 26)
+                            {
+                                if (isDetectorAlert26 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert26 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert26 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda27 = 0;
+                        if(dso.UcDetectorStateAlert3 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIda27 = 27;
+                        if (detectorIda27 != 0)
+                        {
+                            if (id == detectorIda27 && id != 0 && id == 27)
+                            {
+                                if (isDetectorAlert27 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert27 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert27 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda28 = 0;
+                        if(dso.UcDetectorStateAlert4 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIda28 =28;
+                        if (detectorIda28 != 0)
+                        {
+                            if (id == detectorIda28 && id != 0 && id == 28)
+                            {
+                                if (isDetectorAlert28 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert28= false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert28 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda29 = 0;
+                        if(dso.UcDetectorStateAlert5==1 && (dso.UcDetectorStateId)==4)
+                            detectorIda29 =29;
+                        if (detectorIda29 != 0)
+                        {
+                            if (id == detectorIda29 && id != 0 && id == 29)
+                            {
+                                if (isDetectorAlert29 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert29 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert29 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda30 = 0;
+                        if(dso.UcDetectorStateAlert6 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIda30 = 30;
+                        if (detectorIda30 != 0)
+                        {
+                            if (id == detectorIda30 && id != 0 && id == 30)
+                            {
+                                if (isDetectorAlert30 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert30 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert30 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda31 = 0;
+                        if(dso.UcDetectorStateAlert7 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIda31 =31;
+                        if (detectorIda31 != 0)
+                        {
+                            if (id == detectorIda31 && id != 0 && id == 31)
+                            {
+                                if (isDetectorAlert31 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert31 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert31 = true;
+                                }
+                            }
+                        }
+                        byte detectorIda32 = 0;
+                        if(dso.UcDetectorStateAlert8==1 && (dso.UcDetectorStateId)==4)
+                            detectorIda32 =32;
+                        if (detectorIda32 != 0)
+                        {
+                            if (id == detectorIda32 && id != 0 && id == 32)
+                            {
+                                if (isDetectorAlert32 == true)
+                                {
+                                    tb.Background = Brushes.Red;
+                                    isDetectorAlert32 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert32 = true;
+                                }
+                            }
+                        }
+                      
+                        //这里执行线圈有车辆经过的textblock变更背景色。
+                        byte detectorIdState1 = 0;
+                        if(dso.UcDetectorState1 ==1 && (dso.UcDetectorStateId) == 1)
+                            detectorIdState1 = 1;
+                        if (detectorIdState1 != 0)
+                        {
+
+                            if (id == detectorIdState1 && id != 0)
+                            {
+
+                                if (isDetectorState1 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState1 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState1 = true;
+                                }
+
+                            }
+                        }
+                        byte detectorIds2 = 0;
+                        if (dso.UcDetectorState2 == 1 && dso.UcDetectorStateId == 1)
+                            detectorIds2 = 2;
+                        if (dso.UcDetectorState2 != 0)
+                        {
+                            if (id == detectorIds2 && id != 0 && id == 2)
+                            {
+                                if (isDetectorState2 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState2 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState2 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds3 = 0;
+                        if (dso.UcDetectorState3 == 1 && dso.UcDetectorStateId == 1)
+                            detectorIds3 = 3;
+                        if (dso.UcDetectorState3 != 0)
+                        {
+                            if (id == detectorIds3 && id != 0 && id == 3)
+                            {
+                                if (isDetectorState3 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState3 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState3 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds4 = 0;
+                        if (dso.UcDetectorState4 == 1 && dso.UcDetectorStateId == 1)
+                            detectorIds4 = 4;
+                        if (detectorIds4 != 0)
+                        {
+                            if (id == detectorIds4 && id != 0 && id == 4)
+                            {
+                                if (isDetectorState4 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState4 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState4 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds5 = 0;
+                        if (dso.UcDetectorState5 == 1 && dso.UcDetectorStateId == 1)
+                            detectorIds5 = 5;
+                        if (detectorIds5 != 0)
+                        {
+                            if (id == detectorIds5 && id != 0 && id == 5)
+                            {
+                                if (isDetectorState5 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState5 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState5 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds6 = 0;
+                        if (dso.UcDetectorState6 == 1 && (dso.UcDetectorStateId) == 1)
+                            detectorIds6 = 6;
+                        if (detectorIds6 != 0)
+                        {
+                            if (id == detectorIds6 && id != 0 && id == 6)
+                            {
+                                if (isDetectorState6 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState6 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState6 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds7 = 0;
+                        if (dso.UcDetectorState7 == 1 && (dso.UcDetectorStateId) == 1)
+                            detectorIds7 = 7;
+                        if (detectorIds7 != 0)
+                        {
+                            if (id == detectorIds7 && id != 0 && id == 7)
+                            {
+                                if (isDetectorState7 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState7 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState7 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds8 = 0;
+                        if (dso.UcDetectorState8 == 1 && (dso.UcDetectorStateId) == 1)
+                            detectorIds8 = 8;
+                        if (detectorIds8 != 0)
+                        {
+                            if (id == detectorIds8 && id != 0 && id == 8)
+                            {
+                                if (isDetectorState8 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState8 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState8 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds9 = 0;
+                        if (dso.UcDetectorState1 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIds9 = 9;
+                        if (detectorIds9 != 0)
+                        {
+                            if (id == detectorIds9 && id != 0 && id == 9)
+                            {
+                                if (isDetectorState9 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState9 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState9 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds10 = 0;
+                        if (dso.UcDetectorState2 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIds10 = 10;
+                        if (detectorIds10 != 0)
+                        {
+                            if (id == detectorIds10 && id != 0 && id == 10)
+                            {
+                                if (isDetectorState10 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState10 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState10 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds11 = 0;
+                        if (dso.UcDetectorState3 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIds11 = 11;
+                        if (detectorIds11 != 0)
+                        {
+                            if (id == detectorIds11 && id != 0 && id == 11)
+                            {
+                                if (isDetectorState11 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState11 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState11 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds12 = 0;
+                        if (dso.UcDetectorState4 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIds12 = 12;
+                        if (detectorIds12 != 0)
+                        {
+                            if (id == detectorIds12 && id != 0 && id == 12)
+                            {
+                                if (isDetectorState12 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState12 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState12 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds13 = 0;
+                        if (dso.UcDetectorState5 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIds13 = 13;
+                        if (detectorIds13 != 0)
+                        {
+                            if (id == detectorIds13 && id != 0 && id == 13)
+                            {
+                                if (isDetectorState13 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState13 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState13 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds14 = 0;
+                        if (dso.UcDetectorState6 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIds14 = 14;
+                        if (detectorIds14 != 0)
+                        {
+                            if (id == detectorIds14 && id != 0 && id == 14)
+                            {
+                                if (isDetectorState14 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState14 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState14 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds15 = 0;
+                        if (dso.UcDetectorState7 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIds15 = 15;
+                        if (detectorIds15 != 0)
+                        {
+                            if (id == detectorIds15 && id != 0 && id == 15)
+                            {
+                                if (isDetectorState15 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState15 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState15 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds16 = 0;
+                        if (dso.UcDetectorState8 == 1 && (dso.UcDetectorStateId) == 2)
+                            detectorIds16 = 16;
+                        if (detectorIds16 != 0)
+                        {
+                            if (id == detectorIds16 && id != 0 && id == 16)
+                            {
+                                if (isDetectorState16 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState16 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState16 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds17 = 0;
+                        if (dso.UcDetectorState1 == 1 && (dso.UcDetectorStateId) == 3)
+                            detectorIds17 = 17;
+                        if (detectorIds17 != 0)
+                        {
+                            if (id == detectorIds17 && id != 0 && id == 17)
+                            {
+                                if (isDetectorState17 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState17 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState17 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds18 = 0;
+                        if (dso.UcDetectorState2 == 1 && (dso.UcDetectorStateId) == 3)
+                            detectorIds18 = 18;
+                        if (detectorIds18 != 0)
+                        {
+                            if (id == detectorIds18 && id != 0 && id == 18)
+                            {
+                                if (isDetectorState18 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState18 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState18 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds19 = 0;
+                        if (dso.UcDetectorState3 == 1 && (dso.UcDetectorStateId) == 3)
+                            detectorIds19 = 19;
+                        if (detectorIds19 != 0)
+                        {
+                            if (id == detectorIds19 && id != 0 && id == 19)
+                            {
+                                if (isDetectorAlert19 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorAlert19 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorAlert19 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds20 = 0;
+                        if (dso.UcDetectorState4 == 1 && (dso.UcDetectorStateId) == 3)
+                            detectorIds20 = 20;
+                        if (detectorIds20 != 0)
+                        {
+                            if (id == detectorIds20 && id != 0 && id == 20)
+                            {
+                                if (isDetectorState20 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState20 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState20 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds21 = 0;
+                        if (dso.UcDetectorState5 == 1 && (dso.UcDetectorStateId) == 3)
+                            detectorIds21 = 21;
+                        if (detectorIds21 != 0)
+                        {
+                            if (id == detectorIds21 && id != 0 && id == 21)
+                            {
+                                if (isDetectorState21 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState21 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState21 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds22 = 0;
+                        if (dso.UcDetectorState6 == 1 && (dso.UcDetectorStateId) == 3)
+                            detectorIds22 = 22;
+                        if (detectorIds22 != 0)
+                        {
+                            if (id == detectorIds22 && id != 0 && id == 22)
+                            {
+                                if (isDetectorState22 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState22 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState22 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds23 = 0;
+                        if (dso.UcDetectorState7 == 1 && (dso.UcDetectorStateId) == 3)
+                            detectorIds23 = 23;
+                        if (detectorIds23 != 0)
+                        {
+                            if (id == detectorIds23 && id != 0 && id == 23)
+                            {
+                                if (isDetectorState23 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState23 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState23 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds24 = 0;
+                        if (dso.UcDetectorState8 == 1 && (dso.UcDetectorStateId) == 3)
+                            detectorIds24 = 24;
+                        if (detectorIds24 != 0)
+                        {
+                            if (id == detectorIds24 && id != 0 && id == 24)
+                            {
+                                if (isDetectorState24 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState24 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState24 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds25 = 0;
+                        if (dso.UcDetectorState1 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIds25 = 25;
+                        if (detectorIds25 != 0)
+                        {
+                            if (id == detectorIds25 && id != 0 && id == 25)
+                            {
+                                if (isDetectorState25 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState25 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState25 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds26 = 0;
+                        if (dso.UcDetectorState2 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIds26 = 26;
+                        if (detectorIds26 != 0)
+                        {
+                            if (id == detectorIds26 && id != 0 && id == 26)
+                            {
+                                if (isDetectorState26 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState26 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState26 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds27 = 0;
+                        if (dso.UcDetectorState3 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIds27 = 27;
+                        if (detectorIds27 != 0)
+                        {
+                            if (id == detectorIds27 && id != 0 && id == 27)
+                            {
+                                if (isDetectorState27 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState27 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState27 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds28 = 0;
+                        if (dso.UcDetectorState4 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIds28 = 28;
+                        if (detectorIds28 != 0)
+                        {
+                            if (id == detectorIds28 && id != 0 && id == 28)
+                            {
+                                if (isDetectorState28 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState28 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState28 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds29 = 0;
+                        if (dso.UcDetectorState5 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIds29 = 29;
+                        if (detectorIds29 != 0)
+                        {
+                            if (id == detectorIds29 && id != 0 && id == 29)
+                            {
+                                if (isDetectorState29 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState29 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState29 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds30 = 0;
+                        if (dso.UcDetectorState6 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIds30 = 30;
+                        if (detectorIds30 != 0)
+                        {
+                            if (id == detectorIds30 && id != 0 && id == 30)
+                            {
+                                if (isDetectorState30 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState30 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState30 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds31 = 0;
+                        if (dso.UcDetectorState7 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIds31 = 31;
+                        if (detectorIds31 != 0)
+                        {
+                            if (id == detectorIds31 && id != 0 && id == 31)
+                            {
+                                if (isDetectorState31 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState31 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState31 = true;
+                                }
+                            }
+                        }
+                        byte detectorIds32 = 0;
+                        if (dso.UcDetectorState8 == 1 && (dso.UcDetectorStateId) == 4)
+                            detectorIds32 = 32;
+                        if (detectorIds32 != 0)
+                        {
+                            if (id == detectorIds32 && id != 0 && id == 32)
+                            {
+                                if (isDetectorState32 == true)
+                                {
+                                    tb.Background = Brushes.DarkSeaGreen;
+                                    isDetectorState32 = false;
+                                }
+                                else
+                                {
+                                    tb.Background = Brushes.Gray;
+                                    isDetectorState32 = true;
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+        static List<DetectorStateObject> listDSO = new List<DetectorStateObject>();
+        private void CheckCar()
+        {
+            try
+            {
+                while (true)
+                {
+                    ////Thread.Sleep(200);
+                    //if (_checkCarSocket.Connected)
+                    //{
+                    //    _checkCarSocket.Bind(_checkCarLocal);
+                    //}
+                    //byte[] buffer = new byte[255];
+                    //EndPoint remoteEP = (EndPoint)(new IPEndPoint(IPAddress.Any, 0));
+                    //int len = _checkCarSocket.ReceiveFrom(buffer, ref remoteEP);
+                    //IPEndPoint ipEndPoint = remoteEP as IPEndPoint;
+                    ////CheckCarService gb20999 = new CheckCarService(buffer, len);
+                    ////List<DetectorStateObject> listDSO = new List<DetectorStateObject>();
+                    //listDSO = CheckCarByte(buffer);
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex.Message.ToString() + _checkCarSocket.Connected.ToString() + "UpdSocket类 Receive方法出错");
+            }
+        }
+
         private delegate void DelegateInitAllDetector();
         private void DispatcherInitAllDetector(object state)
         {
@@ -567,7 +2023,7 @@ namespace tscui.Pages.Detector
             allDetecotr.Add(this.detectorSouthOther2);
             allDetecotr.Add(this.detectorSouthOther3);
             allDetecotr.Add(this.detectorSouthOther4);
-            allDetecotr.Add(this.detectorSouthRight);
+            allDetecotr.Add(this.detectorSouthRight2);
             allDetecotr.Add(this.detectorSouthRight1);
             allDetecotr.Add(this.detectorSouthRight3);
             allDetecotr.Add(this.detectorSouthRight4);
@@ -591,6 +2047,334 @@ namespace tscui.Pages.Detector
             allDetecotr.Add(this.detectorWestStraight2);
             allDetecotr.Add(this.detectorWestStraight3);
             allDetecotr.Add(this.detectorWestStraight4);
+            initDetectorDisplayTb();
+        }
+        private void displayDetectorId(byte id,tscui.Models.Detector d)
+        {
+            if (id == 0x01)//定位方向 北左
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorNorthLeft1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorNorthLeft2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorNorthLeft3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorNorthLeft4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0x02)
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorNorthStraight1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorNorthStraight2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorNorthStraight3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorNorthStraight4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0x04)
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorNorthRight1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorNorthRight2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorNorthRight3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorNorthRight4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0x41)//东左
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorEastLeft1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorEastLeft2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorEastLeft3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorEastLeft4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0x42)//东
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorEastStraight1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorEastStraight2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorEastStraight3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorEastStraight4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0x44)//东
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorEastRight1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorEastRight2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorEastRight3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorEastRight4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0x81)//东
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorSouthLeft1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorSouthLeft2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorSouthLeft3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorSouthLeft4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0x82)//东
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorSouthStraight1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorSouthStraight2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorSouthStraight3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorSouthStraight4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0x84)//东
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorSouthRight1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorSouthRight2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorSouthRight3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorSouthRight4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0xc1)//东
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorWestLeft1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorWestLeft2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorWestLeft3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorWestLeft4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0xc2)//东
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorWestStraight1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorWestStraight2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorWestStraight3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorWestStraight4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0xc4)//东
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorWestRight1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorWestRight2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorWestRight3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorWestRight4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0x05)//北其它
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorNorthOther1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorNorthOther2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorNorthOther3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorNorthOther4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0x45)//东其它
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorEastOther1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorEastOther2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorEastOther3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorEastOther4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0x85)//南其它
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorSouthOther1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorSouthOther2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorSouthOther3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorSouthOther4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+            else if (id == 0xc5)//西其它
+            {
+                if (0x10 == (d.ucDetFlag & 0x10)) // 战略线圈，属于最远一个线圈
+                {
+                    detectorWestOther1.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x20 == (d.ucDetFlag & 0x20))// 战术线圈，属于第二远一个线圈
+                {
+                    detectorWestOther2.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x40 == (d.ucDetFlag & 0x40))// 感应线圈，属于比较近一个线圈
+                {
+                    detectorWestOther3.Text = Convert.ToString(d.ucDetectorId);
+                }
+                else if (0x80 == (d.ucDetFlag & 0x80))// 请求线圈，属于最近一个线圈
+                {
+                    detectorWestOther4.Text = Convert.ToString(d.ucDetectorId);
+                }
+            }
+        }
+        private void initDetectorDisplayTb()
+        {
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
+
+            List<tscui.Models.Detector> ld = t.ListDetector;
+            List<PhaseToDirec> lptd = t.ListPhaseToDirec;
+            foreach(tscui.Models.Detector d in ld)
+            {
+                foreach (PhaseToDirec ptd in lptd)
+                {
+                    if (ptd.ucPhase == d.ucPhaseId)
+                    {
+                        displayDetectorId(ptd.ucId,d);
+                    }
+                }
+               
+            }
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
@@ -2970,6 +4754,28 @@ namespace tscui.Pages.Detector
                     d.ucValidTime = Convert.ToByte(tbkVaildTime.Text);
                 }
             }
+        }
+
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
+            if (td == null)
+                return;
+         
+            Udp.StartReceiveCheckCar();
+            Udp.sendUdpCheckCar(td.Node.sIpAddress, td.Node.iPort, Define.DETECTOR_STATUS_TABLE);
+            //Thread t = new Thread(DispatcherCheckCar);
+            //t.IsBackground = true;
+            //t.SetApartmentState(ApartmentState.STA);
+            //t.Start();
+           // ThreadPool.QueueUserWorkItem(DispatcherCheckCar);
+
+            checkDispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            checkDispatcherTimer.Tick += new EventHandler(CheckedDispatcherTimer_Tick);
+            checkDispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            checkDispatcherTimer.Start();
+           // ThreadPool.QueueUserWorkItem(DispatcherCheckCar);
         }
 
      

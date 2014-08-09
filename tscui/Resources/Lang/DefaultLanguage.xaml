@@ -27,14 +27,21 @@
     <sys:String x:Key="tsc_time_jun">jun</sys:String>
     <sys:String x:Key="tsc_time_may">may</sys:String>
     <sys:String x:Key="tsc_time_apr">apr</sys:String>
-    <sys:String x:Key="tsc_time_mar">mar</sys:String>
+    <sys:String x:Key="tsc_time_mar">mar</sys:String> 
     <sys:String x:Key="tsc_time_feb">feb</sys:String>
-
+    <sys:String x:Key="tsc_detector_check">Check</sys:String>
     <sys:String x:Key="tsc_time_save">save</sys:String>
     <sys:String x:Key="tsc_time_read">read</sys:String>
-
+    
     <sys:String x:Key="tsc_week_id">Plan</sys:String>
-
+    <sys:String x:Key="tsc_lightcheck_hardware">Open Lamp Check Light(hardware)</sys:String>
+    <sys:String x:Key="tsc_lightcheck_software">Open Lamp Check When Start Tsc</sys:String>
+    <sys:String x:Key="tsc_lightcheck_select">please selected a tsc ,and check you network</sys:String>
+    <sys:String x:Key="tsc_lightcheck_close_success">close light check success when start tsc</sys:String>
+    <sys:String x:Key="tsc_lightcheck_close_faile">close light check error when start tsc</sys:String>
+    <sys:String x:Key="tsc_lightcheck_open_success">open light check success when start tsc</sys:String>
+    <sys:String x:Key="tsc_lightcheck_open_faile">open light check error when start tsc</sys:String>
+    
     <sys:String x:Key="tsc_week_week">Week</sys:String>
     <sys:String x:Key="tsc_week_schedule">Schedule</sys:String>
     <sys:String x:Key="tsc_week_thu">Thu</sys:String>
@@ -184,6 +191,8 @@
     <sys:String x:Key="tsc_apex_id">ID</sys:String>
     <sys:String x:Key="tsc_apex_name">Name</sys:String>
     <sys:String x:Key="tsc_apex_ip">IP Address</sys:String>
+    
+    <sys:String x:Key="tsc_lightcheck_all">All</sys:String>
 
     <sys:String x:Key="msg_apex_16_32_no_match">Tsc just has 16 phase ,the protocal is not match!</sys:String>
     <sys:String x:Key="msg_collision_selected_stage">please selected a stage!</sys:String>

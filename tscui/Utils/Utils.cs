@@ -185,7 +185,7 @@ namespace tscui.Utils
             System.DateTime time = System.DateTime.MinValue;
             System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
             time = startTime.AddSeconds(d);
-            time = time.AddHours(-8);
+            time = time.AddHours(-16);
             return time;
         }
         /// <summary>
@@ -300,7 +300,7 @@ namespace tscui.Utils
                         result = result + "【未知】";
                         break;
                 }
-                result = result + "，第【" + bpara[3] + "】灯控板。";
+                result = result + "，第【" + bpara[2] + "】灯控板。";
             }
             else if (type == 0x01)
             {

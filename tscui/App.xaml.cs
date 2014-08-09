@@ -23,7 +23,7 @@ namespace tscui
         {
             CultureInfo currentCultureInfo = CultureInfo.CurrentCulture;
             
-           // currentCultureInfo = CultureInfo.CreateSpecificCulture("en-US");
+            //currentCultureInfo = CultureInfo.CreateSpecificCulture("zh_CN");
             ResourceDictionary langRd = null;
            
             try

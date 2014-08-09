@@ -30,12 +30,18 @@
     <sys:String x:Key="tsc_time_may">五月</sys:String>
     <sys:String x:Key="tsc_time_apr">四月</sys:String>
     <sys:String x:Key="tsc_time_mar">三月</sys:String>
-    <sys:String x:Key="tsc_time_feb">二月</sys:String>
-
+    <sys:String x:Key="tsc_time_feb">二月</sys:String> 
+    <sys:String x:Key="tsc_lightcheck_hardware">打开灯控板（物理板卡）检测</sys:String>
+    <sys:String x:Key="tsc_lightcheck_software">开机进行灯泡检测</sys:String>
     <sys:String x:Key="tsc_time_save">保存</sys:String>
     <sys:String x:Key="tsc_time_read">读取</sys:String>
     <sys:String x:Key="tsc_week_id">时基编号</sys:String>
-
+    <sys:String x:Key="tsc_lightcheck_select">请选择一台信号机，并确保网络正常</sys:String> 
+    <sys:String x:Key="tsc_lightcheck_close_success">开机关闭灯泡检测保存成功</sys:String>
+    <sys:String x:Key="tsc_lightcheck_close_faile">开机关闭灯泡检测保存失败</sys:String>
+    <sys:String x:Key="tsc_lightcheck_open_success">开机启动灯泡检测保存成功</sys:String>
+    <sys:String x:Key="tsc_lightcheck_open_faile">开机启动灯泡检测保存失败</sys:String>
+    <sys:String x:Key="tsc_detector_check">显示检测</sys:String>
     <sys:String x:Key="tsc_week_week">星期选择</sys:String>
     <sys:String x:Key="tsc_week_schedule">时段编号</sys:String>
     <sys:String x:Key="tsc_week_thu">星期四</sys:String>
@@ -212,6 +218,7 @@
     <sys:String x:Key="msg_update_reset_success">信号机程序恢复成功！</sys:String>
     <sys:String x:Key="msg_update_reset_failed">信号机程序恢复失败！</sys:String>
     
+    <sys:String x:Key="tsc_lightcheck_all">所有</sys:String>
 
     <sys:String x:Key="tsc_menu_tsc_list">信号控制</sys:String>
     <sys:String x:Key="tsc_menu_basetime_month">按月时基</sys:String>

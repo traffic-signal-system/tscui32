@@ -519,7 +519,17 @@ namespace tscui.Pages.Phase
                 this.workmode_label.Content = "工作模式：" + tscui.Models.ReportTscStatus.sWorkModel.ToString();
                 this.controlmode_label.Content = "控制方式：" + tscui.Models.ReportTscStatus.sControlModel.ToString();
                 this.workstatus_label.Content = "工作状态：" + tscui.Models.ReportTscStatus.sWorkStatus.ToString();
+                //if ("面板控制".Equals(tscui.Models.ReportTscStatus.sControlModel.ToString()) || "手动".Equals(tscui.Models.ReportTscStatus.sControlModel.ToString()))
+                //{
 
+                //    rbnManaul.IsChecked = true;
+
+                //}
+                //else
+                //{
+
+                //    rbnSelf.IsChecked = true;
+                //}
                 this.time_NO_label.Content = "配时方案：" + tscui.Models.ReportTscStatus.iCurrentTimePattern.ToString();
                 this.run_NO_label.Content = "时段方案：" + tscui.Models.ReportTscStatus.iCurrentSchedule.ToString();
                 this.lblCurrentStage.Content = "当前阶段：" + tscui.Models.ReportTscStatus.iCurrentStage.ToString();
@@ -3463,6 +3473,7 @@ namespace tscui.Pages.Phase
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             if (t == null)
                 return;
+            dispatcherTimer1.Stop();
             Udp.sendUdp(t.Node.sIpAddress, t.Node.iPort, Define.REPORT_TSC_STATUS_CANCEL);
         }
 
@@ -3486,7 +3497,7 @@ namespace tscui.Pages.Phase
         {
             try
             {
-                ThreadPool.QueueUserWorkItem(savePhaseAbout);
+                //ThreadPool.QueueUserWorkItem(savePhaseAbout);
                 
                 if(echoCountDownDispatcherTimer != null)
                 {
@@ -3515,7 +3526,7 @@ namespace tscui.Pages.Phase
             Udp.StartReceiveEchoCountDown();
             Udp.sendUdpEchoCountDown(td.Node.sIpAddress, Define.GBT_PORT, Define.ECHO_TSC_COUNT_DOWN);
 
-
+            
             echoCountDownDispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             echoCountDownDispatcherTimer.Tick += new EventHandler(CountDownDispatcherTimer_Tick);
             echoCountDownDispatcherTimer.Interval = new TimeSpan(0, 0, 1);
@@ -3601,10 +3612,75 @@ namespace tscui.Pages.Phase
             if (t == null)
                 return;
             Udp.sendUdp(t.Node.sIpAddress, t.Node.iPort, Define.ECHO_TSC_COUNT_DOWN_CANCEL);
+            echoCountDownDispatcherTimer.Stop();
             SouthCntDown.Text = "";
             NorthCntDown.Text = "";
             EastCntDown.Text = "";
             WestCntDown.Text = "";
+        }
+
+        private void rbnManaul_Checked(object sender, RoutedEventArgs e)
+        {
+            Message msg = TscDataUtils.SetCtrlMunual();
+            //if (msg.flag)
+            //{
+            //    MessageBox.Show(msg.msg + ",切换到手动状态成功！");
+            //}
+            //else
+            //{
+            //    MessageBox.Show(msg.msg + ",切换到手动状态失败！");
+            //}
+        }
+
+        private void rbnManaul_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rbnSelf_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rbnSelf_Checked(object sender, RoutedEventArgs e)
+        {
+            Message msg = TscDataUtils.SetCtrlSelf();
+          
+        }
+
+        private void btnNextStep_Click(object sender, RoutedEventArgs e)
+        {
+            Message msg = TscDataUtils.SetNextStep();
+        }
+
+        private void btnNextDirec_Click(object sender, RoutedEventArgs e)
+        {
+            Message msg = TscDataUtils.SetNextDirec();
+        }
+
+        private void btnNextPhase_Click(object sender, RoutedEventArgs e)
+        {
+            Message msg = TscDataUtils.SetNextPhase();
+        }
+
+        private void btnNorth_Click(object sender, RoutedEventArgs e)
+        {
+            Message msg = TscDataUtils.SetCtrlNorth();
+        }
+
+        private void btnEast_Click(object sender, RoutedEventArgs e)
+        {
+            Message msg = TscDataUtils.SetCtrlEast();
+        }
+
+        private void btnSouth_Click(object sender, RoutedEventArgs e)
+        {
+            Message msg = TscDataUtils.SetCtrlSouth();
+        }
+
+        private void btnWest_Click(object sender, RoutedEventArgs e)
+        {
+            Message msg = TscDataUtils.SetCtrlWest();
         }
 
     }

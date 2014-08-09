@@ -21,9 +21,9 @@
     </apexMVVM:View.ViewModel>
 
     <Grid>
-        <Button Content="{DynamicResource tsc_time_read}" Height="23" Command="{Binding ResetLightCheck}" HorizontalAlignment="Left" Margin="343,567,0,0" Name="reset" VerticalAlignment="Top" Width="75" Click="reset_Click" />
-        <Button Content="{DynamicResource tsc_time_save}" Height="23" Command="{Binding SaveLightCheck}" HorizontalAlignment="Left" Margin="439,567,0,0" Name="save" VerticalAlignment="Top" Width="75"/>
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="207,567,0,0" Name="ipAddress" VerticalAlignment="Top" Width="120" />
+        <Button Content="{DynamicResource tsc_time_read}" Height="23" Command="{Binding ResetLightCheck}" HorizontalAlignment="Left" Margin="154,567,0,0" Name="reset" VerticalAlignment="Top" Width="75" Click="reset_Click" />
+        <Button Content="{DynamicResource tsc_time_save}" Height="23" Command="{Binding SaveLightCheck}" HorizontalAlignment="Left" Margin="244,567,0,0" Name="save" VerticalAlignment="Top" Width="75"/>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="10,567,0,0" Name="ipAddress" VerticalAlignment="Top" Width="120" />
         <local:CheckItem x:Name="LampBroad8" HorizontalAlignment="Left" Margin="-7,10,0,0" VerticalAlignment="Top"/>
         <local:CheckItem  x:Name="LampBroad7" HorizontalAlignment="Left" Margin="103,10,0,0" VerticalAlignment="Top"/>
         <local:CheckItem  x:Name="LampBroad6" HorizontalAlignment="Left" Margin="213,10,0,0" VerticalAlignment="Top"/>
@@ -32,5 +32,7 @@
         <local:CheckItem  x:Name="LampBroad3" HorizontalAlignment="Left" Margin="547,10,0,0" VerticalAlignment="Top"/>
         <local:CheckItem  x:Name="LampBroad2" HorizontalAlignment="Left" Margin="659,10,0,0" VerticalAlignment="Top"/>
         <local:CheckItem  x:Name="LampBroad1" HorizontalAlignment="Left" Margin="770,10,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbxOpenSpecFun" Content="{DynamicResource tsc_lightcheck_software}" HorizontalAlignment="Left" Margin="499,576,0,0" VerticalAlignment="Top" Unchecked="cbxOpenSpecFun_Unchecked" Checked="cbxOpenSpecFun_Checked"/>
+        <CheckBox Content="{DynamicResource tsc_lightcheck_hardware}" HorizontalAlignment="Left" Margin="700,576,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
     </Grid>
 </UserControl>

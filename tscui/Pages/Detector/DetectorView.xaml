@@ -407,6 +407,7 @@
                     <Button x:Name="btnRead" Content="{DynamicResource tsc_time_read}" HorizontalAlignment="Left" Margin="50,451,0,0" VerticalAlignment="Top" Width="75" Click="btnRead_Click" Visibility="Hidden"/>
                     <Button x:Name="btnSave" Content="{DynamicResource tsc_time_save}" HorizontalAlignment="Left" Margin="145,451,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
                     <TextBlock x:Name="tbkPhaseId" HorizontalAlignment="Left" Margin="122,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76"/>
+                    <CheckBox Content="{DynamicResource tsc_detector_check}" HorizontalAlignment="Left" Margin="18,547,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
                 </Grid>
             </GroupBox>
 
@@ -415,11 +416,7 @@
                     <SolidColorBrush Color="{DynamicResource PopupBackgroundBottomColor}" Opacity="0.1"/>
                 </TextBlock.Background>
             </TextBlock>
-            <TextBlock Text="" x:Name="detectorNorthOther2" Canvas.Left="203" Canvas.Top="44" Width="17" Foreground="{DynamicResource ZuneColor1Brush}" Height="13" MouseLeftButtonDown="detectorNorthOther2_MouseLeftButtonDown" FontWeight="Bold" TextAlignment="Justify"  HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" MouseRightButtonDown="detectorNorthOther2_MouseRightButtonDown">
-                <TextBlock.Background>
-                    <SolidColorBrush Color="{DynamicResource PopupBackgroundBottomColor}" Opacity="0.1"/>
-                </TextBlock.Background>
-            </TextBlock>
+            <TextBlock Text="" x:Name="detectorNorthOther2" Canvas.Left="203" Canvas.Top="44" Width="17" Foreground="{DynamicResource ZuneColor1Brush}" Height="13" MouseLeftButtonDown="detectorNorthOther2_MouseLeftButtonDown" FontWeight="Bold" TextAlignment="Justify"  HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" MouseRightButtonDown="detectorNorthOther2_MouseRightButtonDown"/>
             <TextBlock Text="" x:Name="detectorNorthOther3" Canvas.Left="203" Canvas.Top="76" Width="17" Foreground="{DynamicResource ZuneColor1Brush}" Height="13" MouseLeftButtonDown="detectorNorthOther3_MouseLeftButtonDown" FontWeight="Bold" TextAlignment="Justify"  HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" MouseRightButtonDown="detectorNorthOther3_MouseRightButtonDown">
                 <TextBlock.Background>
                     <SolidColorBrush Color="{DynamicResource PopupBackgroundBottomColor}" Opacity="0.1"/>
@@ -572,7 +569,7 @@
             </TextBlock>
             <TextBlock Text="" x:Name="detectorSouthLeft4"  Canvas.Left="309" Canvas.Top="477" Width="17" Foreground="{DynamicResource ZuneColor1Brush}" Height="13" MouseLeftButtonDown="detectorSouthLeft4_MouseLeftButtonDown" FontWeight="Bold" TextAlignment="Justify"  HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" MouseRightButtonDown="detectorSouthLeft4_MouseRightButtonDown">
                 <TextBlock.Background>
-                    <SolidColorBrush Color="{DynamicResource PopupBackgroundBottomColor}" Opacity="0.1"/>
+                    <SolidColorBrush Color="#f0f0f0" Opacity="0.1"/>
                 </TextBlock.Background>
             </TextBlock>
             <TextBlock Text="" x:Name="detectorSouthStraight4" Canvas.Left="332" Canvas.Top="477" Width="17" Foreground="{DynamicResource ZuneColor1Brush}" Height="13" MouseLeftButtonDown="detectorSouthStraight4_MouseLeftButtonDown" FontWeight="Bold" TextAlignment="Justify"  HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" MouseRightButtonDown="detectorSouthStraight4_MouseRightButtonDown">
@@ -625,7 +622,7 @@
                     <SolidColorBrush Color="{DynamicResource PopupBackgroundBottomColor}" Opacity="0.1"/>
                 </TextBlock.Background>
             </TextBlock>
-            <TextBlock Text="" x:Name="detectorSouthRight" Canvas.Left="355" Canvas.Top="536" Width="17" Foreground="{DynamicResource ZuneColor1Brush}" Height="13" MouseLeftButtonDown="detectorSouthRight_MouseLeftButtonDown" FontWeight="Bold" TextAlignment="Justify"  HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" MouseRightButtonDown="detectorSouthRight_MouseRightButtonDown">
+            <TextBlock Text="" x:Name="detectorSouthRight2" Canvas.Left="355" Canvas.Top="536" Width="17" Foreground="{DynamicResource ZuneColor1Brush}" Height="13" MouseLeftButtonDown="detectorSouthRight_MouseLeftButtonDown" FontWeight="Bold" TextAlignment="Justify"  HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" MouseRightButtonDown="detectorSouthRight_MouseRightButtonDown">
                 <TextBlock.Background>
                     <SolidColorBrush Color="{DynamicResource PopupBackgroundBottomColor}" Opacity="0.1"/>
                 </TextBlock.Background>

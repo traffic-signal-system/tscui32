@@ -9,7 +9,7 @@ namespace tscui.Models
     {
         private static string _sWorkModel;
         private static string _sWorkStatus;
-        private static string _sControlModel;
+        private static string _sControlModel; 
         private static int _iCurrentSchedule;
         private static int _iCurrentTimePattern;
         private static int _iCurrentStagePattern;

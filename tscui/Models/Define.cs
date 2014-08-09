@@ -174,12 +174,13 @@ namespace tscui.Models
         public static byte[] SET_DETECTOR_RESPONSE = { 0x81, DETECTOR, 0x00 };
         public static byte[] SET_DETECTOR_NO_RESPONSE = { 0x82, DETECTOR, 0x00 };
         public static int DETECTOR_BYTE_SIZE = 9;
-        public static int DETECTOR_RESULT_LEN = 48;
+        public static int DETECTOR_RESULT_LEN = 32;
         /// <summary>
         /// 检测器状态表部分
         /// </summary>
         public static byte DETECTOR_STATE = 0xa0;
         public static int DETECTOR_STATE_BYTE_SIZE = 3;
+        public static int DETECTOR_STATE_BYTE_LEN = 8;
         /// <summary>
         /// 交通检测流量数据表
         /// </summary>
@@ -258,6 +259,7 @@ namespace tscui.Models
         public static byte STAGE_STATUS = 0xba;
         //步进指令  0-进步开始、顺序步进、1-16指定步进
         public static byte STEP_COMMAND = 0xbb;
+
         //降级模式  0 表示无降级；1-13表示降级控制方式中的一种  
         public static byte DEGRADATION_MODE = 0xbc;
         //降级基准方案表，每个字节表示、该模式下的基准方案号；第0个字节表示控制方式0
@@ -326,16 +328,36 @@ namespace tscui.Models
         /// <summary>
         /// ******************扩展相关对应对象************************************************
         /// </summary> 
+        /// 
+        public static byte REPORT = 0xf7;
         //信号机状态上报
-        public static byte[] REPORT_TSC_STATUS = { 0x81, 0xF7, 0x00, 0x01, 0xF8, 0x00, 0x0A };
+        public static byte[] REPORT_TSC_STATUS = { SET_REQUEST_RESPONSE, REPORT, 0x00, 0x01, 0xF8, 0x00, 0x0A };
         //信号机状态上报取消
-        public static byte[] REPORT_TSC_STATUS_CANCEL = { 0x81, 0xF7, 0x00, 0x01, 0xF8, 0x00, 0x00 };
+        public static byte[] REPORT_TSC_STATUS_CANCEL = { SET_REQUEST_RESPONSE, REPORT, 0x00, 0x01, 0xF8, 0x00, 0x00 };
         //切入手动控制
-        public static byte[] CTRL_MUNUAL = { 0x81, 0xB7, 0x00, 0x0A };
+        public static byte[] CTRL_MUNUAL = { SET_REQUEST_RESPONSE, 0xB7, 0x00, 0x0A };
+        //切换自动控制
+        public static byte[] CTRL_SELF = { SET_REQUEST_RESPONSE, 0xB6, 0x00, 0x00 };
+        //下一步，如果最后一个字节为1-255的，显示指定步伐
+        public static byte[] CTRL_NEXTSTEP_STATUS = { SET_REQUEST_RESPONSE, 0xBA, 0x00, 0x00 };
+        //下一步，如果最后一个字节为1-255的，跳步到指定步伐
+        public static byte[] CTRL_NEXTSTEP = { SET_REQUEST_RESPONSE, STEP_COMMAND, 0x00, 0x00 };
+        //下一相位
+        public static byte[] CTRL_NEXTPHASE = { SET_REQUEST_RESPONSE, 0xf2, 0x00, 0x01,0x00 };
+        //下一方向
+        public static byte[] CTRL_NEXTDIREC = { SET_REQUEST_RESPONSE, 0xf2, 0x00, 0x02, 0x00 };
+        //北方向
+        public static byte[] CTRL_NORTH = { SET_REQUEST_RESPONSE, 0xf2, 0x00, 0x03, 0x01 };
+        //东方向
+        public static byte[] CTRL_EAST = { SET_REQUEST_RESPONSE, 0xf2, 0x00, 0x03, 0x02 };
+        //南方向
+        public static byte[] CTRL_SOUTH = { SET_REQUEST_RESPONSE, 0xf2, 0x00, 0x03, 0x03 };
+        //西方向
+        public static byte[] CTRL_WEST = { SET_REQUEST_RESPONSE, 0xf2, 0x00, 0x03, 0x04 };
         //校时
         public static byte[] TSC_DEV_TIMING = { SET_REQUEST_RESPONSE, 0xf6, 0x01 };
         //生成序列号
-        public static byte[] BUILD_SN = { 0x81, 0xE4, 0x00, 0x02 };
+        public static byte[] BUILD_SN = { SET_REQUEST_RESPONSE, 0xE4, 0x00, 0x02 };
         //查询各个模块的状态 
         public static byte[] MODULE_EVERYONE_STATUS = { GET_REQUEST, 0xf9, 0x00 };
         //控制模块相关信息读取，如电压，温度
@@ -379,6 +401,11 @@ namespace tscui.Models
         public static byte[] SET_LAMP_BLOCK_CHECK_COLLISION_TWO_NO_CHECK = { SET_REQUEST_RESPONSE, LAMP_BLOCK_CHECK_COLLISION, 0x00, 0x03, 0x01, 0x05 };
         public static byte[] SET_LAMP_BLOCK_CHECK_COLLISION_THREE_NO_CHECK = { SET_REQUEST_RESPONSE, LAMP_BLOCK_CHECK_COLLISION, 0x00, 0x03, 0x02, 0x05 };
         public static byte[] SET_LAMP_BLOCK_CHECK_COLLISION_FOUR_NO_CHECK = { SET_REQUEST_RESPONSE, LAMP_BLOCK_CHECK_COLLISION, 0x00, 0x03, 0x03, 0x05 };
+
+        public static byte[] SET_LAMP_BLOCK_CHECK_OPEN = { SET_REQUEST_RESPONSE, COUNT_DOWN, 0x0a, 0x01 };
+        public static byte[] SET_LAMP_BLOCK_CHECK_CLOSE = { SET_REQUEST_RESPONSE, COUNT_DOWN, 0x0a, 0x00 };
+
+
         #endregion
 
         #region PSC/TSC切换
@@ -592,6 +619,10 @@ namespace tscui.Models
         /// <summary>
         /// 检测器功能设置
         /// </summary>
+        ///                                                                                 对象个数         时间间隔 
+        public static byte[] DETECTOR_STATUS_TABLE = { SET_REQUEST_RESPONSE, REPORT, 0x00, 0x01, 0xa0, 0x00, 0x02 };
+
+
         public static byte OSCILLATOR_FREQUENCY_SENSITIVITY = 0xe2;
         public static byte[] DETECTOR_SENSITIVITY = { SET_REQUEST_RESPONSE, OSCILLATOR_FREQUENCY_SENSITIVITY, 0x00, 0x0b, 0x00 };
         public static byte[] DETECTOR_SENSITIVITY_1_1_8 = { SET_REQUEST_RESPONSE, OSCILLATOR_FREQUENCY_SENSITIVITY, 0x00, 0x0b, 0x00 };
