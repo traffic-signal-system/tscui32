@@ -96,6 +96,7 @@ namespace tscui.Pages.Schedules
             string flashing = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_flashing"];
             string allred = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_allred"];
             string reaction = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_reaction"];
+            string gpscoordination = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_gpscoordination"];
             string one = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_self_one"];
             string maincoordination = (string)App.Current.Resources.MergedDictionaries[3]["dic_maincoordination"];
             string system = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_system"];
@@ -106,6 +107,7 @@ namespace tscui.Pages.Schedules
             lsc.Add(new ScheduleCtrl() { name = flashing, value = 2 });
             lsc.Add(new ScheduleCtrl() { name = allred, value = 3 });
             lsc.Add(new ScheduleCtrl() { name = reaction, value = 6 });
+            lsc.Add(new ScheduleCtrl() { name = gpscoordination, value = 7 });
             lsc.Add(new ScheduleCtrl() { name = one, value = 8 });
             lsc.Add(new ScheduleCtrl() { name = maincoordination, value = 11 });
             lsc.Add(new ScheduleCtrl() { name = system, value = 12 });
@@ -157,8 +159,16 @@ namespace tscui.Pages.Schedules
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             if (t == null)
-                return;
-            TscDataUtils.SetSchedule(t.ListSchedule);
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            Message m = TscDataUtils.SetSchedule(t.ListSchedule);
+            if (m.flag)
+            {
+                MessageBox.Show("保存成功");
+            }
+            else
+            {
+                MessageBox.Show("保存失败");
+            }
         }
 
         private void UserControl_Unloaded(object sender, System.Windows.RoutedEventArgs e)

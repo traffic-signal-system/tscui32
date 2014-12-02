@@ -45,7 +45,7 @@ namespace tscui.Pages.Config
             }
             catch (Exception ex)
             {
-                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_config_network_err"]);
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_config_network_err"] + ":\n" + ex.ToString());
             }
         }
         public ConfigView()

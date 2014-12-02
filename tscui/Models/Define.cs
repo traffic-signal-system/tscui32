@@ -136,8 +136,8 @@ namespace tscui.Models
         /// </summary>
         public static byte PHASE =  0x95 ;
         public static byte[] GET_PHASE = { 0x80, PHASE, 0x00 };
-        public static byte[] SET_PHASE_RESPONSE = { 0x80, PHASE, 0x00 };
-        public static byte[] SET_PHASE_NO_RESPONSE = { 0x80, PHASE, 0x00 };
+        public static byte[] SET_PHASE_RESPONSE = { 0x81, PHASE, 0x00 };
+        public static byte[] SET_PHASE_NO_RESPONSE = { 0x82, PHASE, 0x00 };
         public static int PAHSE_BYTE_SIZE = 12;
         public static byte PHASE_OUTPUT_STATE = 0x96;
        
@@ -619,8 +619,8 @@ namespace tscui.Models
         /// <summary>
         /// 检测器功能设置
         /// </summary>
-        ///                                                                                 对象个数         时间间隔 
-        public static byte[] DETECTOR_STATUS_TABLE = { SET_REQUEST_RESPONSE, REPORT, 0x00, 0x01, 0xa0, 0x00, 0x02 };
+        ///                                                                                 对象个数         时间间隔,必需大于500ms 
+        public static byte[] DETECTOR_STATUS_TABLE = { SET_REQUEST_RESPONSE, REPORT, 0x00, 0x01, 0xa0, 0x00, 0x05 };
 
 
         public static byte OSCILLATOR_FREQUENCY_SENSITIVITY = 0xe2;

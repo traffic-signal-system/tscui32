@@ -300,17 +300,17 @@
             <Button x:Name="btnRead" Content="{DynamicResource tsc_time_read}" HorizontalAlignment="Left" Margin="18,560,0,0" VerticalAlignment="Top" Width="75" Click="btnRead_Click" Visibility="Visible"/>
             <Button x:Name="btnSave" Content="{DynamicResource tsc_time_save}" HorizontalAlignment="Left" Margin="98,560,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
         </Grid>
-        <GroupBox Header="Manaul" HorizontalAlignment="Left" Margin="622,423,0,0" VerticalAlignment="Top" Width="159" Height="134">
+        <GroupBox Header="{DynamicResource tsc_phase_munual}" HorizontalAlignment="Left" Margin="622,423,0,0" VerticalAlignment="Top" Width="159" Height="134">
             <Grid HorizontalAlignment="Left" Height="116" Margin="-3,0,-12,-10" VerticalAlignment="Top" Width="158">
-                <RadioButton x:Name="rbnManaul" Content="手控" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="rbnManaul_Checked" Unchecked="rbnManaul_Unchecked"/>
-                <RadioButton x:Name="rbnSelf" Content="自控" HorizontalAlignment="Left" Margin="94,10,0,0" VerticalAlignment="Top" Unchecked="rbnSelf_Unchecked" Checked="rbnSelf_Checked"/>
-                <Button x:Name="btnNextStep" Content="下一步代" HorizontalAlignment="Left" Margin="9,34,0,0" VerticalAlignment="Top" Width="59" Click="btnNextStep_Click"/>
-                <Button x:Name="btnNextPhase" Content="下一相位" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="58" Click="btnNextPhase_Click"/>
-                <Button x:Name="btnNextDirec" Content="下一方向" HorizontalAlignment="Left" Margin="73,34,0,0" VerticalAlignment="Top" Width="60" Click="btnNextDirec_Click"/>
-                <Button x:Name="btnNorth" Content="北" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="26" Click="btnNorth_Click"/>
-                <Button x:Name="btnEast" Content="东" HorizontalAlignment="Left" Margin="45,85,0,0" VerticalAlignment="Top" Width="23" Click="btnEast_Click"/>
-                <Button x:Name="btnSouth" Content="南" HorizontalAlignment="Left" Margin="78,85,0,0" VerticalAlignment="Top" Width="26" Click="btnSouth_Click"/>
-                <Button x:Name="btnWest" Content="西" HorizontalAlignment="Left" Margin="111,85,0,0" VerticalAlignment="Top" Width="26" Click="btnWest_Click"/>
+                <RadioButton x:Name="rbnManaul" Content="{DynamicResource tsc_phase_munual_mode}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="rbnManaul_Checked" Unchecked="rbnManaul_Unchecked"/>
+                <RadioButton x:Name="rbnSelf" Content="{DynamicResource tsc_phase_self_mode}" HorizontalAlignment="Left" Margin="94,10,0,0" VerticalAlignment="Top" Unchecked="rbnSelf_Unchecked" Checked="rbnSelf_Checked"/>
+                <Button x:Name="btnNextStep" Content="{DynamicResource tsc_phase_next_step}" HorizontalAlignment="Left" Margin="9,34,0,0" VerticalAlignment="Top" Width="59" Click="btnNextStep_Click"/>
+                <Button x:Name="btnNextPhase" Content="{DynamicResource tsc_phase_next_phase}" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="58" Click="btnNextPhase_Click"/>
+                <Button x:Name="btnNextDirec" Content="{DynamicResource tsc_phase_next_direc}" HorizontalAlignment="Left" Margin="73,34,0,0" VerticalAlignment="Top" Width="60" Click="btnNextDirec_Click"/>
+                <Button x:Name="btnNorth" Content="{DynamicResource tsc_phase_north}" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="26" Click="btnNorth_Click"/>
+                <Button x:Name="btnEast" Content="{DynamicResource tsc_phase_east}" HorizontalAlignment="Left" Margin="45,85,0,0" VerticalAlignment="Top" Width="23" Click="btnEast_Click"/>
+                <Button x:Name="btnSouth" Content="{DynamicResource tsc_phase_south}" HorizontalAlignment="Left" Margin="78,85,0,0" VerticalAlignment="Top" Width="26" Click="btnSouth_Click"/>
+                <Button x:Name="btnWest" Content="{DynamicResource tsc_phase_west}" HorizontalAlignment="Left" Margin="111,85,0,0" VerticalAlignment="Top" Width="26" Click="btnWest_Click"/>
             </Grid>
         </GroupBox>
     </apexControls:ApexGrid >

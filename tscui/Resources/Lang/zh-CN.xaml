@@ -10,7 +10,73 @@
     </sys:String>
     <sys:String x:Key="tsc_name">
         交通信号控制器
-    </sys:String> 
+    </sys:String>
+    <sys:String x:Key="dic_schedule_gpscoordination">无电缆协调</sys:String>
+    <sys:String x:Key="tsc_direc_title">方向配置</sys:String>
+    <sys:String x:Key="tsc_direc_id">方向Id</sys:String>
+    <sys:String x:Key="tsc_direc_roadcount">车道数</sys:String>
+    <sys:String x:Key="tsc_apex_network">请网线直接连接信号机进行配置</sys:String>
+    <sys:String x:Key="tsc_adv_selected_title">相位</sys:String>
+    <sys:String x:Key="tsc_adv_lamp_broad">灯驱板</sys:String>
+    <sys:String x:Key="tsc_adv_channel1">通道1</sys:String>
+    <sys:String x:Key="tsc_adv_channel2">通道2</sys:String>
+    <sys:String x:Key="tsc_adv_channel3">通道3</sys:String>
+    <sys:String x:Key="tsc_adv_channel4">通道4</sys:String>
+    <sys:String x:Key="tsc_adv_channel5">通道5</sys:String>
+    <sys:String x:Key="tsc_adv_channel6">通道6</sys:String>
+    <sys:String x:Key="tsc_adv_channel7">通道7</sys:String>
+    <sys:String x:Key="tsc_adv_channel8">通道8</sys:String>
+    <sys:String x:Key="tsc_adv_channel9">通道9</sys:String>
+    <sys:String x:Key="tsc_adv_channel10">通道10</sys:String>
+    <sys:String x:Key="tsc_adv_channel11">通道11</sys:String>
+    <sys:String x:Key="tsc_adv_channel12">通道12</sys:String>
+    <sys:String x:Key="tsc_adv_channel13">通道13</sys:String>
+    <sys:String x:Key="tsc_adv_channel14">通道14</sys:String>
+    <sys:String x:Key="tsc_adv_channel15">通道15</sys:String>
+    <sys:String x:Key="tsc_adv_channel16">通道16</sys:String>
+    <sys:String x:Key="tsc_adv_channel17">通道17</sys:String>
+    <sys:String x:Key="tsc_adv_channel18">通道18</sys:String>
+    <sys:String x:Key="tsc_adv_channel19">通道19</sys:String>
+    <sys:String x:Key="tsc_adv_channel20">通道20</sys:String>
+    <sys:String x:Key="tsc_adv_channel21">通道21</sys:String>
+    <sys:String x:Key="tsc_adv_channel22">通道22</sys:String>
+    <sys:String x:Key="tsc_adv_channel23">通道23</sys:String>
+    <sys:String x:Key="tsc_adv_channel24">通道24</sys:String>
+    <sys:String x:Key="tsc_adv_channel25">通道25</sys:String>
+    <sys:String x:Key="tsc_adv_channel26">通道26</sys:String>
+    <sys:String x:Key="tsc_adv_channel27">通道27</sys:String>
+    <sys:String x:Key="tsc_adv_channel28">通道28</sys:String>
+    <sys:String x:Key="tsc_adv_channel29">通道29</sys:String>
+    <sys:String x:Key="tsc_adv_channel30">通道30</sys:String>
+    <sys:String x:Key="tsc_adv_channel31">通道31</sys:String>
+    <sys:String x:Key="tsc_adv_channel32">通道32</sys:String>
+    <sys:String x:Key="tsc_adv_phase_attr">相位属性</sys:String>
+    <sys:String x:Key="tsc_adv_phase_type">相位类型</sys:String>
+    <sys:String x:Key="tsc_adv_phase_id">ID</sys:String>
+    <sys:String x:Key="tsc_adv_phase_option">相位选项</sys:String>
+    <sys:String x:Key="tsc_adv_phase_pede">人行</sys:String>
+    <sys:String x:Key="tsc_adv_phase_pede_clear">人行清空时间</sys:String>
+    <sys:String x:Key="tsc_adv_phase_max_green1">最大绿1</sys:String>
+    <sys:String x:Key="tsc_adv_phase_max_green2">最大绿2</sys:String>
+    <sys:String x:Key="tsc_adv_phase_min_green">最小绿</sys:String>
+    <sys:String x:Key="tsc_adv_phase_flash_green">绿闪</sys:String>
+    <sys:String x:Key="tsc_adv_phase_delay_green">单位绿灯时间</sys:String>
+    <sys:String x:Key="tsc_adv_phase_fixed_green">固定绿</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase">跟随相痊</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_type">类型</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_last_red">尾部红灯</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_last_yellow">尾部黄灯</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_last_green">尾部绿灯</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_include_phase">包含相位</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_incro_phase">修正相位</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_id">ID</sys:String>
+    <sys:String x:Key="tsc_adv_channel">通道</sys:String>
+    <sys:String x:Key="tsc_adv_channel_id">ID</sys:String>
+    <sys:String x:Key="tsc_adv_channel_auto_flash">自动闪</sys:String>
+    <sys:String x:Key="tsc_adv_channel_type">类型</sys:String>
+    <sys:String x:Key="tsc_adv_btn_ok">提交</sys:String>
+    <sys:String x:Key="tsc_adv_btn_read">读取</sys:String>
+
     <sys:String x:Key="tsc_main_title">信号机</sys:String>
     <sys:String x:Key="tsc_flush">寻找信号机</sys:String>
     <sys:String x:Key="tsc_check">检测中...</sys:String>
@@ -247,9 +313,18 @@
     <sys:String x:Key="tsc_menu_basetime">时基</sys:String>
     <sys:String x:Key="tsc_menu_otherdevice">外设</sys:String>
     <sys:String x:Key="tsc_menu_system">系统</sys:String>
-    
 
 
+    <sys:String x:Key="tsc_phase_munual">手控模式</sys:String>
+    <sys:String x:Key="tsc_phase_munual_mode">手控</sys:String>
+    <sys:String x:Key="tsc_phase_self_mode">自控</sys:String>
+    <sys:String x:Key="tsc_phase_next_step">下一步</sys:String>
+    <sys:String x:Key="tsc_phase_next_phase">下相位</sys:String>
+    <sys:String x:Key="tsc_phase_next_direc">下方向</sys:String>
+    <sys:String x:Key="tsc_phase_north">北</sys:String>
+    <sys:String x:Key="tsc_phase_east">东</sys:String>
+    <sys:String x:Key="tsc_phase_south">南</sys:String>
+    <sys:String x:Key="tsc_phase_west">西</sys:String>
 
 
 

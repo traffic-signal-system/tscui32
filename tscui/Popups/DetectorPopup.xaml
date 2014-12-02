@@ -37,7 +37,7 @@
                 <!-- The commands. -->
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal"
                 TextBlock.Foreground="{StaticResource ZuneDarkGrayBrush}" TextBlock.FontWeight="Bold" Margin="0,225,8,0" Width="120" Height="28" VerticalAlignment="Top">
-                    <Button Visibility="Hidden" x:Name="button_OK" Width="80" Height="28" Margin="0,0,12,0" Content="OK" Click="button_OK_Click"/>
+                    <Button  x:Name="button_OK" Width="80" Height="28" Margin="0,0,12,0" Content="取消" Click="button_OK_Click"/>
                     
                
                 </StackPanel>

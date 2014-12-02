@@ -1937,7 +1937,10 @@ namespace tscui.Service
         public static List<Schedule> GetSchedule()
         {
             TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
-            byte[] byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_SCHEDULE);
+           // byte[] byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_SCHEDULE);
+            //byt 在同济大学里通过无线AP 点对点。查出数据byt数组为空的
+            
+            byte[] byt = Udp.sendUdpClient(td.Node.sIpAddress, td.Node.iPort, Define.GET_SCHEDULE);
             if (!CheckGBT(byt, "时段"))
             {
                 return null;
@@ -2402,7 +2405,7 @@ namespace tscui.Service
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Message m = new Message();
             //字节 长度，需要加1 ，因为。数据长度需要一个字段表示。
-            byte[] hex = new byte[Define.OVERLAPPHASE_BYTE_SIZE * Define.OVERLAPPHASE_RESULT_LEN + Define.SET_OVERLAPPHASE_RESPONSE.Length+ 1];
+            byte[] hex = new byte[Define.OVERLAPPHASE_BYTE_SIZE * lop.Count + Define.SET_OVERLAPPHASE_RESPONSE.Length + 1];
             Stream s = new MemoryStream();
             s.Write(Define.SET_OVERLAPPHASE_RESPONSE, 0, Define.SET_OVERLAPPHASE_RESPONSE.Length);
             s.WriteByte(Convert.ToByte(lop.Count));

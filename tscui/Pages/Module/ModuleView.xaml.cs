@@ -40,7 +40,7 @@ namespace tscui.Views
 
         private void btnRead_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("此功能暂停使用！");
         }
     }
 }

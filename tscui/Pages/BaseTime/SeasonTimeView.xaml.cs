@@ -168,7 +168,7 @@ namespace tscui.Pages.BaseTime
             }
             catch(Exception ex)
             {
-                //MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
                 //ApexBroker.GetShell().ShowPopup(new FailePopup());
             }
         }
@@ -460,7 +460,7 @@ namespace tscui.Pages.BaseTime
         private void SavePlan()
         {
             if (td == null)
-                return;
+                td = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             List<Plan> lp = td.ListPlan;
             foreach (Plan p in lp)
             {
@@ -471,7 +471,15 @@ namespace tscui.Pages.BaseTime
                 }
             }
             
-            TscDataUtils.SetPlanByWeekend(td.Node.sIpAddress, td.Node.iPort, lp);
+            bool m = TscDataUtils.SetPlanByWeekend(td.Node.sIpAddress, td.Node.iPort, lp);
+            if (m)
+            {
+                MessageBox.Show("保存成功");
+            }
+            else
+            {
+                MessageBox.Show("保存成功");
+            }
         }
         /// <summary>
         /// 多线程

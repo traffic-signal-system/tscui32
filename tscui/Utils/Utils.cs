@@ -882,7 +882,7 @@ namespace tscui.Utils
         public static List<Plan> SeasionTime2Plan(List<SeasonTimeViewModel> stvms)
         {
             
-            byte weekend = 0x00;
+            //byte weekend = 0x00;
             List<Plan> lp = new List<Plan>();
             //foreach (SeasonTimeViewModel stvm in stvms)
             //{

@@ -26,8 +26,7 @@ namespace tscui.Pages.LightCheck
 
         public void OnActivated()
         {
-            ((LightCheckViewModel)DataContext).SaveLightCheck.Executed += SaveLightCheck_Executed;
-            ((LightCheckViewModel)DataContext).ResetLightCheck.Executed += ResetLightCheck_Executed;
+            
         }
 
         public void OnDeactivated()
@@ -733,7 +732,7 @@ namespace tscui.Pages.LightCheck
         }
         void ResetLightCheck_Executed(object sender, CommandEventArgs args)
         {
-            ResetLightCheck();
+            //ResetLightCheck();
         
         }
         private void SaveLightCheck(object state)
@@ -1339,12 +1338,19 @@ namespace tscui.Pages.LightCheck
             List<LampCheck> listLampCheck = new List<LampCheck>();
             listLampCheck.Add(lc);
             bool b = Udp.sendUdpNoReciveData(ipaddr, 5435, hex);
-
+            if (b)
+            {
+                MessageBox.Show("保存成功");
+            }
+            else
+            {
+                MessageBox.Show("保存失败");
+            }
             
         }
         void SaveLightCheck_Executed(object sender, CommandEventArgs args)
         {
-            SaveLightCheck(null);
+            
         }
         TscData td;
         private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
@@ -1363,7 +1369,7 @@ namespace tscui.Pages.LightCheck
 
         private void reset_Click(object sender, RoutedEventArgs e)
         {
-
+            ResetLightCheck();
         }
 
         private void CheckItem_Loaded(object sender, RoutedEventArgs e)
@@ -1374,16 +1380,7 @@ namespace tscui.Pages.LightCheck
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
 
-            try
-            { 
-                //ThreadPool.QueueUserWorkItem(SaveLightCheck);
-                SaveLightCheck(null);
-            }
-            catch (Exception ex)
-            {
-               // MessageBox.Show("LightCheck: " + ex.ToString());
-                return;
-            }
+           
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -1438,6 +1435,12 @@ namespace tscui.Pages.LightCheck
                 MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["tsc_lightcheck_open_faile"]);
             }
         }
+
+        private void save_Click(object sender, RoutedEventArgs e)
+        {
+            SaveLightCheck(null);
+        }
+
 
     }
 }

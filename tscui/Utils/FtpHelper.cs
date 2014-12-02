@@ -68,7 +68,7 @@ namespace tscui.Utils
             catch (Exception ex)
             {
                 reqFTP.Abort();
-                //  Logging.WriteError(ex.Message + ex.StackTrace);
+                Console.WriteLine(ex.Message + ex.StackTrace);
                 return -2;
             }
         }
@@ -131,7 +131,7 @@ namespace tscui.Utils
             catch (Exception ex)
             {
                 reqFTP.Abort();
-                //  Logging.WriteError(ex.Message + ex.StackTrace);
+                Console.WriteLine(ex.ToString());
                 return -2;
             }
         }
@@ -210,8 +210,7 @@ namespace tscui.Utils
             }
             catch (Exception ex)
             {
-                // Logging.WriteError(ex.Message + ex.StackTrace);
-                // System.Windows.Forms.MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.ToString());
                 return -2;
             }
         }

@@ -16,7 +16,7 @@ namespace tscui.Models
     /// </summary>
     class Udp
     {
-
+        #region 显示灯态的线程部分
         static Socket _socket;
         static IPEndPoint _local = new IPEndPoint(IPAddress.Parse("192.168.0.2"), 5238);
         static Thread _receiveThread = null;
@@ -99,7 +99,11 @@ namespace tscui.Models
         }
         #endregion
 
+        #endregion
 
+
+
+        #region 倒计时输出的部分
         static Socket _countDownSocket;
         static IPEndPoint _countDownLocal = new IPEndPoint(IPAddress.Parse("192.168.0.2"), 5238);
         static Thread _countDownReceiveThread = null;
@@ -180,7 +184,17 @@ namespace tscui.Models
             }
         }
         #endregion
+        #endregion
 
+
+        /// <summary>
+        /// 直接用SOCKET来进行UDP的发送和接收
+        /// 此功能不关注发送到信号机后的返回数据，只对发送是否成功进行判断
+        /// </summary>
+        /// <param name="ipstr"></param>
+        /// <param name="port"></param>
+        /// <param name="hex"></param>
+        /// <returns></returns>
         public static bool sendUdpNoReciveData(string ipstr, int port, byte[] hex)
         {
             int recv;
@@ -218,8 +232,62 @@ namespace tscui.Models
             }
 
         }
+        /// <summary>
+        /// UDPClient 封装类实现功能UDP的数据包 发送。
+        /// 在使用AP比较复杂的网络时，请使用这个方法
+        /// 
+        /// </summary>
+        /// <param name="strip"> IP地址</param>
+        /// <param name="port">端口号，默认为5435</param>
+        /// <param name="hex">指令</param>
+        /// <returns>返回指令结果</returns>
+        public static byte[] sendUdpClient(string strip,int port,byte[] hex)
+        {
+            
+            UdpClient udpClient = new UdpClient(5435);
+            try
+            {
 
+                //ThreadPool.QueueUserWorkItem(SavePlan);
+                udpClient.Connect(IPAddress.Parse(strip), port);
+                // Sends a message to the host to which you have connected.
+                Byte[] sendBytes = hex;//Encoding.ASCII.GetBytes("123456");
+                udpClient.Send(sendBytes, sendBytes.Length);
+                //udpClient.EnableBroadcast = true;
+                //udpClient.Ttl
+                // Sends a message to a different host using optional hostname and port parameters.
+               
+                //UdpClient udpClientB = new UdpClient();
+               // udpClientB.Send(sendBytes, sendBytes.Length, strip, port);     //向备用主机发消息
+                //IPEndPoint object will allow us to read datagrams sent from any source.
+                IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 5435);  //接收端接受所有信息
+                // Blocks until a message returns on this socket from a remote host.
+                
+                    Byte[] receiveBytes = udpClient.Receive(ref RemoteIpEndPoint);
+                    string returnData = Encoding.ASCII.GetString(receiveBytes, 0, receiveBytes.Length);
 
+                    udpClient.Close();
+                  //  udpClientB.Close();
+
+                    return receiveBytes;
+               
+            }
+            catch (Exception exec)
+            {
+                Console.WriteLine(exec.ToString());
+                return null;
+            }
+            
+        }
+
+        /// <summary>
+        /// 直接对Socket进行操作，udp的发送和接收
+        /// 此功能主要是在网线直接连接信号机的情况下使用。在复杂网络及有N多个路由的情况下，请使用sendUdpClient
+        /// </summary>
+        /// <param name="ipstr">IP地址</param>
+        /// <param name="port">端口</param>
+        /// <param name="hex">指令</param>
+        /// <returns>返回的内容</returns>
         public static byte[] recvUdp(string ipstr, int port, byte[] hex)
         {
             int recv;
@@ -272,7 +340,7 @@ namespace tscui.Models
             return list;
         }
 
-
+        #region 车检器相关的部分
         static Socket _checkCarSocket;
         static IPEndPoint _checkCarLocal = new IPEndPoint(IPAddress.Parse("192.168.0.2"), 5238);
         static Thread _checkCarReceiveThread = null;
@@ -349,6 +417,6 @@ namespace tscui.Models
             }
         }
         #endregion
-
+        #endregion
     }
 }

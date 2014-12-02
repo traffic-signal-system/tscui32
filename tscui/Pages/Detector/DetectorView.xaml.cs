@@ -502,6 +502,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -1685,15 +1689,15 @@ namespace tscui.Pages.Detector
                         {
                             if (id == detectorIds19 && id != 0 && id == 19)
                             {
-                                if (isDetectorAlert19 == true)
+                                if (isDetectorState19 == true)
                                 {
                                     tb.Background = Brushes.DarkSeaGreen;
-                                    isDetectorAlert19 = false;
+                                    isDetectorState19 = false;
                                 }
                                 else
                                 {
                                     tb.Background = Brushes.Gray;
-                                    isDetectorAlert19 = true;
+                                    isDetectorState19 = true;
                                 }
                             }
                         }
@@ -1972,7 +1976,7 @@ namespace tscui.Pages.Detector
             }
             catch (Exception ex)
             {
-                //Console.WriteLine(ex.Message.ToString() + _checkCarSocket.Connected.ToString() + "UpdSocket类 Receive方法出错");
+                Console.WriteLine(ex.Message.ToString());
             }
         }
 
@@ -2394,6 +2398,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2405,6 +2413,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2416,6 +2428,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2428,6 +2444,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2439,6 +2459,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2450,6 +2474,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2461,6 +2489,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2472,6 +2504,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2483,6 +2519,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2494,6 +2534,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2505,6 +2549,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2516,6 +2564,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2527,6 +2579,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2538,6 +2594,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2549,6 +2609,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2560,6 +2624,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2571,6 +2639,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2582,6 +2654,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2593,6 +2669,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2604,6 +2684,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2614,7 +2698,11 @@ namespace tscui.Pages.Detector
         private void detectorWestStraight2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector(); 
+            int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2626,6 +2714,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2637,6 +2729,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2648,6 +2744,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2659,6 +2759,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2670,6 +2774,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2681,6 +2789,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2692,6 +2804,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2703,6 +2819,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2714,6 +2834,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2725,6 +2849,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2736,6 +2864,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2747,6 +2879,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2758,6 +2894,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2769,6 +2909,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2780,6 +2924,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2791,6 +2939,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2802,6 +2954,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2813,6 +2969,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2824,6 +2984,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2835,6 +2999,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2846,6 +3014,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2857,6 +3029,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2868,6 +3044,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2879,6 +3059,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2890,6 +3074,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2901,6 +3089,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2912,6 +3104,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2923,6 +3119,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2933,7 +3133,11 @@ namespace tscui.Pages.Detector
         private void detectorSouthOther3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
+            int i = Utils.Utils.GetSelectedDetector(); 
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2945,6 +3149,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2956,6 +3164,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2967,6 +3179,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2978,6 +3194,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -2989,6 +3209,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -3000,6 +3224,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -3011,6 +3239,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -3022,6 +3254,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -3033,6 +3269,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -3044,6 +3284,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -3055,6 +3299,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -3066,6 +3314,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -3077,6 +3329,10 @@ namespace tscui.Pages.Detector
         {
             ApexBroker.GetShell().ShowPopup(new DetectorPopup());
             int i = Utils.Utils.GetSelectedDetector();
+            if (i == 0)
+            {
+                return;
+            }
             ClearDetectorId(i);
             TextBlock tb = sender as TextBlock;
             tb.Text = i.ToString();
@@ -4508,12 +4764,19 @@ namespace tscui.Pages.Detector
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Message m = TscDataUtils.SetDetector(t.ListDetector);
           //  MessageBox.Show(m.msg);
-
+            if (m.flag)
+            {
+                MessageBox.Show(m.msg);
+            }
+            else
+            {
+                MessageBox.Show(m.msg);
+            }
         }
 
         private void cbxCarType_Checked(object sender, RoutedEventArgs e)

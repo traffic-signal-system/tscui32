@@ -34,7 +34,8 @@ namespace tscui.Popups
 
         private void button_OK_Click(object sender, RoutedEventArgs e)
         {
-           
+            Utils.Utils.SetSelectedDetector(0);
+            ApexBroker.GetShell().ClosePopup(this, true);
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

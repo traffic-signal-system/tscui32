@@ -180,7 +180,7 @@ namespace tscui.Pages.Phase
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
 
         }
@@ -202,7 +202,7 @@ namespace tscui.Pages.Phase
             dispatcherTimer1.Start();
  
         }
-        int i = 1;
+       // int i = 1;
 
         private void updateRed(PhaseToDirec ptd)
         {
@@ -511,25 +511,14 @@ namespace tscui.Pages.Phase
                 return;
             List<Channel> lc = t.ListChannel;
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
-            List<Models.Phase> lp = t.ListPhase;
-            List<OverlapPhase> lop = t.ListOverlapPhase;
+           
             if (tscui.Models.ReportTscStatus.resportSuccessFlag)
             {
                // MessageBox.Show("if");
                 this.workmode_label.Content = "工作模式：" + tscui.Models.ReportTscStatus.sWorkModel.ToString();
                 this.controlmode_label.Content = "控制方式：" + tscui.Models.ReportTscStatus.sControlModel.ToString();
                 this.workstatus_label.Content = "工作状态：" + tscui.Models.ReportTscStatus.sWorkStatus.ToString();
-                //if ("面板控制".Equals(tscui.Models.ReportTscStatus.sControlModel.ToString()) || "手动".Equals(tscui.Models.ReportTscStatus.sControlModel.ToString()))
-                //{
 
-                //    rbnManaul.IsChecked = true;
-
-                //}
-                //else
-                //{
-
-                //    rbnSelf.IsChecked = true;
-                //}
                 this.time_NO_label.Content = "配时方案：" + tscui.Models.ReportTscStatus.iCurrentTimePattern.ToString();
                 this.run_NO_label.Content = "时段方案：" + tscui.Models.ReportTscStatus.iCurrentSchedule.ToString();
                 this.lblCurrentStage.Content = "当前阶段：" + tscui.Models.ReportTscStatus.iCurrentStage.ToString();
@@ -680,6 +669,7 @@ namespace tscui.Pages.Phase
             }
                 #endregion
 
+            Console.WriteLine(tscui.Models.ReportTscStatus.iCurrentTimePattern.ToString());
             }
             
            
@@ -1462,8 +1452,7 @@ namespace tscui.Pages.Phase
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             if (t == null)
-                return;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             if(t == null)
             {
                 return;
@@ -2173,27 +2162,32 @@ namespace tscui.Pages.Phase
         private void SouthLeft_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if(Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
-                }
+               
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
+                   
                     if (ptd.ucId == Define.SOUTH_LEFT)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2201,6 +2195,7 @@ namespace tscui.Pages.Phase
             else if(Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
+                if (!(btn.Content).Equals("")) { 
                 if (op == null)
                 {
                     return;
@@ -2208,6 +2203,7 @@ namespace tscui.Pages.Phase
                 if (Convert.ToByte(btn.Content) == op.ucId)
                 {
                     return;
+                }
                 }
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
@@ -2229,27 +2225,31 @@ namespace tscui.Pages.Phase
         private void SouthStraight_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.SOUTH_STRAIGHT)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2257,19 +2257,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.SOUTH_STRAIGHT)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2282,26 +2284,29 @@ namespace tscui.Pages.Phase
         private void SouthRight_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
                     ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    if (ptd.ucId == Define.SOUTH_RIGHT)
                     {
                         ptd.ucPhase = p.ucId;
                     }
@@ -2310,19 +2315,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.SOUTH_RIGHT)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2335,27 +2342,31 @@ namespace tscui.Pages.Phase
         private void SouthOther_Click_1(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.SOUTH_OTHER)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2363,19 +2374,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.SOUTH_OTHER)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2388,27 +2401,31 @@ namespace tscui.Pages.Phase
         private void NorthPedestrain2_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2416,19 +2433,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2441,27 +2460,32 @@ namespace tscui.Pages.Phase
         private void NorthPedestrain1_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
-                }
+                
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2469,19 +2493,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2494,27 +2520,31 @@ namespace tscui.Pages.Phase
         private void EastPedestrain1_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                   
+                    if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2522,19 +2552,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2547,27 +2579,31 @@ namespace tscui.Pages.Phase
         private void EastPedestrain2_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                   
+                    if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2575,19 +2611,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2600,27 +2638,31 @@ namespace tscui.Pages.Phase
         private void WestLeft_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+           
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                   
+                    if (ptd.ucId == Define.WEST_LEFT)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2628,19 +2670,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.WEST_LEFT)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2653,27 +2697,31 @@ namespace tscui.Pages.Phase
         private void WestStraight_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                   
+                    if (ptd.ucId == Define.WEST_STRAIGHT)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2681,19 +2729,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.WEST_STRAIGHT)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2706,27 +2756,31 @@ namespace tscui.Pages.Phase
         private void WestRight_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.WEST_RIGHT)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2734,19 +2788,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.WEST_RIGHT)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2759,27 +2815,31 @@ namespace tscui.Pages.Phase
         private void WestOther_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.WEST_OTHER)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2787,19 +2847,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                   
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.WEST_OTHER)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2812,27 +2874,31 @@ namespace tscui.Pages.Phase
         private void SouthPedestrain1_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2840,19 +2906,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2865,27 +2933,31 @@ namespace tscui.Pages.Phase
         private void SouthPedestrain2_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2893,19 +2965,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2918,27 +2992,32 @@ namespace tscui.Pages.Phase
         private void NorthLeft_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
-                }
+                
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                   
+                    if (ptd.ucId == Define.NORTH_LEFT)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2946,19 +3025,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.NORTH_LEFT)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -2971,27 +3052,31 @@ namespace tscui.Pages.Phase
         private void NorthStraight_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.NORTH_STRAIGHT)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -2999,19 +3084,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.NORTH_STRAIGHT)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -3024,27 +3111,31 @@ namespace tscui.Pages.Phase
         private void NorthRight_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.NORTH_RIGHT)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -3052,19 +3143,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.NORTH_RIGHT)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -3077,27 +3170,31 @@ namespace tscui.Pages.Phase
         private void NorthOther_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+           
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.NORTH_OTHER)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -3105,19 +3202,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.NORTH_OTHER)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -3130,27 +3229,31 @@ namespace tscui.Pages.Phase
         private void WestPedestrain1_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -3158,19 +3261,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                   
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -3183,27 +3288,31 @@ namespace tscui.Pages.Phase
         private void WestPedestrain2_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -3211,19 +3320,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -3236,27 +3347,31 @@ namespace tscui.Pages.Phase
         private void EastLeft_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.EAST_LEFT)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -3264,19 +3379,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.EAST_LEFT)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -3289,27 +3406,31 @@ namespace tscui.Pages.Phase
         private void EastStraight_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+           
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.EAST_STRAIGHT)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -3317,19 +3438,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-               
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.EAST_STRAIGHT)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -3342,27 +3465,31 @@ namespace tscui.Pages.Phase
         private void EastRight_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.EAST_RIGHT)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -3370,19 +3497,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.EAST_RIGHT)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -3395,27 +3524,31 @@ namespace tscui.Pages.Phase
         private void EastOther_Click(object sender, RoutedEventArgs e)
         {
             ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Button btn = sender as Button;
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (p == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == p.ucId)
-                {
-                    return;
+                    if (p == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == p.ucId)
+                    {
+                        return;
+                    }
                 }
                 btn.Content = p.ucId;
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+                    
+                    if (ptd.ucId == Define.EAST_OTHER)
                     {
+                        ClearButtonPhaseContent(p, ptd);
                         ptd.ucPhase = p.ucId;
                     }
                 }
@@ -3423,19 +3556,21 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (op == null)
+                if (!(btn.Content).Equals(""))
                 {
-                    return;
+                    if (op == null)
+                    {
+                        return;
+                    }
+                    if (Convert.ToByte(btn.Content) == op.ucId)
+                    {
+                        return;
+                    }
                 }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-               
                 foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
                 {
-                    
-                    if (ptd.ucId == Define.SOUTH_LEFT)
+
+                    if (ptd.ucId == Define.EAST_OTHER)
                     {
                         ClearButtonOverlapPhaseContent(op, ptd);
                         btn.Content = "O" + op.ucId;
@@ -3448,31 +3583,40 @@ namespace tscui.Pages.Phase
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
-            TscDataUtils.SetPhaseToDirec(t.ListPhaseToDirec);
-            TscDataUtils.SetPhase(t.ListPhase);
-            TscDataUtils.SetChannel(t.ListChannel);
-            TscDataUtils.SetOverlapPhase(t.ListOverlapPhase);
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            Message m1 = TscDataUtils.SetPhaseToDirec(t.ListPhaseToDirec);
+           // Message m2 = TscDataUtils.SetPhase(t.ListPhase);
+            //Message m3 = TscDataUtils.SetChannel(t.ListChannel);
+            //Message m4 = TscDataUtils.SetOverlapPhase(t.ListOverlapPhase);
+
+            if (m1.flag )
+            {
+                MessageBox.Show("方向保存成功");
+            }
+            else
+            {
+                MessageBox.Show("方向保存失败！");
+            }
         }
 
         private void btnRead_Click(object sender, RoutedEventArgs e)
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             foreach(tscui.Models.Phase p in t.ListPhase)
             {
-                Console.WriteLine(p.ucId);
+                //Console.WriteLine(p.ucId);
             }
         }
 
         private void lampRush_CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             dispatcherTimer1.Stop();
             Udp.sendUdp(t.Node.sIpAddress, t.Node.iPort, Define.REPORT_TSC_STATUS_CANCEL);
         }
@@ -3480,9 +3624,9 @@ namespace tscui.Pages.Phase
         private void savePhaseAbout(object state)
         {
             DateTime dt1 = DateTime.Now;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             TscDataUtils.SetPhaseToDirec(t.ListPhaseToDirec);
             TscDataUtils.SetPhase(t.ListPhase);
             TscDataUtils.SetChannel(t.ListChannel);
@@ -3608,9 +3752,9 @@ namespace tscui.Pages.Phase
 
         private void cbxEchoCountDown_Unchecked(object sender, RoutedEventArgs e)
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             Udp.sendUdp(t.Node.sIpAddress, t.Node.iPort, Define.ECHO_TSC_COUNT_DOWN_CANCEL);
             echoCountDownDispatcherTimer.Stop();
             SouthCntDown.Text = "";
@@ -3622,14 +3766,7 @@ namespace tscui.Pages.Phase
         private void rbnManaul_Checked(object sender, RoutedEventArgs e)
         {
             Message msg = TscDataUtils.SetCtrlMunual();
-            //if (msg.flag)
-            //{
-            //    MessageBox.Show(msg.msg + ",切换到手动状态成功！");
-            //}
-            //else
-            //{
-            //    MessageBox.Show(msg.msg + ",切换到手动状态失败！");
-            //}
+            
         }
 
         private void rbnManaul_Unchecked(object sender, RoutedEventArgs e)

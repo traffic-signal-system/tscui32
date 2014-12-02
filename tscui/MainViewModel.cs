@@ -20,6 +20,7 @@ using tscui.Utils;
 using System.Data.SQLite;
 using tscui.Pages.Schedules;
 using tscui.Pages.Update;
+using tscui.Pages.Music;
 
 namespace tscui
 {
@@ -69,6 +70,7 @@ namespace tscui
             signalViewModel.Pages.Add(new DetectorViewModel());
             signalViewModel.Pages.Add(new LightCheckViewModel());
             signalViewModel.Pages.Add(new DetectorAdvancedViewModel());
+            signalViewModel.Pages.Add(new MusicViewModel());
 
             //  Create the 'collection' section.
             var timeViewModel = new PageViewModel() { Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_basetime"] };

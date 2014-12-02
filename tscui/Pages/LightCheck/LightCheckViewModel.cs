@@ -22,16 +22,8 @@ namespace tscui.Pages.LightCheck
             //      apexnp - Creates a Notifying Property
             //      apexc - Creates a Command.
             Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_lamp_check"]; 
-            SaveLightCheck = new Command(DoSaveLightCheck);
-            ResetLightCheck = new Command(DoSaveLightCheck);
+
         }
-        private void DoSaveLightCheck()
-        {
-        }
-        public Command SaveLightCheck { get; private set; }
-        public Command ResetLightCheck { get; private set; }
-        private void DoResetLightCheck()
-        {
-        }
+     
     }
 }

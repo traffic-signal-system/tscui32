@@ -36,7 +36,7 @@ namespace tscui.Pages.BaseTime
         private void btnRead_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             List<Plan> lp = t.ListPlan;
             foreach(Plan p in lp)
             {
@@ -47,8 +47,16 @@ namespace tscui.Pages.BaseTime
         private void btnSave_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             if (t == null)
-                return;
-            TscDataUtils.SetPlanByCalendar(t.ListPlan);
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            Message m = TscDataUtils.SetPlanByCalendar(t.ListPlan);
+            if (m.flag)
+            {
+                MessageBox.Show(m.obj+"保存成功");
+            }
+            else
+            {
+                MessageBox.Show(m.obj + "保存失败");
+            }
         }
         TscData t;
         private void initMonth(ushort month)
@@ -196,7 +204,7 @@ namespace tscui.Pages.BaseTime
             }
             catch(Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
             
         }

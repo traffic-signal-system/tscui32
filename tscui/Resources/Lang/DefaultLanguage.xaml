@@ -8,6 +8,69 @@
     <sys:String x:Key="Cancel">
         Cancel
     </sys:String>
+    <sys:String x:Key="dic_schedule_gpscoordination">GPSCoordination</sys:String>
+    <sys:String x:Key="tsc_adv_selected_title">Phase</sys:String>
+    <sys:String x:Key="tsc_adv_lamp_broad">Lamp</sys:String>
+    <sys:String x:Key="tsc_adv_channel1">Channel1</sys:String>
+    <sys:String x:Key="tsc_adv_channel2">Channel2</sys:String>
+    <sys:String x:Key="tsc_adv_channel3">Channel3</sys:String>
+    <sys:String x:Key="tsc_adv_channel4">Channel4</sys:String>
+    <sys:String x:Key="tsc_adv_channel5">Channel5</sys:String>
+    <sys:String x:Key="tsc_adv_channel6">Channel6</sys:String>
+    <sys:String x:Key="tsc_adv_channel7">Channel7</sys:String>
+    <sys:String x:Key="tsc_adv_channel8">Channel8</sys:String>
+    <sys:String x:Key="tsc_adv_channel9">Channel9</sys:String>
+    <sys:String x:Key="tsc_adv_channel10">Channel10</sys:String>
+    <sys:String x:Key="tsc_adv_channel11">Channel11</sys:String>
+    <sys:String x:Key="tsc_adv_channel12">Channel12</sys:String>
+    <sys:String x:Key="tsc_adv_channel13">Channel13</sys:String>
+    <sys:String x:Key="tsc_adv_channel14">Channel14</sys:String>
+    <sys:String x:Key="tsc_adv_channel15">Channel15</sys:String>
+    <sys:String x:Key="tsc_adv_channel16">Channel16</sys:String>
+    <sys:String x:Key="tsc_adv_channel17">Channel17</sys:String>
+    <sys:String x:Key="tsc_adv_channel18">Channel18</sys:String>
+    <sys:String x:Key="tsc_adv_channel19">Channel19</sys:String>
+    <sys:String x:Key="tsc_adv_channel20">Channel20</sys:String>
+    <sys:String x:Key="tsc_adv_channel21">Channel21</sys:String>
+    <sys:String x:Key="tsc_adv_channel22">Channel22</sys:String>
+    <sys:String x:Key="tsc_adv_channel23">Channel23</sys:String>
+    <sys:String x:Key="tsc_adv_channel24">Channel24</sys:String>
+    <sys:String x:Key="tsc_adv_channel25">Channel25</sys:String>
+    <sys:String x:Key="tsc_adv_channel26">Channel26</sys:String>
+    <sys:String x:Key="tsc_adv_channel27">Channel27</sys:String>
+    <sys:String x:Key="tsc_adv_channel28">Channel28</sys:String>
+    <sys:String x:Key="tsc_adv_channel29">Channel29</sys:String>
+    <sys:String x:Key="tsc_adv_channel30">Channel30</sys:String>
+    <sys:String x:Key="tsc_adv_channel31">Channel31</sys:String>
+    <sys:String x:Key="tsc_adv_channel32">Channel32</sys:String>
+    <sys:String x:Key="tsc_adv_phase_attr">Phase Attr</sys:String>
+    <sys:String x:Key="tsc_adv_phase_type">Phase Type</sys:String>
+    <sys:String x:Key="tsc_adv_phase_id">Phase Id</sys:String>
+    <sys:String x:Key="tsc_adv_phase_option">Phase Option</sys:String>
+    <sys:String x:Key="tsc_adv_phase_pede">Pedegradtion</sys:String>
+    <sys:String x:Key="tsc_adv_phase_pede_clear">Pede Clear</sys:String>
+    <sys:String x:Key="tsc_adv_phase_max_green1">Max Green1</sys:String>
+    <sys:String x:Key="tsc_adv_phase_max_green2">Max Green2</sys:String>
+    <sys:String x:Key="tsc_adv_phase_min_green">Min Green</sys:String>
+    <sys:String x:Key="tsc_adv_phase_flash_green">Flash Green</sys:String>
+    <sys:String x:Key="tsc_adv_phase_delay_green">Delay Green</sys:String>
+    <sys:String x:Key="tsc_adv_phase_fixed_green">Fixed Green</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase">OverlapPhase</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_type">Type</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_last_red">Last Red</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_last_yellow">Last Yellow</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_last_green">Last Green</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_include_phase">Include Phase</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_incro_phase">Incro Phase</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_id">Id</sys:String>
+    <sys:String x:Key="tsc_adv_channel">Channel</sys:String>
+    <sys:String x:Key="tsc_adv_channel_id">Id</sys:String>
+    <sys:String x:Key="tsc_adv_channel_auto_flash">Auto Flash</sys:String>
+    <sys:String x:Key="tsc_adv_channel_type">Type</sys:String>
+    <sys:String x:Key="tsc_adv_btn_ok">Ok</sys:String>
+    <sys:String x:Key="tsc_adv_btn_read">read</sys:String>
+
+    
     <sys:String x:Key="tsc_name">Traffic Singal Controller</sys:String>
     <sys:String x:Key="tsc_main_title">TSC</sys:String>
     <sys:String x:Key="tsc_flush">Flush the tsc</sys:String>
@@ -30,8 +93,27 @@
     <sys:String x:Key="tsc_time_mar">mar</sys:String> 
     <sys:String x:Key="tsc_time_feb">feb</sys:String>
     <sys:String x:Key="tsc_detector_check">Check</sys:String>
-    <sys:String x:Key="tsc_time_save">save</sys:String>
+    <sys:String x:Key="tsc_time_save">save</sys:String> 
     <sys:String x:Key="tsc_time_read">read</sys:String>
+
+
+    <sys:String x:Key="tsc_direc_title">Direc Config</sys:String>
+    <sys:String x:Key="tsc_direc_id">Direc Id</sys:String>
+    <sys:String x:Key="tsc_direc_roadcount">Road Count</sys:String>
+
+    <sys:String x:Key="tsc_phase_munual">Control Mode</sys:String>
+    <sys:String x:Key="tsc_phase_munual_mode">Munual</sys:String>
+    <sys:String x:Key="tsc_phase_self_mode">Self</sys:String>
+    <sys:String x:Key="tsc_phase_next_step">Next Step</sys:String>
+    <sys:String x:Key="tsc_phase_next_phase">Next Phase</sys:String>
+    <sys:String x:Key="tsc_phase_next_direc">Next Direc</sys:String>
+    <sys:String x:Key="tsc_phase_north">North</sys:String>
+    <sys:String x:Key="tsc_phase_east">East</sys:String>
+    <sys:String x:Key="tsc_phase_south">South</sys:String>
+    <sys:String x:Key="tsc_phase_west">West</sys:String>
+    
+    
+    
     
     <sys:String x:Key="tsc_week_id">Plan</sys:String>
     <sys:String x:Key="tsc_lightcheck_hardware">Open Lamp Check Light(hardware)</sys:String>
@@ -193,7 +275,7 @@
     <sys:String x:Key="tsc_apex_ip">IP Address</sys:String>
     
     <sys:String x:Key="tsc_lightcheck_all">All</sys:String>
-
+    <sys:String x:Key="tsc_apex_network">Please connect Controller</sys:String>
     <sys:String x:Key="msg_apex_16_32_no_match">Tsc just has 16 phase ,the protocal is not match!</sys:String>
     <sys:String x:Key="msg_collision_selected_stage">please selected a stage!</sys:String>
     <sys:String x:Key="msg_collision_selected_phase">please selected a phase ,and config the collision!</sys:String>

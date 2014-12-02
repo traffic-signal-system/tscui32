@@ -2167,9 +2167,18 @@ namespace tscui.Pages.Collision
         {
             if (t == null)
             {
-                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_basetime_selected_tsc"]);
+                //MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_basetime_selected_tsc"]);
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             }
-            TscDataUtils.SetCollision(t.ListCollision);
+           Message m = TscDataUtils.SetCollision(t.ListCollision);
+            if (m.flag)
+            {
+                MessageBox.Show(m.msg);
+            }
+            else
+            {
+                MessageBox.Show(m.msg);
+            }
         }
         List<CollisionItem> lci = new List<CollisionItem>();
         /// <summary>

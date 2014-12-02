@@ -23,6 +23,7 @@ using System.Net.Sockets;
 using tscui.Service;
 using Apex;
 using tscui.Views;
+using tscui.Utils;
 
 namespace tscui.Pages.Apex
 {
@@ -36,7 +37,6 @@ namespace tscui.Pages.Apex
         GridView myGridView = null;
         UdpClient recevieUdpClient = null;
         List<TscInfo> listTscInfo = null;
-        Thread ReceiveMessageThread;
         private delegate void ShowMsgCallBack(TscInfo tscInfo);
         private ShowMsgCallBack showMsgCallBack;
 
@@ -76,6 +76,8 @@ namespace tscui.Pages.Apex
             TscData td = new TscData();
             Node node = new Node(ti.Ip, ti.Name, ti.Version, ti.Port);
             td.Node = node;
+            // 对选中的信号机进行数据库生成
+            SQLiteHelper.CreateDB("d:\\"+ti.Ip + ".db");
             Application.Current.Properties[Define.TSC_DATA] = td;
             try
             {
@@ -90,12 +92,14 @@ namespace tscui.Pages.Apex
                 }
                 catch(Exception ex)
                 {
+                    Console.WriteLine(ex.ToString());
                     td.ListCollision = TscDataUtils.GetCollision16();
                     td.Node.sProtocol = "GBT_V16";
                 }
                 
                 td.ListDetector = TscDataUtils.GetDetector();
                 td.ListChannel = TscDataUtils.GetChannel();
+                //日志内容由于比较多，放在单的日志界面进行加载
                 //td.ListEventLog = TscDataUtils.GetEventLog();
                 td.ListPattern = TscDataUtils.GetPattern();
                 try
@@ -104,6 +108,7 @@ namespace tscui.Pages.Apex
                 }
                 catch(Exception ex)
                 {
+                    Console.WriteLine(ex.ToString());
                     td.ListStagePattern = TscDataUtils.GetStagePattern16();
                 }
                 
@@ -117,7 +122,7 @@ namespace tscui.Pages.Apex
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                string str = (string)App.Current.Resources.MergedDictionaries[3]["msg_apex_16_32_no_match"];
+                string str = (string)App.Current.Resources.MergedDictionaries[3]["tsc_apex_network"];
                 MessageBox.Show(str);
             }
             
@@ -136,18 +141,10 @@ namespace tscui.Pages.Apex
                 }
                 ThreadPool.QueueUserWorkItem(AddListViewTscData);
                 
-                //if (ReceiveMessageThread != null)
-                //{
-                //    ReceiveMessageThread.Abort();
-                //}
-                //ReceiveMessageThread = new Thread(AddListViewTscData);
-                //ReceiveMessageThread.IsBackground = true;
-                ////ReceiveMessageThread.SetApartmentState(ApartmentState.STA);
-                //ReceiveMessageThread.Start();
             }
             catch (Exception ex)
             {
-              //  MessageBox.Show("网络出现问题，请处理！"+ex.Message);
+               MessageBox.Show("网络出现问题，请处理！"+ex.Message);
             }
             
         }
@@ -157,11 +154,12 @@ namespace tscui.Pages.Apex
             // 创建并实例化IP终端结点
             IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Any, 0);
             listTscInfo = new List<TscInfo>();
+            try
+                {
             // 消息接收循环
             while (true)
             {
-                try
-                {
+                
                     if (recevieUdpClient == null)
                     {
                         return;
@@ -188,24 +186,19 @@ namespace tscui.Pages.Apex
                                 if (currentTI == null)
                                     currentTI = titemp;
                                 myListView.Dispatcher.Invoke(showMsgCallBack, titemp);
-                                //Thread.Sleep(300);
                             }
                         }
                     }
                     
                 }
-                catch (ThreadAbortException)
-                {
-                    // 人为终止线程
-                    //MessageBox.Show("人为线程的中止，请联系软件厂商！");
-                }
-                catch (Exception ex)
-                {
-                    // 接收发生异常
-                   // MessageBox.Show("网络出现异常，请联系软件厂商！"+ex.Message);
-                }
+               
             }
-            //return listTscInfo;
+            catch (Exception ex)
+            {
+                // 接收发生异常
+                Console.WriteLine(ex.ToString());
+               // MessageBox.Show("网络出现异常，请联系软件厂商！" + ex.Message);
+            }
         }
         public void SendBroadCastByAllTscInfo()
         {
@@ -220,7 +213,7 @@ namespace tscui.Pages.Apex
             }
             catch (Exception ext)
             {
-               // MessageBox.Show("网络出现问题，请检测网络！"+ext.Message);
+                MessageBox.Show("网络出现问题，请检测网络！"+ext.Message);
             }
             
         }
@@ -306,10 +299,8 @@ namespace tscui.Pages.Apex
         }
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            //ReceiveMessageThread.Abort();
             myListView.Items.Clear();
             SendBroadCastByAllTscInfo();
-           // myListView.ItemsSource = listTscInfo;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -345,34 +336,22 @@ namespace tscui.Pages.Apex
             gvc3.Header = sip;
             gvc3.Width = 100;
             myGridView.Columns.Add(gvc3);
-            //</SnippetAddToColumns>
-
-            //</SnippetGridViewColumn>
-            //ItemsSource is ObservableCollection of EmployeeInfo objects
-            //myListView.ItemsSource = new myTscs();
-            //Thread thread = new Thread();
+  
             myListView.View = myGridView;
             myListView.Height = 550;
             // myListView.
             tscPanel.Children.Add(myListView);
 
             
-            //</SnippetListViewView>
             //myListView
             myListView.SelectionChanged += new SelectionChangedEventHandler(myListView_SelectionChanged);
             showMsgCallBack = new ShowMsgCallBack(ShowMsg);
             RefreshGridView();
-            //System.Timers.Timer atime = new System.Timers.Timer(10000);
-            //atime.Elapsed += new ElapsedEventHandler(atime_Elapsed);
-            //atime.AutoReset = true;
-            //atime.Enabled = true;
             
         }
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
-
-           // ReceiveMessageThread.Abort();
             recevieUdpClient.Close();
             if(currentTI != null)
             {

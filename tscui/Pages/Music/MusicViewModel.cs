@@ -21,39 +21,10 @@ namespace tscui.Pages.Music
         /// </summary>
         public MusicViewModel()
         {
-            Title = "Music";
+            Title = "高级相位";
 
-            if (ApexBroker.CurrentExecutionContext == ExecutionContext.Design)
-            {
-                //  Add some design-time data.
-                artists.Add("The Beatles");
-                artists.Add("Pink Floyd");
-            }
-            else
-            {
 
-                //  Get the artists from the model.
-                var zuneModel = ApexBroker.GetModel<ItscuiModel>();
-                foreach (var artist in zuneModel.GetArtists())
-                    artists.Add(artist);
-            }
-
-        }
-
-        private readonly ObservableCollection<string> artists = new ObservableCollection<string>();
-
-        public ObservableCollection<string> Artists
-        {
-            get { return artists; }
-        }
-
-        private readonly NotifyingProperty SelectedArtistProperty = new NotifyingProperty("SelectedArtist",
-            typeof(string), default(string));
-
-        public string SelectedArtist
-        {
-            get { return (string)GetValue(SelectedArtistProperty); }
-            set { SetValue(SelectedArtistProperty, value); }
         }
     }
+       
 }

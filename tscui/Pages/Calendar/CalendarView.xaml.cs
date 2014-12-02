@@ -93,7 +93,7 @@ namespace tscui.Pages.Calendar
             }
             catch(Exception ex )
             {
-
+                MessageBox.Show(ex.ToString());
             }
             
         }
@@ -159,7 +159,7 @@ namespace tscui.Pages.Calendar
         private void tbkPlanId_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (t == null)
-                return;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             List<Plan> lp = t.ListPlan;
             Console.WriteLine(lp.ToString());
         }
@@ -167,8 +167,16 @@ namespace tscui.Pages.Calendar
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             if (t == null)
-                return;
-            TscDataUtils.SetPlanByCalendar(t.ListPlan);
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            Message m = TscDataUtils.SetPlanByCalendar(t.ListPlan);
+            if (m.flag)
+            {
+                MessageBox.Show(m.msg);
+            }
+            else
+            {
+                MessageBox.Show(m.msg);
+            }
 
         }
 

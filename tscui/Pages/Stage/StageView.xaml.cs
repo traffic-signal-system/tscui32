@@ -23,6 +23,7 @@ namespace tscui.Pages.Stage
         public delegate void InitStageItemToLSI();
         public delegate void DelegateInitcbxCoordination();
         public delegate void DelegateInitStageNumber();
+        TscData t;
         private void initStageItemList()
         {
             lsi.Add(stage1);
@@ -456,7 +457,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.SOUTH_LEFT)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
                            
@@ -510,7 +511,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.SOUTH_STRAIGHT)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -541,7 +542,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.SOUTH_RIGHT)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -572,7 +573,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.SOUTH_OTHER)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -603,7 +604,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -634,7 +635,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -665,7 +666,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.EAST_OTHER)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -696,7 +697,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.EAST_RIGHT)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -727,7 +728,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.EAST_STRAIGHT)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -758,7 +759,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.EAST_LEFT)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -789,7 +790,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -820,7 +821,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -851,7 +852,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -882,7 +883,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -913,7 +914,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.WEST_LEFT)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -944,12 +945,12 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.WEST_STRAIGHT)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
                         }
-                        //  phaseId = ptd.ucPhase;
+                        
                     }
                 }
             }
@@ -975,7 +976,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.WEST_RIGHT)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -1006,7 +1007,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.WEST_OTHER)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -1037,7 +1038,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -1068,7 +1069,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -1099,7 +1100,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.NORTH_OTHER)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -1130,7 +1131,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.NORTH_RIGHT)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -1161,7 +1162,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.NORTH_STRAIGHT)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -1192,7 +1193,7 @@ namespace tscui.Pages.Stage
                 {
                     if (ptd.ucId == Define.NORTH_LEFT)
                     {
-                        if (ptd.ucPhase != null || ptd.ucPhase != 0)
+                        if (ptd.ucPhase != 0)
                         {
                             setPatternAndStagePattern(lp, lsp, currentStage, ptd);
 
@@ -2112,7 +2113,7 @@ namespace tscui.Pages.Stage
         private void savePattern()
         {
             List<Pattern> lp = t.ListPattern;
-            List<StagePattern> lsp = t.ListStagePattern;
+            //List<StagePattern> lsp = t.ListStagePattern;
             foreach (Pattern p in t.ListPattern)
             {
                 if (p.ucPatternId == sldSchemeId.Value)
@@ -2127,26 +2128,19 @@ namespace tscui.Pages.Stage
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             if (t == null)
-                return;
-            sldValueChanged();
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            //sldValueChanged();
             savePattern();
             Message msgPattern = TscDataUtils.SetPattern(t.ListPattern);
-            if (!msgPattern.flag)
-            {
-                MessageBox.Show("对象："+msgPattern.obj + "\n内容：" + msgPattern.msg);
-            }
-            else
-            {
-                MessageBox.Show("配时数据保存成功");
-            }
+            
             Message msgStagePattern = TscDataUtils.SetStagePattern(t.ListStagePattern);
-            if (!msgStagePattern.flag)
+            if (!msgStagePattern.flag || !msgPattern.flag)
             {
                 MessageBox.Show("对象：" + msgStagePattern.obj + "\n内容：" + msgStagePattern.msg);
             }
             else
             {
-                MessageBox.Show("阶段数据保存成功");
+                MessageBox.Show("阶段配时数据保存成功");
             }
         }
 
@@ -2457,7 +2451,7 @@ namespace tscui.Pages.Stage
         {
             try
             {
-                hiddenStageAll();
+              //  hiddenStageAll();
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
                 if (t == null)
                     return;
@@ -2480,6 +2474,7 @@ namespace tscui.Pages.Stage
                         
                     }
                 }
+                /*
                 foreach (StagePattern sp in lsp)
                 {
 
@@ -2527,7 +2522,7 @@ namespace tscui.Pages.Stage
                         }
                     }
 
-                }
+                }*/
             }
             catch (Exception ex)
             {
@@ -2904,6 +2899,37 @@ namespace tscui.Pages.Stage
                 return null;
             
         }
+
+        private void ResetStageDirec(StageItem si)
+        {
+            si.northPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            si.northPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            si.northLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            si.northStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            si.northRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            si.northOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            si.southPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            si.southPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            si.southLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            si.southOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            si.southRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            si.southStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            si.westPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            si.westPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            si.westLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            si.westStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            si.westRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            si.westOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            si.eastPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            si.eastPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            si.eastLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            si.eastStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            si.eastRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            si.eastOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+
+        }
+
+
         /// <summary>
         /// 通过方向 表和阶段表可以确定，相应的相位已经配置上去。
         /// </summary>
@@ -2911,17 +2937,17 @@ namespace tscui.Pages.Stage
         /// <param name="sp"></param>
         private void InitStageDirec(PhaseToDirec ptd,StagePattern sp)
         {
+            StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+           
             if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+                
                 si.northPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
-
             }
             if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+                //StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.northPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
-
             }
             if (ptd.ucId == Define.NORTH_TURN_AROUND)
             {
@@ -2949,34 +2975,34 @@ namespace tscui.Pages.Stage
             }
             if (ptd.ucId == Define.NORTH_LEFT)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+               // StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.northLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative)); 
 
             }
             if (ptd.ucId == Define.NORTH_STRAIGHT)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+               // StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.northStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.NORTH_RIGHT)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+                //StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.northRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.NORTH_OTHER)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+               // StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.northOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
             }
             // 南
             if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+               // StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.southPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+               // StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.southPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.SOUTH_LEFT_STRAIGHT)
@@ -2996,33 +3022,33 @@ namespace tscui.Pages.Stage
             }
             if (ptd.ucId == Define.SOUTH_LEFT)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+               // StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.southLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.SOUTH_OTHER)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+               // StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.southOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.SOUTH_RIGHT)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+               // StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.southRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.SOUTH_STRAIGHT)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+               // StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.southStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
             }
             // 西
             if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+               // StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.westPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+               // StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.westPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.WEST_LEFT_STRAIGHT)
@@ -3042,33 +3068,33 @@ namespace tscui.Pages.Stage
             }
             if (ptd.ucId == Define.WEST_LEFT)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+             //   StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.westLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.WEST_STRAIGHT)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+              //  StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.westStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.WEST_RIGHT)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+             //   StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.westRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.WEST_OTHER)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+              //  StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.westOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
             }
 
             if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+              //  StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.eastPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+               // StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.eastPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.EAST_LEFT_STRAIGHT)
@@ -3088,39 +3114,27 @@ namespace tscui.Pages.Stage
             }
             if (ptd.ucId == Define.EAST_LEFT)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+              //  StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.eastLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.EAST_STRAIGHT)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+              //  StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.eastStraight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.EAST_RIGHT)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+              //  StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.eastRight.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
             }
             if (ptd.ucId == Define.EAST_OTHER)
             {
-                StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+              //  StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
                 si.eastOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
             }
 
-            //byte direcId = ptd.ucId;
-            //byte direc = Convert.ToByte(direcId >> 5);
-            //byte turn = Convert.ToByte(direcId >> 3);
-            //byte pedestrain = Convert.ToByte((direcId >> 3) & 0x07);
-
-            //if (direc == 0x01)
-            //{
-            //    if (turn == 0x00)
-            //    {
-
-            //    }
-            //}
         }
-        TscData t;
+        
 
         private void DispatcherInitStageNum()
         {
@@ -3334,12 +3348,18 @@ namespace tscui.Pages.Stage
             List<PhaseToDirec> lptd = t.ListPhaseToDirec;
             //每次都要把stage清空，再由下面的进行显示 
             hiddenStageAll();
+            
             foreach (StagePattern sp in lsp)
             {
+               
                 if (sldStagePatternId.Value == sp.ucStagePatternId)
                 {
                     if (sp.ucStageNo != 0)
                     {
+                        //在进行显示之前将所有的相位重置成红灯状态
+                        StageItem si = returnStageItemObjectByStageNo(sp.ucStageNo);
+                        ResetStageDirec(si);
+
                         visiableStage(sp);  //stage 默认是不显示的。只有存在的情况下才显示出来。ucStageNo为0不存在。
                         //if (sldStagePatternId.Value == sp.ucStagePatternId)
                         //{
@@ -3440,7 +3460,7 @@ namespace tscui.Pages.Stage
             }
             catch (Exception ex)
             {
-                //  MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
 
             try
@@ -3501,19 +3521,93 @@ namespace tscui.Pages.Stage
         }
         private void sldGreenTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-          
+            try
+            {
+                //  Thread.Sleep(500);
+                Slider sld = sldGreenTime;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
+                List<StagePattern> lsp = t.ListStagePattern;
+                foreach (StagePattern sp in lsp)
+                {
+                    if (currentStage != null)
+                    {
+                        if (sp.ucStagePatternId == Convert.ToByte(sldStagePatternId.Value) && Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
+                        {
+                            sp.ucGreenTime = Convert.ToByte(sld.Value);
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                  MessageBox.Show(ex.ToString());
+            }
             
         }
 
         private void sldYellowTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-           
-            
+
+            try
+            {
+                //  Thread.Sleep(500);
+                Slider sld = sldYellowTime;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
+                List<StagePattern> lsp = t.ListStagePattern;
+                foreach (StagePattern sp in lsp)
+                {
+                    if (currentStage != null)
+                    {
+                        if (sp.ucStagePatternId == Convert.ToByte(sldStagePatternId.Value) && Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
+                        {
+                            sp.ucYellowTime = Convert.ToByte(sld.Value);
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void sldRedTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            
+
+            try
+            {
+                ///   Thread.Sleep(500);
+                Slider sld = sldRedTime;
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
+                List<StagePattern> lsp = t.ListStagePattern;
+                foreach (StagePattern sp in lsp)
+                {
+                    if (currentStage != null)
+                    {
+                        if (sp.ucStagePatternId == Convert.ToByte(sldStagePatternId.Value) && Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
+                        {
+                            sp.ucRedTime = Convert.ToByte(sld.Value);
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+           
         }
 
     }

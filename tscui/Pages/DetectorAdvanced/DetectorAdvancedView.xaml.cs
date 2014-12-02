@@ -111,7 +111,7 @@ namespace tscui.Views
             byte sen216 = Convert.ToByte(sldDetector216.Value);
             se[15] = (byte)(sen215 | sen216 << 4);
 
-            TscDataUtils.SetSensitivityAdv(se, t.Node);
+            Message m = TscDataUtils.SetSensitivityAdv(se, t.Node);
 
             #endregion
 
@@ -124,8 +124,8 @@ namespace tscui.Views
             byte lv6 = Convert.ToByte(tbxLv6.Text);
             byte lv7 = Convert.ToByte(tbxLv7.Text);
             byte[] bdg1 = {lv1,lv2,lv3,lv4,lv5,lv6,lv7};
-            TscDataUtils.SetSensityvityDig1(bdg1, t.Node);
-            TscDataUtils.SetSensityvityDig4(bdg1, t.Node);
+            Message m1 = TscDataUtils.SetSensityvityDig1(bdg1, t.Node);
+            Message m2 = TscDataUtils.SetSensityvityDig4(bdg1, t.Node);
             byte lv8 = Convert.ToByte(tbxLv8.Text);
             byte lv9 = Convert.ToByte(tbxLv9.Text);
             byte lv10 = Convert.ToByte(tbxLv10.Text);
@@ -134,16 +134,26 @@ namespace tscui.Views
             byte lv13 = Convert.ToByte(tbxLv13.Text);
             byte lv14 = Convert.ToByte(tbxLv14.Text);
             byte[] bdg2 = { lv8, lv9, lv10, lv11, lv12, lv13, lv14 };
-            TscDataUtils.SetSensityvityDig2(bdg2, t.Node);
-            TscDataUtils.SetSensityvityDig5(bdg2, t.Node);
+            Message m3 = TscDataUtils.SetSensityvityDig2(bdg2, t.Node);
+            Message m4 = TscDataUtils.SetSensityvityDig5(bdg2, t.Node);
             byte lv15 = Convert.ToByte(tbxLv15.Text);
             byte lv16 = Convert.ToByte(tbxLv16.Text);
             byte[] bdg3 = { lv15, lv16};
-            TscDataUtils.SetSensityvityDig3(bdg3, t.Node);
-            TscDataUtils.SetSensityvityDig6(bdg3, t.Node);
-
+            Message m5 = TscDataUtils.SetSensityvityDig3(bdg3, t.Node);
+            Message m6 = TscDataUtils.SetSensityvityDig6(bdg3, t.Node);
 
             #endregion
+
+
+            if (m.flag && m1.flag && m2.flag && m3.flag && m4.flag && m5.flag && m6.flag)
+            {
+                MessageBox.Show("保存成功");
+            }
+            else
+            {
+                MessageBox.Show("保存失败");
+            }
+
         }
 
         private void btnRead_Click(object sender, RoutedEventArgs e)
