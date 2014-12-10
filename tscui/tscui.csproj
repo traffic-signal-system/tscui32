@@ -89,9 +89,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.SQLite, Version=1.0.89.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\sqlite-netFx40-binary-bundle-Win32-2010-1.0.90.0\System.Data.SQLite.dll</HintPath>
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\..\..\libs\2010\bin\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -111,6 +110,9 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="WPFVisifire.Charts">
+      <HintPath>..\..\..\libs\WPFVisifire.Charts.dll</HintPath>
+    </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock">
       <HintPath>..\..\..\ExtendedWPFToolkit_Binaries\Xceed.Wpf.AvalonDock.dll</HintPath>
     </Reference>
@@ -230,6 +232,7 @@
     </Compile>
     <Compile Include="Service\ByteUtils.cs" />
     <Compile Include="Service\EchoCountDownService.cs" />
+    <Compile Include="Service\CheckCarService.cs" />
     <Compile Include="Service\GBT_20999_Utils.cs" />
     <Compile Include="Service\RuntasticHeartRate.cs" />
     <Compile Include="Service\TscDataUtils.cs" />
