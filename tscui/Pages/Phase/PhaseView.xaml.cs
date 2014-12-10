@@ -2144,20 +2144,7 @@ namespace tscui.Pages.Phase
 
         private void southOther_Click(object sender, RoutedEventArgs e)
         {
-            //ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            //Button btn = sender as Button;
-            //tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-            //btn.Content = p.ucId;
-            //t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            //foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-            //{
-                
-            //    ClearButtonPhaseContent(p, ptd);
-            //    if (ptd.ucId == Define.SOUTH_OTHER)
-            //    {
-            //        ptd.ucPhase = p.ucId;
-            //    }
-            //}
+            
         }
         private void SouthLeft_Click(object sender, RoutedEventArgs e)
         {
@@ -2169,7 +2156,7 @@ namespace tscui.Pages.Phase
             if(Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2195,7 +2182,7 @@ namespace tscui.Pages.Phase
             else if(Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals("")) { 
+                if (!(btn.Content == null)) { 
                 if (op == null)
                 {
                     return;
@@ -2232,7 +2219,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2257,7 +2244,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -2291,7 +2278,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2315,7 +2302,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -2349,7 +2336,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2374,7 +2361,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -2408,7 +2395,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2433,7 +2420,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -2467,7 +2454,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2493,7 +2480,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -2527,7 +2514,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2552,7 +2539,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -2586,7 +2573,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2611,7 +2598,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -2645,7 +2632,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2670,7 +2657,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -2704,7 +2691,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2729,7 +2716,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -2763,7 +2750,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2788,7 +2775,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -2822,7 +2809,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2847,7 +2834,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -2881,7 +2868,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2906,7 +2893,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -2940,7 +2927,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -2965,7 +2952,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -2999,7 +2986,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -3025,7 +3012,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -3059,7 +3046,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -3084,7 +3071,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -3118,7 +3105,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -3143,7 +3130,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -3177,7 +3164,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -3202,7 +3189,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -3236,7 +3223,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -3261,7 +3248,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -3295,7 +3282,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -3320,7 +3307,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -3354,7 +3341,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (p == null)
                     {
@@ -3379,7 +3366,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -3413,7 +3400,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content==null))
                 {
                     if (p == null)
                     {
@@ -3438,7 +3425,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -3472,7 +3459,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content== null))
                 {
                     if (p == null)
                     {
@@ -3497,7 +3484,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {
@@ -3531,7 +3518,7 @@ namespace tscui.Pages.Phase
             if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
             {
                 tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content== null))
                 {
                     if (p == null)
                     {
@@ -3556,7 +3543,7 @@ namespace tscui.Pages.Phase
             else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
             {
                 Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content).Equals(""))
+                if (!(btn.Content == null))
                 {
                     if (op == null)
                     {

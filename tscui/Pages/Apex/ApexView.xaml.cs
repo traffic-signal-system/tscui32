@@ -77,55 +77,123 @@ namespace tscui.Pages.Apex
             Node node = new Node(ti.Ip, ti.Name, ti.Version, ti.Port);
             td.Node = node;
             // 对选中的信号机进行数据库生成
-            SQLiteHelper.CreateDB("d:\\"+ti.Ip + ".db");
+            SQLiteHelper.CreateDB("c:\\"+ti.Ip + ".db");
             Application.Current.Properties[Define.TSC_DATA] = td;
             try
             {
                 td.ListSchedule = TscDataUtils.GetSchedule();
-                td.ListPlan = TscDataUtils.GetPlan();
-                td.ListModule = TscDataUtils.GetModule();
-                td.ListPhase = TscDataUtils.GetPhase();
-                try
-                {
-                    td.ListCollision = TscDataUtils.GetCollision();
-                    td.Node.sProtocol = "GBT_V32";
-                }
-                catch(Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                    td.ListCollision = TscDataUtils.GetCollision16();
-                    td.Node.sProtocol = "GBT_V16";
-                }
                 
-                td.ListDetector = TscDataUtils.GetDetector();
-                td.ListChannel = TscDataUtils.GetChannel();
-                //日志内容由于比较多，放在单的日志界面进行加载
-                //td.ListEventLog = TscDataUtils.GetEventLog();
-                td.ListPattern = TscDataUtils.GetPattern();
-                try
-                {
-                    td.ListStagePattern = TscDataUtils.GetStagePattern();
-                }
-                catch(Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                    td.ListStagePattern = TscDataUtils.GetStagePattern16();
-                }
-                
-                td.ListOverlapPhase = TscDataUtils.GetOverlapPhase();
-                
-                td.ListPhaseToDirec = TscDataUtils.GetPhaseToDirec();
-                td.ListLampCheck = TscDataUtils.GetLampCheck();
-                currentTI = null;
+              
                 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                string str = (string)App.Current.Resources.MergedDictionaries[3]["tsc_apex_network"];
-                MessageBox.Show(str);
+                
+               // string str = (string)App.Current.Resources.MergedDictionaries[3]["tsc_apex_network"];
+                MessageBox.Show("时段表加载异常！");
             }
-            
+            try
+            {
+                td.ListPlan = TscDataUtils.GetPlan();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("时基表加载异常！");
+            }
+            try
+            {
+                td.ListModule = TscDataUtils.GetModule();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("模块表加载异常");
+            }
+            try
+            {
+                td.ListPhase = TscDataUtils.GetPhase();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("相位表加载异常");
+            }
+            try
+            {
+                td.ListCollision = TscDataUtils.GetCollision();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("相位冲突表加载异常");
+            }
+            try
+            {
+                td.ListDetector = TscDataUtils.GetDetector();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("检测器表加载异常");
+            }
+            try
+            {
+                td.ListChannel = TscDataUtils.GetChannel();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("通道表加载异常");
+            }
+            try
+            {
+                td.ListPattern = TscDataUtils.GetPattern();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("方案表加载异常");
+            }
+            try
+            {
+                td.ListStagePattern = TscDataUtils.GetStagePattern();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("阶段表加载异常");
+            }
+            try
+            {
+                td.ListOverlapPhase = TscDataUtils.GetOverlapPhase();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("跟随相位表加载异常");
+            }
+            try
+            {
+                td.ListPhaseToDirec = TscDataUtils.GetPhaseToDirec();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("方向表加载异常");
+            }
+            try
+            {
+                td.ListLampCheck = TscDataUtils.GetLampCheck();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("灯泡检测表加载异常");
+            }
+
+
+            currentTI = null;
         }
         public void RunThreadRecevie()
         {

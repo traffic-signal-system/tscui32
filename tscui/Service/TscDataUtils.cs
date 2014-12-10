@@ -570,10 +570,11 @@ namespace tscui.Service
         public static List<PhaseToDirec> GetPhaseToDirec()
         {
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            byte[] byt = Udp.recvUdp(t.Node.sIpAddress, Define.GBT_PORT, Define.GET_PHASE_DIREC);
+            byte[] byt;
+            byt = Udp.recvUdp(t.Node.sIpAddress, Define.GBT_PORT, Define.GET_PHASE_DIREC);
             if (!CheckGBT(byt, "相位与方向关系"))
             {
-                return null;
+                byt = Udp.recvUdp(t.Node.sIpAddress, Define.GBT_PORT, Define.GET_PHASE_DIREC);
             }
             List<PhaseToDirec> llc = new List<PhaseToDirec>();
             byte[] pdArray = new byte[Convert.ToInt32(byt[3]) * Define.PHASE_DIREC_BYTE_SIZE];
@@ -1270,10 +1271,11 @@ namespace tscui.Service
         {
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
 
-            byte[] byt = Udp.recvUdp(t.Node.sIpAddress, Define.GBT_PORT, Define.GET_LAMP_CHECK);
+            byte[] byt;
+            byt = Udp.recvUdp(t.Node.sIpAddress, Define.GBT_PORT, Define.GET_LAMP_CHECK);
             if (!CheckGBT(byt, "主动上报"))
             {
-                return null;
+                byt = Udp.recvUdp(t.Node.sIpAddress, Define.GBT_PORT, Define.GET_LAMP_CHECK);
             }
             List<LampCheck> llc = new List<LampCheck>();
             byte[] lampCheckArray = new byte[Convert.ToInt32(byt[3]) * Define.LAMP_CHECK_BYTE_SIZE];
@@ -1378,10 +1380,11 @@ namespace tscui.Service
         {
             TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
             //取得所有字节数组
-            byte[] byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_MODULE);
+            byte[] byt;
+            byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_MODULE);
             if (!CheckGBT(byt, "模块"))
             {
-                return null;
+                byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_MODULE);
             }
             //去除协议部分
             byte[] moduleArray = new byte[byt.Length-4];
@@ -1518,10 +1521,11 @@ namespace tscui.Service
         public static List<Phase> GetPhase()
         {
             TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
-            byte[] byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_PHASE);
+            byte[] byt;
+            byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_PHASE);
             if (!CheckGBT(byt, "相位"))
             {
-                return null;
+                byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_PHASE);
             }
             List<Phase> listPhase = new List<Phase>();
             //取得)
@@ -1654,10 +1658,11 @@ namespace tscui.Service
         public static List<Collision> GetCollision()
         {
             TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
-            byte[] byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_COLLISION);
+            byte[] byt;
+            byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_COLLISION);
             if (!CheckGBT(byt, "绿冲突"))
             {
-                return null;
+                byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_COLLISION);
             }
             List<Collision> listCollision = new List<Collision>();
             //取得)
@@ -1759,10 +1764,11 @@ namespace tscui.Service
         public static List<Detector> GetDetector()
         {
              TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
-            byte[] byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_DETECTOR);
+            byte[] byt;
+            byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_DETECTOR);
             if (!CheckGBT(byt, "检测器"))
             {
-                return null;
+                byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_DETECTOR);
             }
             List<Detector> listDetector = new List<Detector>();
             //取得)
@@ -1842,10 +1848,11 @@ namespace tscui.Service
         public static List<Plan> GetPlan()
         {
             TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
-            byte[] byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_PLAN);
+            byte[] byt;
+            byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_PLAN);
             if (!CheckGBT(byt, "时基"))
             {
-                return null;
+                byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_PLAN);
             }
             List<Plan> listPlan = new List<Plan>();
             //取得)
@@ -1939,11 +1946,12 @@ namespace tscui.Service
             TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
            // byte[] byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_SCHEDULE);
             //byt 在同济大学里通过无线AP 点对点。查出数据byt数组为空的
-            
-            byte[] byt = Udp.sendUdpClient(td.Node.sIpAddress, td.Node.iPort, Define.GET_SCHEDULE);
+
+            byte[] byt;
+            byt= Udp.sendUdpClient(td.Node.sIpAddress, td.Node.iPort, Define.GET_SCHEDULE);
             if (!CheckGBT(byt, "时段"))
             {
-                return null;
+                byt = Udp.sendUdpClient(td.Node.sIpAddress, td.Node.iPort, Define.GET_SCHEDULE); 
             }
             List<Schedule> listSchedule = new List<Schedule>();
             byte[] scheduleArray = new byte[6144];
@@ -2023,10 +2031,11 @@ namespace tscui.Service
         public static List<Channel> GetChannel()
         {
             TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
-            byte[] byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_CHANNEL);
+            byte[] byt;
+            byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_CHANNEL);
             if (!CheckGBT(byt, "通道"))
             {
-                return null;
+                byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_CHANNEL);
             }
             List<Channel> listChannel = new List<Channel>();
             //取得)
@@ -2094,10 +2103,11 @@ namespace tscui.Service
         public static List<Pattern> GetPattern()
         {
             TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
-            byte[] byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_PATTERN);
+            byte[] byt;
+            byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_PATTERN);
             if (!CheckGBT(byt, "配时方案"))
             {
-                return null;
+                byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_PATTERN);
             }
             List<Pattern> listPattern = new List<Pattern>();
             //取得)
@@ -2166,10 +2176,11 @@ namespace tscui.Service
         public static List<StagePattern> GetStagePattern()
         {
             TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
-            byte[] byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_STAGEPATTERN);
+            byte[] byt;
+            byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_STAGEPATTERN);
             if (!CheckGBT(byt, "阶段配时"))
             {
-                return null;
+                byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_STAGEPATTERN);
             }
             List<StagePattern> listStagePattern = new List<StagePattern>();
             //取得)
@@ -2326,10 +2337,11 @@ namespace tscui.Service
         public static List<OverlapPhase> GetOverlapPhase()
         {
             TscData td = (TscData)Application.Current.Properties[Define.TSC_DATA];
-            byte[] byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_OVERLAPPHASE);
+            byte[] byt;
+            byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_OVERLAPPHASE);
             if (!CheckGBT(byt, "跟随相位"))
             {
-                return null;
+                byt = Udp.recvUdp(td.Node.sIpAddress, Define.GBT_PORT, Define.GET_OVERLAPPHASE);
             }
             List<OverlapPhase> listOverlapPhase = new List<OverlapPhase>();
             //取得)

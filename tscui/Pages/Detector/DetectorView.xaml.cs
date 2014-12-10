@@ -1348,7 +1348,7 @@ namespace tscui.Pages.Detector
 
                                 if (isDetectorState1 == true)
                                 {
-                                    tb.Background = Brushes.DarkSeaGreen;
+                                    tb.Background = Brushes.Green;
                                     isDetectorState1 = false;
                                 }
                                 else
@@ -5039,6 +5039,18 @@ namespace tscui.Pages.Detector
             checkDispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             checkDispatcherTimer.Start();
            // ThreadPool.QueueUserWorkItem(DispatcherCheckCar);
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            TscData td = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (td == null)
+            {
+                return;
+            }
+            checkDispatcherTimer.Stop();
+            Udp.sendUdpCheckCar(td.Node.sIpAddress, td.Node.iPort, Define.DETECTOR_DISABLED_STATUS_TABLE);
+            
         }
 
      

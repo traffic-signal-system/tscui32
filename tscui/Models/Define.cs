@@ -621,6 +621,7 @@ namespace tscui.Models
         /// </summary>
         ///                                                                                 对象个数         时间间隔,必需大于500ms 
         public static byte[] DETECTOR_STATUS_TABLE = { SET_REQUEST_RESPONSE, REPORT, 0x00, 0x01, 0xa0, 0x00, 0x05 };
+        public static byte[] DETECTOR_DISABLED_STATUS_TABLE = { SET_REQUEST_RESPONSE, REPORT, 0x00, 0x01, 0xa0, 0x00, 0x00 };
 
 
         public static byte OSCILLATOR_FREQUENCY_SENSITIVITY = 0xe2;

@@ -15,7 +15,7 @@
     <sys:String x:Key="tsc_direc_title">方向配置</sys:String>
     <sys:String x:Key="tsc_direc_id">方向Id</sys:String>
     <sys:String x:Key="tsc_direc_roadcount">车道数</sys:String>
-    <sys:String x:Key="tsc_apex_network">请网线直接连接信号机进行配置</sys:String>
+    <sys:String x:Key="tsc_apex_network">信号机配置数据读取异常，请网线直接连接信号机进行配置</sys:String>
     <sys:String x:Key="tsc_adv_selected_title">相位</sys:String>
     <sys:String x:Key="tsc_adv_lamp_broad">灯驱板</sys:String>
     <sys:String x:Key="tsc_adv_channel1">通道1</sys:String>
