@@ -2085,6 +2085,8 @@ namespace tscui.Pages.Music
                 {
                     return;
                 }
+                if (bdirecphase.IsChecked == true)
+                    return;
                 List<PhaseToDirec> tscdirecphase = t.ListPhaseToDirec;
           
                 foreach (PhaseToDirec direcphase in tscdirecphase)
@@ -2129,6 +2131,8 @@ namespace tscui.Pages.Music
                 {
                     return;
                 }
+                if (bdirecphase.IsChecked == true)
+                    return;
                 List<PhaseToDirec> tscdirecphase = t.ListPhaseToDirec;
 
                 DirecCombox.SelectedIndex = -1;

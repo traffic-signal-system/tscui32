@@ -279,7 +279,7 @@
                 <ComboBox x:Name="cbxChannelType" DisplayMemberPath="name" SelectedValue="value" HorizontalAlignment="Left" Margin="93,80,0,0" VerticalAlignment="Top" Width="120"/>
                 <Button Content="{DynamicResource tsc_time_save}" HorizontalAlignment="Left" Margin="138,150,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
                 <Label Content="{DynamicResource tsc_adv_phase_id}" Height="28" x:Name="label9_Copy1" HorizontalAlignment="Left" Width="57" VerticalAlignment="Top" Margin="11,107,0,0" />
-                <ComboBox DisplayMemberPath="name" SelectedValue="id"  HorizontalAlignment="Left" Margin="93,113,0,0" VerticalAlignment="Top" Width="109" x:Name="ChannelPhaseId"/>
+                <ComboBox DisplayMemberPath="name" SelectedValue="id"  HorizontalAlignment="Left" Margin="93,113,0,0" VerticalAlignment="Top" Width="120" x:Name="ChannelPhaseId"/>
 
             </Grid>
         </GroupBox>
@@ -292,10 +292,11 @@
                 </xctk:ButtonSpinner>
                 <Button Content="{DynamicResource tsc_time_save}" x:Name="btnDirec" HorizontalAlignment="Left" Margin="139,124,0,0" VerticalAlignment="Top" Width="73" Click="btnDirec_Click"/>
                 <ComboBox x:Name="DirecCombox" Text="下拉选择方向"  DisplayMemberPath="name" SelectedValue="value" HorizontalAlignment="Left" Margin="123,5,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" Height="23" SelectionChanged="DirecCombox_SelectChanged"/>
-                <Label Content="{DynamicResource tsc_adv_phase_id}" Height="28" x:Name="label9_Copy" HorizontalAlignment="Left" Width="57" VerticalAlignment="Top" Margin="35,81,0,0" />
-                <ComboBox DisplayMemberPath="name" SelectedValue="id"  HorizontalAlignment="Left" Margin="122,87,0,0" VerticalAlignment="Top" Width="109" x:Name="DirectPhaseId" SelectionChanged="DirectPhaseId_SelectionChanged"/>
+                <Label Content="{DynamicResource tsc_adv_phase_id}" Height="28" x:Name="label9_Copy" HorizontalAlignment="Left" Width="57" VerticalAlignment="Top" Margin="32,81,0,0" />
+                <ComboBox DisplayMemberPath="name" SelectedValue="id"  HorizontalAlignment="Left" Margin="122,87,0,0" VerticalAlignment="Top" Width="119" x:Name="DirectPhaseId" SelectionChanged="DirectPhaseId_SelectionChanged"/>
             </Grid>
         </GroupBox>
+        <CheckBox Content="设置" x:Name="bdirecphase"   HorizontalAlignment="Left" Margin="569,560,0,0" VerticalAlignment="Top" Height="15" Width="82" Click="MultisetCheck_Click"/>
     </apexControls:ApexGrid>
 
 </UserControl>
