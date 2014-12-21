@@ -147,11 +147,11 @@ namespace tscui.Views
 
             if (m.flag && m1.flag && m2.flag && m3.flag && m4.flag && m5.flag && m6.flag)
             {
-                MessageBox.Show("保存成功");
+                MessageBox.Show("保存操作成功");
             }
             else
             {
-                MessageBox.Show("保存失败");
+                MessageBox.Show("保存操作失败");
             }
 
         }

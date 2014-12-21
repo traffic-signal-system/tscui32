@@ -22,19 +22,15 @@ namespace tscui
         private void LoadLanguage()
         {
             CultureInfo currentCultureInfo = CultureInfo.CurrentCulture;
-            
             //currentCultureInfo = CultureInfo.CreateSpecificCulture("zh_CN");
             ResourceDictionary langRd = null;
-           
             try
             {
-                langRd =
-                    Application.LoadComponent(
-                             new Uri(@"Resources/Lang/" + currentCultureInfo.Name + ".xaml", UriKind.Relative))
-                    as ResourceDictionary;
+                langRd =Application.LoadComponent(new Uri(@"Resources/Lang/" + currentCultureInfo.Name + ".xaml", UriKind.Relative)) as ResourceDictionary;
             }
             catch
             {
+                ;
             }
             //this.Resources.MergedDictionaries.Add(langRd);
             if (langRd != null)

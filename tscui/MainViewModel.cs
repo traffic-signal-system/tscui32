@@ -1,7 +1,6 @@
 ﻿using Apex.MVVM;
 using tscui.Pages;
 using tscui.Pages.Apex;
-using tscui.Pages.ThePages;
 using tscui.ViewModels;
 using tscui.Pages.Phase;
 using tscui.Pages.Detector;
@@ -16,8 +15,6 @@ using tscui.Pages.Config;
 using tscui.Service;
 using tscui.Pages.Degradation;
 using tscui.Pages.Log;
-using tscui.Utils;
-using System.Data.SQLite;
 using tscui.Pages.Schedules;
 using tscui.Pages.Update;
 using tscui.Pages.Music;
@@ -36,7 +33,7 @@ namespace tscui
         public MainViewModel()
         {
             //  Set the title.
-            Title = "tscui";
+            Title = "Tscui" + "V2.2" ;
             
             RuntasticHeartRate rhr = new RuntasticHeartRate();
             rhr.RunHeartRate();
@@ -50,12 +47,7 @@ namespace tscui
         private void CreatePages()
         {
             //  Create the 'home' section.
-            var homeViewModel = new PageViewModel()
-            {
-                IsSelected = true,
-                Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_main"]
-            };
-            
+            var homeViewModel = new PageViewModel(){IsSelected = true,Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_main"]};
             //  Add home pages.
             homeViewModel.Pages.Add(new ApexViewModel() { IsSelected = true });
             
@@ -99,8 +91,6 @@ namespace tscui
             systemViewModel.Pages.Add(new UpdateViewModel());
             
             //  Add the page groups to the view model.
-
-
 
 
             Pages.Add(homeViewModel);

@@ -718,7 +718,6 @@ namespace tscui.Pages.Phase
                 //MessageBox.Show("lampRush_CheckBox_Checked");
                 tscui.Models.ReportTscStatus reportTscStatus = new Models.ReportTscStatus();
                 TscDataUtils.GetReportStatus();
-
                 LampRhshStar();
             }
             catch(Exception ex)
@@ -3656,7 +3655,6 @@ namespace tscui.Pages.Phase
             EchoCntDowns echoCountDown = new EchoCntDowns();
             Udp.StartReceiveEchoCountDown();
             Udp.sendUdpEchoCountDown(td.Node.sIpAddress, Define.GBT_PORT, Define.ECHO_TSC_COUNT_DOWN);
-
             
             echoCountDownDispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             echoCountDownDispatcherTimer.Tick += new EventHandler(CountDownDispatcherTimer_Tick);

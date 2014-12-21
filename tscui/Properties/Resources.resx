@@ -120,4 +120,7 @@
   <data name="app_name" xml:space="preserve">
     <value>信号机配置软件</value>
   </data>
+  <data name="app_ver" xml:space="preserve">
+    <value>V2.2</value>
+  </data>
 </root>

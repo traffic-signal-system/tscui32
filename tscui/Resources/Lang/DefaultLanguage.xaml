@@ -8,6 +8,7 @@
     <sys:String x:Key="Cancel">
         Cancel
     </sys:String>
+    
     <sys:String x:Key="dic_schedule_gpscoordination">GPSCoordination</sys:String>
     <sys:String x:Key="tsc_adv_selected_title">Phase</sys:String>
     <sys:String x:Key="tsc_adv_lamp_broad">Lamp</sys:String>

@@ -156,7 +156,7 @@
         </apexControls:ApexGrid>
         
         <!-- The main view, actually fils the client area and chrome too. -->
-        <views:MainView />
+        <views:MainView x:Name="view1"/>
         
     </Grid>
 </apexControls:CustomWindow>

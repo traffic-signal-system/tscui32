@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows.Controls;
 using Apex.MVVM;
 using Apex.Behaviours;
@@ -8,7 +7,6 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using tscui.Models;
 using tscui.Service;
-using System.Threading;
 using System.Windows.Threading;
 
 namespace tscui.Pages.Stage
@@ -50,6 +48,7 @@ namespace tscui.Pages.Stage
             InitializeComponent();
         }
 
+      
         public void OnActivated()
         {
             //throw new NotImplementedException();
@@ -60,7 +59,28 @@ namespace tscui.Pages.Stage
         {
             //throw new NotImplementedException();
         }
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+         
+            //初始化当前阶段
+            currentStage = stage1;
+            DispatcherInitStageNum();
+            DispatcherInitStageItem();
+            DispatcherInitCoordination();
+            //初始化所有数据到界面上
+            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+            {
+                MessageBox.Show("请选择一台信号机后，切换到此界面！");
+                return;
+            }
+            //initStageAttriable(t);
 
+        }
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+
+        }
         public void BigMap4SmallMap(StageItem si)
         {
             //北方向
@@ -93,12 +113,7 @@ namespace tscui.Pages.Stage
             this.westPedestrain2.Source = si.westPedestrain2.Source;
         }
 
-        private void stage1_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            currentStage = stage1;
-            BigMap4SmallMap(currentStage);
-            smallMap4Form(currentStage);
-        }
+
 
         /// <summary>
         /// 通过点击小图，可以将数据更新给
@@ -151,160 +166,7 @@ namespace tscui.Pages.Stage
 
 
         }
-
-     
-        private void southStraight_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void southRight_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void southOther_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void westPedestrain1_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void westPedestrain2_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void eastPedestrain1_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void eastPedestrain2_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void northOther_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void northRight_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void northStraight_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void northLeft_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void southPedestrain2_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void southPedestrain1_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-           
-        }
-
-        private void westOther_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void westRight_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void westStraight_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void westLeft_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void northPedestrain2_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void northPedestrain1_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-           
-        }
-
-        private void eastOther_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-           
-        }
-
-        private void eastRight_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-            
-        }
-
-        private void eastStraight_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-            
-        }
-
-        private void eastLeft_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            
-            
-        }
-
-        private void southLeft_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            if (currentStage == null)
-            {
-                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
-                return;
-            }
-            currentStage.southLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
-            southLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
-            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            List<StagePattern> lsp = t.ListStagePattern;
-            List<PhaseToDirec> lptd = t.ListPhaseToDirec;
-            foreach (StagePattern sp in lsp)
-            {
-                if (sp.ucStagePatternId == sldStagePatternId.Value)
-                {
-                    if (Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
-                    {
-                        uint ap = sp.usAllowPhase;
-                       
-                            foreach(PhaseToDirec ptd in lptd )
-                            {
-                                if (ptd.ucId == Define.SOUTH_LEFT)
-                                {
-                                    sp.usAllowPhase = returnUnAllowPhase(ptd,ap);
-                                }
-                            }
-                    }
-                }
-            }
-            
-        }
+       
         private uint returnUnAllowPhase(PhaseToDirec  ptd, uint ap)
         {
             uint temp = 1;
@@ -440,6 +302,7 @@ namespace tscui.Pages.Stage
             }
                
         }
+        #region 阶段配时鼠标左键点击处理
         private void southLeft_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (currentStage != null)
@@ -1207,7 +1070,42 @@ namespace tscui.Pages.Stage
                 MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage"]);
             }
         }
+        #endregion
+        #region 阶段配时鼠标右键处理
+        private void southLeft_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (currentStage == null)
+            {
+                MessageBox.Show((string)App.Current.Resources.MergedDictionaries[3]["msg_stage_selected_stage_cancel"]);
+                return;
+            }
+            currentStage.southLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            southLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            if (t == null)
+                return;
+            List<StagePattern> lsp = t.ListStagePattern;
+            List<PhaseToDirec> lptd = t.ListPhaseToDirec;
+            foreach (StagePattern sp in lsp)
+            {
+                if (sp.ucStagePatternId == sldStagePatternId.Value)
+                {
+                    if (Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
+                    {
+                        uint ap = sp.usAllowPhase;
 
+                        foreach (PhaseToDirec ptd in lptd)
+                        {
+                            if (ptd.ucId == Define.SOUTH_LEFT)
+                            {
+                                sp.usAllowPhase = returnUnAllowPhase(ptd, ap);
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
         private void northLeft_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (currentStage != null)
@@ -2005,7 +1903,14 @@ namespace tscui.Pages.Stage
                 }
             }
         }
-
+        #endregion
+        #region 子阶段鼠标单击选中处理
+        private void stage1_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            currentStage = stage1;
+            BigMap4SmallMap(currentStage);
+            smallMap4Form(currentStage);
+        }
         private void stage2_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             currentStage = stage2;
@@ -2110,6 +2015,7 @@ namespace tscui.Pages.Stage
             smallMap4Form(currentStage);
             BigMap4SmallMap(currentStage); //MessageBox.Show("stage1");
         }
+        #endregion
         private void savePattern()
         {
             List<Pattern> lp = t.ListPattern;
@@ -2121,6 +2027,7 @@ namespace tscui.Pages.Stage
                     p.ucCycleTime = Convert.ToByte(tbxCycle.Text);
                     p.ucCoorPhase = Convert.ToByte(cbxCoordination.Text);
                     p.ucOffset = Convert.ToByte(tbxOffset.Text);
+                    p.ucStagePatternId = Convert.ToByte(sldStagePatternId.Value);
                 }
               
             }
@@ -2455,9 +2362,7 @@ namespace tscui.Pages.Stage
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
                 if (t == null)
                     return;
-                List<PhaseToDirec> lptd = t.ListPhaseToDirec;
                 List<Pattern> lp = t.ListPattern;
-                List<StagePattern> lsp = t.ListStagePattern;
                 foreach (Pattern p in lp)
                 {
                     if (p.ucPatternId == sldSchemeId.Value)
@@ -2466,63 +2371,11 @@ namespace tscui.Pages.Stage
                         cbxCoordination.SelectedItem = p.ucCoorPhase;
                         tbxOffset.Text = p.ucOffset.ToString();
                         sldStagePatternId.Value = p.ucStagePatternId;
-                        //sldSchemeId.Value = p.ucPatternId;
                        
                     }
-                    else
-                    {
-                        
-                    }
+                
                 }
-                /*
-                foreach (StagePattern sp in lsp)
-                {
-
-                    if (sldStagePatternId.Value == sp.ucStagePatternId)
-                    {
-                        if (sp.ucStageNo != 0)
-                        {
-                            visiableStage(sp);  //stage 默认是不显示的。只有存在的情况下才显示出来。ucStageNo为0不存在。
-
-                            uint ap = sp.usAllowPhase;
-                            for (int i = 0; i < 32; i++)
-                            {
-                                if (((ap >> i) & 0x01) == 0x01)
-                                {
-                                    foreach (PhaseToDirec ptd in lptd)
-                                    {
-                                        if (ptd.ucPhase != 0)
-                                        {
-                                            if (ptd.ucPhase == (i + 1))
-                                            {
-                                                //初始化
-                                                InitStageDirec(ptd, sp);
-                                                //Define.NORTH_LEFT
-                                            }
-                                        }
-                                        else
-                                        {
-                                            initDirecArrow(ptd, sp);
-                                        }
-
-                                    }
-                                }
-                            }
-
-                            sldGreenTime.Value = sp.ucGreenTime;
-                            sldYellowTime.Value = sp.ucYellowTime;
-                            sldRedTime.Value = sp.ucRedTime;
-                            cbxReaction.IsChecked = true;//sp.ucOption;
-                            // sp.ucStageNo   各个阶段编号，已经固定生成
-                            //}
-                        }
-                        else
-                        {
-                            //hiddenStage(sp);
-                        }
-                    }
-
-                }*/
+               
             }
             catch (Exception ex)
             {
@@ -3148,38 +3001,7 @@ namespace tscui.Pages.Stage
         {
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new DelegateInitcbxCoordination(initcbxCoordination));
         }
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            //初始化当前阶段
-            currentStage = stage1;
-            DispatcherInitStageNum();
-            DispatcherInitStageItem();
-            DispatcherInitCoordination();
-            //初始化各个阶段的编号
-            //Thread tStageNum = new Thread(DispatcherInitStageNum);
-            //tStageNum.IsBackground = true;
-            //tStageNum.Start();
-           // initStageNumber();
-            //Thread tStageItem = new Thread(DispatcherInitStageItem);
-            //tStageItem.IsBackground = true;
-            //tStageItem.Start();
-           // initStageItemList();
-            //Thread tCoordination = new Thread(DispatcherInitCoordination);
-            //tCoordination.IsBackground = true;
-            //tCoordination.Start();
-            
-            //initcbxCoordination();
-            //初始化所有数据到界面上
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-
-            if (t == null)
-            {
-                MessageBox.Show("请选择一台信号机后，切换到此界面！");
-                return;
-            }
-            //initStageAttriable(t);
-            
-        }
+       
 
         private void StackPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -3406,17 +3228,7 @@ namespace tscui.Pages.Stage
             DisplayStageByStagePatternIdChange();
         }
 
-        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
-        {
-          //  try
-           // { 
-          //  ThreadPool.QueueUserWorkItem(SaveStagePattern);
-          //  }
-          //  catch (Exception ex)
-          //  {
-          //      MessageBox.Show("BaseTime: " + ex.ToString());
-          //  }
-        }
+        
 
         private void SaveStagePattern(object state)
         {
@@ -3531,7 +3343,7 @@ namespace tscui.Pages.Stage
                 List<StagePattern> lsp = t.ListStagePattern;
                 foreach (StagePattern sp in lsp)
                 {
-                    if (currentStage != null)
+                    if (currentStage != null && sldStagePatternId != null && sld!=null)
                     {
                         if (sp.ucStagePatternId == Convert.ToByte(sldStagePatternId.Value) && Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
                         {
@@ -3562,7 +3374,7 @@ namespace tscui.Pages.Stage
                 List<StagePattern> lsp = t.ListStagePattern;
                 foreach (StagePattern sp in lsp)
                 {
-                    if (currentStage != null)
+                    if (currentStage != null && sldStagePatternId != null && sld != null)
                     {
                         if (sp.ucStagePatternId == Convert.ToByte(sldStagePatternId.Value) && Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
                         {
@@ -3592,7 +3404,7 @@ namespace tscui.Pages.Stage
                 List<StagePattern> lsp = t.ListStagePattern;
                 foreach (StagePattern sp in lsp)
                 {
-                    if (currentStage != null)
+                    if (currentStage != null && sldStagePatternId != null && sld != null)
                     {
                         if (sp.ucStagePatternId == Convert.ToByte(sldStagePatternId.Value) && Convert.ToByte(currentStage.lblNumber.Content) == sp.ucStageNo)
                         {

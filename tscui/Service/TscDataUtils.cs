@@ -1,11 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using tscui.Models;
 using System.Windows;
-using tscui.Pages.BaseTime;
-using tscui.Utils;
 using System.IO;
 
 namespace tscui.Service
@@ -835,7 +833,7 @@ namespace tscui.Service
         public static Message SetSensityvityDig6(byte[] b, Node n)
         {
             Message m = new Message();
-            byte[] hex = new byte[Define.SET_DETECTOR_SENSITYVITY_DIG_2_15_16.Length + 7];
+            byte[] hex = new byte[Define.SET_DETECTOR_SENSITYVITY_DIG_2_15_16.Length + b.Length];
             Stream s = new MemoryStream();
             s.Write(Define.SET_DETECTOR_SENSITYVITY_DIG_2_15_16, 0, Define.SET_DETECTOR_SENSITYVITY_DIG_2_15_16.Length);
             s.Write(b, 0, b.Length);
@@ -1796,7 +1794,7 @@ namespace tscui.Service
             Message msg = new Message();
             TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             //字节 长度，需要加1 ，因为。数据长度需要一个字段表示。
-            byte[] hex = new byte[Define.DETECTOR_BYTE_SIZE*Define.DETECTOR_RESULT_LEN + Define.SET_DETECTOR_RESPONSE.Length +1];
+            byte[] hex = new byte[Define.DETECTOR_BYTE_SIZE*ld.Count + Define.SET_DETECTOR_RESPONSE.Length +1];
             Stream s = new MemoryStream();
             s.Write(Define.SET_DETECTOR_RESPONSE,0,Define.SET_DETECTOR_RESPONSE.Length);
             s.WriteByte(Convert.ToByte(ld.Count));
@@ -2355,12 +2353,16 @@ namespace tscui.Service
                 obj.ucId = twoArray[i, 0];
                 obj.ucOperateType = twoArray[i, 1];
                 obj.ucIncludePhaseLen = twoArray[i, 2];
-                obj.ucIncludePhase = new byte[] { twoArray[i, 3], twoArray[i, 4], twoArray[i, 5], twoArray[i, 6], twoArray[i, 7], twoArray[i, 8], twoArray[i, 9], twoArray[i, 10], twoArray[i, 11], twoArray[i, 12], twoArray[i, 13], twoArray[i, 14], twoArray[i, 15], twoArray[i, 16], twoArray[i, 17], twoArray[i, 18] };
-                obj.ucCorrectPhaseLen = twoArray[i, 19];
-                obj.ucCorrectPhase = new byte[] { twoArray[i, 20], twoArray[i, 21], twoArray[i, 22], twoArray[i, 23], twoArray[i, 24], twoArray[i, 25], twoArray[i, 26], twoArray[i, 27], twoArray[i, 28], twoArray[i, 29], twoArray[i, 30], twoArray[i, 31], twoArray[i, 32], twoArray[i, 33], twoArray[i, 34], twoArray[i, 35] };
-                obj.ucTailGreen = twoArray[i, 36];
-                obj.ucTailYellow = twoArray[i, 37];
-                obj.ucTailRed = twoArray[i, 38];
+                obj.ucIncludePhase = new byte[] { twoArray[i, 3], twoArray[i, 4], twoArray[i, 5], twoArray[i, 6], twoArray[i, 7], twoArray[i, 8], twoArray[i, 9], twoArray[i, 10], twoArray[i, 11], twoArray[i, 12], twoArray[i, 13], twoArray[i, 14], twoArray[i, 15], twoArray[i, 16], twoArray[i, 17], twoArray[i, 18], twoArray[i, 19]
+                    ,twoArray[i, 20],twoArray[i, 21],twoArray[i, 22],twoArray[i, 23],twoArray[i, 24],twoArray[i, 25],twoArray[i, 26],twoArray[i, 27],twoArray[i, 28],twoArray[i, 29],twoArray[i, 30],twoArray[i, 31],twoArray[i, 32],twoArray[i, 33],twoArray[i, 34]};
+                obj.ucCorrectPhaseLen = twoArray[i, 35];
+                obj.ucCorrectPhase = new byte[]
+                {
+                    twoArray[i, 36], twoArray[i, 37], twoArray[i, 38], twoArray[i, 39], twoArray[i, 40], twoArray[i, 41], twoArray[i, 42], twoArray[i, 43], twoArray[i, 44], twoArray[i, 45], twoArray[i, 46], twoArray[i, 47], twoArray[i, 48], twoArray[i, 49], twoArray[i, 50], twoArray[i, 51], twoArray[i, 52], twoArray[i, 53], twoArray[i, 54], twoArray[i, 55]
+                , twoArray[i, 56],twoArray[i, 57], twoArray[i, 58], twoArray[i, 59], twoArray[i, 60], twoArray[i, 61], twoArray[i, 62], twoArray[i, 62], twoArray[i, 63], twoArray[i, 64], twoArray[i, 65], twoArray[i, 66], twoArray[i, 67]};
+                obj.ucTailGreen = twoArray[i, 68];
+                obj.ucTailYellow = twoArray[i, 69];
+                obj.ucTailRed = twoArray[i, 70];
                 listOverlapPhase.Add(obj);
             }
             return listOverlapPhase;
@@ -2423,25 +2425,15 @@ namespace tscui.Service
             s.WriteByte(Convert.ToByte(lop.Count));
             foreach (OverlapPhase op in lop)
             {
-                byte id = op.ucId;
-                s.WriteByte(id);
-                byte ot = op.ucOperateType;
-                s.WriteByte(ot);
-               
-                byte ipl = op.ucIncludePhaseLen;
-                s.WriteByte(ipl);
-                byte[] ip = op.ucIncludePhase;
-                s.Write(ip, 0, ip.Length);
-                byte cpl = op.ucCorrectPhaseLen;
-                s.WriteByte(cpl);
-                byte[] cp = op.ucCorrectPhase;
-                s.Write(cp, 0, cp.Length);
-                byte green = op.ucTailGreen;
-                s.WriteByte(green);
-                byte yellow = op.ucTailYellow;
-                s.WriteByte(yellow);
-                byte red = op.ucTailRed;
-                s.WriteByte(red);
+                s.WriteByte(op.ucId);
+                s.WriteByte(op.ucOperateType);
+                s.WriteByte(op.ucIncludePhaseLen);
+                s.Write(op.ucIncludePhase, 0, 0x20); //最大包含32个相位
+                s.WriteByte(op.ucCorrectPhaseLen);
+                s.Write(op.ucCorrectPhase, 0, 0x20);////最大包含32个相位
+                s.WriteByte(op.ucTailGreen);
+                s.WriteByte(op.ucTailYellow);
+                s.WriteByte(op.ucTailRed);
             }
             s.Position = 0;
             int count = s.Read(hex, 0, hex.Length);

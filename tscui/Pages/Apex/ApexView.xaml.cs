@@ -81,8 +81,7 @@ namespace tscui.Pages.Apex
             Application.Current.Properties[Define.TSC_DATA] = td;
             try
             {
-                td.ListSchedule = TscDataUtils.GetSchedule();
-                
+                td.ListSchedule = TscDataUtils.GetSchedule();        
               
                 
             }

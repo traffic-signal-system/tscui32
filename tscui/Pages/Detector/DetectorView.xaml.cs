@@ -27,6 +27,339 @@ namespace tscui.Pages.Detector
         public DetectorView()
         {
             InitializeComponent();
+            this.Deteccanvas.AddHandler(TextBlock.MouseLeftButtonDownEvent, new RoutedEventHandler(MouseLeftButton_Down));
+            this.Deteccanvas.AddHandler(TextBlock.MouseRightButtonDownEvent, new RoutedEventHandler(MouseRightButton_Down));
+        }
+
+        private void MouseRightButton_Down(object sender, RoutedEventArgs e)
+        {
+            if (e.OriginalSource != null)
+            {
+                TextBlock tb = e.OriginalSource  as TextBlock;
+                if (tb == null)
+                {
+                  //  MessageBox.Show("不是检测器右键点击");
+                    return;
+                }
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
+                if (tb.Text.Equals(""))
+                {
+                    return;
+                }
+                byte id = Convert.ToByte(tb.Text);
+                List<Models.Detector> ld = t.ListDetector;
+                foreach (Models.Detector d in ld)
+                {
+                    if (d.ucDetectorId == id)
+                    {
+                        d.ucPhaseId = 0x00;
+                        tb.Text = "";
+                    }
+                }
+            }
+        }
+
+        private void MouseLeftButton_Down(object sender, RoutedEventArgs e)
+        {
+            if (e.OriginalSource != null)
+            {
+                TextBlock tb = e.OriginalSource as TextBlock;
+                if (tb == null)
+                {
+                 //   MessageBox.Show("不是检测器左键点击");
+                    return;
+                }
+                ApexBroker.GetShell().ShowPopup(new DetectorPopup());
+                Byte DetectorDirect = 0xff;
+                Byte DetectorIndex = 0xff;
+                string setdetectorname = (e.OriginalSource as FrameworkElement).Name;
+                switch (setdetectorname)
+                {
+                    case "detectorNorthLeft1":
+                        DetectorDirect = Define.NORTH_LEFT;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorNorthLeft2":
+                        DetectorDirect = Define.NORTH_LEFT;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorNorthLeft3":
+                        DetectorDirect = Define.NORTH_LEFT;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorNorthLeft4":
+                        DetectorDirect = Define.NORTH_LEFT;
+                        DetectorIndex = 0x4;
+                        break;
+                     case "detectorNorthStraight1" :
+                        DetectorDirect = Define.NORTH_STRAIGHT;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorNorthStraight2":
+                        DetectorDirect = Define.NORTH_STRAIGHT;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorNorthStraight3":
+                        DetectorDirect = Define.NORTH_STRAIGHT;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectoNorthStraight4":
+                        DetectorDirect = Define.NORTH_STRAIGHT;
+                        DetectorIndex = 0x4;
+                        break;
+
+                    case "detectorNorthRight1":
+                        DetectorDirect = Define.NORTH_RIGHT;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorNorthRight2":
+                        DetectorDirect = Define.NORTH_RIGHT;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorNorthRight3":
+                        DetectorDirect = Define.NORTH_RIGHT;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorNorthRight4":
+                        DetectorDirect = Define.NORTH_RIGHT;
+                        DetectorIndex = 0x4;
+                        break;
+
+                    case "detectorNorthOther1":
+                        DetectorDirect = Define.NORTH_OTHER;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorNorthOther2":
+                        DetectorDirect = Define.NORTH_OTHER;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorNorthOther3":
+                        DetectorDirect = Define.NORTH_OTHER;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorNorthOther4":
+                        DetectorDirect = Define.NORTH_OTHER;
+                        DetectorIndex = 0x4;
+                        break;
+
+                    case "detectorSouthLeft1":
+                        DetectorDirect = Define.SOUTH_LEFT;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorSouthLeft2":
+                        DetectorDirect = Define.SOUTH_LEFT;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorSouthLeft3":
+                        DetectorDirect = Define.SOUTH_LEFT;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorSouthLeft4":
+                        DetectorDirect = Define.SOUTH_LEFT;
+                        DetectorIndex = 0x4;
+                        break;
+                    case "detectorSouthStraight1":
+                        DetectorDirect = Define.SOUTH_STRAIGHT;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorSouthStraight2":
+                        DetectorDirect = Define.SOUTH_STRAIGHT;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorSouthStraight3":
+                        DetectorDirect = Define.SOUTH_STRAIGHT;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorSouthStraight4":
+                        DetectorDirect = Define.SOUTH_STRAIGHT;
+                        DetectorIndex = 0x4;
+                        break;
+
+                    case "detectorSouthRight1":
+                        DetectorDirect = Define.SOUTH_RIGHT;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorSouthRight2":
+                        DetectorDirect = Define.SOUTH_RIGHT;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorSouthRight3":
+                        DetectorDirect = Define.SOUTH_RIGHT;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorSouthRight4":
+                        DetectorDirect = Define.SOUTH_RIGHT;
+                        DetectorIndex = 0x4;
+                        break;
+                    case "detectorSouthOther1":
+                        DetectorDirect = Define.SOUTH_OTHER;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorSouthOther2":
+                        DetectorDirect = Define.SOUTH_OTHER;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorSouthOther3":
+                        DetectorDirect = Define.SOUTH_OTHER;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorSouthOther4":
+                        DetectorDirect = Define.SOUTH_OTHER;
+                        DetectorIndex = 0x4;
+                        break;
+
+                    case "detectorWestLeft1":
+                        DetectorDirect = Define.WEST_LEFT;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorWestLeft2":
+                        DetectorDirect = Define.WEST_LEFT;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorWestLeft3":
+                        DetectorDirect = Define.WEST_LEFT;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorWestLeft4":
+                        DetectorDirect = Define.WEST_LEFT;
+                        DetectorIndex = 0x4;
+                        break;
+                    case "detectorWestStraight1":
+                        DetectorDirect = Define.WEST_STRAIGHT;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorWestStraight2":
+                        DetectorDirect = Define.WEST_STRAIGHT;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorWestStraight3":
+                        DetectorDirect = Define.WEST_STRAIGHT;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorWestStraight4":
+                        DetectorDirect = Define.WEST_STRAIGHT;
+                        DetectorIndex = 0x4;
+                        break;
+
+                    case "detectorWestRight1":
+                        DetectorDirect = Define.WEST_RIGHT;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorWestRight2":
+                        DetectorDirect = Define.WEST_RIGHT;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorWestRight3":
+                        DetectorDirect = Define.WEST_RIGHT;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorWestRight4":
+                        DetectorDirect = Define.WEST_RIGHT;
+                        DetectorIndex = 0x4;
+                        break;
+
+                    case "detectorWestOther1":
+                        DetectorDirect = Define.WEST_OTHER;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorWestOther2":
+                        DetectorDirect = Define.WEST_OTHER;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorWestOther3":
+                        DetectorDirect = Define.WEST_OTHER;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorWestOther4":
+                        DetectorDirect = Define.WEST_OTHER;
+                        DetectorIndex = 0x4;
+                        break;
+                    case "detectorEastLeft1":
+                        DetectorDirect = Define.EAST_LEFT;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorEastLeft2":
+                        DetectorDirect = Define.EAST_LEFT;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorEastLeft3":
+                        DetectorDirect = Define.EAST_LEFT;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorEastLeft4":
+                        DetectorDirect = Define.EAST_LEFT;
+                        DetectorIndex = 0x4;
+                        break;
+                    case "detectorEastStraight1":
+                        DetectorDirect = Define.EAST_STRAIGHT;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorEastStraight2":
+                        DetectorDirect = Define.EAST_STRAIGHT;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorEastStraight3":
+                        DetectorDirect = Define.EAST_STRAIGHT;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorEastStraight4":
+                        DetectorDirect = Define.EAST_STRAIGHT;
+                        DetectorIndex = 0x4;
+                        break;
+
+                    case "detectorEastRight1":
+                        DetectorDirect = Define.EAST_RIGHT;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorEastRight2":
+                        DetectorDirect = Define.EAST_RIGHT;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorEastRight3":
+                        DetectorDirect = Define.EAST_RIGHT;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorEastRight4":
+                        DetectorDirect = Define.EAST_RIGHT;
+                        DetectorIndex = 0x4;
+                        break;
+                    case "detectorEastOther1":
+                        DetectorDirect = Define.EAST_OTHER;
+                        DetectorIndex = 0x1;
+                        break;
+                    case "detectorEastOther2":
+                        DetectorDirect = Define.EAST_OTHER;
+                        DetectorIndex = 0x2;
+                        break;
+                    case "detectorEastOther3":
+                        DetectorDirect = Define.EAST_OTHER;
+                        DetectorIndex = 0x3;
+                        break;
+                    case "detectorEastOther4":
+                        DetectorDirect = Define.EAST_OTHER;
+                        DetectorIndex = 0x4;
+                        break;
+                    default:
+                        break;
+                }
+                if (DetectorDirect != 0xff && DetectorIndex != 0xff)
+                {
+                    int i = Utils.Utils.GetSelectedDetector();
+                    if (i == 0)
+                    {
+                        return;
+                    }
+                    ClearDetectorId(i);
+                    tb = e.OriginalSource as TextBlock;
+                    tb.Text = i.ToString();
+                    SetDetector(i, DetectorDirect, DetectorIndex);
+                    displayOneDetector(i);
+                  //  MessageBox.Show("添加检测器" + DetectorIndex.ToString());
+                }
+                e.Handled = true;
+            }
         }
 
         public void OnActivated()
@@ -361,7 +694,7 @@ namespace tscui.Pages.Detector
                 d.ucPhaseId = GetPhaseIdByDirec(direc);
                 d.ucDetFlag = GetDetFlag(type,direc);
                 d.ucDirect = GetDirecByte(direc);
-                d.ucValidTime = Convert.ToByte(tbkVaildTime.Text);
+                d.ucValidTime = Byte.Parse("0");//Convert.ToByte(tbkVaildTime.Text); 
                 d.ucOptionFlag = GetOptionByCheckbox();
                 d.usSaturationFlow = 0;
                 d.ucSaturationOccupy = 0;
@@ -2394,2359 +2727,7 @@ namespace tscui.Pages.Detector
            // Console.WriteLine(111);
         }
 
-        private void detectorNorthOther2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_OTHER, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthOther3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_OTHER, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthOther4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_OTHER, 4);
-            displayOneDetector(i);
-
-        }
-
-        private void detectorNorthRight1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_RIGHT, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthRight2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_RIGHT, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthRight3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_RIGHT, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthRight4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_RIGHT, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthStraight1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_STRAIGHT, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthStraight2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_STRAIGHT, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthStraight3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_STRAIGHT, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthStraight4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_STRAIGHT, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthLeft1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_LEFT, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthLeft2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_LEFT, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthLeft3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_LEFT, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthLeft4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.NORTH_LEFT, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestLeft1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_LEFT, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestLeft2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_LEFT, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestLeft3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_LEFT, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestLeft4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_LEFT, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestStraight1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_STRAIGHT, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestStraight2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_STRAIGHT, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestStraight3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_STRAIGHT, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestStraight4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_STRAIGHT, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestRight1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_RIGHT, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestRight2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_RIGHT, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestRight3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_RIGHT, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestRight4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_RIGHT, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestOther1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_OTHER, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestOther2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_OTHER, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestOther3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_OTHER, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorWestOther4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.WEST_OTHER, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastOther1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_OTHER, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastOther2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_OTHER, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastOther3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_OTHER, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastOther4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_OTHER, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastRight1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_RIGHT, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastRight2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_RIGHT, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastRight3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_RIGHT, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastRight4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_RIGHT, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastStraight1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_STRAIGHT, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastStraight2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_STRAIGHT, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastStraight3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_STRAIGHT, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastStraight4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_STRAIGHT,4);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastLeft1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_LEFT, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastLeft2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_LEFT, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastLeft3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_LEFT, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorEastLeft4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.EAST_LEFT, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthOther1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_OTHER, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthOther2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_OTHER, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthOther3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector(); 
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_OTHER, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthOther4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_OTHER, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthRight1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_RIGHT, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthRight_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_RIGHT, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthRight3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_RIGHT, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthRight4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_RIGHT, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthStraight1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_STRAIGHT, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthStraight2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_STRAIGHT, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthStraight3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_STRAIGHT, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthStraight4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_STRAIGHT, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthLeft1_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_LEFT, 1);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthLeft2_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_LEFT, 2);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthLeft3_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_LEFT, 3);
-            displayOneDetector(i);
-        }
-
-        private void detectorSouthLeft4_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new DetectorPopup());
-            int i = Utils.Utils.GetSelectedDetector();
-            if (i == 0)
-            {
-                return;
-            }
-            ClearDetectorId(i);
-            TextBlock tb = sender as TextBlock;
-            tb.Text = i.ToString();
-            SetDetector(i, Define.SOUTH_LEFT, 4);
-            displayOneDetector(i);
-        }
-
-        private void detectorNorthOther1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach(Models.Detector d in ld)
-            {
-                if(d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthOther2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthOther3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthOther4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthRight1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthRight2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthRight3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthRight4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthStraight1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthStraight2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthStraight3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthStraight4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthLeft1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthLeft2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthLeft3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorNorthLeft4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastOther4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastOther3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastOther2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastOther1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastRight4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastRight3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastRight2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastRight1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastStraight4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastStraight3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastStraight2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastStraight1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastLeft4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastLeft3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastLeft2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorEastLeft1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthOther4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthOther3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthOther2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthOther1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthRight4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthRight3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthRight_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthRight1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthStraight4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthStraight3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthStraight2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthStraight1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthLeft4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthLeft3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthLeft2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorSouthLeft1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestLeft4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestLeft3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestLeft2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestLeft1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestStraight4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestStraight3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestStraight2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestStraight1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestRight4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestRight3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestRight2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestRight1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestOther4_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestOther3_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestOther2_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
-
-        private void detectorWestOther1_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TextBlock tb = sender as TextBlock;
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if (tb.Text.Equals(""))
-            {
-                return;
-            }
-            byte id = Convert.ToByte(tb.Text);
-            List<Models.Detector> ld = t.ListDetector;
-            foreach (Models.Detector d in ld)
-            {
-                if (d.ucDetectorId == id)
-                {
-                    d.ucPhaseId = 0x00;
-                    tb.Text = "";
-                }
-            }
-        }
+      
 
         private void btnRead_Click(object sender, RoutedEventArgs e)
         {

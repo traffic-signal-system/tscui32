@@ -13,7 +13,7 @@
     </sys:String>
     <sys:String x:Key="dic_schedule_gpscoordination">无电缆协调</sys:String>
     <sys:String x:Key="tsc_direc_title">方向配置</sys:String>
-    <sys:String x:Key="tsc_direc_id">方向Id</sys:String>
+    <sys:String x:Key="tsc_direc_id">方向</sys:String>
     <sys:String x:Key="tsc_direc_roadcount">车道数</sys:String>
     <sys:String x:Key="tsc_apex_network">信号机配置数据读取异常，请网线直接连接信号机进行配置</sys:String>
     <sys:String x:Key="tsc_adv_selected_title">相位</sys:String>
@@ -52,7 +52,7 @@
     <sys:String x:Key="tsc_adv_channel32">通道32</sys:String>
     <sys:String x:Key="tsc_adv_phase_attr">相位属性</sys:String>
     <sys:String x:Key="tsc_adv_phase_type">相位类型</sys:String>
-    <sys:String x:Key="tsc_adv_phase_id">ID</sys:String>
+    <sys:String x:Key="tsc_adv_phase_id">相位号</sys:String>
     <sys:String x:Key="tsc_adv_phase_option">相位选项</sys:String>
     <sys:String x:Key="tsc_adv_phase_pede">人行</sys:String>
     <sys:String x:Key="tsc_adv_phase_pede_clear">人行清空时间</sys:String>
@@ -62,16 +62,16 @@
     <sys:String x:Key="tsc_adv_phase_flash_green">绿闪</sys:String>
     <sys:String x:Key="tsc_adv_phase_delay_green">单位绿灯时间</sys:String>
     <sys:String x:Key="tsc_adv_phase_fixed_green">固定绿</sys:String>
-    <sys:String x:Key="tsc_adv_overlapphase">跟随相痊</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase">跟随相位</sys:String>
     <sys:String x:Key="tsc_adv_overlapphase_type">类型</sys:String>
     <sys:String x:Key="tsc_adv_overlapphase_last_red">尾部红灯</sys:String>
     <sys:String x:Key="tsc_adv_overlapphase_last_yellow">尾部黄灯</sys:String>
     <sys:String x:Key="tsc_adv_overlapphase_last_green">尾部绿灯</sys:String>
     <sys:String x:Key="tsc_adv_overlapphase_include_phase">包含相位</sys:String>
     <sys:String x:Key="tsc_adv_overlapphase_incro_phase">修正相位</sys:String>
-    <sys:String x:Key="tsc_adv_overlapphase_id">ID</sys:String>
+    <sys:String x:Key="tsc_adv_overlapphase_id">跟随相位号</sys:String>
     <sys:String x:Key="tsc_adv_channel">通道</sys:String>
-    <sys:String x:Key="tsc_adv_channel_id">ID</sys:String>
+    <sys:String x:Key="tsc_adv_channel_id">通道号</sys:String>
     <sys:String x:Key="tsc_adv_channel_auto_flash">自动闪</sys:String>
     <sys:String x:Key="tsc_adv_channel_type">类型</sys:String>
     <sys:String x:Key="tsc_adv_btn_ok">提交</sys:String>

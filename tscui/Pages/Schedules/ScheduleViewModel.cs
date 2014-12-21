@@ -22,6 +22,7 @@ namespace tscui.Pages.Schedules
             //      apexnp - Creates a Notifying Property
             //      apexc - Creates a Command.
             Title = (string)App.Current.Resources.MergedDictionaries[3]["tsc_menu_schedule"];
+
         }
 
 

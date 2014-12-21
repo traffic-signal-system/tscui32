@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Apex.MVVM;
-using tscui.ViewModels;
 using Apex.Behaviours;
 using tscui.Models;
 
@@ -21,6 +14,7 @@ using System.Windows.Threading;
 using System.Threading;
 using Xceed.Wpf.Toolkit;
 using tscui.Service;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace tscui.Pages.Music
 {
@@ -69,6 +63,13 @@ namespace tscui.Pages.Music
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new DelegateOverlap(InitOverlap));
         }
 
+         class DirecNumer
+        {
+            public byte value { set; get; }
+            public string name { set; get; }
+
+        }
+
         class ChannelFlash
         {
             public int value{ set; get; }
@@ -79,6 +80,39 @@ namespace tscui.Pages.Music
             public int value { set; get; }
             public string name { set; get; }
         }
+
+        List<DirecNumer> dirnum = new List<DirecNumer>();
+        private void InitDirecNumber()
+        {
+            dirnum.Add(new DirecNumer() { name = "北左", value = 1 });
+            dirnum.Add(new DirecNumer() { name = "北直", value = 2 });
+            dirnum.Add(new DirecNumer() { name = "北右", value = 4 });
+            dirnum.Add(new DirecNumer() { name = "北人行", value = 8 });
+
+            dirnum.Add(new DirecNumer() { name = "东左", value = 65 });
+            dirnum.Add(new DirecNumer() { name = "东直", value = 66 });
+            dirnum.Add(new DirecNumer() { name = "东右", value = 68 });
+            dirnum.Add(new DirecNumer() { name = "东人行", value = 72 });
+
+            dirnum.Add(new DirecNumer() { name = "南左", value = 129 });
+            dirnum.Add(new DirecNumer() { name = "南直", value = 130 });
+            dirnum.Add(new DirecNumer() { name = "南右", value = 132 });
+            dirnum.Add(new DirecNumer() { name = "南人行", value = 136 });
+
+            dirnum.Add(new DirecNumer() { name = "西左", value = 193 });
+            dirnum.Add(new DirecNumer() { name = "西直", value = 194 });
+            dirnum.Add(new DirecNumer() { name = "西右", value = 196 });
+            dirnum.Add(new DirecNumer() { name = "西人行", value = 200 });
+
+            dirnum.Add(new DirecNumer() { name = "北其他", value = 5 });
+            dirnum.Add(new DirecNumer() { name = "东其他", value = 69 });
+            dirnum.Add(new DirecNumer() { name = "南其他", value = 133 });
+            dirnum.Add(new DirecNumer() { name = "西其他", value = 197 });
+
+            DirecCombox.ItemsSource = dirnum;
+           
+        }
+
         List<ChannelType> lct = new List<ChannelType>();
         List<ChannelFlash> lcf = new List<ChannelFlash>();
         private void InitChannel()
@@ -136,7 +170,7 @@ namespace tscui.Pages.Music
         List<ChannelPhaseOverlap> lcpo = new List<ChannelPhaseOverlap>();
         public class ChannelPhaseOverlap
         {
-            public int id { set; get; }
+            public byte id { set; get; }
             public string name { set; get; }
             public bool isPhase { set; get; }
         }
@@ -148,9 +182,9 @@ namespace tscui.Pages.Music
             ccbIncludePhase1.ItemsSource = lp;
             
             ccbCorrectPhase.ItemsSource = lp;
-            for (int a = 1; a < 33;a++ )
+            for (byte a = 1; a < 33;a++ )
                 lcpo.Add(new ChannelPhaseOverlap() { id = a, name = "p"+a ,isPhase=true});
-            for (int b = 1; b < 17; b++)
+            for (byte b = 1; b < 17; b++)
                 lcpo.Add(new ChannelPhaseOverlap() { id = b, name = "op" + b ,isPhase=false});
 
 
@@ -186,7 +220,8 @@ namespace tscui.Pages.Music
             channel30.ItemsSource = lcpo;
             channel31.ItemsSource = lcpo;
             channel32.ItemsSource = lcpo;
-
+            DirectPhaseId.ItemsSource = lcpo; //初始化方向相位
+            ChannelPhaseId.ItemsSource = lcpo;//初始化通道相位
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -194,8 +229,8 @@ namespace tscui.Pages.Music
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             if (t == null)
             {
-              //  System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
-               // return;
+                System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
+                return;
             }
             //下拉框数据填充
             Thread tDispatcherOverlap = new Thread(DispatcherOverlap);
@@ -213,7 +248,8 @@ namespace tscui.Pages.Music
             InitChannel();
             //初始化显示相位数据与通道关联
             InitPhaseChannel();
-            
+            InitDirecNumber();
+
 
         }
 
@@ -384,82 +420,82 @@ namespace tscui.Pages.Music
         {
             if (c.ucId == 1)
             {
-                channel1.SelectedIndex = c.ucSourcePhase - 1;
+                channel1.SelectedIndex = c.ucSourcePhase+0x20 - 1;
                 lblChannel1.Background = Brushes.Yellow;
             }
             else if (c.ucId == 2)
             {
-                channel2.SelectedIndex = c.ucSourcePhase - 1;
+                channel2.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel2.Background = Brushes.Yellow;
             }
             else if (c.ucId == 3)
             {
-                channel3.SelectedIndex = c.ucSourcePhase - 1;
+                channel3.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel3.Background = Brushes.Yellow;
             }
             else if (c.ucId == 4)
             {
-                channel4.SelectedIndex = c.ucSourcePhase - 1;
+                channel4.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel4.Background = Brushes.Yellow;
             }
             else if (c.ucId == 5)
             {
-                channel5.SelectedIndex = c.ucSourcePhase - 1;
+                channel5.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel5.Background = Brushes.Yellow;
             }
             else if (c.ucId == 6)
             {
-                channel6.SelectedIndex = c.ucSourcePhase - 1;
+                channel6.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel6.Background = Brushes.Yellow;
             }
             else if (c.ucId == 7)
             {
-                channel7.SelectedIndex = c.ucSourcePhase - 1;
+                channel7.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel7.Background = Brushes.Yellow;
             }
             else if (c.ucId == 8)
             {
-                channel8.SelectedIndex = c.ucSourcePhase - 1;
+                channel8.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel8.Background = Brushes.Yellow;
             }
             else if (c.ucId == 9)
             {
-                channel9.SelectedIndex = c.ucSourcePhase - 1;
+                channel9.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel9.Background = Brushes.Yellow;
             }
             else if (c.ucId == 10)
             {
-                channel10.SelectedIndex = c.ucSourcePhase - 1;
+                channel10.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel1.Background = Brushes.Yellow;
             }
             else if (c.ucId == 11)
             {
-                channel11.SelectedIndex = c.ucSourcePhase - 1;
+                channel11.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel11.Background = Brushes.Yellow;
             }
             else if (c.ucId == 12)
             {
-                channel12.SelectedIndex = c.ucSourcePhase - 1;
+                channel12.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel12.Background = Brushes.Yellow;
             }
             else if (c.ucId == 13)
             {
-                channel13.SelectedIndex = c.ucSourcePhase - 1;
+                channel13.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel13.Background = Brushes.Yellow;
             }
             else if (c.ucId == 14)
             {
-                channel14.SelectedIndex = c.ucSourcePhase - 1;
+                channel14.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel14.Background = Brushes.Yellow;
             }
             else if (c.ucId == 15)
             {
-                channel15.SelectedIndex = c.ucSourcePhase - 1;
+                channel15.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel15.Background = Brushes.Yellow;
             }
             else if (c.ucId == 16)
             {
-                channel16.SelectedIndex = c.ucSourcePhase - 1;
+                channel16.SelectedIndex = c.ucSourcePhase + 0x20 - 1;
                 lblChannel16.Background = Brushes.Yellow;
             }
         }
@@ -1238,116 +1274,168 @@ namespace tscui.Pages.Music
         }
         private void tbxPhaseId_TextChanged(object sender, TextChangedEventArgs e)
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
+            try
             {
-                System.Windows.MessageBox.Show("请选择一个信号机，再进行配置！");
-                return;
-            }
-            List<tscui.Models.Phase> phases = t.ListPhase;
-            ClearPhaseContentById();
-            if (Byte.Parse(tbxPhaseId.Text) != 0)
-            {
-                ClearPhaseContentById();
-                foreach (tscui.Models.Phase p in phases)
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
                 {
-                    if (p.ucId == Byte.Parse(tbxPhaseId.Text))
+                    System.Windows.MessageBox.Show("请选择一个信号机，再进行配置！");
+                    return;
+                }
+                tbxPhaseId.Background = Brushes.LightGray;
+                List<tscui.Models.Phase> phases = t.ListPhase;
+                ClearPhaseContentById();
+                if (Byte.Parse(tbxPhaseId.Text) != 0)
+                {
+                    ClearPhaseContentById();
+                    pchannels.Content = "";
+                    foreach (tscui.Models.Phase p in phases)
                     {
-
-                        tbxFixedGreenTime.Text = "" + p.ucFixedGreen;
-                        tbxGreenFlash.Text = "" + p.ucGreenFlash;
-                        tbxMax1Time.Text = "" + p.ucMaxGreen1;
-                        tbxMax2Time.Text = "" + p.ucMaxGreen2;
-                        tbxMinGreenTime.Text = "" + p.ucMinGreen;
-                        foreach (PhaseOption po in lpo)
+                        if (p.ucId == Byte.Parse(tbxPhaseId.Text))
                         {
-                            if (po.ucOption == p.ucOption)
+
+                            tbxFixedGreenTime.Text = "" + p.ucFixedGreen;
+                            tbxGreenFlash.Text = "" + p.ucGreenFlash;
+                            tbxMax1Time.Text = "" + p.ucMaxGreen1;
+                            tbxMax2Time.Text = "" + p.ucMaxGreen2;
+                            tbxMinGreenTime.Text = "" + p.ucMinGreen;
+                            tbxUintDelayTime.Text = "" + p.ucGreenDelayUnit;
+                            foreach (PhaseOption po in lpo)
                             {
-                                cbxPhaseOption.SelectedItem = po;
+                                if (po.ucOption == p.ucOption)
+                                {
+                                    cbxPhaseOption.SelectedItem = po;
+                                }
                             }
-                        }
 
-                        tbxPedestrainClearTime.Text = "" + p.ucPedestrianClear;
-                        tbxPedestrainCrossTime.Text = "" + p.ucPedestrianGreen;
-                        foreach (PhaseType pt in lpt)
-                        {
-                            if (pt.ucType == p.ucType)
+                            tbxPedestrainClearTime.Text = "" + p.ucPedestrianClear;
+                            tbxPedestrainCrossTime.Text = "" + p.ucPedestrianGreen;
+                            foreach (PhaseType pt in lpt)
                             {
-                                cbxPhaseType.SelectedItem = pt;
+                                if (pt.ucType == p.ucType)
+                                {
+                                    cbxPhaseType.SelectedItem = pt;
+                                }
                             }
+                            foreach (Channel ch in t.ListChannel)
+                            {
+                                if (p.ucId == ch.ucSourcePhase && ch.ucType != 0x4)
+                                    pchannels.Content += ch.ucId.ToString() + " ,";
+                            }
+                            foreach (ChannelPhaseOverlap oorp in lcpo)
+                            {
+                                if (p.ucId == oorp.id && oorp.isPhase == true)
+                                {
+                                    DirectPhaseId.SelectedIndex = oorp.id - 1;
+                                    break;
+                                }
+                            }
+                            tbxPhaseId.Background = Brushes.Red;
                         }
-
-
                     }
                 }
             }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show("获取相位参数异常");
+            }
         }
         private void ClearOverlapContentById()
         {
-          //  ccbCorrectPhase.SelectedItemsOverride = new List<tscui.Models.Phase>();
-           // ccbIncludePhase1.SelectedItemsOverride = new List<tscui.Models.Phase>();
-            tbxTailGreen.Text = "";
-            tbxRedTime.Text = "";
-            tbxYellowTime.Text = "";
+        
+            tbxTailGreen.Text = "0";
+            tbxRedTime.Text = "0";
+            tbxYellowTime.Text = "0";
         }
         private void tbxOverlapPhaseId_TextChanged(object sender, TextChangedEventArgs e)
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
+            try
             {
-                System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
-                return;
-            }
-            List<tscui.Models.OverlapPhase> overlapPhases = t.ListOverlapPhase;
-            List<tscui.Models.Phase> phases = t.ListPhase;
-            if (Byte.Parse(tbxOverlapPhaseId.Text) != 0)
-            {
-                ClearOverlapContentById();
-                foreach (tscui.Models.OverlapPhase op in overlapPhases)
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
                 {
-                    if (op.ucId == Byte.Parse(tbxOverlapPhaseId.Text))
+                    //  System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
+                    return;
+                }
+                tbxOverlapPhaseId.Background = Brushes.LightGray;
+                List<tscui.Models.OverlapPhase> overlapPhases = t.ListOverlapPhase;
+                List<tscui.Models.Phase> phases = t.ListPhase;
+                if (Byte.Parse(tbxOverlapPhaseId.Text) != 0)
+                {
+                    ClearOverlapContentById();
+                    ccbCorrectPhase.Text = "";
+                    ccbIncludePhase1.Text = "";
+                    opchannels.Content = "";
+                    // DirecCombox.SelectedIndex = -1;
+                    foreach (tscui.Models.OverlapPhase op in overlapPhases)
                     {
-                        List<tscui.Models.Phase> listCorrect = new List<tscui.Models.Phase>();
-                        for (int i = 0; i < op.ucCorrectPhase.Length; i++)
+                        if (op.ucId == Byte.Parse(tbxOverlapPhaseId.Text))
                         {
-                            foreach (tscui.Models.Phase phase in phases)
+                            tbxOverlapPhaseId.Background = label11_Copy3.Background;
+                            //   List<tscui.Models.Phase> listCorrect = new List<tscui.Models.Phase>();
+
+                            for (int i = 0; i < op.ucCorrectPhaseLen; i++)
                             {
-                                if (op.ucCorrectPhase[i] == phase.ucId)
-                                    listCorrect.Add(phase);
+                                //foreach (tscui.Models.Phase phase in phases)
+                                //{
+                                //    if (op.ucCorrectPhase[i] == phase.ucId)
+                                //        listCorrect.Add(phase);
+                                //}
+                                ccbCorrectPhase.Text += op.ucCorrectPhase[i].ToString() + " ,";
+
+
                             }
 
-                        }
+                            //  ccbCorrectPhase.SelectedItemsOverride = listCorrect;
 
-                      //  ccbCorrectPhase.SelectedItemsOverride = listCorrect;
+                            // List<tscui.Models.Phase> listInclude = new List<tscui.Models.Phase>();
 
-                        List<tscui.Models.Phase> listInclude = new List<tscui.Models.Phase>();
-                        for (int j = 0; j < op.ucIncludePhase.Length; j++)
-                        {
-                            foreach (tscui.Models.Phase phase in phases)
+                            for (int j = 0; j < op.ucIncludePhaseLen; j++)
                             {
-                                if (op.ucIncludePhase[j] == phase.ucId)
-                                    listInclude.Add(phase);
+                                //foreach (tscui.Models.Phase phase in phases)
+                                //{
+                                //    if (op.ucIncludePhase[j] == phase.ucId)
+                                //        listInclude.Add(phase);
+                                //    break;
+                                //}
+                                ccbIncludePhase1.Text += op.ucIncludePhase[j].ToString() + " ,";
+                                // ccbIncludePhase1.SelectedItems.Add(ccbIncludePhase1.Items[j]);
                             }
-
-                        }
-                      //  ccbIncludePhase1.SelectedItemsOverride = listInclude;
-                        foreach (OverlapPhaseType opt in lopt)
-                        {
-                            if (opt.value == op.ucOperateType)
+                            //  ccbIncludePhase1.SelectedItemsOverride = listInclude;
+                            foreach (OverlapPhaseType opt in lopt)
                             {
-                                cbxOperateType.SelectedItem = opt;
+                                if (opt.value == op.ucOperateType)
+                                {
+                                    cbxOperateType.SelectedItem = opt;
+                                    break;
+                                }
                             }
+                            //     for (Byte k = 0; k < t.ListOverlapPhase.Count; k++)
+                            foreach (Channel ch in t.ListChannel)
+                            {
+                                if (op.ucId == ch.ucSourcePhase && ch.ucType == 0x4)
+                                    opchannels.Content += ch.ucId.ToString() + " ,";
+                            }
+                            foreach (ChannelPhaseOverlap oorp in lcpo)
+                            {
+                                if (op.ucId == oorp.id && oorp.isPhase == false)
+                                {
+                                    DirectPhaseId.SelectedIndex = oorp.id + 32 - 1;
+                                    break;
+                                }
+                            }
+                            tbxTailGreen.Text = "" + op.ucTailGreen;
+                            tbxRedTime.Text = "" + op.ucTailRed;
+                            tbxYellowTime.Text = "" + op.ucTailYellow;
+                            break;
                         }
-
-                        tbxTailGreen.Text = "" + op.ucTailGreen;
-                        tbxRedTime.Text = "" + op.ucTailRed;
-                        tbxYellowTime.Text = "" + op.ucTailYellow;
-
                     }
                 }
             }
-            
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("获取跟随相位参数异常!");
+            }
         }
         private void ClearChannelContentById()
         {
@@ -1356,189 +1444,308 @@ namespace tscui.Pages.Music
         }
         private void tbxChannelId_TextChanged(object sender, TextChangedEventArgs e)
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
+            try
             {
-                System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
-                return;
-            }
-            List<Channel> channels = t.ListChannel;
-            if (Convert.ToByte(tbxChannelId.Text) != 0)
-            {
-                ClearChannelContentById();
-                foreach (Channel channel in channels)
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
                 {
-                    if (channel.ucId == Convert.ToByte(tbxChannelId.Text))
+                    return;
+                }
+                tbxChannelId.Background = Brushes.LightGray;
+                List<Channel> channels = t.ListChannel;
+                if (Convert.ToByte(tbxChannelId.Text) != 0)
+                {
+                    ClearChannelContentById();
+                    foreach (Channel channel in channels)
                     {
-                        foreach (ChannelFlash cf in lcf)
+                        if (channel.ucId == Convert.ToByte(tbxChannelId.Text))
                         {
-                            if (cf.value == channel.ucFlashAuto)
+                            foreach (ChannelFlash cf in lcf)
                             {
-                                cbxAutoFlash.SelectedItem = cf;
+                                if (cf.value == channel.ucFlashAuto)
+                                {
+                                    cbxAutoFlash.SelectedItem = cf;
+                                    break;
+                                }
                             }
-                        }
-                        foreach (ChannelType ct in lct)
-                        {
-                            if (ct.value == channel.ucType)
+                            foreach (ChannelType ct in lct)
                             {
-                                cbxChannelType.SelectedItem = ct;
+                                if (ct.value == channel.ucType)
+                                {
+                                    cbxChannelType.SelectedItem = ct;
+                                    if (channel.ucType == 0x2)
+                                    {
+                                        tbxChannelId.Background = Brushes.Red;
+                                    }
+                                    else
+                                    if (channel.ucType == 0x3)
+                                    {
+                                         tbxChannelId.Background = Brushes.Green;
+                                    }
+                                    else if (channel.ucType == 0x4)
+                                    {
+                                        tbxChannelId.Background = Brushes.Yellow;
+
+                                    }
+                                    break;
+                                }
                             }
+                            foreach (ChannelPhaseOverlap cpo in lcpo)
+                            {
+                                if (cpo.id == channel.ucSourcePhase)
+                                {
+                                    if (channel.ucType == 0x4)
+                                        ChannelPhaseId.SelectedIndex = cpo.id + 32 - 1;
+                                    else
+                                    {
+                                        ChannelPhaseId.SelectedIndex = cpo.id - 1;
+                                    }
+                                    DirectPhaseId.SelectedIndex = ChannelPhaseId.SelectedIndex;
+                                    break;
+                                }
+                            }
+                         
                         }
                     }
                 }
             }
-            
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("获取通道参数异常!");
+            }
         }
         private void ClearDirecContentById()
         {
             tbxRoadCnt.Text = "0";
         }
-        private void tbxDirecId_TextChanged(object sender, TextChangedEventArgs e)
+      
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
+            try
             {
-                System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
-                return;
-            }
-            List<PhaseToDirec> lptd = t.ListPhaseToDirec;
-            if (Convert.ToByte(tbxDirecId.Text) != 0)
-            {
-                ClearDirecContentById();
-                foreach (PhaseToDirec ptd in lptd)
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
                 {
-                    if (Convert.ToByte(tbxDirecId.Text) == ptd.ucId)
+                    System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
+                    return;
+                }
+                List<tscui.Models.Phase> phases = t.ListPhase;
+                if (MultisetCheck.IsChecked == true)
+                {
+                    foreach (UIElement checkbox in multisetbox.Items)
                     {
-                        try
+                        CheckBox phaseCheckBox = (CheckBox) checkbox;
+                        if (phaseCheckBox.IsChecked == true)
                         {
-                            string eeee = "" + ptd.ucRoadCnt;
-                            tbxRoadCnt.Text = eeee;
-                        }
-                        catch (Exception exce)
-                        {
-                            Console.Write(exce.Message);
+                            foreach (tscui.Models.Phase p in phases)
+                            {
+                                if (p.ucId == Byte.Parse(phaseCheckBox.Content.ToString()))
+                                {
+                                    // p.ucExtend = 0;
+                                    p.ucFixedGreen = Byte.Parse(tbxFixedGreenTime.Text);
+                                    p.ucGreenDelayUnit = Byte.Parse(tbxUintDelayTime.Text);
+                                    p.ucGreenFlash = Byte.Parse(tbxGreenFlash.Text);
+                                    p.ucMaxGreen1 = Byte.Parse(tbxMax1Time.Text);
+                                    p.ucMaxGreen2 = Byte.Parse(tbxMax2Time.Text);
+                                    p.ucMinGreen = Byte.Parse(tbxMinGreenTime.Text);
+                                    //  PhaseOption po = ((PhaseOption)cbxPhaseOption.SelectedValue);
+                                    // p.ucOption = Convert.ToByte(po.ucOption);
+                                    p.ucPedestrianClear = Byte.Parse(tbxPedestrainClearTime.Text);
+                                    p.ucPedestrianGreen = Byte.Parse(tbxPedestrainCrossTime.Text);
+                                    // p.ucType = Convert.ToByte(((PhaseType)cbxPhaseType.SelectedValue).ucType);
+                                }
+                            }
+
                         }
 
                     }
 
+
                 }
-            }
-            
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-            {
-                System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
-                return;
-            }
-            List<tscui.Models.Phase> phases = t.ListPhase;
-            foreach (tscui.Models.Phase p in phases)
-            {
-                if (p.ucId == Byte.Parse(tbxPhaseId.Text))
+                else
                 {
-                    p.ucExtend = 0;
-                    p.ucFixedGreen = Byte.Parse(tbxFixedGreenTime.Text);
-                    p.ucGreenDelayUnit = Byte.Parse(tbxUintDelayTime.Text);
-                    p.ucGreenFlash = Byte.Parse(tbxGreenFlash.Text);
-                    p.ucMaxGreen1 = Byte.Parse(tbxMax1Time.Text);
-                    p.ucMaxGreen2 = Byte.Parse(tbxMax2Time.Text);
-                    p.ucMinGreen = Byte.Parse(tbxMinGreenTime.Text);
-                    PhaseOption po = ((PhaseOption)cbxPhaseOption.SelectedValue);
-                    p.ucOption = Convert.ToByte(po.ucOption);
-                    p.ucPedestrianClear = Byte.Parse(tbxPedestrainClearTime.Text);
-                    p.ucPedestrianGreen = Byte.Parse(tbxPedestrainCrossTime.Text);
-                    p.ucType =Convert.ToByte(((PhaseType)cbxPhaseType.SelectedValue).ucType);
+                    foreach (tscui.Models.Phase p in phases)
+                    {
+                        if (p.ucId == Byte.Parse(tbxPhaseId.Text))
+                        {
+                            p.ucExtend = 0;
+                            p.ucFixedGreen = Byte.Parse(tbxFixedGreenTime.Text);
+                            p.ucGreenDelayUnit = Byte.Parse(tbxUintDelayTime.Text);
+                            p.ucGreenFlash = Byte.Parse(tbxGreenFlash.Text);
+                            p.ucMaxGreen1 = Byte.Parse(tbxMax1Time.Text);
+                            p.ucMaxGreen2 = Byte.Parse(tbxMax2Time.Text);
+                            p.ucMinGreen = Byte.Parse(tbxMinGreenTime.Text);
+                            PhaseOption po = ((PhaseOption) cbxPhaseOption.SelectedValue);
+                            p.ucOption = Convert.ToByte(po.ucOption);
+                            p.ucPedestrianClear = Byte.Parse(tbxPedestrainClearTime.Text);
+                            p.ucPedestrianGreen = Byte.Parse(tbxPedestrainCrossTime.Text);
+                            p.ucType = Convert.ToByte(((PhaseType) cbxPhaseType.SelectedValue).ucType);
+                        }
+                    }
                 }
+                Message m = TscDataUtils.SetPhase(phases);
+                System.Windows.MessageBox.Show(m.msg);
             }
-            Message m = TscDataUtils.SetPhase(phases);
-            System.Windows.MessageBox.Show(m.msg);
+            catch (Exception  ex)
+            {
+                MessageBox.Show("保存相位参数异常!");
+            }
         }
         
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
+            try
             {
-                System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
-                return;
-            }
-            List<OverlapPhase> overlapPhases = t.ListOverlapPhase;
-            foreach (OverlapPhase op in overlapPhases)
-            {
-                if (op.ucId == Byte.Parse(tbxOverlapPhaseId.Text))
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
                 {
-
-                    int correctCount = ccbCorrectPhase.SelectedItems.Count;
-                    byte[] bytesCorrect = new byte[correctCount];
-                    for (int j = 0; j < correctCount; j++)
-                    {
-                        bytesCorrect[j] = Convert.ToByte(((tscui.Models.Phase)ccbCorrectPhase.SelectedItems[j]).ucId);
-                    }
-                    op.ucCorrectPhase = bytesCorrect;
-                    op.ucCorrectPhaseLen = Convert.ToByte(ccbCorrectPhase.SelectedItems.Count);
-                    
-                    //includePhase list
-                    int includeCount = ccbIncludePhase1.SelectedItems.Count;
-                    byte[] bytesinclude = new byte[includeCount];
-                    for (int i = 0; i < includeCount; i++)
-                    {
-                        bytesinclude[i] = Convert.ToByte(((tscui.Models.Phase)ccbIncludePhase1.SelectedItems[i]).ucId);
-                    }
-                    op.ucIncludePhase = bytesinclude;
-                    op.ucIncludePhaseLen = Convert.ToByte(ccbIncludePhase1.SelectedItems.Count);
-                    op.ucOperateType = Convert.ToByte(((OverlapPhaseType)cbxOperateType.SelectedValue).value);
-                    op.ucTailGreen = Convert.ToByte(tbxTailGreen.Text);
-                    op.ucTailRed = Convert.ToByte(tbxRedTime.Text);
-                    op.ucTailYellow = Convert.ToByte(tbxYellowTime.Text);
+                    System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
+                    return;
                 }
+                bool newOverPhase = true;
+                List<OverlapPhase> overlapPhases = t.ListOverlapPhase;
+                OverlapPhase op = new OverlapPhase();
+                op.ucId = Byte.Parse(tbxOverlapPhaseId.Text);
+                int correctCount = ccbCorrectPhase.SelectedItems.Count;
+                byte[] bytesCorrect = new byte[0x20];
+                for (int j = 0; j < correctCount; j++)
+                {
+                    bytesCorrect[j] = Convert.ToByte(((tscui.Models.Phase) ccbCorrectPhase.SelectedItems[j]).ucId);
+                }
+                op.ucCorrectPhase = bytesCorrect;
+                op.ucCorrectPhaseLen = Convert.ToByte(ccbCorrectPhase.SelectedItems.Count);
+                op.ucTailGreen = Convert.ToByte(tbxTailGreen.Text);
+                op.ucTailRed = Convert.ToByte(tbxRedTime.Text);
+                op.ucTailYellow = Convert.ToByte(tbxYellowTime.Text);
+                //includePhase list
+                int includeCount = ccbIncludePhase1.SelectedItems.Count;
+                byte[] bytesinclude = new byte[0x20];
+                for (int i = 0; i < includeCount; i++)
+                {
+                    bytesinclude[i] = Convert.ToByte(((tscui.Models.Phase) ccbIncludePhase1.SelectedItems[i]).ucId);
+                }
+                op.ucIncludePhase = bytesinclude;
+                op.ucIncludePhaseLen = Convert.ToByte(ccbIncludePhase1.SelectedItems.Count);
+                op.ucOperateType = Convert.ToByte(((OverlapPhaseType) cbxOperateType.SelectedValue).value);
+
+                foreach (OverlapPhase tscop in overlapPhases)
+                {
+                    if (tscop.ucId == op.ucId)
+                    {
+                        tscop.ucOperateType = op.ucOperateType;
+                        tscop.ucIncludePhaseLen = op.ucIncludePhaseLen;
+                        Array.Copy(op.ucIncludePhase, tscop.ucIncludePhase, 0x20);
+                        tscop.ucCorrectPhaseLen = op.ucCorrectPhaseLen;
+                        Array.Copy(op.ucCorrectPhase, tscop.ucCorrectPhase, 0x20);
+                        tscop.ucTailGreen = op.ucTailGreen;
+                        tscop.ucTailRed = op.ucTailRed;
+                        tscop.ucTailYellow = op.ucTailYellow;
+                        newOverPhase = false;
+                        break;
+                    }
+                }
+                if (newOverPhase == true)
+                {
+                    t.ListOverlapPhase.Add(op);
+                }
+                Message m = TscDataUtils.SetOverlapPhase(overlapPhases);
+                System.Windows.MessageBox.Show(m.msg);
             }
-            Message m = TscDataUtils.SetOverlapPhase(overlapPhases);
-            System.Windows.MessageBox.Show(m.msg);
+            catch (Exception ex)
+            {
+                MessageBox.Show("保存跟随相位参数异常!");
+            }
 
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
+            try
             {
-                System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
-                return;
-            }
-            List<Channel> channels = t.ListChannel;
-            foreach(Channel channel in channels){
-                if (channel.ucId == Convert.ToByte(tbxChannelId.Text))
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
                 {
-                    channel.ucFlashAuto = Convert.ToByte(((ChannelFlash)cbxAutoFlash.SelectedValue).value);
-          
-                    channel.ucType = Convert.ToByte(((ChannelType)cbxChannelType.SelectedValue).value);
+                    // System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
+                    return;
                 }
+                List<Channel> channels = t.ListChannel;
+                foreach (Channel channel in channels)
+                {
+                    if (channel.ucId == Convert.ToByte(tbxChannelId.Text))
+                    {
+                        channel.ucFlashAuto = Convert.ToByte(((ChannelFlash) cbxAutoFlash.SelectedValue).value);
+                        channel.ucType = Convert.ToByte(((ChannelType) cbxChannelType.SelectedValue).value);
+                        ChannelPhaseOverlap cpo = (ChannelPhaseOverlap) ChannelPhaseId.SelectedValue;
+                        channel.ucSourcePhase = cpo.id;
+                        if ((channel.ucType == 0x4 && ChannelPhaseId.SelectedIndex < 32) ||
+                            (channel.ucType == 0x2 && ChannelPhaseId.SelectedIndex >= 32))
+                        {
+
+                            System.Windows.Forms.MessageBox.Show("选择的通道类型和相位类型号不匹配");
+                            return;
+                        }
+                        break;
+                    }
+                }
+                Message m = TscDataUtils.SetChannel(channels);
+                System.Windows.MessageBox.Show(m.msg);
             }
-            Message m = TscDataUtils.SetChannel(channels);
-            System.Windows.MessageBox.Show(m.msg);
+            catch (Exception ex)
+            {
+                MessageBox.Show("保存通道参数异常!");
+            }
+
         }
        
         private void btnDirec_Click(object sender, RoutedEventArgs e)
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
+            try
             {
-                System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
-                return;
-            }
-            List<PhaseToDirec> direcs = t.ListPhaseToDirec;
-            foreach (PhaseToDirec ptd in direcs)
-            {
-                if (ptd.ucId == Convert.ToByte(tbxDirecId.Text))
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
                 {
-                    ptd.ucRoadCnt = Convert.ToByte(tbxRoadCnt.Text);
-                    
+                    System.Windows.MessageBox.Show("请选择一台信号机后，再配置方向！");
+                    return;
                 }
+                List<PhaseToDirec> direcs = t.ListPhaseToDirec;
+                foreach (PhaseToDirec ptd in direcs)
+                {
+                    if (ptd.ucId == Convert.ToByte(((DirecNumer)DirecCombox.SelectedValue).value))
+                    {
+                        ptd.ucRoadCnt = Convert.ToByte(tbxRoadCnt.Text);
+                        if (DirectPhaseId.SelectedIndex == -1)
+                        {
+                            ptd.ucPhase = 0;
+                            ptd.ucOverlapPhase = 0;
+                        }
+                        else
+                        {
+                            ChannelPhaseOverlap cpo = (ChannelPhaseOverlap) DirectPhaseId.SelectedValue;
+                            if (cpo.isPhase == true)
+                            {
+                                ptd.ucPhase = cpo.id;
+                                ptd.ucOverlapPhase = 0;
+                            }
+                            else
+                            {
+                                ptd.ucOverlapPhase = cpo.id;
+                                ptd.ucPhase = 0;
+                            }
+                        }
+                        break;
+                    }
+                }
+
+
+
+                Message m = TscDataUtils.SetPhaseToDirec(direcs);
+                System.Windows.MessageBox.Show(m.msg);
             }
-            Message m = TscDataUtils.SetPhaseToDirec(direcs);
-            System.Windows.MessageBox.Show(m.msg);
+            catch (Exception ex)
+            {
+                MessageBox.Show("保存方向相位参数异常！");
+            }
         }
         
 
@@ -1831,207 +2038,362 @@ namespace tscui.Pages.Music
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            TscData td = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            List<Channel> lc = td.ListChannel;
-            //List<tscui.Models.Phase> lp = td.ListPhase;
-            //List<OverlapPhase> lop = td.ListOverlapPhase;
-            foreach (Channel c in lc)
+            try
             {
-                if (c.ucId == 1)
+                TscData td = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                List<Channel> lc = td.ListChannel;
+                
+                foreach (Channel c in lc)
                 {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel1.SelectedValue;
-              
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 2)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel2.SelectedValue;
-           
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 3)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel3.SelectedValue;
-             
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 4)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel4.SelectedValue;
-           
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 5)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel5.SelectedValue;
-         
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 6)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel6.SelectedValue;
-          
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 7)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel7.SelectedValue;
-         
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 8)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel8.SelectedValue;
-       
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 9)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel9.SelectedValue;
-        
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 10)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel10.SelectedValue;
-        
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 11)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel11.SelectedValue;
-        
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 12)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel12.SelectedValue;
-       
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 13)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel13.SelectedValue;
-       
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 14)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel14.SelectedValue;
-  
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 15)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel15.SelectedValue;
-    
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 16)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel16.SelectedValue;
+                    byte channelId = c.ucId;
+                    c.ucSourcePhase = ((ChannelPhaseOverlap)((ComboBox)this.FindName("channel" + channelId)).SelectedValue).id;
+                    if (((ChannelPhaseOverlap)((ComboBox)this.FindName("channel" + channelId)).SelectedValue).isPhase == false)
+                        c.ucType = 0x4;
+                    //switch (channelId)
+                    //{
+                    //    case 1:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel1.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel1.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 2:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel2.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel2.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 3:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel3.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel3.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 4:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel4.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel4.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 5:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel5.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel5.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 6:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel6.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel6.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 7:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel7.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel7.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 8:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel8.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel8.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 9:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel9.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel9.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 10:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel10.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel10.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 11:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel11.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel11.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 12:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel12.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel12.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 13:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel13.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel13.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 14:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel14.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel14.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 15:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel15.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel15.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 16:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel16.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel16.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 17:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel17.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel17.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 18:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel18.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel18.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 19:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel19.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel19.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 20:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel20.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel20.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 21:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel21.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel21.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 22:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel22.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel22.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 23:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel23.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel23.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 24:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel24.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel24.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 25:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel25.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel25.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 26:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel26.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel26.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 27:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel27.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel27.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 28:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel28.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel28.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 29:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel29.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel29.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 30:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel30.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel30.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 31:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel31.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel31.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    case 32:
+                    //        c.ucSourcePhase = ((ChannelPhaseOverlap) channel32.SelectedValue).id;
+                    //        if (((ChannelPhaseOverlap) channel32.SelectedValue).isPhase == false)
+                    //        {
+                    //            c.ucType = 0x4;
+                    //        }
+                    //        break;
+                    //    default:
+                    //        break;
+                    //}
 
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
                 }
-                else if (c.ucId == 17)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel17.SelectedValue;
-
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 218)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel18.SelectedValue;
-  
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 19)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel19.SelectedValue;
-        
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 20)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel20.SelectedValue;
-         
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 21)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel21.SelectedValue;
-            
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 22)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel22.SelectedValue;
-              
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 23)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel23.SelectedValue;
-         
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 24)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel24.SelectedValue;
-           
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 25)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel25.SelectedValue;
-               
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 26)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel26.SelectedValue;
-             
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 27)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel27.SelectedValue;
-           
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 28)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel28.SelectedValue;
-              
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 29)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel29.SelectedValue;
-             
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 30)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel30.SelectedValue;
-             
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 31)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel31.SelectedValue;
-             
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
-                else if (c.ucId == 32)
-                {
-                    ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)channel32.SelectedValue;
-          
-                    c.ucSourcePhase = Convert.ToByte(cpo.id);
-                }
+                Message m = TscDataUtils.SetChannel(lc);
+                System.Windows.MessageBox.Show(m.msg);
             }
-            Message m = TscDataUtils.SetChannel(lc);
-            System.Windows.MessageBox.Show(m.msg);
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("保存通道相位出错!");
+            }
         }
+
+    
+
+        private void MultisetCheck_Click(object sender, RoutedEventArgs e)
+        {
+            if (MultisetCheck.IsChecked == false)
+            {
+                foreach (UIElement checkbox in multisetbox.Items)
+                {
+                    CheckBox phaseCheckBox = (CheckBox)checkbox;
+                    phaseCheckBox.IsChecked = false;
+                }
+                
+            }
+        }
+
+        private void DirecCombox_SelectChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                {
+                    return;
+                }
+                List<PhaseToDirec> tscdirecphase = t.ListPhaseToDirec;
+          
+                foreach (PhaseToDirec direcphase in tscdirecphase)
+                {
+                    if (DirecCombox.SelectedIndex == -1)
+                        return;
+                    if (direcphase.ucId == ((DirecNumer)(DirecCombox.SelectedValue)).value)
+                     {
+                            tbxRoadCnt.Text = direcphase.ucRoadCnt.ToString();
+                            foreach (ChannelPhaseOverlap cpo in lcpo)
+                            {
+                                if (cpo.id == direcphase.ucPhase && cpo.isPhase == true && direcphase.ucOverlapPhase ==0)
+                                {
+                                    DirectPhaseId.SelectedIndex = cpo.id - 1;
+                                    break;
+                                }
+                                else if(cpo.id == direcphase.ucOverlapPhase && cpo.isPhase == false && direcphase.ucPhase ==0)
+                                {
+                                    DirectPhaseId.SelectedIndex = cpo.id +0x20- 1;
+                                    break;
+                                }
+
+                            }
+                         break;
+                     }
+                   }
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("获取方向相关参数异常!");
+            }
+        }
+
+        private void DirectPhaseId_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                {
+                    return;
+                }
+                List<PhaseToDirec> tscdirecphase = t.ListPhaseToDirec;
+
+                DirecCombox.SelectedIndex = -1;
+                tbxRoadCnt.Text = "";
+                foreach (PhaseToDirec direcphase in tscdirecphase)
+                {
+                    if ((direcphase.ucPhase == ((ChannelPhaseOverlap)(DirectPhaseId.SelectedValue)).id && ((ChannelPhaseOverlap)(DirectPhaseId.SelectedValue)).isPhase==true) || 
+                        (direcphase.ucOverlapPhase == ((ChannelPhaseOverlap)(DirectPhaseId.SelectedValue)).id && ((ChannelPhaseOverlap)(DirectPhaseId.SelectedValue)).isPhase==false))
+                    {
+                        tbxRoadCnt.Text = direcphase.ucRoadCnt.ToString();
+                        foreach (DirecNumer dn in dirnum)
+                        {
+                            if (dn.value == direcphase.ucId)
+                            {
+                                DirecCombox.SelectedItem = dn;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+
+                if (((ChannelPhaseOverlap)DirectPhaseId.SelectedValue).isPhase == false)
+                 tbxOverlapPhaseId.Text = ((ChannelPhaseOverlap) DirectPhaseId.SelectedValue).id.ToString();
+                else
+                    tbxPhaseId.Text = ((ChannelPhaseOverlap)DirectPhaseId.SelectedValue).id.ToString();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("获取相位方向参数异常!");
+            }
+
+
+        }
+
+      
     }
 }

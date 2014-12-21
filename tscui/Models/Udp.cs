@@ -175,6 +175,11 @@ namespace tscui.Models
                     EndPoint remoteEP = (EndPoint)(new IPEndPoint(IPAddress.Any, 0));
                     int len = _countDownSocket.ReceiveFrom(buffer, ref remoteEP);
                     IPEndPoint ipEndPoint = remoteEP as IPEndPoint;
+                    //foreach (byte bt in buffer)
+                    //{
+                    //    Console.Write("{0:X2} ",bt);
+                    //}
+                    //Console.Write("\n");
                     EchoCountDownService gb20999 = new EchoCountDownService(buffer, len);
                 }
             }
@@ -244,7 +249,7 @@ namespace tscui.Models
         public static byte[] sendUdpClient(string strip,int port,byte[] hex)
         {
             
-            UdpClient udpClient = new UdpClient(5435);
+            UdpClient udpClient = new UdpClient();
             try
             {
 
