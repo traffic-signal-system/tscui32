@@ -200,7 +200,7 @@ namespace tscui.Pages.Apex
             {
                 // 创建并实例化IP终端结点
                 IPEndPoint ipEndPoint =
-                    new IPEndPoint(IPAddress.Any, Define.BROADCAST_PORT);
+                    new IPEndPoint(IPAddress.Any, 8899);
                 // 实例化UDP客户端（可用于实名发送和接收）
                 if (recevieUdpClient == null)
                 {

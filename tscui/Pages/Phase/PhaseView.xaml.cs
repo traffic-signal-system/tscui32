@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Controls;
+using System.Windows.Media.Effects;
 using Apex.MVVM;
 using Apex.Behaviours;
 using System.Windows;
 using Apex;
+using tscui.Pages.Music;
 using tscui.Views;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -28,14 +30,36 @@ namespace tscui.Pages.Phase
         {
             
             InitializeComponent();
+            this.TrafficCanvas.AddHandler(Image.MouseLeftButtonDownEvent, new RoutedEventHandler(ImageMouseLeftButton_Down));
+           
             
             
+        }
+
+        private void ImageMouseLeftButton_Down(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (e.OriginalSource != null)
+                {
+                    Image ClickImage = e.OriginalSource as Image;
+                    if (ClickImage != null)
+                    {
+                        if (ClickImage.Name != "backgroundimage")
+                            DirecPhaseCombox.Text = ClickImage.ToolTip.ToString();
+                    }
+                    e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("获取方向异常!");
+            }
         }
         public void OnActivated()
         {
             //  Fade in all of the elements.
             SlideFadeInBehaviour.DoSlideFadeIn(this);
-
             //  Handle the 'show popup' executed event.ShowPopupCommandSouthRight/ShowPopupCommandSouthOther
             ((PhaseViewModel)DataContext).ShowPopupCommandSouthLeft.Executed += ShowPopupCommandSouthLeft_Executed;
             ((PhaseViewModel)DataContext).ShowPopupCommandSouthStaight.Executed += ShowPopupCommandSouthStaight_Executed;
@@ -48,65 +72,43 @@ namespace tscui.Pages.Phase
         void ShowFailePopup_Excuted(object sender, CommandEventArgs args)
         {
             FailePopup ep1 = new FailePopup();
-
             ApexBroker.GetShell().ShowPopup(ep1);
  
         }
         void ShowPopupCommandSouthRight_Executed(object sender, CommandEventArgs args)
         {
-            //ExamplePopup ep1 = new ExamplePopup();
-            //ep1.RadioSelectedEvent += new RadioSelectedHandler(ep1_RadioSelectedEvent);
-            //ApexBroker.GetShell().ShowPopup(ep1);
+            ;
         }
         void ShowPopupCommandSouthOther_Executed(object sender, CommandEventArgs args)
         {
-            //ExamplePopup ep2 = new ExamplePopup();
-            //ep2.RadioSelectedEvent += new RadioSelectedHandler(ep2_RadioSelectedEvent);
-            //ApexBroker.GetShell().ShowPopup(ep2);
+            ;
         }
         void ShowPopupCommandSouthStaight_Executed(object sender, CommandEventArgs args)
         {
-            //ExamplePopup ep3 = new ExamplePopup();
-            //ep3.RadioSelectedEvent += new RadioSelectedHandler(ep3_RadioSelectedEvent);
-           
+            ;
+
         }
 
         void ep1_RadioSelectedEvent()
         {
-            //String strPhase = (String)Application.Current.Properties["phaseSelected"];
-            //southRight.Content = strPhase;
-            ////MessageBox.Show(strPhase);
-            //throw new NotImplementedException();
+            ;
         }
         void ep2_RadioSelectedEvent()
         {
-            //String strPhase = (String)Application.Current.Properties["phaseSelected"];
-            //southOther.Content = strPhase;
-            //Models.Phase p = new Models.Phase();
-            //p.ucId =1;
-            //MessageBox.Show(""+p.ucId);
-            ////throw new NotImplementedException();
+            ;
 
         }
         void ep3_RadioSelectedEvent()
         {
-            //String strPhase = (String)Application.Current.Properties["phaseSelected"];
-            //southStraight.Content = strPhase;
-            ////MessageBox.Show(strPhase);
-            ////throw new NotImplementedException();
+            ;
         }
         void ep4_RadioSelectedEvent()
         {
-            //String strPhase = (String)Application.Current.Properties["phaseSelected"];
-            //southLeft.Content = strPhase;
-            ////MessageBox.Show(strPhase);
-            //throw new NotImplementedException();
+            ;
         }
         void ShowPopupCommandSouthLeft_Executed(object sender, CommandEventArgs args)
         {
-            //ExamplePopup ep4 = new ExamplePopup();
-            //ep4.RadioSelectedEvent += new RadioSelectedHandler(ep4_RadioSelectedEvent);
-            //ApexBroker.GetShell().ShowPopup(ep4);
+            ;
         }
         public void OnDeactivated()
         {
@@ -118,72 +120,125 @@ namespace tscui.Pages.Phase
             ((PhaseViewModel)DataContext).ShowFailePopup.Executed += ShowFailePopup_Excuted;
         }
 
-     
 
-  
 
+        List<tscui.Pages.Music.MusicView.DirecNumer> dirnum = new List<tscui.Pages.Music.MusicView.DirecNumer>();
+        private void InitDirecNumber()
+        {
+            dirnum.Add(new MusicView.DirecNumer() { name = "北左", value = 1 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "北直", value = 2 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "北右", value = 4 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "北人行", value = 8 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "北调头", value = 0 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "北其他", value = 5 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "西北其他", value = 0xe5 });
+
+            dirnum.Add(new MusicView.DirecNumer() { name = "东左", value = 65 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "东直", value = 66 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "东右", value = 68 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "东人行", value = 72 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "东调头", value = 0x40 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "东其他", value = 69 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "东北其他", value = 0x25 });
+
+
+            dirnum.Add(new MusicView.DirecNumer() { name = "南左", value = 129 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "南直", value = 130 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "南右", value = 132 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "南人行", value = 136 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "南调头", value = 0x80 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "南其他", value = 133 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "东南其他", value = 0x65 });
+
+            dirnum.Add(new MusicView.DirecNumer() { name = "西左", value = 193 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "西直", value = 194 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "西右", value = 196 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "西人行", value = 200 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "西调头", value = 0xc0 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "西其他", value = 197 });
+            dirnum.Add(new MusicView.DirecNumer() { name = "西南其他", value = 0xa5 });
+        }
+
+
+        List<MusicView.ChannelPhaseOverlap> lcpo = new List<MusicView.ChannelPhaseOverlap>();
+        private void InitPhaseOverlap()
+        {
+            for (byte a = 1; a < 33; a++)
+                lcpo.Add(new MusicView.ChannelPhaseOverlap() { id = a, name = "p" + a, isPhase = true });
+            for (byte b = 1; b < 17; b++)
+                lcpo.Add(new MusicView.ChannelPhaseOverlap() { id = b, name = "op" + b, isPhase = false });
+        }
 
         #region 设置相位按钮隐藏
-        private void SetPhaseButtonShow(bool swichflag)
-        {
-            try
-            {
-                switch (swichflag)
-                {
-                    case false:
-                        this.SouthLeft.Visibility = System.Windows.Visibility.Hidden;
-                        this.SouthRight.Visibility = System.Windows.Visibility.Hidden;
-                        this.SouthStraight.Visibility = System.Windows.Visibility.Hidden;
-                        this.SouthOther.Visibility = System.Windows.Visibility.Hidden;
-                        this.NorthLeft.Visibility = System.Windows.Visibility.Hidden;
-                        this.NorthRight.Visibility = System.Windows.Visibility.Hidden;
-                        this.NorthStraight.Visibility = System.Windows.Visibility.Hidden; ;
-                        this.NorthOther.Visibility = System.Windows.Visibility.Hidden;
-                        this.WestLeft.Visibility = System.Windows.Visibility.Hidden;
-                        this.WestRight.Visibility = System.Windows.Visibility.Hidden;
-                        this.WestStraight.Visibility = System.Windows.Visibility.Hidden;
-                        this.WestOther.Visibility = System.Windows.Visibility.Hidden;
-                        this.EastLeft.Visibility = System.Windows.Visibility.Hidden;
-                        this.EastRight.Visibility = System.Windows.Visibility.Hidden;
-                        this.EastStraight.Visibility = System.Windows.Visibility.Hidden;
-                        this.EastOther.Visibility = System.Windows.Visibility.Hidden;
-                        this.EastPedestrain1.Visibility = System.Windows.Visibility.Hidden;
-                        this.WestPedestrain1.Visibility = System.Windows.Visibility.Hidden;
-                        this.NorthPedestrain1.Visibility = System.Windows.Visibility.Hidden;
-                        this.SouthPedestrain1.Visibility = System.Windows.Visibility.Hidden;
+        //private void SetPhaseButtonShow(bool swichflag)
+        //{
+        //    try
+        //    {
+        //        switch (swichflag)
+        //        {
+        //            case false:
+        //                this.SouthLeft.Visibility = System.Windows.Visibility.Hidden;
+        //                this.SouthRight.Visibility = System.Windows.Visibility.Hidden;
+        //                this.SouthStraight.Visibility = System.Windows.Visibility.Hidden;
+        //                this.SouthOther.Visibility = System.Windows.Visibility.Hidden;
+        //                this.NorthLeft.Visibility = System.Windows.Visibility.Hidden;
+        //                this.NorthRight.Visibility = System.Windows.Visibility.Hidden;
+        //                this.NorthStraight.Visibility = System.Windows.Visibility.Hidden; ;
+        //                this.NorthOther.Visibility = System.Windows.Visibility.Hidden;
+        //                this.WestLeft.Visibility = System.Windows.Visibility.Hidden;
+        //                this.WestRight.Visibility = System.Windows.Visibility.Hidden;
+        //                this.WestStraight.Visibility = System.Windows.Visibility.Hidden;
+        //                this.WestOther.Visibility = System.Windows.Visibility.Hidden;
+        //                this.EastLeft.Visibility = System.Windows.Visibility.Hidden;
+        //                this.EastRight.Visibility = System.Windows.Visibility.Hidden;
+        //                this.EastStraight.Visibility = System.Windows.Visibility.Hidden;
+        //                this.EastOther.Visibility = System.Windows.Visibility.Hidden;
+        //                this.EastPedestrain1.Visibility = System.Windows.Visibility.Hidden;
+        //                this.WestPedestrain1.Visibility = System.Windows.Visibility.Hidden;
+        //                this.NorthPedestrain1.Visibility = System.Windows.Visibility.Hidden;
+        //                this.SouthPedestrain1.Visibility = System.Windows.Visibility.Hidden;
+        //                this.imgWestTurn.Visibility = Visibility.Hidden;
+        //                this.imgEastTurn.Visibility = Visibility.Hidden;
+        //                this.imgSouthTurn.Visibility = Visibility.Hidden;
+        //                this.imgNorthTurn.Visibility = Visibility.Hidden;
 
-                        break;
-                    case true:
-                        this.SouthLeft.Visibility = System.Windows.Visibility.Visible;
-                        this.SouthRight.Visibility = System.Windows.Visibility.Visible;
-                        this.SouthStraight.Visibility = System.Windows.Visibility.Visible;
-                        this.SouthOther.Visibility = System.Windows.Visibility.Visible;
-                        this.NorthLeft.Visibility = System.Windows.Visibility.Visible;
-                        this.NorthRight.Visibility = System.Windows.Visibility.Visible;
-                        this.NorthStraight.Visibility = System.Windows.Visibility.Visible; ;
-                        this.NorthOther.Visibility = System.Windows.Visibility.Visible;
-                        this.WestLeft.Visibility = System.Windows.Visibility.Visible;
-                        this.WestRight.Visibility = System.Windows.Visibility.Visible;
-                        this.WestStraight.Visibility = System.Windows.Visibility.Visible;
-                        this.WestOther.Visibility = System.Windows.Visibility.Visible;
-                        this.EastLeft.Visibility = System.Windows.Visibility.Visible;
-                        this.EastRight.Visibility = System.Windows.Visibility.Visible;
-                        this.EastStraight.Visibility = System.Windows.Visibility.Visible;
-                        this.EastOther.Visibility = System.Windows.Visibility.Visible;
-                        this.EastPedestrain1.Visibility = System.Windows.Visibility.Visible;
-                        this.WestPedestrain1.Visibility = System.Windows.Visibility.Visible;
-                        this.NorthPedestrain1.Visibility = System.Windows.Visibility.Visible;
-                        this.SouthPedestrain1.Visibility = System.Windows.Visibility.Visible;
-                        break;
 
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+        //                break;
+        //            case true:
+        //                this.SouthLeft.Visibility = System.Windows.Visibility.Visible;
+        //                this.SouthRight.Visibility = System.Windows.Visibility.Visible;
+        //                this.SouthStraight.Visibility = System.Windows.Visibility.Visible;
+        //                this.SouthOther.Visibility = System.Windows.Visibility.Visible;
+        //                this.NorthLeft.Visibility = System.Windows.Visibility.Visible;
+        //                this.NorthRight.Visibility = System.Windows.Visibility.Visible;
+        //                this.NorthStraight.Visibility = System.Windows.Visibility.Visible; ;
+        //                this.NorthOther.Visibility = System.Windows.Visibility.Visible;
+        //                this.WestLeft.Visibility = System.Windows.Visibility.Visible;
+        //                this.WestRight.Visibility = System.Windows.Visibility.Visible;
+        //                this.WestStraight.Visibility = System.Windows.Visibility.Visible;
+        //                this.WestOther.Visibility = System.Windows.Visibility.Visible;
+        //                this.EastLeft.Visibility = System.Windows.Visibility.Visible;
+        //                this.EastRight.Visibility = System.Windows.Visibility.Visible;
+        //                this.EastStraight.Visibility = System.Windows.Visibility.Visible;
+        //                this.EastOther.Visibility = System.Windows.Visibility.Visible;
+        //                this.EastPedestrain1.Visibility = System.Windows.Visibility.Visible;
+        //                this.WestPedestrain1.Visibility = System.Windows.Visibility.Visible;
+        //                this.NorthPedestrain1.Visibility = System.Windows.Visibility.Visible;
+        //                this.SouthPedestrain1.Visibility = System.Windows.Visibility.Visible;
+        //                this.imgWestTurn.Visibility = Visibility.Visible;
+        //                this.imgEastTurn.Visibility = Visibility.Visible;
+        //                this.imgSouthTurn.Visibility = Visibility.Visible;
+        //                this.imgNorthTurn.Visibility = Visibility.Visible;
+        //                break;
 
-        }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.ToString());
+        //    }
+
+        //}
        
         #endregion
 
@@ -194,16 +249,12 @@ namespace tscui.Pages.Phase
 
         private void LampRhshStar()
         {
-
-            //MessageBox.Show("LampRhshStar");
             dispatcherTimer1 = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer1.Tick += new EventHandler(dispatcherTimer1_Tick);
             dispatcherTimer1.Interval = new TimeSpan(0, 0, 1);
             dispatcherTimer1.Start();
  
         }
-       // int i = 1;
-
         private void updateRed(PhaseToDirec ptd)
         {
             if (ptd.ucId == Define.NORTH_LEFT)
@@ -222,6 +273,15 @@ namespace tscui.Pages.Phase
             {
                 imgNorthOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
             }
+            if (ptd.ucId == Define.NORTH_TURN_AROUND)
+            {
+                imgNorthTurn.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            }
+            if (ptd.ucId == Define.WEST_NORTH_OTHER)
+            {
+                imgWestNorthOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            }
+
             if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
             {
                 imgNorthPedestrain1.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
@@ -254,6 +314,17 @@ namespace tscui.Pages.Phase
             {
                 imgEastPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
             }
+
+            if (ptd.ucId == Define.EAST_TURN_AROUND)
+            {
+                imgEastTurn.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            }
+            if (ptd.ucId == Define.EAST_NORTH_OTHER)
+            {
+                imgEastNorthOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            }
+
+
             if (ptd.ucId == Define.SOUTH_LEFT)
             {
                 imgSouthLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
@@ -278,6 +349,15 @@ namespace tscui.Pages.Phase
             {
                 imSouthPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             }
+            if (ptd.ucId == Define.SOUTH_TURN_AROUND)
+            {
+                imgSouthTurn.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            }
+            if (ptd.ucId == Define.EAST_SOUTH_OTHER)
+            {
+                imgEastSouthOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            }
+
             if (ptd.ucId == Define.WEST_LEFT)
             {
                 imgWestLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
@@ -301,6 +381,16 @@ namespace tscui.Pages.Phase
             if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
             {
                 imgWestPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight.png", UriKind.Relative));
+            }
+
+            if (ptd.ucId == Define.WEST_TURN_AROUND)
+            {
+                imgWestTurn.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
+            }
+
+            if (ptd.ucId == Define.WEST_SOUTH_OTHER)
+            {
+                imgWestSouthOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/redlight1.png", UriKind.Relative));
             }
         }
 
@@ -330,6 +420,17 @@ namespace tscui.Pages.Phase
             {
                 imgNorthPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight1.png", UriKind.Relative));
             }
+
+            if (ptd.ucId == Define.NORTH_TURN_AROUND)
+            {
+                imgNorthTurn.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight.png", UriKind.Relative));
+            }
+            if (ptd.ucId == Define.WEST_NORTH_OTHER)
+            {
+                imgWestNorthOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight.png", UriKind.Relative));
+            }
+            
+            
             if (ptd.ucId == Define.EAST_LEFT)
             {
                 imgEastLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight1.png", UriKind.Relative));
@@ -354,6 +455,15 @@ namespace tscui.Pages.Phase
             {
                 imgEastPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight.png", UriKind.Relative));
             }
+             if (ptd.ucId == Define.EAST_TURN_AROUND)
+            {
+                imgEastTurn.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight1.png", UriKind.Relative));
+            }
+            if (ptd.ucId == Define.EAST_NORTH_OTHER)
+            {
+                imgEastNorthOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight1.png", UriKind.Relative));
+            }
+
             if (ptd.ucId == Define.SOUTH_LEFT)
             {
                 imgSouthLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight.png", UriKind.Relative));
@@ -378,6 +488,16 @@ namespace tscui.Pages.Phase
             {
                 imSouthPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight1.png", UriKind.Relative));
             }
+            if (ptd.ucId == Define.SOUTH_TURN_AROUND)
+            {
+                imgSouthTurn.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight.png", UriKind.Relative));
+            }
+            if (ptd.ucId == Define.EAST_SOUTH_OTHER)
+            {
+                imgEastSouthOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight.png", UriKind.Relative));
+            }
+            
+            
             if (ptd.ucId == Define.WEST_LEFT)
             {
                 imgWestLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight1.png", UriKind.Relative));
@@ -402,6 +522,16 @@ namespace tscui.Pages.Phase
             {
                 imgWestPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight.png", UriKind.Relative));
             }
+            if (ptd.ucId == Define.WEST_TURN_AROUND)
+            {
+                imgWestTurn.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight1.png", UriKind.Relative));
+            }
+
+            if (ptd.ucId == Define.WEST_SOUTH_OTHER)
+            {
+                imgWestSouthOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/yellowlight1.png", UriKind.Relative));
+            }
+
         }
 
         private void updateGreen(PhaseToDirec ptd)
@@ -430,6 +560,17 @@ namespace tscui.Pages.Phase
             {
                 imgNorthPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
             }
+
+            if (ptd.ucId == Define.NORTH_TURN_AROUND)
+            {
+                imgNorthTurn.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
+            }
+            if (ptd.ucId == Define.WEST_NORTH_OTHER)
+            {
+                imgWestNorthOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
+            }
+
+
             if (ptd.ucId == Define.EAST_LEFT)
             {
                 imgEastLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
@@ -454,6 +595,16 @@ namespace tscui.Pages.Phase
             {
                 imgEastPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
             }
+
+            if (ptd.ucId == Define.EAST_TURN_AROUND)
+            {
+                imgEastTurn.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
+            }
+            if (ptd.ucId == Define.EAST_NORTH_OTHER)
+            {
+                imgEastNorthOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
+            }
+
             if (ptd.ucId == Define.SOUTH_LEFT)
             {
                 imgSouthLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
@@ -478,6 +629,17 @@ namespace tscui.Pages.Phase
             {
                 imSouthPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
             }
+            if (ptd.ucId == Define.SOUTH_TURN_AROUND)
+            {
+                imgSouthTurn.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
+            }
+            if (ptd.ucId == Define.EAST_SOUTH_OTHER)
+            {
+                imgEastSouthOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
+            }
+
+
+
             if (ptd.ucId == Define.WEST_LEFT)
             {
                 imgWestLeft.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
@@ -502,10 +664,18 @@ namespace tscui.Pages.Phase
             {
                 imgWestPedestrain2.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight.png", UriKind.Relative));
             }
+            if (ptd.ucId == Define.WEST_TURN_AROUND)
+            {
+                imgWestTurn.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
+            }
+
+            if (ptd.ucId == Define.WEST_SOUTH_OTHER)
+            {
+                imgWestSouthOther.Source = new BitmapImage(new Uri("/tscui;component/Resources/Images/greenlight1.png", UriKind.Relative));
+            }
         }
         private void dispatcherTimer1_Tick(object sender, EventArgs e)
         {
-            //MessageBox.Show("dispatcherTimer1_Tick");
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             if (t == null)
                 return;
@@ -514,27 +684,24 @@ namespace tscui.Pages.Phase
            
             if (tscui.Models.ReportTscStatus.resportSuccessFlag)
             {
-               // MessageBox.Show("if");
                 this.workmode_label.Content = "工作模式：" + tscui.Models.ReportTscStatus.sWorkModel.ToString();
                 this.controlmode_label.Content = "控制方式：" + tscui.Models.ReportTscStatus.sControlModel.ToString();
                 this.workstatus_label.Content = "工作状态：" + tscui.Models.ReportTscStatus.sWorkStatus.ToString();
 
-                this.time_NO_label.Content = "配时方案：" + tscui.Models.ReportTscStatus.iCurrentTimePattern.ToString();
-                this.run_NO_label.Content = "时段方案：" + tscui.Models.ReportTscStatus.iCurrentSchedule.ToString();
+                this.time_NO_label.Content = "方案号：" + tscui.Models.ReportTscStatus.iCurrentTimePattern.ToString();
+                this.run_NO_label.Content = "时段号：" + tscui.Models.ReportTscStatus.iCurrentSchedule.ToString();
                 this.lblCurrentStage.Content = "当前阶段：" + tscui.Models.ReportTscStatus.iCurrentStage.ToString();
-            this.label_CycleTime.Content = "周期时长： " + tscui.Models.ReportTscStatus.iCycleTime.ToString();
-            this.label_iCurrentStagePattern.Content = "阶段配时： " + tscui.Models.ReportTscStatus.iCurrentStagePattern.ToString();
-            this.label_iStageCount.Content = "阶段总数： " + tscui.Models.ReportTscStatus.iStageCount.ToString();
-            this.label_iStageTotalTime.Content = "阶段总时长： " + tscui.Models.ReportTscStatus.iStageTotalTime.ToString();
-            this.label_iStageRunTime.Content = "阶段运行时长： " + tscui.Models.ReportTscStatus.iStageRunTime.ToString();
+                 this.label_CycleTime.Content = "周期时长： " + tscui.Models.ReportTscStatus.iCycleTime.ToString();
+                 this.label_iCurrentStagePattern.Content = "阶段配时号： " + tscui.Models.ReportTscStatus.iCurrentStagePattern.ToString();
+                 this.label_iStageCount.Content = "阶段总数： " + tscui.Models.ReportTscStatus.iStageCount.ToString();
+                 this.label_iStageTotalTime.Content = "阶段总时长： " + tscui.Models.ReportTscStatus.iStageTotalTime.ToString();
+                 this.label_iStageRunTime.Content = "阶段运行时长： " + tscui.Models.ReportTscStatus.iStageRunTime.ToString();
             List <uint> redList =   tscui.Models.ReportTscStatus.listChannelRedStatus;
             List <uint> yellowList =   tscui.Models.ReportTscStatus.listChannelYellowStatus;
             List <uint> greenList =   tscui.Models.ReportTscStatus.listChannelGreenStatus;
-                //foreach()
             #region 红灯图片刷新
             for (int i = 0; i < redList.Count; i++)
             {
-               
                 foreach (Channel c in lc)
                 {
                     if ((i+1) == c.ucId)
@@ -669,7 +836,6 @@ namespace tscui.Pages.Phase
             }
                 #endregion
 
-            Console.WriteLine(tscui.Models.ReportTscStatus.iCurrentTimePattern.ToString());
             }
             
            
@@ -677,771 +843,60 @@ namespace tscui.Pages.Phase
            
         }
         #endregion
-
-
-
-
-        private void Image_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            MessageBox.Show("OK");
-        }
-
-        private void setLampPhase_Checked(object sender, RoutedEventArgs e)
-        {
-            SetPhaseButtonShow(true);
-
-        }
+        
         private void Image_ImageFailed(object sender, System.Windows.ExceptionRoutedEventArgs e)
         {
-
+            ;
         }
 
         private void Image_ImageFailed_1(object sender, System.Windows.ExceptionRoutedEventArgs e)
         {
-
-        }
-
-        private void Image_ImageFailed_2(object sender, System.Windows.ExceptionRoutedEventArgs e)
-        {
-
-        }
-       
-        private void setLampPhase_Unchecked(object sender, RoutedEventArgs e)
-        {
-            SetPhaseButtonShow(false);
+            ;
         }
 
         private void lampRush_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             try
             {
-                //MessageBox.Show("lampRush_CheckBox_Checked");
+                this.GrpDirecPhase.Visibility = Visibility.Hidden; //隐藏方向相位 信息
                 tscui.Models.ReportTscStatus reportTscStatus = new Models.ReportTscStatus();
                 TscDataUtils.GetReportStatus();
                 LampRhshStar();
             }
             catch(Exception ex)
             {
-
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show("刷新当前运行状态 信息异常!");
             }
             
         }
-        public void InitDirec()
-        {
-            if (t == null)
-                return;
-            List<PhaseToDirec> lptd = t.ListPhaseToDirec;
-            foreach (PhaseToDirec ptd in lptd)
-            {
-                if (ptd.ucPhase != 0)
-                {
-                    if (ptd.ucId == Define.NORTH_LEFT)
-                    {
-                        NorthLeft.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_OTHER)
-                    {
-                        NorthOther.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
-                    {
-                        NorthPedestrain1.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
-                    {
-                        NorthPedestrain2.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_RIGHT)
-                    {
-                        NorthRight.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_STRAIGHT)
-                    {
-                        NorthStraight.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.EAST_LEFT)
-                    {
-                        EastLeft.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.EAST_STRAIGHT)
-                    {
-                        EastStraight.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.EAST_RIGHT)
-                    {
-                        EastRight.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.EAST_OTHER)
-                    {
-                        EastOther.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
-                    {
-                        EastPedestrain1.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
-                    {
-                        EastPedestrain2.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_LEFT)
-                    {
-                        SouthLeft.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_OTHER)
-                    {
-                        SouthOther.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_STRAIGHT)
-                    {
-                        SouthStraight.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_RIGHT)
-                    {
-                        SouthRight.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
-                    {
-                        SouthPedestrain1.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
-                    {
-                        SouthPedestrain2.Visibility = Visibility.Visible;
-                    }
-
-                    //west
-                    if (ptd.ucId == Define.WEST_LEFT)
-                    {
-                        WestLeft.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.WEST_STRAIGHT)
-                    {
-                        WestStraight.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.WEST_RIGHT)
-                    {
-                        WestRight.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.WEST_OTHER)
-                    {
-                        WestOther.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
-                    {
-                        WestPedestrain1.Visibility = Visibility.Visible;
-                    }
-
-                    if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
-                    {
-                        WestPedestrain2.Visibility = Visibility.Visible;
-                    }
-
-                }
-                else
-                {
-                    if (ptd.ucId == Define.NORTH_LEFT)
-                    {
-                        NorthLeft.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.NORTH_OTHER)
-                    {
-                        NorthOther.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
-                    {
-                        NorthPedestrain1.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
-                    {
-                        NorthPedestrain2.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.NORTH_RIGHT)
-                    {
-                        NorthRight.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.NORTH_STRAIGHT)
-                    {
-                        NorthStraight.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.EAST_LEFT)
-                    {
-                        EastLeft.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.EAST_STRAIGHT)
-                    {
-                        EastStraight.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.EAST_RIGHT)
-                    {
-                        EastRight.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.EAST_OTHER)
-                    {
-                        EastOther.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
-                    {
-                        EastPedestrain1.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
-                    {
-                        EastPedestrain2.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.SOUTH_LEFT)
-                    {
-                        SouthLeft.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.SOUTH_OTHER)
-                    {
-                        SouthOther.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.SOUTH_STRAIGHT)
-                    {
-                        SouthStraight.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.SOUTH_RIGHT)
-                    {
-                        SouthRight.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
-                    {
-                        SouthPedestrain1.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
-                    {
-                        WestPedestrain2.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
-                    {
-                        WestPedestrain1.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.WEST_OTHER)
-                    {
-                        WestOther.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.WEST_RIGHT)
-                    {
-                        WestRight.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.WEST_STRAIGHT)
-                    {
-                        WestStraight.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.WEST_LEFT)
-                    {
-                        WestLeft.Visibility = Visibility.Hidden;
-                    }
-                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
-                    {
-                        SouthPedestrain2.Visibility = Visibility.Hidden;
-                    }
-
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        if (ptd.ucId == Define.NORTH_LEFT)
-                        {
-                            NorthLeft.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.NORTH_OTHER)
-                        {
-                            NorthOther.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
-                        {
-                            NorthPedestrain1.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
-                        {
-                            NorthPedestrain2.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.NORTH_RIGHT)
-                        {
-                            NorthRight.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.NORTH_STRAIGHT)
-                        {
-                            NorthStraight.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.EAST_LEFT)
-                        {
-                            EastLeft.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.EAST_STRAIGHT)
-                        {
-                            EastStraight.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.EAST_RIGHT)
-                        {
-                            EastRight.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.EAST_OTHER)
-                        {
-                            EastOther.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
-                        {
-                            EastPedestrain1.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
-                        {
-                            EastPedestrain2.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.SOUTH_LEFT)
-                        {
-                            SouthLeft.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.SOUTH_OTHER)
-                        {
-                            SouthOther.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.SOUTH_STRAIGHT)
-                        {
-                            SouthStraight.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.SOUTH_RIGHT)
-                        {
-                            SouthRight.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
-                        {
-                            SouthPedestrain1.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
-                        {
-                            SouthPedestrain2.Visibility = Visibility.Visible;
-                        }
-
-                        //west
-                        if (ptd.ucId == Define.WEST_LEFT)
-                        {
-                            WestLeft.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.WEST_STRAIGHT)
-                        {
-                            WestStraight.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.WEST_RIGHT)
-                        {
-                            WestRight.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.WEST_OTHER)
-                        {
-                            WestOther.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
-                        {
-                            WestPedestrain1.Visibility = Visibility.Visible;
-                        }
-
-                        if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
-                        {
-                            WestPedestrain2.Visibility = Visibility.Visible;
-                        }
-
-                    }
-                    else
-                    {
-                        if (ptd.ucId == Define.NORTH_LEFT)
-                        {
-                            NorthLeft.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.NORTH_OTHER)
-                        {
-                            NorthOther.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
-                        {
-                            NorthPedestrain1.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
-                        {
-                            NorthPedestrain2.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.NORTH_RIGHT)
-                        {
-                            NorthRight.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.NORTH_STRAIGHT)
-                        {
-                            NorthStraight.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.EAST_LEFT)
-                        {
-                            EastLeft.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.EAST_STRAIGHT)
-                        {
-                            EastStraight.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.EAST_RIGHT)
-                        {
-                            EastRight.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.EAST_OTHER)
-                        {
-                            EastOther.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
-                        {
-                            EastPedestrain1.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
-                        {
-                            EastPedestrain2.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.SOUTH_LEFT)
-                        {
-                            SouthLeft.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.SOUTH_OTHER)
-                        {
-                            SouthOther.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.SOUTH_STRAIGHT)
-                        {
-                            SouthStraight.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.SOUTH_RIGHT)
-                        {
-                            SouthRight.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
-                        {
-                            SouthPedestrain1.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
-                        {
-                            WestPedestrain2.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
-                        {
-                            WestPedestrain1.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.WEST_OTHER)
-                        {
-                            WestOther.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.WEST_RIGHT)
-                        {
-                            WestRight.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.WEST_STRAIGHT)
-                        {
-                            WestStraight.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.WEST_LEFT)
-                        {
-                            WestLeft.Visibility = Visibility.Hidden;
-                        }
-                        if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
-                        {
-                            SouthPedestrain2.Visibility = Visibility.Hidden;
-                        }
-                    }
-                }
-
-               
-            }
-        }
+      
         private void InitPhaseToButtonByDirec()
         {
             if (t == null)
                 return;
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            foreach(PhaseToDirec ptd in t.ListPhaseToDirec)
+
+            if (DirecPhaseCombox.Items.Count == 0)//   InitDirecNumber();
             {
-                if (ptd.ucPhase != 0)
+                if (dirnum.Count == 0)
                 {
-                    if (ptd.ucId == Define.NORTH_LEFT)
-                    {
-                        NorthLeft.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_OTHER)
-                    {
-                        NorthOther.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
-                    {
-                        NorthPedestrain1.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
-                    {
-                        NorthPedestrain2.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_RIGHT)
-                    {
-                        NorthRight.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_STRAIGHT)
-                    {
-                        NorthStraight.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.EAST_LEFT)
-                    {
-                        EastLeft.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.EAST_STRAIGHT)
-                    {
-                        EastStraight.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.EAST_RIGHT)
-                    {
-                        EastRight.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.EAST_OTHER)
-                    {
-                        EastOther.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
-                    {
-                        EastPedestrain1.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
-                    {
-                        EastPedestrain2.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_LEFT)
-                    {
-                        SouthLeft.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_OTHER)
-                    {
-                        SouthOther.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_STRAIGHT)
-                    {
-                        SouthStraight.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_RIGHT)
-                    {
-                        SouthRight.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
-                    {
-                        SouthPedestrain1.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
-                    {
-                        SouthPedestrain2.Content = ptd.ucPhase;
-                    }
-
-                    //west
-                    if (ptd.ucId == Define.WEST_LEFT)
-                    {
-                        WestLeft.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.WEST_STRAIGHT)
-                    {
-                        WestStraight.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.WEST_RIGHT)
-                    {
-                        WestRight.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.WEST_OTHER)
-                    {
-                        WestOther.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
-                    {
-                        WestPedestrain1.Content = ptd.ucPhase;
-                    }
-
-                    if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
-                    {
-                        WestPedestrain2.Content = ptd.ucPhase;
-                    }
-
+                    InitDirecNumber();
                 }
-                if (ptd.ucOverlapPhase != 0)
-                {
-                    if (ptd.ucId == Define.NORTH_LEFT)
-                    {
-                        NorthLeft.Content = "O"+ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_OTHER)
-                    {
-                        NorthOther.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
-                    {
-                        NorthPedestrain1.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
-                    {
-                        NorthPedestrain2.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_RIGHT)
-                    {
-                        NorthRight.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.NORTH_STRAIGHT)
-                    {
-                        NorthStraight.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.EAST_LEFT)
-                    {
-                        EastLeft.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.EAST_STRAIGHT)
-                    {
-                        EastStraight.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.EAST_RIGHT)
-                    {
-                        EastRight.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.EAST_OTHER)
-                    {
-                        EastOther.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
-                    {
-                        EastPedestrain1.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
-                    {
-                        EastPedestrain2.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_LEFT)
-                    {
-                        SouthLeft.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_OTHER)
-                    {
-                        SouthOther.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_STRAIGHT)
-                    {
-                        SouthStraight.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_RIGHT)
-                    {
-                        SouthRight.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
-                    {
-                        SouthPedestrain1.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
-                    {
-                        SouthPedestrain2.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    //west
-                    if (ptd.ucId == Define.WEST_LEFT)
-                    {
-                        WestLeft.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.WEST_STRAIGHT)
-                    {
-                        WestStraight.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.WEST_RIGHT)
-                    {
-                        WestRight.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.WEST_OTHER)
-                    {
-                        WestOther.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
-                    {
-                        WestPedestrain1.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                    if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
-                    {
-                        WestPedestrain2.Content = "O" + ptd.ucOverlapPhase;
-                    }
-
-                }
+                DirecPhaseCombox.ItemsSource = dirnum;
             }
+
+            if (DirectPhaseIdCombox.Items.Count == 0)
+            {
+
+                if (lcpo.Count ==0)
+                    InitPhaseOverlap();
+                DirectPhaseIdCombox.ItemsSource = lcpo;
+            }
+           
+          
         }
+
+      
         TscData t;
         private delegate void DelegateInitPhaseToButtonByDirec();
         private void DispatcherInitPhaseToButtonByDirec(object state)
@@ -1450,20 +905,19 @@ namespace tscui.Pages.Phase
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if(t == null)
             {
+                MessageBox.Show("请选择一信号机后，再切换到此界面！");
+                this.Visibility = Visibility.Hidden;
                 return;
             }
+            this.Visibility = Visibility.Visible;
             ThreadPool.QueueUserWorkItem(DispatcherInitPhaseToButtonByDirec);
-            //Thread tDispatcherInitPhaseToButtonByDirec = new Thread(DispatcherInitPhaseToButtonByDirec);
-            //tDispatcherInitPhaseToButtonByDirec.IsBackground = true;
-            //tDispatcherInitPhaseToButtonByDirec.Start();
             ////InitPhaseToButtonByDirec();
         }
 
-
+  
         private void phase1_Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
         {
 
@@ -1473,2098 +927,8 @@ namespace tscui.Pages.Phase
         {
 
         }
-        private void ClearButtonOverlapPhaseContent(Models.OverlapPhase op, Models.PhaseToDirec ptd)
-        {
-            if (op.ucId == ptd.ucOverlapPhase )
-            {
-                if (ptd.ucId == Define.SOUTH_LEFT)
-                {
-                    SouthLeft.Content = "";
-                    if( ptd.ucPhase !=0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.SOUTH_STRAIGHT)
-                {
-                    SouthStraight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.SOUTH_RIGHT)
-                {
-                    SouthRight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
-                {
-                    SouthPedestrain1.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
-                {
-                    SouthPedestrain2.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.SOUTH_OTHER)
-                {
-                    SouthOther.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.NORTH_LEFT)
-                {
-                    NorthLeft.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.NORTH_STRAIGHT)
-                {
-                    NorthStraight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.NORTH_RIGHT)
-                {
-                    NorthRight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.NORTH_OTHER)
-                {
-                    NorthOther.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
-                {
-                    NorthPedestrain1.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
-                {
-                    NorthPedestrain2.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.EAST_LEFT)
-                {
-                    EastLeft.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.EAST_STRAIGHT)
-                {
-                    EastStraight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.EAST_RIGHT)
-                {
-                    EastRight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.EAST_OTHER)
-                {
-                    EastOther.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
-                {
-                    EastPedestrain1.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
-                {
-                    EastPedestrain2.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.WEST_LEFT)
-                {
-                    WestLeft.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.WEST_STRAIGHT)
-                {
-                    WestStraight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.WEST_RIGHT)
-                {
-                    WestRight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.WEST_OTHER)
-                {
-                    WestOther.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
-                {
-                    WestPedestrain1.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
-                {
-                    WestPedestrain2.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-
-            }
-            if (0 != ptd.ucPhase)
-            {
-                if (ptd.ucId == Define.SOUTH_LEFT)
-                {
-                    SouthLeft.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.SOUTH_STRAIGHT)
-                {
-                    SouthStraight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.SOUTH_RIGHT)
-                {
-                    SouthRight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
-                {
-                    SouthPedestrain1.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
-                {
-                    SouthPedestrain2.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.SOUTH_OTHER)
-                {
-                    SouthOther.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.NORTH_LEFT)
-                {
-                    NorthLeft.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.NORTH_STRAIGHT)
-                {
-                    NorthStraight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.NORTH_RIGHT)
-                {
-                    NorthRight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.NORTH_OTHER)
-                {
-                    NorthOther.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
-                {
-                    NorthPedestrain1.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
-                {
-                    NorthPedestrain2.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.EAST_LEFT)
-                {
-                    EastLeft.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.EAST_STRAIGHT)
-                {
-                    EastStraight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.EAST_RIGHT)
-                {
-                    EastRight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.EAST_OTHER)
-                {
-                    EastOther.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
-                {
-                    EastPedestrain1.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
-                {
-                    EastPedestrain2.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.WEST_LEFT)
-                {
-                    WestLeft.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.WEST_STRAIGHT)
-                {
-                    WestStraight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.WEST_RIGHT)
-                {
-                    WestRight.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.WEST_OTHER)
-                {
-                    WestOther.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
-                {
-                    WestPedestrain1.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-                if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
-                {
-                    WestPedestrain2.Content = "";
-                    if (ptd.ucPhase != 0)
-                    {
-                        ptd.ucPhase = 0;
-                    }
-                    ptd.ucOverlapPhase = 0;
-                }
-
-            }
-        }
-        private void ClearButtonPhaseContent(Models.Phase p ,Models.PhaseToDirec ptd)
-        {
-            if (p.ucId == ptd.ucPhase)
-            {
-                if (ptd.ucId == Define.SOUTH_LEFT)
-                {
-                    SouthLeft.Content = "";
-                    ptd.ucPhase = 0;
-                    if(ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                    
-                }
-                if (ptd.ucId == Define.SOUTH_STRAIGHT)
-                {
-                    SouthStraight.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.SOUTH_RIGHT)
-                {
-                    SouthRight.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
-                {
-                    SouthPedestrain1.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
-                {
-                    SouthPedestrain2.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.SOUTH_OTHER)
-                {
-                    SouthOther.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.NORTH_LEFT)
-                {
-                    NorthLeft.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.NORTH_STRAIGHT)
-                {
-                    NorthStraight.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.NORTH_RIGHT)
-                {
-                    NorthRight.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.NORTH_OTHER)
-                {
-                    NorthOther.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
-                {
-                    NorthPedestrain1.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
-                {
-                    NorthPedestrain2.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.EAST_LEFT)
-                {
-                    EastLeft.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.EAST_STRAIGHT)
-                {
-                    EastStraight.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.EAST_RIGHT)
-                {
-                    EastRight.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.EAST_OTHER)
-                {
-                    EastOther.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
-                {
-                    EastPedestrain1.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
-                {
-                    EastPedestrain2.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.WEST_LEFT)
-                {
-                    WestLeft.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.WEST_STRAIGHT)
-                {
-                    WestStraight.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.WEST_RIGHT)
-                {
-                    WestRight.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.WEST_OTHER)
-                {
-                    WestOther.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
-                {
-                    WestPedestrain1.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
-                {
-                    WestPedestrain2.Content = "";
-                    ptd.ucPhase = 0;
-                    if (ptd.ucOverlapPhase != 0)
-                    {
-                        ptd.ucOverlapPhase = 0;
-                    }
-                }
-                
-            }
-        }
-
-        private void southOther_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-        private void SouthLeft_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if(Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-               
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                   
-                    if (ptd.ucId == Define.SOUTH_LEFT)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if(Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null)) { 
-                if (op == null)
-                {
-                    return;
-                }
-                if (Convert.ToByte(btn.Content) == op.ucId)
-                {
-                    return;
-                }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    if (ptd.ucId == Define.SOUTH_LEFT)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-            
-            
-            
-            
-            
-        }
-
-        private void SouthStraight_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.SOUTH_STRAIGHT)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.SOUTH_STRAIGHT)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void SouthRight_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    ClearButtonPhaseContent(p, ptd);
-                    if (ptd.ucId == Define.SOUTH_RIGHT)
-                    {
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.SOUTH_RIGHT)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void SouthOther_Click_1(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.SOUTH_OTHER)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.SOUTH_OTHER)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void NorthPedestrain2_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_TWO)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void NorthPedestrain1_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.NORTH_PEDESTRAIN_ONE)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void EastPedestrain1_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                   
-                    if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.EAST_PEDESTRAIN_ONE)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void EastPedestrain2_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                   
-                    if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.EAST_PEDESTRAIN_TWO)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void WestLeft_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-           
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                   
-                    if (ptd.ucId == Define.WEST_LEFT)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.WEST_LEFT)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void WestStraight_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                   
-                    if (ptd.ucId == Define.WEST_STRAIGHT)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.WEST_STRAIGHT)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void WestRight_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.WEST_RIGHT)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.WEST_RIGHT)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void WestOther_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.WEST_OTHER)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.WEST_OTHER)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void SouthPedestrain1_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_ONE)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void SouthPedestrain2_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.SOUTH_PEDESTRAIN_TWO)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void NorthLeft_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                   
-                    if (ptd.ucId == Define.NORTH_LEFT)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.NORTH_LEFT)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void NorthStraight_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.NORTH_STRAIGHT)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.NORTH_STRAIGHT)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void NorthRight_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.NORTH_RIGHT)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.NORTH_RIGHT)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void NorthOther_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-           
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.NORTH_OTHER)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.NORTH_OTHER)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void WestPedestrain1_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.WEST_PEDESTRAIN_ONE)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void WestPedestrain2_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.WEST_PEDESTRAIN_TWO)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void EastLeft_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.EAST_LEFT)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.EAST_LEFT)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void EastStraight_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-           
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content==null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.EAST_STRAIGHT)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.EAST_STRAIGHT)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void EastRight_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content== null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.EAST_RIGHT)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.EAST_RIGHT)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
-
-        private void EastOther_Click(object sender, RoutedEventArgs e)
-        {
-            ApexBroker.GetShell().ShowPopup(new ExamplePopup());
-            
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Button btn = sender as Button;
-            if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_PHASE)
-            {
-                tscui.Models.Phase p = Utils.Utils.GetPhaseByCurrent();
-                if (!(btn.Content== null))
-                {
-                    if (p == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == p.ucId)
-                    {
-                        return;
-                    }
-                }
-                btn.Content = p.ucId;
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-                    
-                    if (ptd.ucId == Define.EAST_OTHER)
-                    {
-                        ClearButtonPhaseContent(p, ptd);
-                        ptd.ucPhase = p.ucId;
-                    }
-                }
-            }
-            else if (Utils.Utils.GetPhaseOverlapPhaseType() == Define.SELECTED_PHASE_OVERLAP_TYPE_OVERLAPPHASE)
-            {
-                Models.OverlapPhase op = Utils.Utils.GetOverLapPhaseByCurrent();
-                if (!(btn.Content == null))
-                {
-                    if (op == null)
-                    {
-                        return;
-                    }
-                    if (Convert.ToByte(btn.Content) == op.ucId)
-                    {
-                        return;
-                    }
-                }
-                foreach (PhaseToDirec ptd in t.ListPhaseToDirec)
-                {
-
-                    if (ptd.ucId == Define.EAST_OTHER)
-                    {
-                        ClearButtonOverlapPhaseContent(op, ptd);
-                        btn.Content = "O" + op.ucId;
-                        ptd.ucOverlapPhase = op.ucId;
-                    }
-                }
-            }
-        }
+    
+        
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
@@ -3603,6 +967,8 @@ namespace tscui.Pages.Phase
             
             if (t == null)
                 t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            this.GrpDirecPhase.Visibility = Visibility.Visible;
+
             dispatcherTimer1.Stop();
             Udp.sendUdp(t.Node.sIpAddress, t.Node.iPort, Define.REPORT_TSC_STATUS_CANCEL);
         }
@@ -3804,6 +1170,84 @@ namespace tscui.Pages.Phase
         {
             Message msg = TscDataUtils.SetCtrlWest();
         }
+
+        private void bsrRoadCount_Spin(object sender, Xceed.Wpf.Toolkit.SpinEventArgs e)
+        {
+
+        }
+
+        private void DirecPhaseCombox_SelectChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                {
+                    return;
+                }
+                opchannels.Content = "";
+                roadcount.Content = "";
+                DirectPhaseIdCombox.SelectedIndex = -1;
+                List<PhaseToDirec> tscdirecphase = t.ListPhaseToDirec;
+
+                foreach (PhaseToDirec direcphase in tscdirecphase)
+                {
+                    if (DirecPhaseCombox.SelectedIndex == -1)
+                        return;
+                    if (direcphase.ucId == ((MusicView.DirecNumer)(DirecPhaseCombox.SelectedValue)).value)
+                    {
+                        roadcount.Content = direcphase.ucRoadCnt.ToString();
+                        foreach (MusicView.ChannelPhaseOverlap cpo in lcpo)
+                        {
+                            if (cpo.id == direcphase.ucPhase && cpo.isPhase == true && direcphase.ucOverlapPhase == 0)
+                            {
+                                DirectPhaseIdCombox.SelectedIndex = cpo.id - 1;
+                                break;
+                            }
+                            else if (cpo.id == direcphase.ucOverlapPhase && cpo.isPhase == false && direcphase.ucPhase == 0)
+                            {
+                                DirectPhaseIdCombox.SelectedIndex = cpo.id + 0x20 - 1;
+                                break;
+                            }
+
+                        }
+                        foreach (Channel ch in t.ListChannel)
+                        {
+                            byte phaseid = ((MusicView.ChannelPhaseOverlap) (DirectPhaseIdCombox.SelectedValue)).id;
+                            bool bisphase =((MusicView.ChannelPhaseOverlap) (DirectPhaseIdCombox.SelectedValue)).isPhase;
+                            if (phaseid == ch.ucSourcePhase)
+                            {
+                                if ((bisphase == true && ch.ucType != 0x4) || (bisphase == false && ch.ucType == 0x4))
+                                {
+                                    opchannels.Content += ch.ucId.ToString() + " ,";
+                                    if (ch.ucType == 0x4)
+                                    {
+                                        opchannels.Background = Brushes.Yellow;
+                                    }
+                                    else if (ch.ucType == 0x3)
+                                    {
+                                        opchannels.Background = Brushes.Green;
+                                    }
+                                    else
+                                    {
+                                        opchannels.Background = Brushes.Red;
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("获取方向相关参数异常!");
+            }
+
+        }
+
 
     }
 }

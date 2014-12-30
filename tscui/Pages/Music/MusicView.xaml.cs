@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Media;
+using System.Windows.Navigation;
 using Apex.MVVM;
 using Apex.Behaviours;
 using tscui.Models;
@@ -63,12 +63,7 @@ namespace tscui.Pages.Music
             this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new DelegateOverlap(InitOverlap));
         }
 
-         class DirecNumer
-        {
-            public byte value { set; get; }
-            public string name { set; get; }
-
-        }
+       
 
         class ChannelFlash
         {
@@ -81,35 +76,47 @@ namespace tscui.Pages.Music
             public string name { set; get; }
         }
 
-        List<DirecNumer> dirnum = new List<DirecNumer>();
-        private void InitDirecNumber()
+        public class DirecNumer
+        {
+            public byte value { set; get; }
+            public string name { set; get; }
+
+        }
+        public List<DirecNumer> dirnum = new List<DirecNumer>();
+        public void InitDirecNumber()
         {
             dirnum.Add(new DirecNumer() { name = "北左", value = 1 });
             dirnum.Add(new DirecNumer() { name = "北直", value = 2 });
             dirnum.Add(new DirecNumer() { name = "北右", value = 4 });
             dirnum.Add(new DirecNumer() { name = "北人行", value = 8 });
+            dirnum.Add(new DirecNumer() { name = "北调头", value = 0 });
+            dirnum.Add(new DirecNumer() { name = "北其他", value = 5 });
+            dirnum.Add(new DirecNumer() { name = "西北其他", value = 0xe5 });
 
             dirnum.Add(new DirecNumer() { name = "东左", value = 65 });
             dirnum.Add(new DirecNumer() { name = "东直", value = 66 });
             dirnum.Add(new DirecNumer() { name = "东右", value = 68 });
             dirnum.Add(new DirecNumer() { name = "东人行", value = 72 });
+            dirnum.Add(new DirecNumer() { name = "东调头", value = 0x40 });
+            dirnum.Add(new DirecNumer() { name = "东其他", value = 69 });
+            dirnum.Add(new DirecNumer() {name = "东北其他", value = 0x25});
+
 
             dirnum.Add(new DirecNumer() { name = "南左", value = 129 });
             dirnum.Add(new DirecNumer() { name = "南直", value = 130 });
             dirnum.Add(new DirecNumer() { name = "南右", value = 132 });
             dirnum.Add(new DirecNumer() { name = "南人行", value = 136 });
+            dirnum.Add(new DirecNumer() {name = "南调头", value = 0x80});
+            dirnum.Add(new DirecNumer() { name = "南其他", value = 133 });
+            dirnum.Add(new DirecNumer() { name = "东南其他", value = 0x65 });
 
             dirnum.Add(new DirecNumer() { name = "西左", value = 193 });
             dirnum.Add(new DirecNumer() { name = "西直", value = 194 });
             dirnum.Add(new DirecNumer() { name = "西右", value = 196 });
             dirnum.Add(new DirecNumer() { name = "西人行", value = 200 });
-
-            dirnum.Add(new DirecNumer() { name = "北其他", value = 5 });
-            dirnum.Add(new DirecNumer() { name = "东其他", value = 69 });
-            dirnum.Add(new DirecNumer() { name = "南其他", value = 133 });
+            dirnum.Add(new DirecNumer() { name = "西调头", value = 0xc0 });
             dirnum.Add(new DirecNumer() { name = "西其他", value = 197 });
-
-            DirecCombox.ItemsSource = dirnum;
+            dirnum.Add(new DirecNumer() { name = "西南其他", value = 0xa5 });
            
         }
 
@@ -167,26 +174,31 @@ namespace tscui.Pages.Music
             cbxOperateType.ItemsSource = lopt;
 
         }
-        List<ChannelPhaseOverlap> lcpo = new List<ChannelPhaseOverlap>();
+        public List<ChannelPhaseOverlap> lcpo = new List<ChannelPhaseOverlap>();
         public class ChannelPhaseOverlap
         {
             public byte id { set; get; }
             public string name { set; get; }
             public bool isPhase { set; get; }
         }
+
+        public void Initpoplist()
+        {
+            for (byte a = 1; a < 33; a++)
+                lcpo.Add(new ChannelPhaseOverlap() { id = a, name = "p" + a, isPhase = true });
+            for (byte b = 1; b < 17; b++)
+                lcpo.Add(new ChannelPhaseOverlap() { id = b, name = "op" + b, isPhase = false });
+            lcpo.Add(new ChannelPhaseOverlap() { id = 0x0, name = "00", isPhase = false });
+        }
         private void InitOverlap()
         {
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
 
             List<tscui.Models.Phase> lp = t.ListPhase;
+           
             ccbIncludePhase1.ItemsSource = lp;
-            
             ccbCorrectPhase.ItemsSource = lp;
-            for (byte a = 1; a < 33;a++ )
-                lcpo.Add(new ChannelPhaseOverlap() { id = a, name = "p"+a ,isPhase=true});
-            for (byte b = 1; b < 17; b++)
-                lcpo.Add(new ChannelPhaseOverlap() { id = b, name = "op" + b ,isPhase=false});
-
+            
 
             channel1.ItemsSource = lcpo;
             channel2.ItemsSource = lcpo;
@@ -229,9 +241,13 @@ namespace tscui.Pages.Music
             t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
             if (t == null)
             {
-                System.Windows.MessageBox.Show("请选择一台信号机后，再进行配置！");
+                System.Windows.MessageBox.Show("请选择一信号机后，再切换到此界面！");
+                this.Visibility = Visibility.Hidden;
                 return;
             }
+            this.Visibility = Visibility.Visible;
+            if(lcpo.Count == 0)
+                Initpoplist();
             //下拉框数据填充
             Thread tDispatcherOverlap = new Thread(DispatcherOverlap);
             tDispatcherOverlap.IsBackground = true;
@@ -248,8 +264,14 @@ namespace tscui.Pages.Music
             InitChannel();
             //初始化显示相位数据与通道关联
             InitPhaseChannel();
-            InitDirecNumber();
-
+         //   InitDirecNumber();
+            if (DirecCombox.Items.Count == 0)
+            {
+                if(dirnum.Count == 0)
+                    InitDirecNumber();
+                DirecCombox.ItemsSource = dirnum;
+            }
+            
 
         }
 
@@ -1542,18 +1564,14 @@ namespace tscui.Pages.Music
                             {
                                 if (p.ucId == Byte.Parse(phaseCheckBox.Content.ToString()))
                                 {
-                                    // p.ucExtend = 0;
                                     p.ucFixedGreen = Byte.Parse(tbxFixedGreenTime.Text);
                                     p.ucGreenDelayUnit = Byte.Parse(tbxUintDelayTime.Text);
                                     p.ucGreenFlash = Byte.Parse(tbxGreenFlash.Text);
                                     p.ucMaxGreen1 = Byte.Parse(tbxMax1Time.Text);
                                     p.ucMaxGreen2 = Byte.Parse(tbxMax2Time.Text);
                                     p.ucMinGreen = Byte.Parse(tbxMinGreenTime.Text);
-                                    //  PhaseOption po = ((PhaseOption)cbxPhaseOption.SelectedValue);
-                                    // p.ucOption = Convert.ToByte(po.ucOption);
                                     p.ucPedestrianClear = Byte.Parse(tbxPedestrainClearTime.Text);
                                     p.ucPedestrianGreen = Byte.Parse(tbxPedestrainCrossTime.Text);
-                                    // p.ucType = Convert.ToByte(((PhaseType)cbxPhaseType.SelectedValue).ucType);
                                 }
                             }
 
@@ -1679,7 +1697,7 @@ namespace tscui.Pages.Music
                         ChannelPhaseOverlap cpo = (ChannelPhaseOverlap) ChannelPhaseId.SelectedValue;
                         channel.ucSourcePhase = cpo.id;
                         if ((channel.ucType == 0x4 && ChannelPhaseId.SelectedIndex < 32) ||
-                            (channel.ucType == 0x2 && ChannelPhaseId.SelectedIndex >= 32))
+                            (channel.ucType == 0x2 && ChannelPhaseId.SelectedIndex >= 32 && ChannelPhaseId.SelectedIndex != 48)) //48是相位号0
                         {
 
                             System.Windows.Forms.MessageBox.Show("选择的通道类型和相位类型号不匹配");
@@ -1713,26 +1731,61 @@ namespace tscui.Pages.Music
                 {
                     if (ptd.ucId == Convert.ToByte(((DirecNumer)DirecCombox.SelectedValue).value))
                     {
-                        ptd.ucRoadCnt = Convert.ToByte(tbxRoadCnt.Text);
-                        if (DirectPhaseId.SelectedIndex == -1)
+                        ChannelPhaseOverlap cpo = (ChannelPhaseOverlap)DirectPhaseId.SelectedValue;
+                       
+                        if (DirectPhaseId.SelectedIndex == -1 || cpo.id == 0)
                         {
                             ptd.ucPhase = 0;
                             ptd.ucOverlapPhase = 0;
                         }
                         else
                         {
-                            ChannelPhaseOverlap cpo = (ChannelPhaseOverlap) DirectPhaseId.SelectedValue;
+                            
                             if (cpo.isPhase == true)
                             {
+                                foreach (PhaseToDirec ptdphase in direcs)
+                                {
+                                    if (ptdphase.ucPhase == cpo.id && ptdphase.ucId != ptd.ucId)
+                                    {
+                                        foreach ( DirecNumer direcname in dirnum)
+                                        {
+                                            if (direcname.value == ptdphase.ucId)
+                                            {
+                                                MessageBox.Show("该相位已经被分配到->"+ direcname.name);
+                                                return;
+                                            }
+                                        }
+                                       
+                                    }
+
+                                }
                                 ptd.ucPhase = cpo.id;
                                 ptd.ucOverlapPhase = 0;
                             }
                             else
                             {
+                                foreach (PhaseToDirec ptdphase in direcs)
+                                {
+                                    if (ptdphase.ucOverlapPhase == cpo.id && ptdphase.ucId != ptd.ucId)
+                                    {
+                                        foreach (DirecNumer direcname in dirnum)
+                                        {
+                                            if (direcname.value == ptdphase.ucId)
+                                            {
+                                                MessageBox.Show("该相位已经被分配到->"+ direcname.name);
+                                                return;
+                                            }
+                                        }
+
+                                       
+                                    }
+
+                                }
                                 ptd.ucOverlapPhase = cpo.id;
                                 ptd.ucPhase = 0;
                             }
                         }
+                        ptd.ucRoadCnt = Convert.ToByte(tbxRoadCnt.Text);
                         break;
                     }
                 }

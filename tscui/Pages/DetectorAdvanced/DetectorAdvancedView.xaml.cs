@@ -158,47 +158,54 @@ namespace tscui.Views
 
         private void btnRead_Click(object sender, RoutedEventArgs e)
         {
-            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            List<byte> lb = TscDataUtils.GetSensitivityAdv11(t.Node);
-            sldDetector1.Value = lb[5];
-            sldDetector2.Value = lb[6];
-            sldDetector3.Value = lb[7];
-            sldDetector4.Value = lb[8];
-            sldDetector5.Value = lb[9];
-            sldDetector6.Value = lb[10];
-            sldDetector7.Value = lb[11];
-            sldDetector8.Value = lb[12];
-            List<byte> lb12 = TscDataUtils.GetSensitivityAdv12(t.Node);
-            sldDetector9.Value = lb12[5];
-            sldDetector10.Value = lb12[6];
-            sldDetector11.Value = lb12[7];
-            sldDetector12.Value = lb12[8];
-            sldDetector13.Value = lb12[9];
-            sldDetector14.Value = lb12[10];
-            sldDetector15.Value = lb12[11];
-            sldDetector16.Value = lb12[12];
+            try
+            {
+                TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                if (t == null)
+                    return;
+                List<byte> lb = TscDataUtils.GetSensitivityAdv11(t.Node);
+                sldDetector1.Value = lb[5];
+                sldDetector2.Value = lb[6];
+                sldDetector3.Value = lb[7];
+                sldDetector4.Value = lb[8];
+                sldDetector5.Value = lb[9];
+                sldDetector6.Value = lb[10];
+                sldDetector7.Value = lb[11];
+                sldDetector8.Value = lb[12];
+                List<byte> lb12 = TscDataUtils.GetSensitivityAdv12(t.Node);
+                sldDetector9.Value = lb12[5];
+                sldDetector10.Value = lb12[6];
+                sldDetector11.Value = lb12[7];
+                sldDetector12.Value = lb12[8];
+                sldDetector13.Value = lb12[9];
+                sldDetector14.Value = lb12[10];
+                sldDetector15.Value = lb12[11];
+                sldDetector16.Value = lb12[12];
 
-            List<byte> lb21 = TscDataUtils.GetSensitivityAdv21(t.Node);
-            sldDetector21.Value = lb21[5];
-            sldDetector22.Value = lb21[6];
-            sldDetector23.Value = lb21[7];
-            sldDetector24.Value = lb21[8];
-            sldDetector25.Value = lb21[9];
-            sldDetector26.Value = lb21[10];
-            sldDetector27.Value = lb21[11];
-            sldDetector28.Value = lb21[12];
+                List<byte> lb21 = TscDataUtils.GetSensitivityAdv21(t.Node);
+                sldDetector21.Value = lb21[5];
+                sldDetector22.Value = lb21[6];
+                sldDetector23.Value = lb21[7];
+                sldDetector24.Value = lb21[8];
+                sldDetector25.Value = lb21[9];
+                sldDetector26.Value = lb21[10];
+                sldDetector27.Value = lb21[11];
+                sldDetector28.Value = lb21[12];
 
-            List<byte> lb22 = TscDataUtils.GetSensitivityAdv22(t.Node);
-            sldDetector29.Value = lb22[5];
-            sldDetector210.Value = lb22[6];
-            sldDetector211.Value = lb22[7];
-            sldDetector212.Value = lb22[8];
-            sldDetector213.Value = lb22[9];
-            sldDetector214.Value = lb22[10];
-            sldDetector215.Value = lb22[11];
-            sldDetector216.Value = lb22[12];
+                List<byte> lb22 = TscDataUtils.GetSensitivityAdv22(t.Node);
+                sldDetector29.Value = lb22[5];
+                sldDetector210.Value = lb22[6];
+                sldDetector211.Value = lb22[7];
+                sldDetector212.Value = lb22[8];
+                sldDetector213.Value = lb22[9];
+                sldDetector214.Value = lb22[10];
+                sldDetector215.Value = lb22[11];
+                sldDetector216.Value = lb22[12];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("读取检测器参数异常!");
+            }
 
         }
     }

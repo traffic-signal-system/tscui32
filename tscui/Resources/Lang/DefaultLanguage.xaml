@@ -12,6 +12,14 @@
     <sys:String x:Key="dic_schedule_gpscoordination">GPSCoordination</sys:String>
     <sys:String x:Key="tsc_adv_selected_title">Phase</sys:String>
     <sys:String x:Key="tsc_adv_lamp_broad">Lamp</sys:String>
+    <sys:String x:Key="tsc_adv_lamp_broad1">NorthLamp</sys:String>
+    <sys:String x:Key="tsc_adv_lamp_broad2">EasthLamp</sys:String>
+    <sys:String x:Key="tsc_adv_lamp_broad3">SouthLamp</sys:String>
+    <sys:String x:Key="tsc_adv_lamp_broad4">WestLamp</sys:String>
+    <sys:String x:Key="tsc_adv_lamp_broad5">TurnAroundLamp</sys:String>
+    <sys:String x:Key="tsc_adv_lamp_broad6">OtherLamp1</sys:String>
+    <sys:String x:Key="tsc_adv_lamp_broad7">OtherLamp2</sys:String>
+    <sys:String x:Key="tsc_adv_lamp_broad8">Two-Step-CrossLamp</sys:String>
     <sys:String x:Key="tsc_adv_channel1">Channel1</sys:String>
     <sys:String x:Key="tsc_adv_channel2">Channel2</sys:String>
     <sys:String x:Key="tsc_adv_channel3">Channel3</sys:String>

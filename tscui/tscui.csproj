@@ -54,7 +54,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>fama.ico</ApplicationIcon>
+    <ApplicationIcon>signal.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -261,6 +261,7 @@
     <Compile Include="Utils\INIClass.cs" />
     <Compile Include="Utils\SQLiteHelper.cs" />
     <Compile Include="Utils\Utils.cs" />
+    <Resource Include="signal.ico" />
     <Page Include="Pages\Apex\ApexView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

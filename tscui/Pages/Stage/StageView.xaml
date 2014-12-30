@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:tscui.Pages.Stage"
-             xmlns:apexMVVM="clr-namespace:Apex.MVVM;assembly=Apex"
              xmlns:apexControls="clr-namespace:Apex.Controls;assembly=Apex"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
                 xmlns:apexBehaviours="clr-namespace:Apex.Behaviours;assembly=Apex"
@@ -13,134 +12,181 @@
 
     <!-- The View creates its own ViewModel, so set the ViewModel 
     to a new instance of the ViewModel class. -->
-    <apexMVVM:View.ViewModel>
+    <!--<apexMVVM:View.ViewModel>
         <local:StageViewModel x:Name="viewModel" />
-    </apexMVVM:View.ViewModel>
+    </apexMVVM:View.ViewModel>-->
 
     <apexControls:ApexGrid >
         <Canvas Background="White" x:Name="Stageviewcanvas">
             <!-- 背景图-->
-            <Image Grid.Row="0" Source="/tscui;component/Resources/Images/back20130627.jpg" Width="595" Height="600"></Image>
-            <Image x:Name="northLeft" Canvas.Left="273" Canvas.Top="469" Height="64" RenderOptions.BitmapScalingMode="Linear" Source="/tscui;component/Resources/Images/redlight.png" Width="17"  MouseLeftButtonDown="northLeft_MouseLeftButtonDown" MouseRightButtonDown="northLeft_MouseRightButtonDown">
+            <Image ToolTip ="路口基准图大" Source="/tscui;component/Resources/Images/back20130627.jpg" Width="595" Height="600"></Image>
+            <Image x:Name="northLeft" ToolTip ="北左" Canvas.Left="273" Canvas.Top="469" Height="64" RenderOptions.BitmapScalingMode="Linear" Source="/tscui;component/Resources/Images/redlight.png" Width="17" >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.3" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="northStraight" Canvas.Left="250" Canvas.Top="469" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17" MouseLeftButtonDown="northStraight_MouseLeftButtonDown" MouseRightButtonDown="northStraight_MouseRightButtonDown">
+            <Image x:Name="northStraight" ToolTip ="北直" Canvas.Left="250" Canvas.Top="469" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17"  >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.3" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="northOther" Canvas.Left="203" Canvas.Top="469" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17"  MouseLeftButtonDown="northOther_MouseLeftButtonDown" MouseRightButtonDown="northOther_MouseRightButtonDown">
-                <i:Interaction.Behaviors>
-                    <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.3" />
-                </i:Interaction.Behaviors>
-            </Image>
-            <Image x:Name="westRight" Canvas.Left="466" Canvas.Top="350" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"  MouseLeftButtonDown="westRight_MouseLeftButtonDown" MouseRightButtonDown="westRight_MouseRightButtonDown">
+         
+            <Image x:Name="westRight" ToolTip ="西右" Canvas.Left="466" Canvas.Top="350" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"   >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="westLeft" Canvas.Left="466" Canvas.Top="306" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66" MouseLeftButtonDown="westLeft_MouseLeftButtonDown" MouseRightButtonDown="westLeft_MouseRightButtonDown">
+            <Image x:Name="westLeft" ToolTip ="西左" Canvas.Left="466" Canvas.Top="306" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66" >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="southPedestrain2" Canvas.Left="222" Canvas.Top="438" Height="17" Visibility ="Hidden" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"  MouseLeftButtonDown="southPedestrain2_MouseLeftButtonDown" MouseRightButtonDown="southPedestrain2_MouseRightButtonDown">
+            <Image x:Name="southPedestrain2" ToolTip ="南二次过街" Canvas.Left="222" Canvas.Top="438" Height="17" Visibility ="Hidden" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"  >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="southPedestrain1" Canvas.Left="311" Canvas.Top="438" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66" MouseLeftButtonDown="southPedestrain1_MouseLeftButtonDown" MouseRightButtonDown="southPedestrain1_MouseRightButtonDown">
+            <Image x:Name="southPedestrain1" ToolTip ="南人行" Canvas.Left="311" Canvas.Top="438" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66" >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="northPedestrain1" Canvas.Left="222" Canvas.Top="145" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"  MouseLeftButtonDown="northPedestrain1_MouseLeftButtonDown" MouseRightButtonDown="northPedestrain1_MouseRightButtonDown">
+            <Image x:Name="northPedestrain1" ToolTip ="北人行" Canvas.Left="222" Canvas.Top="145" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"  >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="northPedestrain2" Canvas.Left="311" Canvas.Top="145" Height="17" Visibility ="Hidden" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"  MouseLeftButtonDown="northPedestrain2_MouseLeftButtonDown" MouseRightButtonDown="northPedestrain2_MouseRightButtonDown">
+            <Image x:Name="northPedestrain2" ToolTip ="北二次过街" Canvas.Left="311" Canvas.Top="145" Height="17" Visibility ="Hidden" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"  >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="westOther" Canvas.Left="466" Canvas.Top="375" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"  MouseLeftButtonDown="westOther_MouseLeftButtonDown" MouseRightButtonDown="westOther_MouseRightButtonDown">
-                <i:Interaction.Behaviors>
-                    <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
-                </i:Interaction.Behaviors>
-            </Image>
-            <Image x:Name="eastRight" Canvas.Left="61" Canvas.Top="231" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66" MouseLeftButtonDown="eastRight_MouseLeftButtonDown" MouseRightButtonDown="eastRight_MouseRightButtonDown">
+     
+            <Image x:Name="eastRight" ToolTip ="东右" Canvas.Left="61" Canvas.Top="231" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"  >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.7" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="eastStraight" Canvas.Left="61" Canvas.Top="255" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"  MouseLeftButtonDown="eastStraight_MouseLeftButtonDown" MouseRightButtonDown="eastStraight_MouseRightButtonDown">
+            <Image x:Name="eastStraight" ToolTip ="东直" Canvas.Left="61" Canvas.Top="255" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66" >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.7" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="eastLeft" Canvas.Left="61" Canvas.Top="277" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"  MouseLeftButtonDown="eastLeft_MouseLeftButtonDown" MouseRightButtonDown="eastLeft_MouseRightButtonDown">
+            <Image x:Name="eastLeft" ToolTip ="东左" Canvas.Left="61" Canvas.Top="277" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66" >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.7" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="southLeft" Canvas.Left="306" Canvas.Top="63" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17" MouseRightButtonDown="southLeft_MouseRightButtonDown" MouseLeftButtonDown="southLeft_MouseLeftButtonDown" >
+            <Image x:Name="southLeft" ToolTip ="南左" Canvas.Left="306" Canvas.Top="63" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17"   >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.9" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="westPedestrain2" Canvas.Left="143" Canvas.Top="225" Height="64" Visibility ="Hidden" Source="/tscui;component/Resources/Images/redlight.png" Width="17"  MouseLeftButtonDown="westPedestrain2_MouseLeftButtonDown" MouseRightButtonDown="westPedestrain2_MouseRightButtonDown">
+            <Image x:Name="westPedestrain2" ToolTip ="西二次过街" Canvas.Left="143" Canvas.Top="225" Height="64" Visibility ="Hidden" Source="/tscui;component/Resources/Images/redlight.png" Width="17"  >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.9" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="eastPedestrain2" Canvas.Left="436" Canvas.Top="307" Height="64" Visibility ="Hidden" Source="/tscui;component/Resources/Images/redlight.png" Width="17" MouseLeftButtonDown="eastPedestrain2_MouseLeftButtonDown" MouseRightButtonDown="eastPedestrain2_MouseRightButtonDown">
+            <Image x:Name="eastPedestrain2" ToolTip ="东二次过街" Canvas.Left="436" Canvas.Top="307" Height="64" Visibility ="Hidden" Source="/tscui;component/Resources/Images/redlight.png" Width="17"  >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.9" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="eastPedestrain1" Canvas.Left="436" Canvas.Top="224" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17"  MouseLeftButtonDown="eastPedestrain1_MouseLeftButtonDown" MouseRightButtonDown="eastPedestrain1_MouseRightButtonDown">
+            <Image x:Name="eastPedestrain1" ToolTip ="东人行" Canvas.Left="436" Canvas.Top="224" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17"  >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.9" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="westPedestrain1" Canvas.Left="142" Canvas.Top="307" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17"  MouseLeftButtonDown="westPedestrain1_MouseLeftButtonDown" MouseRightButtonDown="westPedestrain1_MouseRightButtonDown">
+            <Image x:Name="westPedestrain1"  ToolTip ="西人行" Canvas.Left="142" Canvas.Top="307" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17" >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.9" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="southStraight" Canvas.Left="329" Canvas.Top="63" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17" MouseLeftButtonDown="southStraight_MouseLeftButtonDown" MouseRightButtonDown="southStraight_MouseRightButtonDown">
+            <Image x:Name="southStraight" ToolTip ="南直" Canvas.Left="329" Canvas.Top="63" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17"  >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.9" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="southRight" Canvas.Left="353" Canvas.Top="63" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17"  MouseLeftButtonDown="southRight_MouseLeftButtonDown" MouseRightButtonDown="southRight_MouseRightButtonDown">
+            <Image x:Name="southRight"  ToolTip ="南右" Canvas.Left="353" Canvas.Top="63" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17" >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.9" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="northRight" Canvas.Left="226" Canvas.Top="469" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17" MouseLeftButtonDown="northRight_MouseLeftButtonDown" MouseRightButtonDown="northRight_MouseRightButtonDown">
+            <Image x:Name="northRight" ToolTip ="北右" Canvas.Left="226" Canvas.Top="469" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17" >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.3" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="southOther" Canvas.Left="376" Canvas.Top="63" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17"  MouseLeftButtonDown="southOther_MouseLeftButtonDown" MouseRightButtonDown="southOther_MouseRightButtonDown">
+            
+            <Image x:Name="westStraight" ToolTip ="西直" Canvas.Left="466" Canvas.Top="328" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66" >
+                <i:Interaction.Behaviors>
+                    <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
+                </i:Interaction.Behaviors>
+            </Image>
+   
+            <Image x:Name="southOther" ToolTip ="南其他" Canvas.Left="402" Canvas.Top="63" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17" >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.9" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="westStraight" Canvas.Left="466" Canvas.Top="328" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66" MouseLeftButtonDown="westStraight_MouseLeftButtonDown" MouseRightButtonDown="westStraight_MouseRightButtonDown">
+            <Image x:Name="northOther" ToolTip ="北其他" Canvas.Left="178" Canvas.Top="469" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17" >
+                <i:Interaction.Behaviors>
+                    <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.3" />
+                </i:Interaction.Behaviors>
+            </Image>
+     
+            <Image x:Name="eastOther" ToolTip ="东其他" Canvas.Left="61" Canvas.Top="179" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"  >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
                 </i:Interaction.Behaviors>
             </Image>
-            <Image x:Name="eastOther" Canvas.Left="61" Canvas.Top="206" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66"  MouseLeftButtonDown="eastOther_MouseLeftButtonDown" MouseRightButtonDown="eastOther_MouseRightButtonDown">
+   
+            <Image x:Name="westOther" ToolTip ="西其他" Canvas.Left="466" Canvas.Top="402" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66" >
                 <i:Interaction.Behaviors>
                     <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
                 </i:Interaction.Behaviors>
             </Image>
+            <Image x:Name="northTurn" ToolTip ="北调头" Canvas.Left="203" Canvas.Top="469" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17" >
+                <i:Interaction.Behaviors>
+                    <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.3" />
+                </i:Interaction.Behaviors>
+            </Image>
+            <Image x:Name="WestNorthOther" ToolTip ="西北其他" Canvas.Left="158" Canvas.Top="469" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17"  >
+                <i:Interaction.Behaviors>
+                    <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.3" />
+                </i:Interaction.Behaviors>
+            </Image>
+            <Image x:Name="southTurn" ToolTip ="南调头"  Canvas.Left="376" Canvas.Top="63" Height="64" Source="/tscui;component/Resources/Images/redlight.png" Width="17" >
+                <i:Interaction.Behaviors>
+                    <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.9" />
+                </i:Interaction.Behaviors>
+            </Image>
+            <Image x:Name="eastSouthOther" ToolTip ="东南其他" Canvas.Left="421" Canvas.Top="63" Height="64" Width="17" Source="/tscui;component/Resources/Images/redlight.png"  RenderTransformOrigin="0.353,0.633" >
+                <i:Interaction.Behaviors>
+                    <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.9" />
+                </i:Interaction.Behaviors>
+            </Image>
+            <Image x:Name="eastTurn"  Canvas.Left="61" Canvas.Top="206" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66" ToolTip ="东调头" >
+                <i:Interaction.Behaviors>
+                    <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
+                </i:Interaction.Behaviors>
+            </Image>
+            <Image x:Name="eastNorthOther" ToolTip ="东北其他" Canvas.Left="61" Canvas.Top="160" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66">
+                <i:Interaction.Behaviors>
+                    <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
+                </i:Interaction.Behaviors>
+            </Image>
+            <Image x:Name="westTurn" ToolTip ="西调头" Canvas.Left="466" Canvas.Top="375" Height="17" Source="/tscui;component/Resources/Images/redlight1.png" Width="66" >
+                <i:Interaction.Behaviors>
+                    <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
+                </i:Interaction.Behaviors>
+            </Image>
+            <Image x:Name="westSouthOther" ToolTip ="西南其他" Canvas.Left="466" Canvas.Top="421" Width="66" Height="17" Source="/tscui;component/Resources/Images/redlight1.png"  RenderTransformOrigin="0.674,0.5" >
+                <i:Interaction.Behaviors>
+                    <apexBehaviours:SlideFadeInBehaviour BeginTime="0:0:0.5" />
+                </i:Interaction.Behaviors>
+            </Image>
+
             <ScrollViewer Height="600" Canvas.Left="595" Width="190" Canvas.Top="2" MouseRightButtonDown="ScrollViewer_MouseRightButtonDown" MouseDoubleClick="ScrollViewer_MouseDoubleClick">
                 <StackPanel Orientation="Vertical" MouseDown="StackPanel_MouseDown">
                     <local:StageItem Visibility="Visible" x:Name="stage1" MouseDown="stage1_MouseDown"/>
@@ -178,8 +224,8 @@
                     <Button x:Name="btnSave" Content="{DynamicResource tsc_time_save}" HorizontalAlignment="Left" Margin="53,549,0,0" VerticalAlignment="Top" Width="50" Click="btnSave_Click"/>
                     <TextBox x:Name="tbxCycle" HorizontalAlignment="Left" Height="23" Margin="58,97,0,0" TextWrapping="Wrap" Text="120" VerticalAlignment="Top" Width="45"/>
                     <TextBox x:Name="tbxOffset" HorizontalAlignment="Left" Height="23" Margin="58,151,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="45"/>
-                    
-                    
+
+
                     <Slider x:Name="sldGreenTime" IsSnapToTickEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="24" AutoToolTipPlacement="BottomRight" Maximum="199" Minimum="1" TickPlacement="BottomRight" Margin="0,213,0,0" Orientation="Vertical" Height="250" SmallChange="1" ValueChanged="sldGreenTime_ValueChanged"/>
                     <Slider x:Name="sldYellowTime" IsSnapToTickEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="24" AutoToolTipPlacement="BottomRight" Maximum="199" TickPlacement="BottomRight" Margin="36,213,0,0" Height="250" Orientation="Vertical" SmallChange="1" ValueChanged="sldYellowTime_ValueChanged"/>
                     <Slider x:Name="sldRedTime" IsSnapToTickEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="24" AutoToolTipPlacement="BottomRight" Maximum="199" TickPlacement="BottomRight" Margin="69,213,0,0" Height="250" Orientation="Vertical" SmallChange="1" ValueChanged="sldRedTime_ValueChanged"/>
@@ -200,11 +246,12 @@
                     <Slider x:Name="sldSchemeId" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="93" AutoToolTipPlacement="BottomRight" Maximum="16" Minimum="1" TickPlacement="BottomRight" SmallChange="1" ValueChanged="sldSchemeId_ValueChanged"/>
                 </Grid>
             </GroupBox>
-            
+            <Label x:Name="stageNumber" Content="1" Canvas.Left="286" Canvas.Top="277" Foreground="{DynamicResource ZuneColor1Brush}" Width="37" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.714,0.538" Height="36"/>
             <!--北方向 -->
             <!-- 东方向的-->
             <!-- 南方向的-->
             <!-- 西方向的-->
         </Canvas>
+
     </apexControls:ApexGrid >
 </UserControl>

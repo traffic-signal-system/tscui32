@@ -16,5 +16,5 @@ F:\TSC\tcui32\tscui\App.xaml
 28459193393
 Pages\Apex\ApexView.xaml;Pages\BaseTime\BaseTimeView.xaml;Pages\BaseTime\SeasonTimeView.xaml;Pages\Calendar\CalendarView.xaml;Pages\Collision\CollisionItem.xaml;Pages\Collision\CollisionView.xaml;Pages\Config\ConfigView.xaml;Pages\Control\ControlView.xaml;Pages\LoadingMask\LoadingMask.xaml;Pages\Module\ModuleView.xaml;Pages\Schedules\ScheduleView.xaml;Pages\CountDown\CountDownView.xaml;Pages\Degradation\DegradationView.xaml;Pages\Detector\DetectorView.xaml;Pages\LightCheck\CheckItem.xaml;Pages\LightCheck\LightCheckView.xaml;Pages\Log\LogsView.xaml;Pages\Phase\PhaseView.xaml;Pages\Stage\StageItem.xaml;Pages\Stage\StageView.xaml;Pages\ThePages\ThePagesView.xaml;Pages\Update\UpdateView.xaml;Pages\VariableSign\VariableSignView.xaml;Popups\ChannelPopup.xaml;Popups\DetectorPopup.xaml;Popups\GbtError.xaml;Popups\SuccessPopup.xaml;Popups\FailePopup.xaml;Resources\Lang\DefaultLanguage.xaml;Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.xaml;Resources\ResourceDictionaries\ZuneScrollBarResourceDictionary.xaml;Resources\ResourceDictionaries\ZuneResourceDictionary.xaml;Popups\ExamplePopup.xaml;MainView.xaml;Pages\Music\MusicView.xaml;Pages\DetectorAdvanced\DetectorAdvancedView.xaml;tscuiWindow.xaml;
 
-True
+False
 
