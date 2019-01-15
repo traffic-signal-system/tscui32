@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using Apex;
 using tscui.Models;
 using System.Windows;
 using tscui.Pages.BaseTime;
+using tscui.Views;
 
 namespace tscui.Utils
 {
@@ -98,11 +101,17 @@ namespace tscui.Utils
                 case 48:
                     result = "无电线缆协调";
                     break;
+                case 240:
+                    result = "动态预分析";
+                    break;
                 case 96:
                     result = "手动";
                     break;
                 case 112:
-                    result = "感应";
+                    result = "全感应";
+                    break;
+                case 144:
+                    result = "次线半感应";
                     break;
                 case 160:
                     result = "自适应";
@@ -118,11 +127,55 @@ namespace tscui.Utils
             }
             return result;
         }
+
+        public static string GetTableName(byte bytetable)
+        {
+            string strtablename = "";
+            switch (bytetable)
+            {
+                case 0x9f:
+                    strtablename = "车检参数表";
+                    break;
+                case 0x8d:
+                    strtablename = "时基表";
+                    break;
+                case 0x8e:
+                    strtablename = "时段表";
+                    break;
+                case 0x95:
+                    strtablename = "相位表";
+                    break;
+                case 0xb0:
+                    strtablename = "通道表";
+                    break;
+                case 0xc0:
+                    strtablename = "方案表";
+                    break;
+                case 0xc1:
+                    strtablename = "阶段配时表";
+                    break;
+                case 0xc8:
+                    strtablename = "跟随相位表";
+                    break;
+                case 0xfa:
+                    strtablename = "相位方向表";
+                    break;
+                case 0x92:
+                    strtablename = "日志表";
+                    break;
+                default:
+                    strtablename = "其他表";
+                    break;
+            }
+            return strtablename;
+
+        }
         /// <summary>
         /// 信号机主动上报的情况下，对工作状态的解析
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
+        /// 
         public static string ReportStatusWorkStatus(byte b)
         {
             string result = "";
@@ -228,9 +281,7 @@ namespace tscui.Utils
                 case 5:
                     result = "黄闪器";
                     break;
-                case 15:
-                    result = "其他类型日志";
-                    break;
+               
                 case 6:
                     result = "灯控板";
                     break;
@@ -258,8 +309,11 @@ namespace tscui.Utils
                 case 14:
                     result = "灯色输出异常2";
                     break;
+                case 15:
+                    result = "其他类型";
+                    break;
                 case 16:
-                    result = "can总线";
+                    result = "数据总线";
                     break;
                 default:
                     break;
@@ -288,10 +342,20 @@ namespace tscui.Utils
                         result = result + "【正常】";
                         break;
                     case 0x01:
-                        result = result + "【长亮】";
+                        {
+                            if (b1 == 30)
+                            {
+                                result = "绿冲突, 灯组"+ ((b1-1)/3+1).ToString()+" ,红绿冲突";
+                            }
+                            else
+                              result = result + "【红绿同亮】";
+                        }
                         break;
                     case 0x02:
-                        result = result + "【长灭】";
+                        if ((b1-1)%3 ==0x0)
+                         result = result + "【红灯熄灭】";
+                        else if ((b1 - 1) % 3 == 0x2)
+                         result = result + "【绿灯熄灭】";
                         break;
                     case 0x03:
                         result = result + "【可控硅击穿】";
@@ -337,10 +401,10 @@ namespace tscui.Utils
                         result = result + "正常";
                         break;
                     case 0x01:
-                        result = result + "线圈开路";
+                        result = result + "线圈短路";
                         break;
                     case 0x02:
-                        result = result + "线圈短路";
+                        result = result + "线圈开路";
                         break;
                     case 0x03:
                         result = result + "通道停振";
@@ -652,24 +716,24 @@ namespace tscui.Utils
             {
                 byte[] bpara = System.BitConverter.GetBytes(i);
                 bpara = bpara.Reverse().ToArray();
-                result = result + "其他类型日志，";
+              //  result = result + "其他类型日志，";
                 switch (bpara[0])
                 {
 
                     case 0x01:
-                        result = result + "控制方式切换";
-                        result = result + ",旧的控制方式【" + ControlModel2String(bpara[1]) + "】,新的控制方式【" + ControlModel2String(bpara[2]) + "】,";
+                        result = result + "控制切换:";
+                        result = result + "旧控制方式【" + ControlModel2String(bpara[1]) + "】,新控制方式【" + ControlModel2String(bpara[2]) + "】,";
                         switch (bpara[3])
                         {
                             case 0x00:
-                                result = result + "正常切换(上位机命令 时段表 面板)";
+                                result = result + "正常切换";
                                 break;
                             case 0x01:
-                                result = result + "异常切换  降级";
+                                result = result + "异常切换-降级";
                                 break;
 
                             default:
-                                result = result + "未知";
+                                result = result + "初始启动";
                                 break;
                         }
                         break;
@@ -694,6 +758,21 @@ namespace tscui.Utils
                                 break;
                         }
                         break;
+                    case 0x3:
+                    {
+                        result = result + "数据表:";
+                        string tablename = GetTableName(bpara[2]);
+                        if (bpara[1] == 0x1)
+                        {
+                            result = result + tablename+"读取异常!";
+
+                        }
+                        else if (bpara[1] == 0x2)
+                        {
+                            result = result + tablename+"写入异常!";
+                        }
+                        break;
+                    }
                     default:
                         break;
                 }
@@ -701,9 +780,9 @@ namespace tscui.Utils
             }
             else if (type == 0x10)
             {
-                byte[] bpara = System.BitConverter.GetBytes(i);
-                bpara = bpara.Reverse().ToArray();
-                result = result + "总线通信异常，总线重起，不影响信号机正常运行。";
+                //byte[] bpara = BitConverter.GetBytes(i);
+                //  bpara = bpara.Reverse().ToArray();
+                result = result + "信号机CAN总线重置";
             }
             return result;
         }
@@ -793,8 +872,19 @@ namespace tscui.Utils
                 case 0x0b:
                     result = result + "面板控制";
                     break;
+                case 0x0c:
+                    result = result + "时段表关灯";
+                    break;
+                case 0x0d:
+                    result = result + "时段表黄闪";
+                    break;
+                case 0x0e:
+                    result = result + "时段表全红";
+                    break;case 0xf:
+                    result = result + "动态预分析";
+                    break;
                 default:
-                    result = result + "未知";
+                    result = result + "控制初始化";
                     break;
             }
             return result;
@@ -947,6 +1037,38 @@ namespace tscui.Utils
 
             }
 
+            return true;
+
+        }
+
+        public static bool bIp(string ipstr)
+        {
+            Regex check = new Regex(@"^(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])$");
+            try
+            {
+                if (!check.IsMatch(ipstr.Trim()))
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+                // MessageBox.Show("信号机IP地址异常，请选择信号机!");
+
+            }
+            return true;
+        }
+
+        public static bool bValidate()
+        {
+            TscData td = GetTscDataByApplicationCurrentProperties();
+            if (td.bValidate == false)
+            {
+                ApexBroker.GetShell().ShowPopup(new Validate());
+                if (td.bValidate == false)
+                    return false;
+            }
             return true;
 
         }
