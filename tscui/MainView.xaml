@@ -6,51 +6,56 @@
              xmlns:apexCommands="clr-namespace:Apex.Commands;assembly=Apex"
              xmlns:apexControls="clr-namespace:Apex.Controls;assembly=Apex"
              xmlns:apexShells="clr-namespace:Apex.Shells;assembly=Apex"
-             xmlns:tscui="clr-namespace:tscui" mc:Ignorable="d" 
+             xmlns:tscui="clr-namespace:tscui" 
+             xmlns:prop="clr-namespace:tscui.Properties"
+             mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="900">
-    
     <!-- Set the view model. -->
     <UserControl.DataContext>
         <tscui:MainViewModel x:Name="viewModel" />
     </UserControl.DataContext>
-    
-    <apexShells:Shell TextBlock.FontFamily="Segoe UI">        
+    <apexShells:Shell TextBlock.FontFamily="Segoe UI">
         <Grid>
             <!-- Top right title panel. -->
             <apexControls:ApexGrid 
-                Rows="*,*" Columns="*,Auto"
+                Rows="*,*" Columns="Auto,*,*"
                 HorizontalAlignment="Right" VerticalAlignment="Top"
-                Width="200" Margin="0,0,90,0">
-            
+                Width="300" Margin="0,0,90,0">
+
                 <!-- The title. -->
                 <TextBlock 
-                    Grid.Row="0" FontWeight="ExtraBlack" FontSize="13" Text="{Binding Title}"
+                    Grid.Row="0" FontWeight="ExtraBlack" FontSize="12" Text="{x:Static prop:Resources.app_ver}"
                     Margin="0,2,4,0"
                     HorizontalAlignment="Right" />
-            
+
                 <!-- The subtitle. -->
                 <TextBlock 
-                    Grid.Row="1" FontWeight="ExtraBlack" FontSize="9"
-                    Foreground="{StaticResource ZuneDarkGrayBrush}"
+                    Grid.Row="1" FontWeight="ExtraBlack" FontSize="12"
                     Margin="0,-2,4,0"
                     HorizontalAlignment="Right">
-                    <Run Text="{Binding Title}" />
                     <Run Text="{DynamicResource tsc_name}" />
                 </TextBlock>
+                <Menu  Grid.Column="1" Grid.RowSpan="2" Background="Transparent" FontWeight="ExtraBlack" FontSize="12" >
+                    <MenuItem Header="{DynamicResource LanguageMenu}">
+                        <MenuItem Header="{DynamicResource Language_EN}" Click="Click_ENChose"/>
+                     <Separator/>
+                        <MenuItem Header="{DynamicResource Language_CN}" Click="Click_CNChose"/>
+                     </MenuItem>
+                </Menu>
 
                 <!-- The application icon. -->
                 <Border 
-                    Grid.Column="1" Grid.RowSpan="2" Width="36" Height="36"
+                    Grid.Column="2" Grid.RowSpan="2" Width="36" Height="36"
                     Background="{StaticResource ZuneColor1Brush}" />
-            
+               
             </apexControls:ApexGrid>
-        
+
             <!-- The top left menu panel. -->
             <apexControls:ApexGrid 
                 Columns="Auto,*" 
                 HorizontalAlignment="Stretch" VerticalAlignment="Top"
                 Margin="0,30,0,0">
-            
+
                 <!-- The color block. -->
                 <Border Grid.Column="0" Width="20" Height="54">
                     <Border.Background>
@@ -60,10 +65,10 @@
                         </LinearGradientBrush>
                     </Border.Background>
                 </Border>
-            
+
                 <!-- The menu grid. -->
                 <apexControls:ApexGrid Grid.Column="1" Rows="*,*" Margin="6,0,0,0">
-                    
+
                     <!-- The top menu, show pages for the main page. -->
                     <apexControls:SelectableItemsControl 
                         x:Name="selectableItemsControl_TopMenu"
@@ -78,15 +83,15 @@
                             <DataTemplate>
                                 <TextBlock 
                                     Cursor="Hand"
-                                    Text="{Binding Title}"
+                                    Text="{Binding Title, Mode=TwoWay,NotifyOnSourceUpdated=True}"
                                     Style="{StaticResource MenuItemStyle}" 
                                     apexCommands:ExtendedCommands.LeftClickCommand="{Binding ElementName=selectableItemsControl_TopMenu, Path=SelectItemCommand}"
                                     apexCommands:ExtendedCommands.LeftClickCommandParameter="{Binding}">
-                                 </TextBlock>
+                                </TextBlock>
                             </DataTemplate>
                         </apexControls:SelectableItemsControl.ItemTemplate>
                     </apexControls:SelectableItemsControl>
-                    
+
                     <!-- The bottom menu, show pages for the active page. -->
                     <apexControls:SelectableItemsControl 
                         x:Name="selectableItemsControl_BottomMenu"
@@ -103,7 +108,7 @@
                             <DataTemplate>
                                 <TextBlock 
                                     Cursor="Hand"
-                                    Text="{Binding Title}"
+                                    Text="{Binding Title,Mode=TwoWay,NotifyOnSourceUpdated=True}"
                                     Style="{StaticResource SubMenuItemStyle}" 
                                     apexCommands:ExtendedCommands.LeftClickCommand="{Binding ElementName=selectableItemsControl_BottomMenu, Path=SelectItemCommand}"
                                     apexCommands:ExtendedCommands.LeftClickCommandParameter="{Binding}">
@@ -114,9 +119,8 @@
 
                 </apexControls:ApexGrid>
             </apexControls:ApexGrid>
-
             <!-- A View Broker for the main view. -->
-            <apexControls:ViewBroker ViewModel="{Binding ActivePage.ActivePage}" Margin="6,94,6,6">
+            <apexControls:ViewBroker Name="viewBroker" ViewModel="{Binding ActivePage.ActivePage}" Margin="6,94,6,6">
             </apexControls:ViewBroker>
         </Grid>
 

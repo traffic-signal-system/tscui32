@@ -1,0 +1,72 @@
+﻿<UserControl  x:Class="tscui.Pages.YelloFlash.YelloFlash" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" VerticalAlignment="Top" d:DesignWidth="800" Height="600" Loaded="UserControl_Loaded_1" >
+    <!-- The View creates its own ViewModel, so set the ViewModel 
+                 to a new instance of the ViewModel class. -->
+    <Grid HorizontalAlignment="Left" Height="516" VerticalAlignment="Top" Width="750">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="791*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="黄闪器控制" FontSize="13" HorizontalAlignment="Left" Margin="133,4,0,0" VerticalAlignment="Top" Height="100" Width="599" Grid.Column="1">
+            <Canvas HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="589" Margin="0,0,-2,-1">
+                <RadioButton x:Name="Rped" FontSize="12" Content="强制黄闪" Canvas.Left="51" Canvas.Top="38" Height="28" Width="119" Checked="RadioButton_Checked"/>
+                <RadioButton x:Name="Rtsc" FontSize="12" Content="退出黄闪" Canvas.Left="271" Canvas.Top="38" Width="132" Checked="RadioButton_Checked_1" IsEnabled="False"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox Header="黄闪器参数参数" FontSize="13" HorizontalAlignment="Left" Margin="133,141,0,0" VerticalAlignment="Top" Height="365" Width="599" Grid.Column="1">
+            <Canvas HorizontalAlignment="Left" Height="324" VerticalAlignment="Top" Width="553">
+                <Label Content="黄闪频率:" FontSize="12" Canvas.Left="56" Canvas.Top="34" Height="28" Width="74"/>
+                <Label Content="占空比:" FontSize="12" Canvas.Left="56" Canvas.Top="84" Height="30" Width="51"/>
+                <Label Content="黄闪方式:" FontSize="12" Canvas.Left="58" Canvas.Top="188" Width="78" Height="38"/>
+                <Button Content="设置" FontSize="12" Canvas.Left="266" Canvas.Top="247" Width="64" Height="28" Click="Button_Click" RenderTransformOrigin="-0.114,0.632"/>
+                <Button Content="读取" x:Name="Simulatebtn" FontSize="12" Canvas.Left="59" Canvas.Top="247" Width="64" Height="28" Click="Simulate_Click"/>
+                <RadioButton x:Name="Syncflash" Content="同步闪" Canvas.Left="158" Canvas.Top="192"/>
+                <RadioButton x:Name="Asynflash" Content="异步闪" Canvas.Left="299" Canvas.Top="192"/>
+                <ComboBox x:Name="Cbrate" Text="下拉选择黄闪频率" Canvas.Left="155" Canvas.Top="34" Width="214" Height="28" IsReadOnly="True" SelectedIndex="4">
+                    <ComboBoxItem Content="0000(0.2Hz)"/>
+                    <ComboBoxItem Content="0001(0.3Hz)"/>
+                    <ComboBoxItem Content="0010(0.4Hz)"/>
+                    <ComboBoxItem Content="0011(0.5Hz)"/>
+                    <ComboBoxItem Content="0100(1Hz)"/>
+                    <ComboBoxItem Content="0101(1.5Hz)"/>
+                    <ComboBoxItem Content="0110(2Hz)"/>
+                    <ComboBoxItem Content="0111(2.5Hz)"/>
+                    <ComboBoxItem Content="1000(3Hz)"/>
+                    <ComboBoxItem Content="1001(5Hz)"/>
+                </ComboBox>
+                <ComboBox x:Name="Cbdutyratio" Text="下拉选择占空比" Canvas.Left="155" Canvas.Top="84" Width="214" Height="28" IsReadOnly="True" SelectedIndex="8">
+                    <ComboBoxItem Content="0000(0:1)"/>
+                    <ComboBoxItem Content="0001(0.0625:0.9375)"/>
+                    <ComboBoxItem Content="0010(0.125:0.875)"/>
+                    <ComboBoxItem Content="0011(0.1875:0.8125)"/>
+                    <ComboBoxItem Content="0100(0.25:0.75)"/>
+                    <ComboBoxItem Content="0101(0.3125:0.6875)"/>
+                    <ComboBoxItem Content="0110(0.375:0.625)"/>
+                    <ComboBoxItem Content="0111(0.4375:0.5625)"/>
+                    <ComboBoxItem Content="1000(0.5:0.5)"/>
+                    <ComboBoxItem Content="1001(0.5625:0.4375)"/>
+                    <ComboBoxItem Content="1010(0.625:0.375)"/>
+                    <ComboBoxItem Content="1011(0.6875:0.3125)"/>
+                    <ComboBoxItem Content="1100(0.75:0.25)"/>
+                    <ComboBoxItem Content="1101(0.8125:0.1875)"/>
+                    <ComboBoxItem Content="1110(0.875:0.125)"/>
+                    <ComboBoxItem Content="1111(1:0)"/>
+                </ComboBox>
+                <Label Content="黄闪原因:" FontSize="12" Canvas.Left="59" Canvas.Top="136" Height="30" Width="71"/>
+                <ComboBox x:Name="Cbyftype" Text="黄闪原因" Canvas.Left="158" Canvas.Top="136" Width="214" Height="28" IsReadOnly="True" SelectedIndex="8" IsEnabled="False">
+                    <ComboBoxItem Content="未定义"/>
+                    <ComboBoxItem Content="灯泡故障"/>
+                    <ComboBoxItem Content="相位冲突"/>
+                    <ComboBoxItem Content="硬件红绿冲突"/>
+                    <ComboBoxItem Content="强制黄闪"/>
+                    <ComboBoxItem Content="降级黄闪"/>
+                    <ComboBoxItem Content="主板异常黄闪"/>
+                </ComboBox>
+            </Canvas>
+        </GroupBox>
+    </Grid>
+</UserControl>

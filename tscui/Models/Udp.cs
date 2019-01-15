@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
-using System.Windows;
 using System.Threading;
 using tscui.Service;
+using ThreadState = System.Threading.ThreadState;
 
 namespace tscui.Models
 {
-
     /// <summary>
     /// UDP操作工具类
     /// </summary>
@@ -26,7 +25,6 @@ namespace tscui.Models
         {
             try
             {
-
                 _socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 bool aa = _socket.Connected;
                 _receiveThread = new Thread(Receive);
@@ -34,7 +32,8 @@ namespace tscui.Models
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message.ToString());
+                Console.WriteLine(ex.Message);
+              //  Console.WriteLine("接收线程失败");
             }
         }
         #endregion
@@ -48,8 +47,8 @@ namespace tscui.Models
                 // int len;
                 // bool flag = IsSocketConnected(_socket);
                 IPEndPoint ip = new IPEndPoint(IPAddress.Parse(ipstr), port);
-                _socket.SendTimeout = 1000;
-                _socket.ReceiveTimeout = 1000;
+                _socket.SendTimeout = 10000;
+                _socket.ReceiveTimeout = 10000;
                 _socket.SendTo(hex, ip);
                 return true;
 
@@ -66,10 +65,10 @@ namespace tscui.Models
         #region 关闭接收线程和socket连接
         public static void Close()
         {
-            if (_receiveThread != null)
+            if (_receiveThread != null && _receiveThread.ThreadState == ThreadState.Running)
                 _receiveThread.Abort();
-            if (_socket != null)
-                _socket.Close();
+           // if (_socket != null)
+              //  _socket.Close();
         }
         #endregion
 
@@ -83,6 +82,7 @@ namespace tscui.Models
                 {
                     _socket.Bind(_local);                  
                 }
+                _socket.ReceiveTimeout = 10000;
                 while (true)
                 {
                     byte[] buffer = new byte[255];
@@ -90,6 +90,7 @@ namespace tscui.Models
                     int len = _socket.ReceiveFrom(buffer, ref remoteEP);
                     IPEndPoint ipEndPoint = remoteEP as IPEndPoint;
                     GBT_20999_Utils gb20999 = new GBT_20999_Utils(buffer, len);
+                  //  Console.WriteLine("Receive Thread");
                 }
             }
             catch (Exception ex)
@@ -204,33 +205,29 @@ namespace tscui.Models
         {
             int recv;
             Socket server = null;
-            byte[] bytes = new byte[65535];
+
+            byte[] bytes = new byte[1024]; //这里字节数可以限制，不用65535个字节。接收字节数最多的一般是阶段配时，日志一类。设置为1K
             try
             {
                 IPEndPoint ip = new IPEndPoint(IPAddress.Parse(ipstr), port);
                 server = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-                // string str = "Hello Server!";
-                //bytes = System.Text.Encoding.ASCII.GetBytes(str);
-                server.SendTimeout = 4000;
-                server.ReceiveTimeout = 4000;
+                server.SendTimeout = 15000;  //超时15秒
+                server.ReceiveTimeout =15000;//超时15秒
                 server.SendTo(hex, ip);
                 IPEndPoint sender = new IPEndPoint(IPAddress.Any, 0);
                 EndPoint Remote = (EndPoint)(sender);
                 //server.Bind(sender);
                 recv = server.ReceiveFrom(bytes, ref Remote);
-                Console.WriteLine("Message received from {0}", Remote.ToString());
-                //str = System.Text.Encoding.ASCII.GetString(bytes, 0, recv);
-                Console.WriteLine("Message: " + bytes[0]);
                 server.Close();
                 server = null;
                 if (bytes[0] == 134)
                     return false;
-                else
+                else 
                     return true;
             }
             catch (Exception exce)
             {
-                Console.WriteLine(exce.ToString());
+             //   Console.WriteLine(exce.ToString());
                 server.Close();
                 server = null;
                 return false;
@@ -252,37 +249,24 @@ namespace tscui.Models
             UdpClient udpClient = new UdpClient();
             try
             {
-
-                //ThreadPool.QueueUserWorkItem(SavePlan);
                 udpClient.Connect(IPAddress.Parse(strip), port);
-                // Sends a message to the host to which you have connected.
                 Byte[] sendBytes = hex;//Encoding.ASCII.GetBytes("123456");
+                udpClient.Client.SendTimeout = 1000;
+                udpClient.Client.ReceiveTimeout = 1000;
                 udpClient.Send(sendBytes, sendBytes.Length);
-                //udpClient.EnableBroadcast = true;
-                //udpClient.Ttl
-                // Sends a message to a different host using optional hostname and port parameters.
-               
-                //UdpClient udpClientB = new UdpClient();
-               // udpClientB.Send(sendBytes, sendBytes.Length, strip, port);     //向备用主机发消息
-                //IPEndPoint object will allow us to read datagrams sent from any source.
                 IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 5435);  //接收端接受所有信息
-                // Blocks until a message returns on this socket from a remote host.
                 
-                    Byte[] receiveBytes = udpClient.Receive(ref RemoteIpEndPoint);
-                    string returnData = Encoding.ASCII.GetString(receiveBytes, 0, receiveBytes.Length);
+                Byte[] receiveBytes = udpClient.Receive(ref RemoteIpEndPoint);
+                string returnData = Encoding.ASCII.GetString(receiveBytes, 0, receiveBytes.Length);
 
-                    udpClient.Close();
-                  //  udpClientB.Close();
-
-                    return receiveBytes;
-               
+                udpClient.Close();
+                return receiveBytes;
             }
             catch (Exception exec)
             {
                 Console.WriteLine(exec.ToString());
                 return null;
             }
-            
         }
 
         /// <summary>
@@ -297,24 +281,18 @@ namespace tscui.Models
         {
             int recv;
             Socket server = null;
-            byte[] bytes = new byte[65535];
+            byte[] bytes  = new byte[10240];
             byte[] result = { };
             try
             {
                 IPEndPoint ip = new IPEndPoint(IPAddress.Parse(ipstr), port);
                 server = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-                // string str = "Hello Server!";
-                server.ReceiveTimeout = 4000;
-                server.SendTimeout = 4000;
-                //bytes = System.Text.Encoding.ASCII.GetBytes(str);
+                server.ReceiveTimeout = 15000;
+                server.SendTimeout = 15000;
                 server.SendTo(hex, ip);
                 IPEndPoint sender = new IPEndPoint(IPAddress.Any, 0);
                 EndPoint Remote = (EndPoint)(sender);
-                //server.Bind(sender);
                 recv = server.ReceiveFrom(bytes, ref Remote);
-                Console.WriteLine("Message received from {0}", Remote.ToString());
-                //str = System.Text.Encoding.ASCII.GetString(bytes, 0, recv);
-                Console.WriteLine("Message: " + bytes[0]);
                 result = new byte[recv];
                 Array.Copy(bytes, result, recv);
                 server.Close();
@@ -325,7 +303,7 @@ namespace tscui.Models
             {
                 Console.WriteLine(exce.ToString());
                 server.Close();
-                server = null;
+               // server = null;
                 return result;
             }
 
@@ -338,30 +316,37 @@ namespace tscui.Models
         public static List<IPAddress> getLocalHostIpAddress()
         {
             List<IPAddress> list = new List<IPAddress>();
-            //for(int i=0;i)
-            IPAddress[] ipa = Dns.GetHostByName(Dns.GetHostName()).AddressList;
-            for (int i = 0; i < ipa.Length; i++)
-                list.Add(ipa[i]);
+           // IPAddress[] ipa = Dns.GetHostByName(Dns.GetHostName()).AddressList;
+            IPAddress[] ipa1 = Dns.GetHostAddresses(Dns.GetHostName());
+            for (int i = 0; i < ipa1.Length; i++)
+                list.Add(ipa1[i]);
             return list;
         }
 
         #region 车检器相关的部分
-        static Socket _checkCarSocket;
-        static IPEndPoint _checkCarLocal = new IPEndPoint(IPAddress.Parse("192.168.0.2"), 5238);
+
+        private static Socket _checkCarSocket = null; 
+      //  private static IPEndPoint _checkCarLocal = new IPEndPoint(IPAddress.Any, 0);
+      //  static IPEndPoint _checkCarLocal = new IPEndPoint(IPAddress.Any, 5238);
+     
+
         static Thread _checkCarReceiveThread = null;
         #region 开启线程
         public static void StartReceiveCheckCar()
         {
             try
             {
+                IPEndPoint _checkCarLocal = new IPEndPoint(IPAddress.Any, 5238);
                 _checkCarSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-                bool aa = _checkCarSocket.Connected;
+                _checkCarSocket.Bind(_checkCarLocal);
                 _checkCarReceiveThread = new Thread(ReceiveCheckCar);
+                _checkCarReceiveThread.Name = "CheckCarThread";
+                _checkCarReceiveThread.IsBackground = true;
                 _checkCarReceiveThread.Start();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message.ToString());
+                Console.WriteLine("Detector Thread binding error!");
             }
         }
         #endregion
@@ -371,22 +356,17 @@ namespace tscui.Models
             try
             {
                 //Thread.Sleep(200);
-                if (_checkCarSocket.Connected)
-                {
-                    _checkCarSocket.Bind(_checkCarLocal);
-                }
                 while (true)
                 {
                     byte[] buffer = new byte[255];
                     EndPoint remoteEP = (EndPoint)(new IPEndPoint(IPAddress.Any, 0));
                     int len = _checkCarSocket.ReceiveFrom(buffer, ref remoteEP);
-                    IPEndPoint ipEndPoint = remoteEP as IPEndPoint;
                     CheckCarService gb20999 = new CheckCarService(buffer, len);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message.ToString() + _checkCarSocket.Connected.ToString() + "UpdSocket类 Receive方法出错");
+                Console.WriteLine(ex.Message.ToString()  + "  UpdSocket类 Receive方法出错");
             }
         }
         #endregion
@@ -405,20 +385,16 @@ namespace tscui.Models
         {
             try
             {
-                // int len;
-                // bool flag = IsSocketConnected(_socket);
                 IPEndPoint ip = new IPEndPoint(IPAddress.Parse(ipstr), port);
-                _checkCarSocket.SendTimeout = 1000;
-                _checkCarSocket.ReceiveTimeout = 1000;
+                _checkCarSocket.SendTimeout = 10000;
+                _checkCarSocket.ReceiveTimeout = 10000;
                 _checkCarSocket.SendTo(hex, ip);
                 return true;
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message.ToString());
                 return false;
-
             }
         }
         #endregion

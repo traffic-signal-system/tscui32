@@ -1,0 +1,1486 @@
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Gps\GpsView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Power\PowerView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Detector\DetectorView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Phase\PhaseView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Stage\StageItem.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Popups\ChannelPopup.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Popups\GbtError.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Popups\SuccessPopup.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Popups\FailePopup.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Resources\Lang\DefaultLanguage.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneScrollBarResourceDictionary.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneResourceDictionary.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\App.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Apex\ApexView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Collision\CollisionView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Config\ConfigView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Control\ControlView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Gps\GpsView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Power\PowerView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Module\ModuleView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Detector\DetectorView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Log\LogsView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Phase\PhaseView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Stage\StageItem.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Stage\StageView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Update\UpdateView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Popups\ChannelPopup.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Popups\GbtError.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Popups\SuccessPopup.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Popups\FailePopup.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\MainView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\tscuiWindow.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\App.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\tscui_Content.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\tscui_MarkupCompile.cache
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\tscui_MarkupCompile.lref
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\tscui.csprojResolveAssemblyReference.cache
+F:\TSC\tcui32v0602\tscui\bin\Debug\Resources\Lang\zh-CN.xaml
+F:\TSC\tcui32v0602\tscui\bin\Debug\tscui.exe.config
+F:\TSC\tcui32v0602\tscui\bin\Debug\tscui.exe
+F:\TSC\tcui32v0602\tscui\bin\Debug\tscui.pdb
+F:\TSC\tcui32v0602\tscui\bin\Debug\Apex.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\devcomponents.wpf.controls.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\devcomponents.wpf.metro.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\DevComponents.WpfEditors.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\devcomponents.wpfribbon.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\devcomponents.wpfschedule.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\Microsoft.Expression.Interactions.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\System.Data.SQLite.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\System.Windows.Interactivity.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\WPFToolkit.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\WPFVisifire.Charts.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\Xceed.Wpf.AvalonDock.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\Xceed.Wpf.DataGrid.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\Xceed.Wpf.Toolkit.dll
+F:\TSC\tcui32v0602\tscui\bin\Debug\devcomponents.wpf.controls.xml
+F:\TSC\tcui32v0602\tscui\bin\Debug\devcomponents.wpf.metro.xml
+F:\TSC\tcui32v0602\tscui\bin\Debug\devcomponents.wpfribbon.xml
+F:\TSC\tcui32v0602\tscui\bin\Debug\devcomponents.wpfschedule.xml
+F:\TSC\tcui32v0602\tscui\bin\Debug\Microsoft.Expression.Interactions.xml
+F:\TSC\tcui32v0602\tscui\bin\Debug\System.Data.SQLite.xml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Apex\ApexView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Collision\CollisionView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Config\ConfigView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Control\ControlView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Module\ModuleView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Log\LogsView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Stage\StageView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\Update\UpdateView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\MainView.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\tscuiWindow.baml
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\tscui.g.resources
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\tscui.Properties.Resources.resources
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\tscui.csproj.GenerateResource.Cache
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\tscui.exe
+F:\TSC\tcui32v0602\tscui\obj\x86\Debug\tscui.pdb
+G:\TSC\tcui32v151201\tscui\bin\Debug\Resources\Lang\zh-CN.xaml
+G:\TSC\tcui32v151201\tscui\bin\Debug\tscui.exe.config
+G:\TSC\tcui32v151201\tscui\bin\Debug\tscui.exe
+G:\TSC\tcui32v151201\tscui\bin\Debug\tscui.pdb
+G:\TSC\tcui32v151201\tscui\bin\Debug\Apex.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\devcomponents.wpf.controls.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\devcomponents.wpf.metro.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\DevComponents.WpfEditors.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\devcomponents.wpfribbon.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\devcomponents.wpfschedule.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\Microsoft.Expression.Interactions.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\System.Data.SQLite.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\System.Windows.Interactivity.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\WPFToolkit.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\WPFVisifire.Charts.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\Xceed.Wpf.AvalonDock.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\Xceed.Wpf.DataGrid.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\Xceed.Wpf.Toolkit.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\devcomponents.wpf.controls.xml
+G:\TSC\tcui32v151201\tscui\bin\Debug\devcomponents.wpf.metro.xml
+G:\TSC\tcui32v151201\tscui\bin\Debug\devcomponents.wpfribbon.xml
+G:\TSC\tcui32v151201\tscui\bin\Debug\devcomponents.wpfschedule.xml
+G:\TSC\tcui32v151201\tscui\bin\Debug\Microsoft.Expression.Interactions.xml
+G:\TSC\tcui32v151201\tscui\bin\Debug\System.Data.SQLite.xml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Gps\GpsView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Power\PowerView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Detector\DetectorView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Phase\PhaseView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Stage\StageItem.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\ChannelPopup.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\GbtError.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\SuccessPopup.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\FailePopup.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\Validate.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Resources\Lang\DefaultLanguage.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneScrollBarResourceDictionary.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneResourceDictionary.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\App.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Apex\ApexView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Collision\CollisionView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Config\ConfigView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Control\ControlView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Gps\GpsView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Power\PowerView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Module\ModuleView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Detector\DetectorView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Log\LogsView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Phase\PhaseView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Stage\StageItem.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Stage\StageView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Update\UpdateView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\ChannelPopup.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\GbtError.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\SuccessPopup.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\FailePopup.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\Validate.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\MainView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscuiWindow.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\App.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui_Content.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui_MarkupCompile.cache
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui_MarkupCompile.lref
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Apex\ApexView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Collision\CollisionView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Config\ConfigView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Control\ControlView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Module\ModuleView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Log\LogsView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Stage\StageView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Update\UpdateView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\MainView.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscuiWindow.baml
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui.g.resources
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui.Properties.Resources.resources
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui.csproj.GenerateResource.Cache
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui.exe
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui.pdb
+G:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui.csprojResolveAssemblyReference.cache
+G:\TSC\tcui32v151201\tscui\bin\Debug\log4net.dll
+G:\TSC\tcui32v151201\tscui\bin\Debug\log4net.xml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Gps\GpsView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Power\PowerView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Detector\DetectorView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Phase\PhaseView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Stage\StageItem.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\ChannelPopup.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\GbtError.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\SuccessPopup.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\FailePopup.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\Validate.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Resources\Lang\DefaultLanguage.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneScrollBarResourceDictionary.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneResourceDictionary.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\App.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Apex\ApexView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Collision\CollisionView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Config\ConfigView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Control\ControlView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Gps\GpsView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Power\PowerView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Module\ModuleView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Detector\DetectorView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Log\LogsView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Phase\PhaseView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Stage\StageItem.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Stage\StageView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Update\UpdateView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\ChannelPopup.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\GbtError.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\SuccessPopup.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\FailePopup.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Popups\Validate.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\MainView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscuiWindow.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\App.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui_Content.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui_MarkupCompile.cache
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui_MarkupCompile.lref
+F:\TSC\tcui32v151201\tscui\bin\Debug\Resources\Lang\zh-CN.xaml
+F:\TSC\tcui32v151201\tscui\bin\Debug\tscui.exe.config
+F:\TSC\tcui32v151201\tscui\bin\Debug\tscui.exe
+F:\TSC\tcui32v151201\tscui\bin\Debug\tscui.pdb
+F:\TSC\tcui32v151201\tscui\bin\Debug\Apex.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\log4net.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\Microsoft.Expression.Interactions.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\System.Data.SQLite.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\System.Windows.Interactivity.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\WPFToolkit.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\WPFVisifire.Charts.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\Xceed.Wpf.AvalonDock.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\Xceed.Wpf.DataGrid.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\Xceed.Wpf.Toolkit.dll
+F:\TSC\tcui32v151201\tscui\bin\Debug\log4net.xml
+F:\TSC\tcui32v151201\tscui\bin\Debug\Microsoft.Expression.Interactions.xml
+F:\TSC\tcui32v151201\tscui\bin\Debug\System.Data.SQLite.xml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Apex\ApexView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Collision\CollisionView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Config\ConfigView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Control\ControlView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Module\ModuleView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Log\LogsView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Stage\StageView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\Update\UpdateView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\MainView.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscuiWindow.baml
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui.g.resources
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui.Properties.Resources.resources
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui.csproj.GenerateResource.Cache
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui.exe
+F:\TSC\tcui32v151201\tscui\obj\x86\Debug\tscui.pdb
+F:\TSC\tcui32v160127\tscui\bin\Debug\Resources\Lang\zh-CN.xaml
+F:\TSC\tcui32v160127\tscui\bin\Debug\tscui.exe.config
+F:\TSC\tcui32v160127\tscui\bin\Debug\tscui.exe
+F:\TSC\tcui32v160127\tscui\bin\Debug\tscui.pdb
+F:\TSC\tcui32v160127\tscui\bin\Debug\Apex.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\log4net.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\Microsoft.Expression.Interactions.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\System.Data.SQLite.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\System.Windows.Interactivity.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\WPFToolkit.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\WPFVisifire.Charts.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\Xceed.Wpf.AvalonDock.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\Xceed.Wpf.DataGrid.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\Xceed.Wpf.Toolkit.dll
+F:\TSC\tcui32v160127\tscui\bin\Debug\log4net.xml
+F:\TSC\tcui32v160127\tscui\bin\Debug\Microsoft.Expression.Interactions.xml
+F:\TSC\tcui32v160127\tscui\bin\Debug\System.Data.SQLite.xml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\tscui.csprojResolveAssemblyReference.cache
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Gps\GpsView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Power\PowerView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Detector\DetectorView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Phase\PhaseView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Stage\StageItem.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Popups\ChannelPopup.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Popups\GbtError.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Popups\SuccessPopup.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Popups\FailePopup.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Popups\Validate.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Resources\Lang\DefaultLanguage.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneScrollBarResourceDictionary.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneResourceDictionary.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\App.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Apex\ApexView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Collision\CollisionView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Config\ConfigView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Control\ControlView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Gps\GpsView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Power\PowerView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Module\ModuleView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Detector\DetectorView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Log\LogsView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Phase\PhaseView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Stage\StageItem.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Stage\StageView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Update\UpdateView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Popups\ChannelPopup.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Popups\GbtError.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Popups\SuccessPopup.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Popups\FailePopup.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Popups\Validate.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\MainView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\tscuiWindow.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\App.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\tscui_Content.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\tscui_MarkupCompile.cache
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\tscui_MarkupCompile.lref
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Apex\ApexView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Collision\CollisionView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Config\ConfigView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Control\ControlView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Module\ModuleView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Log\LogsView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Stage\StageView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\Update\UpdateView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\MainView.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\tscuiWindow.baml
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\tscui.g.resources
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\tscui.Properties.Resources.resources
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\tscui.csproj.GenerateResource.Cache
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\tscui.exe
+F:\TSC\tcui32v160127\tscui\obj\x86\Debug\tscui.pdb
+F:\TSC\tcui32v160303\tscui\bin\Debug\Resources\Lang\zh-CN.xaml
+F:\TSC\tcui32v160303\tscui\bin\Debug\tscui.exe.config
+F:\TSC\tcui32v160303\tscui\bin\Debug\tscui.exe
+F:\TSC\tcui32v160303\tscui\bin\Debug\tscui.pdb
+F:\TSC\tcui32v160303\tscui\bin\Debug\Apex.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\log4net.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\Microsoft.Expression.Interactions.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\System.Data.SQLite.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\System.Windows.Interactivity.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\WPFToolkit.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\WPFVisifire.Charts.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\Xceed.Wpf.AvalonDock.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\Xceed.Wpf.DataGrid.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\Xceed.Wpf.Toolkit.dll
+F:\TSC\tcui32v160303\tscui\bin\Debug\log4net.xml
+F:\TSC\tcui32v160303\tscui\bin\Debug\Microsoft.Expression.Interactions.xml
+F:\TSC\tcui32v160303\tscui\bin\Debug\System.Data.SQLite.xml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Gps\GpsView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Power\PowerView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Detector\DetectorView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Phase\PhaseView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Stage\StageItem.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Popups\ChannelPopup.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Popups\GbtError.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Popups\SuccessPopup.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Popups\FailePopup.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Popups\Validate.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Resources\Lang\DefaultLanguage.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneScrollBarResourceDictionary.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneResourceDictionary.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\App.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Apex\ApexView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Collision\CollisionView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Config\ConfigView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Control\ControlView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Gps\GpsView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Power\PowerView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Module\ModuleView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Detector\DetectorView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Log\LogsView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Phase\PhaseView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Stage\StageItem.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Stage\StageView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Update\UpdateView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Popups\ChannelPopup.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Popups\GbtError.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Popups\SuccessPopup.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Popups\FailePopup.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Popups\Validate.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\MainView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\tscuiWindow.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\App.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\tscui_Content.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\tscui_MarkupCompile.cache
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\tscui_MarkupCompile.lref
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Apex\ApexView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Collision\CollisionView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Config\ConfigView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Control\ControlView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Module\ModuleView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Log\LogsView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Stage\StageView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\Update\UpdateView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\MainView.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\tscuiWindow.baml
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\tscui.g.resources
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\tscui.Properties.Resources.resources
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\tscui.csproj.GenerateResource.Cache
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\tscui.exe
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\tscui.pdb
+F:\TSC\tcui32v160303\tscui\obj\x86\Debug\tscui.csprojResolveAssemblyReference.cache
+E:\tcui32v160303\tscui\bin\Debug\Resources\Lang\zh-CN.xaml
+E:\tcui32v160303\tscui\bin\Debug\tscui.exe.config
+E:\tcui32v160303\tscui\bin\Debug\tscui.exe
+E:\tcui32v160303\tscui\bin\Debug\tscui.pdb
+E:\tcui32v160303\tscui\bin\Debug\log4net.dll
+E:\tcui32v160303\tscui\bin\Debug\Microsoft.Expression.Interactions.dll
+E:\tcui32v160303\tscui\bin\Debug\System.Data.SQLite.dll
+E:\tcui32v160303\tscui\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+E:\tcui32v160303\tscui\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+E:\tcui32v160303\tscui\bin\Debug\System.Windows.Interactivity.dll
+E:\tcui32v160303\tscui\bin\Debug\WPFToolkit.dll
+E:\tcui32v160303\tscui\bin\Debug\log4net.xml
+E:\tcui32v160303\tscui\bin\Debug\Microsoft.Expression.Interactions.xml
+E:\tcui32v160303\tscui\bin\Debug\System.Data.SQLite.xml
+E:\tcui32v160303\tscui\bin\Debug\System.Windows.Interactivity.xml
+E:\tcui32v160303\tscui\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\de\System.Windows.Interactivity.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\en\System.Windows.Interactivity.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\es\System.Windows.Interactivity.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\it\System.Windows.Interactivity.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+E:\tcui32v160303\tscui\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Gps\GpsView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Power\PowerView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Detector\DetectorView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Phase\PhaseView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Stage\StageItem.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Popups\ChannelPopup.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Popups\GbtError.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Popups\SuccessPopup.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Popups\FailePopup.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Popups\Validate.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Resources\Lang\DefaultLanguage.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneScrollBarResourceDictionary.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneResourceDictionary.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\App.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Apex\ApexView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Collision\CollisionView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Config\ConfigView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Control\ControlView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Gps\GpsView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Power\PowerView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Module\ModuleView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Detector\DetectorView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Log\LogsView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Phase\PhaseView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Stage\StageItem.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Stage\StageView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Update\UpdateView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Popups\ChannelPopup.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Popups\GbtError.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Popups\SuccessPopup.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Popups\FailePopup.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Popups\Validate.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\MainView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\tscuiWindow.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\App.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\tscui_Content.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+E:\tcui32v160303\tscui\obj\x86\Debug\tscui_MarkupCompile.cache
+E:\tcui32v160303\tscui\obj\x86\Debug\tscui_MarkupCompile.lref
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Apex\ApexView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Collision\CollisionView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Config\ConfigView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Control\ControlView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Module\ModuleView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Log\LogsView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Stage\StageView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\Update\UpdateView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\MainView.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\tscuiWindow.baml
+E:\tcui32v160303\tscui\obj\x86\Debug\tscui.g.resources
+E:\tcui32v160303\tscui\obj\x86\Debug\tscui.Properties.Resources.resources
+E:\tcui32v160303\tscui\obj\x86\Debug\tscui.csproj.GenerateResource.Cache
+E:\tcui32v160303\tscui\obj\x86\Debug\tscui.exe
+E:\tcui32v160303\tscui\obj\x86\Debug\tscui.pdb
+E:\tcui32v160303\tscui\obj\x86\Debug\tscui.csprojResolveAssemblyReference.cache
+F:\tcui32v160303\tscui\bin\Debug\Resources\Lang\zh-CN.xaml
+F:\tcui32v160303\tscui\bin\Debug\tscui.exe.config
+F:\tcui32v160303\tscui\bin\Debug\tscui.exe
+F:\tcui32v160303\tscui\bin\Debug\tscui.pdb
+F:\tcui32v160303\tscui\bin\Debug\log4net.dll
+F:\tcui32v160303\tscui\bin\Debug\System.Data.SQLite.dll
+F:\tcui32v160303\tscui\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+F:\tcui32v160303\tscui\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+F:\tcui32v160303\tscui\bin\Debug\WPFToolkit.dll
+F:\tcui32v160303\tscui\bin\Debug\log4net.xml
+F:\tcui32v160303\tscui\bin\Debug\Microsoft.Expression.Interactions.xml
+F:\tcui32v160303\tscui\bin\Debug\System.Data.SQLite.xml
+F:\tcui32v160303\tscui\bin\Debug\System.Windows.Interactivity.xml
+F:\tcui32v160303\tscui\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\de\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\en\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\es\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\it\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303\tscui\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303\tscui\obj\x86\Debug\tscui.csprojResolveAssemblyReference.cache
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Gps\GpsView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Power\PowerView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Detector\DetectorView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Phase\PhaseView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Stage\StageItem.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Popups\ChannelPopup.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Popups\GbtError.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Popups\SuccessPopup.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Popups\FailePopup.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Popups\Validate.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Resources\Lang\DefaultLanguage.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneScrollBarResourceDictionary.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneResourceDictionary.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\App.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Apex\ApexView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Collision\CollisionView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Config\ConfigView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Control\ControlView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Gps\GpsView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Power\PowerView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Module\ModuleView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Detector\DetectorView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Log\LogsView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Phase\PhaseView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Stage\StageItem.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Stage\StageView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Update\UpdateView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Popups\ChannelPopup.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Popups\GbtError.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Popups\SuccessPopup.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Popups\FailePopup.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Popups\Validate.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\MainView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\tscuiWindow.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\App.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\tscui_Content.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+F:\tcui32v160303\tscui\obj\x86\Debug\tscui_MarkupCompile.cache
+F:\tcui32v160303\tscui\obj\x86\Debug\tscui_MarkupCompile.lref
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Apex\ApexView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Collision\CollisionView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Config\ConfigView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Control\ControlView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Module\ModuleView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Log\LogsView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Stage\StageView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\Update\UpdateView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\MainView.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\tscuiWindow.baml
+F:\tcui32v160303\tscui\obj\x86\Debug\tscui.g.resources
+F:\tcui32v160303\tscui\obj\x86\Debug\tscui.Properties.Resources.resources
+F:\tcui32v160303\tscui\obj\x86\Debug\tscui.csproj.GenerateResource.Cache
+F:\tcui32v160303\tscui\obj\x86\Debug\tscui.exe
+F:\tcui32v160303\tscui\obj\x86\Debug\tscui.pdb
+F:\tcui32v160303\tscui\bin\Debug\Microsoft.Expression.Interactions.dll
+F:\tcui32v160303\tscui\bin\Debug\System.Windows.Interactivity.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\Resources\Lang\zh-CN.xaml
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\tscui.exe.config
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\tscui.exe
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\tscui.pdb
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\log4net.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\Microsoft.Expression.Interactions.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Data.SQLite.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Windows.Interactivity.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\WPFToolkit.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\log4net.xml
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\Microsoft.Expression.Interactions.xml
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Data.SQLite.xml
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Windows.Interactivity.xml
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\de\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\en\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\es\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\it\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.csprojResolveAssemblyReference.cache
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Gps\GpsView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Power\PowerView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Detector\DetectorView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Phase\PhaseView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Stage\StageItem.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\ChannelPopup.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\GbtError.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\SuccessPopup.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\FailePopup.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\Validate.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Resources\Lang\DefaultLanguage.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneScrollBarResourceDictionary.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneResourceDictionary.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\App.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Apex\ApexView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Collision\CollisionView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Config\ConfigView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Control\ControlView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Gps\GpsView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Power\PowerView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Module\ModuleView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Detector\DetectorView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Log\LogsView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Phase\PhaseView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Stage\StageItem.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Stage\StageView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Update\UpdateView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\ChannelPopup.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\GbtError.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\SuccessPopup.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\FailePopup.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\Validate.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\MainView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscuiWindow.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\App.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui_Content.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui_MarkupCompile.cache
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui_MarkupCompile.lref
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Apex\ApexView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Collision\CollisionView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Config\ConfigView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Control\ControlView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Module\ModuleView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Log\LogsView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Stage\StageView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Update\UpdateView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\MainView.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscuiWindow.baml
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.g.resources
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.Properties.Resources.resources
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.csproj.GenerateResource.Cache
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.exe
+F:\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.pdb
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\Resources\Lang\zh-CN.xaml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\tscui.exe.config
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\tscui.exe
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\tscui.pdb
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\log4net.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\Microsoft.Expression.Interactions.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Data.SQLite.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Windows.Interactivity.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\WPFToolkit.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\log4net.xml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\Microsoft.Expression.Interactions.xml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Data.SQLite.xml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Windows.Interactivity.xml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\de\System.Windows.Interactivity.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\en\System.Windows.Interactivity.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\es\System.Windows.Interactivity.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\it\System.Windows.Interactivity.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.csprojResolveAssemblyReference.cache
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Gps\GpsView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Power\PowerView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Detector\DetectorView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Phase\PhaseView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Stage\StageItem.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\ChannelPopup.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\GbtError.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\SuccessPopup.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\FailePopup.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\Validate.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Resources\Lang\DefaultLanguage.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneScrollBarResourceDictionary.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneResourceDictionary.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\App.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Apex\ApexView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Collision\CollisionView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Config\ConfigView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Control\ControlView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Gps\GpsView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Power\PowerView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Module\ModuleView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Detector\DetectorView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Log\LogsView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Phase\PhaseView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Stage\StageItem.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Stage\StageView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Update\UpdateView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\ChannelPopup.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\GbtError.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\SuccessPopup.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\FailePopup.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\Validate.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\MainView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\AdvancePhases\AdvancePhasesView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscuiWindow.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\App.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui_Content.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui_MarkupCompile.cache
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui_MarkupCompile.lref
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Apex\ApexView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Collision\CollisionView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Config\ConfigView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Control\ControlView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Module\ModuleView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Log\LogsView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Stage\StageView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Update\UpdateView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\MainView.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscuiWindow.baml
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.g.resources
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.Properties.Resources.resources
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.csproj.GenerateResource.Cache
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.exe
+J:\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.pdb
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\Resources\Lang\zh-CN.xaml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\tscui.exe.config
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\tscui.exe
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\tscui.pdb
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\log4net.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Data.SQLite.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\WPFToolkit.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\log4net.xml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\Microsoft.Expression.Interactions.xml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Data.SQLite.xml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\System.Windows.Interactivity.xml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\de\System.Windows.Interactivity.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\en\System.Windows.Interactivity.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\es\System.Windows.Interactivity.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\it\System.Windows.Interactivity.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.csprojResolveAssemblyReference.cache
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Gps\GpsView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Power\PowerView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Detector\DetectorView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Phase\PhaseView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Stage\StageItem.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\ChannelPopup.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\GbtError.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\SuccessPopup.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\FailePopup.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\Validate.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Resources\Lang\DefaultLanguage.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneScrollBarResourceDictionary.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneResourceDictionary.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\App.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Apex\ApexView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Collision\CollisionView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Config\ConfigView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Control\ControlView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Gps\GpsView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Power\PowerView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Module\ModuleView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Detector\DetectorView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Log\LogsView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Phase\PhaseView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Stage\StageItem.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Stage\StageView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Update\UpdateView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\ChannelPopup.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\GbtError.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\SuccessPopup.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\FailePopup.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Popups\Validate.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\MainView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscuiWindow.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\App.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui_Content.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui_MarkupCompile.cache
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui_MarkupCompile.lref
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Apex\ApexView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Collision\CollisionView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Config\ConfigView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Control\ControlView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Module\ModuleView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Log\LogsView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Stage\StageView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\Update\UpdateView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\MainView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscuiWindow.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.g.resources
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.Properties.Resources.resources
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.csproj.GenerateResource.Cache
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.exe
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\tscui.pdb
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\AdaptiveCtrl\AdaptiveCtrlView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\AdaptiveCtrl\AdvancePhases\AdvancePhasesView.baml
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\AdaptiveCtrl\AdaptiveCtrlView.g.cs
+F:\WXJC\无锡信号机检测\TSC_吉安可用测试版本\上位机对应源码\tcui32v160303 - 副本 (2)\tscui\obj\x86\Debug\Pages\AdaptiveCtrl\AdvancePhases\AdvancePhasesView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\Resources\Lang\zh-CN.xaml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\tscui.exe.config
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\tscui.exe
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\tscui.pdb
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\log4net.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\Microsoft.Expression.Interactions.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\System.Data.SQLite.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\System.Windows.Interactivity.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\WPFToolkit.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\log4net.xml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\Microsoft.Expression.Interactions.xml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\System.Data.SQLite.xml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\System.Windows.Interactivity.xml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\de\System.Windows.Interactivity.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\en\System.Windows.Interactivity.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\es\System.Windows.Interactivity.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\it\System.Windows.Interactivity.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\tscui.csprojResolveAssemblyReference.cache
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\AdaptiveCtrl\AdaptiveCtrlView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Gps\GpsView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Power\PowerView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Detector\DetectorView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Phase\PhaseView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Stage\StageItem.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Popups\ChannelPopup.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Popups\GbtError.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Popups\SuccessPopup.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Popups\FailePopup.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Popups\Validate.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Resources\Lang\DefaultLanguage.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneScrollBarResourceDictionary.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneResourceDictionary.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\AdaptiveCtrl\AdvancePhases\AdvancePhasesView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\App.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\AdaptiveCtrl\AdaptiveCtrlView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Apex\ApexView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Collision\CollisionView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Config\ConfigView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Control\ControlView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Gps\GpsView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Power\PowerView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Module\ModuleView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Detector\DetectorView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Log\LogsView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Phase\PhaseView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Stage\StageItem.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Stage\StageView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Update\UpdateView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Popups\ChannelPopup.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Popups\GbtError.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Popups\SuccessPopup.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Popups\FailePopup.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Popups\Validate.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\MainView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\AdaptiveCtrl\AdvancePhases\AdvancePhasesView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\tscuiWindow.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\App.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\tscui_Content.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\tscui_MarkupCompile.cache
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\tscui_MarkupCompile.lref
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Apex\ApexView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Collision\CollisionView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Config\ConfigView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Control\ControlView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Module\ModuleView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Log\LogsView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Stage\StageView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\Update\UpdateView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\MainView.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\tscuiWindow.baml
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\tscui.g.resources
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\tscui.Properties.Resources.resources
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\tscui.csproj.GenerateResource.Cache
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\tscui.exe
+G:\WXJC\TSC_吉安可用测试版本\上位机对应源码\tcui32v1711\tscui\obj\x86\Debug\tscui.pdb
+G:\tscui\tcui32v1711\tscui\bin\Debug\Resources\Lang\zh-CN.xaml
+G:\tscui\tcui32v1711\tscui\bin\Debug\tscui.exe.config
+G:\tscui\tcui32v1711\tscui\bin\Debug\tscui.exe
+G:\tscui\tcui32v1711\tscui\bin\Debug\tscui.pdb
+G:\tscui\tcui32v1711\tscui\bin\Debug\log4net.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\Microsoft.Expression.Interactions.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\System.Data.SQLite.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\System.Windows.Controls.Input.Toolkit.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\System.Windows.Interactivity.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\WPFToolkit.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\log4net.xml
+G:\tscui\tcui32v1711\tscui\bin\Debug\Microsoft.Expression.Interactions.xml
+G:\tscui\tcui32v1711\tscui\bin\Debug\System.Data.SQLite.xml
+G:\tscui\tcui32v1711\tscui\bin\Debug\System.Windows.Interactivity.xml
+G:\tscui\tcui32v1711\tscui\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\de\System.Windows.Interactivity.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\en\System.Windows.Interactivity.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\es\System.Windows.Interactivity.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\it\System.Windows.Interactivity.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+G:\tscui\tcui32v1711\tscui\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\tscui.csprojResolveAssemblyReference.cache
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\AdaptiveCtrl\AdaptiveCtrlView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Gps\GpsView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Power\PowerView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Detector\DetectorView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Phase\PhaseView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Stage\StageItem.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Popups\ChannelPopup.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Popups\GbtError.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Popups\SuccessPopup.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Popups\FailePopup.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Popups\Validate.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Resources\Lang\DefaultLanguage.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneListBoxResourceDictionary.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneScrollBarResourceDictionary.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Resources\ResourceDictionaries\ZuneResourceDictionary.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\AdaptiveCtrl\AdvancePhases\AdvancePhasesView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\App.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\AdaptiveCtrl\AdaptiveCtrlView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Apex\ApexView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\BusPriority\BusPriority.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Collision\CollisionItem.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Collision\CollisionView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Config\ConfigView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Control\ControlView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Calendar2\Calendar2View.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Detector\DetectorItem.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Gps\GpsView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Power\PowerView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\YelloFlash\YelloFlash.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\PedestrianButton\PedestrianBtn.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Module\ModuleView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Detector\DetectorView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\LightCheck\CheckItem.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Log\LogsView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Phase\PhaseView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Stage\StageItem.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Stage\StageView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Update\UpdateView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\SimulateWirelessBtn\SimulateWirelessBtnView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Popups\ChannelPopup.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Popups\GbtError.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Popups\SuccessPopup.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Popups\FailePopup.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Popups\Validate.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\MainView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\AdaptiveCtrl\AdvancePhases\AdvancePhasesView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\DetectorAdvanced\DetectorAdvancedView.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\tscuiWindow.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\App.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\tscui_Content.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\tscui_MarkupCompile.cache
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\tscui_MarkupCompile.lref
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Apex\ApexView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\BaseTime\BaseTimeView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\BaseTime\SeasonTimeView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Collision\CollisionView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Config\ConfigView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Control\ControlView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\OfflineDebug\OfflineDebugView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\TscStatus\TscStatusView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Module\ModuleView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Schedules\ScheduleView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\CountDown\CountDownView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Degradation\DegradationView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\LightCheck\LightCheckView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Log\LogsView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Stage\StageView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\Update\UpdateView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Pages\VariableSign\VariableSignView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\MainView.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\tscuiWindow.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\tscui.g.resources
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\tscui.Properties.Resources.resources
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\tscui.csproj.GenerateResource.Cache
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\tscui.exe
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\tscui.pdb
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Popups\TscNode.baml
+G:\tscui\tcui32v1711\tscui\obj\x86\Debug\Popups\TscNode.g.cs

@@ -43,4 +43,39 @@ namespace tscui.Models
         }
         
     }
+
+    class VehiCount
+    {
+        private int _ulDecId;
+        private DateTime _ucRecoredDateTime;
+
+        public int ulDecId
+        {
+            get { return _ulDecId; }
+            set { _ulDecId = value; }
+        }
+        public DateTime ucRecoredDateTime
+        {
+            get { return _ucRecoredDateTime; }
+            set { _ucRecoredDateTime = value; }
+        }
+
+    }
+    class VehiCount1
+    {
+        private int _ulDecId;
+        private int _uccarcount;
+
+        public int ulDecId
+        {
+            get { return _ulDecId; }
+            set { _ulDecId = value; }
+        }
+        public int uccarcount
+        {
+            get { return _uccarcount; }
+            set { _uccarcount = value; }
+        }
+
+    }
 }

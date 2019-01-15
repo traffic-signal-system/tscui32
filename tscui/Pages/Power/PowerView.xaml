@@ -1,0 +1,69 @@
+﻿<UserControl 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Controls="clr-namespace:DevComponents.WPF.Controls;assembly=DevComponents.WPF.Controls"  x:Class="tscui.Pages.Power.Power" 
+             mc:Ignorable="d" VerticalAlignment="Top" d:DesignWidth="800" Height="610" Loaded="UserControl_Loaded_1" >
+    <Grid HorizontalAlignment="Left" Height="501" VerticalAlignment="Top" Width="776">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="681*"/>
+            <ColumnDefinition Width="95*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="115*"/>
+            <RowDefinition Height="195*"/>
+            <RowDefinition Height="191*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="①预警电压参数" FontSize="13" HorizontalAlignment="Left" Margin="78,1,0,0" VerticalAlignment="Top" Height="116" Width="599" Grid.RowSpan="2" IsEnabled="False">
+            <Grid HorizontalAlignment="Left" Height="92" VerticalAlignment="Top" Width="587" Margin="2,18,-2,-18">
+                <Label Content="高压预警电压:" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="97" Margin="10,18,0,0"/>
+                <Label Content="低压预警电压:" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="93" Margin="300,20,0,0"/>
+                <Controls:NumericSpinner x:Name="HighVoltage"  HorizontalAlignment="Left" Margin="112,18,0,0" Height="30" VerticalAlignment="Top" Width="54" Value="260" Maximum="270" Minimum="220"  Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" NullValueDisplayString="xx" IsEnabled="False"/>
+                <Controls:NumericSpinner x:Name="LowVoltage"  HorizontalAlignment="Left" Margin="398,18,0,0" Height="30" VerticalAlignment="Top" Width="54"  Value="160" Maximum="210" Minimum="155"  Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" NullValueDisplayString="xx" IsEnabled="False"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="②强电预案" FontSize="13" HorizontalAlignment="Left" Margin="78,10,0,0" VerticalAlignment="Top" Height="188" Width="599" Grid.Row="1" Grid.RowSpan="2" IsEnabled="False">
+            <Grid HorizontalAlignment="Left" Height="165" VerticalAlignment="Top" Width="587" Margin="2,0,-2,-1">
+                <GroupBox Header="强电高压保护预案" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Height="131" Width="219">
+                    <Grid HorizontalAlignment="Left" Height="107" VerticalAlignment="Top" Width="207">
+                        <RadioButton x:Name="HigthVolOn" Content="高压保护开启" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="HigthVolOff" Content="高压保护关闭" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                        <RadioButton x:Name="HigthVolRserve" Content="保持当前预案" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.555,1.126"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="强电低压保护预案" HorizontalAlignment="Left" Margin="305,24,0,0" VerticalAlignment="Top" Height="131" Width="218"/>
+                <RadioButton x:Name="LowVolOn" Content="低压保护开启" HorizontalAlignment="Left" Margin="321,50,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="LowVolOff" Content="低压保护关闭" HorizontalAlignment="Left" Margin="321,84,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                <RadioButton x:Name="LowVolRserve" Content="保持当前预案" HorizontalAlignment="Left" Margin="321,119,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.555,1.126"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="③弱电保护预案" FontSize="13" HorizontalAlignment="Left" Margin="78,4,0,-1" VerticalAlignment="Top" Height="188" Width="599" Grid.Row="2" Grid.RowSpan="2" IsEnabled="False">
+            <Grid HorizontalAlignment="Left" Height="165" VerticalAlignment="Top" Width="587" Margin="2,0,-2,-1">
+                <GroupBox Header="弱电高压保护预案" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Height="131" Width="219">
+                    <Grid HorizontalAlignment="Left" Height="107" VerticalAlignment="Top" Width="207">
+                        <RadioButton x:Name="HigthVolOn1" Content="高压保护开启" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="HigthVolOff1" Content="高压保护关闭" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                        <RadioButton x:Name="HigthVolReserve1" Content="保持当前预案" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.555,1.126"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="弱电低压保护预案" HorizontalAlignment="Left" Margin="305,24,0,0" VerticalAlignment="Top" Height="131" Width="218"/>
+                <RadioButton x:Name="LowVolOn1" Content="低压保护开启" HorizontalAlignment="Left" Margin="321,50,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="LowVolOff1" Content="低压保护关闭" HorizontalAlignment="Left" Margin="321,84,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                <RadioButton x:Name="LowVolReserve1" Content="保持当前预案" HorizontalAlignment="Left" Margin="321,119,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.555,1.126"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="④看门狗参数" FontSize="13" HorizontalAlignment="Left" Margin="78,5,0,-77" VerticalAlignment="Top" Height="72" Width="599" Grid.Row="3">
+            <Grid HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="587">
+                <RadioButton x:Name="Opendog" Content="开启看门狗" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="28" Width="90"/>
+                <RadioButton x:Name="Closedog" Content="关闭看门狗" HorizontalAlignment="Left" Margin="197,10,0,0" VerticalAlignment="Top" Height="28" Width="90"/>
+                <Controls:NumericSpinner x:Name="Watchdogtime" HorizontalAlignment="Left" Margin="477,0,0,14" VerticalAlignment="Bottom" Height="30" Width="54" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Value="40" Maximum="127" Minimum="25" Increment="1" Interval="1" NullValueDisplayString="xx"/>
+                <Label Content="时间(秒):" HorizontalAlignment="Left" Margin="407,4,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <Button Content="设置" HorizontalAlignment="Left" Margin="16,49,-3,-77" Grid.Row="3" VerticalAlignment="Top" Width="64" Height="28" Grid.Column="1" Click="Button_Click_1"/>
+        <Button Content="读取" HorizontalAlignment="Left" Margin="16,13,-3,-41" Grid.Row="3" VerticalAlignment="Top" Width="64" Height="28" Grid.Column="1" Click="Button_Click_2"/>
+    </Grid>
+</UserControl>

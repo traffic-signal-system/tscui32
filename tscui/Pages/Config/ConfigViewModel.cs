@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using Apex.MVVM;
 using tscui.Models;
 using System.Windows;
@@ -29,7 +25,25 @@ namespace tscui.Pages.Config
             BuildSNCommand = new Command(DoBuildSNCommand);
             SetLampCheckCommand = new Command(DoSetLampCheckCommand);
             SetCountDownCommand = new Command(DoSetCountDownCommand);
+            QueryTscVerCommand = new Command(DoQueryTscVerCommand);
         }
+
+        public Command QueryTscVerCommand { get; private set; }
+        private void DoQueryTscVerCommand(object parameter)
+        {
+            try
+            {
+                TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+                Byte[] Tscverbytes = (Udp.sendUdpClient(t.Node.sIpAddress, Define.GBT_PORT, Define.TSCIDCODE_QUERY));
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("信号机版本获取异常!");
+            }
+        }
+
         public Command SetCountDownCommand { get; private set; }
         private void DoSetCountDownCommand(object parameter)
         {
@@ -43,7 +57,7 @@ namespace tscui.Pages.Config
             try
             {
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-                Udp.sendUdp(t.Node.sIpAddress, Define.GBT_PORT, Define.BUILD_SN);
+                Udp.sendUdp(t.Node.sIpAddress, Define.GBT_PORT, Define.TSCIDCODE_QUERY);
             }
             catch (Exception ex)
             {
@@ -205,7 +219,16 @@ namespace tscui.Pages.Config
             try
             {
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-                Udp.sendUdp(t.Node.sIpAddress, Define.GBT_PORT, Define.BUILD_SN);
+               bool bResult = Udp.sendUdpNoReciveData(t.Node.sIpAddress, Define.GBT_PORT, Define.TSCIDCODE_QUERY);
+               if(bResult)
+               {
+                   MessageBox.Show("序列号生成成功！", "序列号", MessageBoxButton.OK,
+                          MessageBoxImage.Information);
+               }
+               else
+               {
+                   MessageBox.Show("序列号生成失败!","序列号", MessageBoxButton.OK,MessageBoxImage.Error);
+               }
             }
             catch (Exception ex)
             {

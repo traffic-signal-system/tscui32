@@ -1,0 +1,263 @@
+﻿<UserControl x:Class="tscui.Detector.DetectorItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:apexControls="clr-namespace:Apex.Controls;assembly=Apex"
+             mc:Ignorable="d" 
+             Height="588.06" Width="267" Loaded="pop_load">
+    <Grid Margin="15" ToolTip="鼠标右键单击退出" MouseRightButtonDown="Grid_MouseRightButtonDown">
+        <Border BorderBrush="{StaticResource ZuneColor1Brush}" BorderThickness="1" Background="White" Margin="-10,0,-11,-19" Grid.Row="0">
+            <apexControls:ApexGrid x:Name="GridAll" Margin="4,16,4,-1"  Rows="Auto,Auto,*,Auto">
+
+                <!-- The zune colors at the top. -->
+                <Border Grid.Row="0" Height="7" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Offset="0" Color="{StaticResource ZuneColor2}" />
+                            <GradientStop Offset="1" Color="{StaticResource ZuneColor1}" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+
+
+                <!-- The message. -->
+                <!-- The commands. -->
+
+                <GroupBox x:Name="GrpInjectSlot2" Header="接口板2"  Visibility="Hidden" Height="462" HorizontalAlignment="Left" Margin="15,72,0,0"  VerticalAlignment="Top" Width="105" BorderBrush="{DynamicResource ZuneColor2Brush}">
+                    <Grid x:Name="GridInjectSlot2" HorizontalAlignment="Left" Height="432" VerticalAlignment="Top" Width="97" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="27"/>
+                            <ColumnDefinition/>
+
+                        </Grid.ColumnDefinitions>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH65" ToolTip="CH65" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="0" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH66" ToolTip="CH66" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="1" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH67" ToolTip="CH67" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="2" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH68" ToolTip="CH68" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="3" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH69" ToolTip="CH69" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="4" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH70" ToolTip="CH70" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="5" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH71" ToolTip="CH71" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="6" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH72" ToolTip="CH72" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="7" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH73" ToolTip="CH73" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="8" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH74" ToolTip="CH74" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="9" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH75" ToolTip="CH75" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="10" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH76" ToolTip="CH76" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="11" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH77" ToolTip="CH77" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="12" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH78" ToolTip="CH78" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="13" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH79" ToolTip="CH79" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="14" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH80" ToolTip="CH80" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="15" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH81" ToolTip="CH81" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="0" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH82" ToolTip="CH82" Height="24" Margin="8,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="1" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH83" ToolTip="CH83" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="2" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH84" ToolTip="CH84" Height="24" Margin="8,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="3" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH85" ToolTip="CH85" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="4" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH86" ToolTip="CH86" Height="24" Margin="8,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="5" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH87" ToolTip="CH87" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="6" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH88" ToolTip="CH88" Height="24" Margin="8,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="7" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH89" ToolTip="CH89" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="8" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH90" ToolTip="CH90" Height="24" Margin="8,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="9" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH91" ToolTip="CH91" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="10" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH92" ToolTip="CH92" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="11" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH93" ToolTip="CH93" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="12" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH94" ToolTip="CH94" Height="24" Margin="8,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="13" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH95" ToolTip="CH95" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="14" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH96" ToolTip="CH96" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="15" Fill="#FF0D550D"/>
+
+                    </Grid>
+
+                </GroupBox>
+                <GroupBox x:Name="GrpInjectSlot1" Header="接口板1"  Visibility="Hidden" Height="462" HorizontalAlignment="Left" Margin="135,72,0,0"  VerticalAlignment="Top" Width="105" BorderBrush="{DynamicResource ZuneColor2Brush}">
+                    <Grid x:Name="GridInjectSlot1" HorizontalAlignment="Left" Height="433" VerticalAlignment="Top" Width="105" Margin="0,0,-12,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="27"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH33" ToolTip="CH33" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="0" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH34" ToolTip="CH34" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="1" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH35" ToolTip="CH35" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="2" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH36" ToolTip="CH36" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="3" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH37" ToolTip="CH37" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="4" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH38" ToolTip="CH38" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="5" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH39" ToolTip="CH39" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="6" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH40" ToolTip="CH40" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="7" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH41" ToolTip="CH41" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="8" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH42" ToolTip="CH42" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="9" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH43" ToolTip="CH43" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="10" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH44" ToolTip="CH44" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="11" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH45" ToolTip="CH45" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="12" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH46" ToolTip="CH46" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="13" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH47" ToolTip="CH47" Height="24" Margin="0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="14" Fill="#FF0D550D"/>
+
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH48" ToolTip="CH48" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="15" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH49" ToolTip="CH49" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="0" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH50" ToolTip="CH50" Height="24" Margin="8,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="1" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH51" ToolTip="CH51" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="2" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH52" ToolTip="CH52" Height="24" Margin="8,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="3" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH53" ToolTip="CH53" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="4" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH54" ToolTip="CH54" Height="24" Margin="8,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="5" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH55" ToolTip="CH55" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="6" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH56" ToolTip="CH56" Height="24" Margin="8,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="7" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH57" ToolTip="CH57" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="8" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH58" ToolTip="CH58" Height="24" Margin="8,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="9" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH59" ToolTip="CH59" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="10" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH60" ToolTip="CH60" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="11" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH61" ToolTip="CH61" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="12" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH62" ToolTip="CH62" Height="24" Margin="8,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="13" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH63" ToolTip="CH63" Height="24" Margin="8,2,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="14" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Left" x:Name="CH64" ToolTip="CH64" Height="24" Margin="8,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="2" Grid.Row="15" Fill="#FF0D550D"/>
+
+
+
+                    </Grid>
+                </GroupBox>
+                <GroupBox x:Name="GrpDetectSlot2" Header="检测器板2" Visibility="Hidden" Height="462" HorizontalAlignment="Left" Margin="15,72,0,0"  VerticalAlignment="Top" Width="105" BorderBrush="{DynamicResource ZuneColor2Brush}">
+                    <Grid x:Name="GridDetectSlot2" HorizontalAlignment="Left" Height="432" VerticalAlignment="Top" Width="90">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0*"/>
+                            <ColumnDefinition Width="14*"/>
+                            <ColumnDefinition Width="31*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH17" ToolTip="CH17" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="0" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH18" ToolTip="CH18" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="1" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH19" ToolTip="CH19" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="2" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH20" ToolTip="CH20" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="3" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH21" ToolTip="CH21" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="4" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH22" ToolTip="CH22" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="5" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH23" ToolTip="CH23" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="6" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH24" ToolTip="CH24" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="7" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH25" ToolTip="CH25" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="8" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH26" ToolTip="CH26" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="9" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH27" ToolTip="CH27" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="10" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH28" ToolTip="CH28" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="11" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH29" ToolTip="CH29" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="12" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH30" ToolTip="CH30" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="13" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH31" ToolTip="CH31" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="14" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH32" ToolTip="CH32" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="15" Fill="#FF0D550D"/>
+
+                    </Grid>
+
+                </GroupBox>
+                <GroupBox x:Name="GrpDetecSlot1" Header="检测器板1" Visibility="Hidden" Height="462" HorizontalAlignment="Left" Margin="135,72,0,0"  VerticalAlignment="Top" Width="105" BorderBrush="{DynamicResource ZuneColor2Brush}">
+                    <Grid x:Name="GridDetecSlot1" HorizontalAlignment="Left" Height="433" VerticalAlignment="Top" Width="63">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="25*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0*"/>
+                            <ColumnDefinition Width="Auto" MinWidth="27"/>
+                            <ColumnDefinition/>
+
+                        </Grid.ColumnDefinitions>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH1" ToolTip="CH1" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="0" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH2" ToolTip="CH2" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="1" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH3" ToolTip="CH3" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="2" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH4" ToolTip="CH4" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="3" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH5" ToolTip="CH5" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="4" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH6" ToolTip="CH6" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="5" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH7" ToolTip="CH7" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="6" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH8" ToolTip="CH8" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="7" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH9" ToolTip="CH9" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="8" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH10" ToolTip="CH10" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="9" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH11" ToolTip="CH11" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="10" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH12" ToolTip="CH12" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="11" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH13" ToolTip="CH13" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="12" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH14" ToolTip="CH14" Height="24" Margin="0,1,0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="13" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH15" ToolTip="CH15" Height="24" Margin="0,2" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="14" Fill="#FF0D550D"/>
+                        <Ellipse HorizontalAlignment="Right" x:Name="CH16" ToolTip="CH16" Height="24" Margin="0,2,0,1" Stroke="Black" VerticalAlignment="Center" Width="23" Grid.Column="1" Grid.Row="15" Fill="#FF0D550D"/>
+
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="卡槽2"  Margin="6,12,122,0">
+                    <Grid HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="110">
+                        <RadioButton x:Name="RadDetc2" Content="检测器板2" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" Width="80"/>
+                        <RadioButton x:Name="RadInjec2" Content="接口板2" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" Width="63"/>
+                        <RadioButton x:Name="CurSlot2" IsChecked="False" Content="当前" HorizontalAlignment="Left" Margin="67,21,-21,0" VerticalAlignment="Top" Width="64"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="卡槽1" Margin="131,12,0,0" Height="532" VerticalAlignment="Top">
+                    <Grid HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="132" Margin="0,0,-37,0">
+                        <RadioButton x:Name="RadDetc1" Content="检测器板1" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top" Width="71"/>
+                        <RadioButton x:Name="RadInjec1" Content="接口板1" HorizontalAlignment="Right" Margin="0,21,61,0" VerticalAlignment="Top" Width="71"/>
+                        <RadioButton x:Name="CurSlot1" IsChecked="False" Content="当前" HorizontalAlignment="Left" Margin="64,20,0,0" VerticalAlignment="Top" Width="46"/>
+
+                    </Grid>
+                </GroupBox>
+
+            </apexControls:ApexGrid>
+        </Border>
+
+    </Grid>
+</UserControl>

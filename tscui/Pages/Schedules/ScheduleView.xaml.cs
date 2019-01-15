@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Data;
+using System.Linq.Expressions;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 using Apex.MVVM;
 using tscui.Service;
 using tscui.Models;
-using System.Collections;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
@@ -13,16 +14,14 @@ using System.Windows.Threading;
 namespace tscui.Pages.Schedules
 {
     public enum OrderStatus { None, New, Processing, Shipped, Received };
-        
     /// <summary>
     /// Interaction logic for CountDownView.xaml
     /// </summary>
     [View(typeof(ScheduleViewModel))]
     public partial class ScheduleView : UserControl,IView
     {
-       
-
-
+        private TscData td = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+       // private Byte rowvisibleflag = 0;
         public ScheduleView()
         {
             InitializeComponent();
@@ -44,13 +43,14 @@ namespace tscui.Pages.Schedules
         /// <param name="ls"></param>
         private void initSldScheduleId(List<Schedule> ls)
         {
+            if (ls == null)
+                return;
             foreach (Schedule s in ls)
             {
                 if (s.ucEventId != 0)
                 {
                     sldScheduleId.Value = s.ucId;
                     break;
-
                 }
             }
         }
@@ -63,16 +63,18 @@ namespace tscui.Pages.Schedules
         private List<Schedule> initSchedule2DataGrid(List<Schedule> ls)
         {
             List<Schedule> newLs = new List<Schedule>();
+            if (ls == null)
+                return null;
             foreach (Schedule s in ls)
             {
-                if(s.ucId == sldScheduleId.Value)
+                if(s.ucId == ((byte)sldScheduleId.Value))
                 {
                     newLs.Add(s);
                 }
             }
             return newLs;
         }
-        TscData t ;
+        
         private delegate void DelegateInitSchedule();
         private void DispatcherInitSchedule(object state)
         {
@@ -80,42 +82,42 @@ namespace tscui.Pages.Schedules
         }
         private void InitSchedule()
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
+           
+            List<Schedule> ls = td.ListSchedule;
+            if (ls == null)
                 return;
-            if (t == null)
-            {
-                return;
-            }
-            List<Schedule> ls = t.ListSchedule;
-            //scheduleDataGrid.ItemsSource = ls;
-            initSldScheduleId(ls);      //
-            // t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
+            initSldScheduleId(ls);   
             string selfcontrol = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_self_control"];
             string off = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_off"];
             string flashing = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_flashing"];
             string allred = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_allred"];
             string reaction = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_reaction"];
+            string secondreaction = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_secondreaction"];
             string gpscoordination = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_gpscoordination"];
             string one = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_self_one"];
             string maincoordination = (string)App.Current.Resources.MergedDictionaries[3]["dic_maincoordination"];
             string system = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_system"];
             string manual = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_manual"];
+            string PreAnalysis = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_PreAnalysis"];
+
             List<ScheduleCtrl> lsc = new List<ScheduleCtrl>();
             lsc.Add(new ScheduleCtrl() { name = selfcontrol, value = (byte)0 });
             lsc.Add(new ScheduleCtrl() { name = off, value = (byte)1 });
             lsc.Add(new ScheduleCtrl() { name = flashing, value = 2 });
             lsc.Add(new ScheduleCtrl() { name = allred, value = 3 });
             lsc.Add(new ScheduleCtrl() { name = reaction, value = 6 });
+            lsc.Add(new ScheduleCtrl() { name = secondreaction, value = 5 });
             lsc.Add(new ScheduleCtrl() { name = gpscoordination, value = 7 });
             lsc.Add(new ScheduleCtrl() { name = one, value = 8 });
             lsc.Add(new ScheduleCtrl() { name = maincoordination, value = 11 });
             lsc.Add(new ScheduleCtrl() { name = system, value = 12 });
             lsc.Add(new ScheduleCtrl() { name = manual, value = 13 });
+            lsc.Add(new ScheduleCtrl() { name = PreAnalysis, value = 9 });
             cbxucCtrl.ItemsSource = lsc;
 
-            List<Pattern> lp = t.ListPattern;
+            List<Pattern> lp = td.ListPattern;
             ucTimePatternId.ItemsSource = lp;
+
             string hd = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_hd_control"];
             string nofun = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_no_fun"];
             string nospecial = (string)App.Current.Resources.MergedDictionaries[3]["dic_schedule_no_special"];
@@ -129,66 +131,129 @@ namespace tscui.Pages.Schedules
         }
         private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            if(t == null)
+            if (td == null)
             {
+                this.Visibility = Visibility.Hidden;
                 return;
             }
+            this.Visibility = Visibility.Visible;
             ThreadPool.QueueUserWorkItem(DispatcherInitSchedule);
         }
 
-        private void tbkScheduleId_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
-                return;
-            List<Schedule> ls = t.ListSchedule;
-            
-        }
 
         private void sldScheduleId_ValueChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<double> e)
         {
-            t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            if (t == null)
+            try
+            {
+                if (td == null)
+                    return;
+                //rowvisibleflag = 0;
+                scheduleDataGrid.ItemsSource = null;
+                scheduleDataGrid.ItemsSource = initSchedule2DataGrid(td.ListSchedule);
+            }
+            catch (Exception ex)
+            {
                 return;
-            scheduleDataGrid.ItemsSource = initSchedule2DataGrid(t.ListSchedule);
+            }
         }
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (t == null)
-                t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
-            Message m = TscDataUtils.SetSchedule(t.ListSchedule);
+            if (Utils.Utils.bValidate() == false)
+                return;
+            foreach (Schedule chkSchedule in td.ListSchedule)
+            {
+                if (chkSchedule.ucEventId != 0 && chkSchedule.ucTimePatternId == 0)
+                {
+                    MessageBox.Show("非0时段序号的方案号未选择！", "时段错误", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                if ((chkSchedule.ucHour < 0 || chkSchedule.ucHour > 23) || (chkSchedule.ucMin < 0 || chkSchedule.ucMin > 59))
+                {
+                    MessageBox.Show("时间设置不符合规范!\r\n小时: 0-23\r\n分钟: 0-59", "时段错误", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+            }
+            if (td.ListSchedule.Count <= 0x0)
+            {
+                MessageBox.Show("时段表为空！", "时段保存", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            Message m = TscDataUtils.SetSchedule(td.ListSchedule);
             if (m.flag)
             {
-                MessageBox.Show("保存成功");
+                MessageBox.Show("时段保存成功！", "时段保存", MessageBoxButton.OK, MessageBoxImage.Information);
+               // sldScheduleId_ValueChanged(this, null);
             }
             else
             {
-                MessageBox.Show("保存失败");
+                MessageBox.Show("时段保存失败！", "时段保存", MessageBoxButton.OK, MessageBoxImage.Error);
+
             }
+          
         }
 
-        private void UserControl_Unloaded(object sender, System.Windows.RoutedEventArgs e)
+        private void scheduleDataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = "-";
+        }
+
+
+        private void Delete_ScheduleId(object sender, RoutedEventArgs e)
         {
             try
-            { 
-            ThreadPool.QueueUserWorkItem(SaveSchedule);
+            {
+                Schedule currentrowSchedule = scheduleDataGrid.SelectedItem as Schedule;
+                if (currentrowSchedule == null || currentrowSchedule.ucEventId == 0x0)
+                {
+                    MessageBox.Show("请选择要删除子时段!");
+                    return;
+                }
+                if (
+                    MessageBox.Show("确定要删除时段序号:" + Convert.ToByte(currentrowSchedule.ucEventId) + "?", "删除",
+                        MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    td.ListSchedule.Remove(currentrowSchedule);
+                    this.sldScheduleId_ValueChanged(this, null);
+                   
+                }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Schedule: " + ex.ToString());
+                MessageBox.Show("子时段删除异常!");
             }
         }
 
-        private void SaveSchedule(object state)
+
+        private void Add_ScheduleId(object sender, RoutedEventArgs e)
         {
-            if (t == null)
-                return;
-            TscDataUtils.SetSchedule(t.ListSchedule);
+            try
+            {
+                    Schedule s = new Schedule();
+                    s.ucId = (byte)(sldScheduleId.Value);
+                if (scheduleDataGrid.Items.Count == 0x0)
+                    s.ucEventId = 0x1;
+                else
+                    s.ucEventId =
+                       (byte)(((Schedule)(scheduleDataGrid.Items[scheduleDataGrid.Items.Count - 1])).ucEventId + 0x1);
+                    s.ucCtrl = 0x0;
+                    s.ucHour = 0x0;
+                    s.ucMin = 0x0;
+                    s.ucTimePatternId = 0x0;
+                    td.ListSchedule.Add(s);
+                    this.sldScheduleId_ValueChanged(this, null);
+                scheduleDataGrid.SelectedIndex = scheduleDataGrid.Items.Count - 1;
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("子时段添加异常!");
+            }
+
         }
+
+
     }
     public class ScheduleCtrl
     {

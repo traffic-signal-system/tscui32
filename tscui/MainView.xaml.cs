@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Apex.Controls;
 using Apex.MVVM;
-using tscui.ViewModels;
+using tscui.Pages;
 
 namespace tscui.Views
 {
@@ -25,6 +17,51 @@ namespace tscui.Views
         public MainView()
         {
             InitializeComponent();
+       
+        }
+
+        private void Click_ENChose(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ResourceDictionary langRd = null;
+            try
+            {
+                langRd = Application.LoadComponent(new Uri(@"Resources/Lang/DefaultLanguage.xaml", UriKind.Relative)) as ResourceDictionary;
+            }
+            catch
+            {
+                ;
+            }
+            if (langRd != null)
+            {
+                if (this.Resources.MergedDictionaries.Count > 3)
+                {
+                    this.Resources.MergedDictionaries.RemoveAt(3);
+                }
+                this.Resources.MergedDictionaries.Add(langRd);
+            }
+        }
+
+        private void Click_CNChose(object sender, RoutedEventArgs e)
+        {
+            ResourceDictionary langRd = null;
+            try
+            {
+                langRd = Application.LoadComponent(new Uri(@"Resources/Lang/zh-CN.xaml", UriKind.Relative)) as ResourceDictionary;
+            }
+            catch
+            {
+                ;
+            }
+            if (langRd != null)
+            {
+                if (this.Resources.MergedDictionaries.Count > 3)
+                {
+                    this.Resources.MergedDictionaries.RemoveAt(3);
+                }
+                this.Resources.MergedDictionaries.Add(langRd);
+            }
+          //  viewBroker.ViewModel = null;
+
         }
     }
 }

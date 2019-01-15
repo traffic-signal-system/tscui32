@@ -153,7 +153,7 @@ namespace tscui.Models
         public List<VehicleStat> ListVehicleStat
         {
             get { return _listVehicleStat; }
-            set { _listVehicleStat = value; }
+            set { _listVehicleStat = value;}
         }
         private List<Pattern> _listPattern;
         public List<Pattern> ListPattern
@@ -241,6 +241,7 @@ namespace tscui.Models
             get { return _node; }
             set { _node = value; }
         }
-        
+
+        public bool bValidate = false;
     }
 }

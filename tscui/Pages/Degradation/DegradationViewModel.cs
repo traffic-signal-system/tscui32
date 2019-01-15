@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
+
 using Apex.MVVM;
 using tscui.Models;
 using System.Windows;
@@ -27,6 +24,8 @@ namespace tscui.Pages.Degradation
         {
             try
             {
+                if (Utils.Utils.bValidate() == false)
+                    return;
                 TscData t = Utils.Utils.GetTscDataByApplicationCurrentProperties();
                 Node n = t.Node;
                 int cdm = cbxDegradationModel;

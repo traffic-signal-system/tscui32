@@ -1,0 +1,8 @@
+
+ 
+记录时间：2017-07-11 17:29:17,395 
+线程ID:[1] 
+日志级别：  ERROR 
+出错类：tscui.Pages.Config.ConfigView property: [(null)] - 
+错误描述：修改设置密码!!
+ 

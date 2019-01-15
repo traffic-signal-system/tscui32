@@ -12,15 +12,19 @@ namespace tscui.Utils
 {
     class SQLiteHelper
     {
-        private static string dbPath = "db/tsc.db";
-        private string connectionString = string.Empty;
+        private static string dbPath = System.Environment.CurrentDirectory + "\\UTC.db";
+        private static string connectionString = "Data Source=" + dbPath;
+        public SQLiteHelper() //默认构造函数
+        {
+            connectionString = "Data Source=" + dbPath;
+        }
         /// <summary> 
         /// 构造函数 
         /// </summary> 
         /// <param name="dbPath">SQLite数据库文件路径</param> 
         public SQLiteHelper(string dbPath)
         {
-            this.connectionString = "Data Source=" + dbPath;
+           connectionString = "Data Source=" + dbPath;
         }
         /// <summary> 
         /// 创建SQLite数据库文件 
@@ -33,7 +37,7 @@ namespace tscui.Utils
                 return;
             }
             using (SQLiteConnection connection = new SQLiteConnection("Data Source=" + dbPath))
-            {
+            {            
                 connection.Open();
                 using (SQLiteCommand command = new SQLiteCommand(connection))
                 {
@@ -238,6 +242,14 @@ namespace tscui.Utils
                        + "ucCarFlowPro tinyint not null default(0), "
                        + "ucSmoothPara tinyint not null default(0))";
                     command.ExecuteNonQuery();
+                    command.CommandText = "create table Tbl_TscNode( "
+                      + "ucId tinyint primary key, "
+                      + "ucTscIp varchar(20), "
+                      + "ucTscDescrp varchar(50), "
+                      + "ucTscVer varchar(20)) ";                 
+                    command.ExecuteNonQuery();
+                    command.CommandText = "insert into  Tbl_TscNode values(1,'192.168.1.136','默认信号机','ver32')";
+                    command.ExecuteNonQuery();
                 }
             }
         }
@@ -247,7 +259,7 @@ namespace tscui.Utils
         /// <param name="sql">要执行的增删改的SQL语句</param> 
         /// <param name="parameters">执行增删改语句所需要的参数，参数必须以它们在SQL语句中的顺序为准</param> 
         /// <returns></returns> 
-        public int ExecuteNonQuery(string sql, SQLiteParameter[] parameters)
+        public static int ExecuteNonQuery(string sql, SQLiteParameter[] parameters)
         {
             int affectedRows = 0;
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -275,7 +287,7 @@ namespace tscui.Utils
         /// <param name="sql">要执行的查询语句</param> 
         /// <param name="parameters">执行SQL查询语句所需要的参数，参数必须以它们在SQL语句中的顺序为准</param> 
         /// <returns></returns> 
-        public SQLiteDataReader ExecuteReader(string sql, SQLiteParameter[] parameters)
+        public static SQLiteDataReader ExecuteReader(string sql, SQLiteParameter[] parameters)
         {
             SQLiteConnection connection = new SQLiteConnection(connectionString);
             SQLiteCommand command = new SQLiteCommand(sql, connection);
@@ -292,7 +304,7 @@ namespace tscui.Utils
         /// <param name="sql">要执行的查询语句</param> 
         /// <param name="parameters">执行SQL查询语句所需要的参数，参数必须以它们在SQL语句中的顺序为准</param> 
         /// <returns></returns> 
-        public DataTable ExecuteDataTable(string sql, SQLiteParameter[] parameters)
+        public static DataTable ExecuteDataTable(string sql, SQLiteParameter[] parameters)
         {
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
